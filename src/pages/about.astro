@@ -1,0 +1,82 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = 'About - Diverse Labs';
+const description = 'We believe in automating what\'s repetitive so teams can focus on what matters.';
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="page-section-tight">
+    <div class="container max-w-5xl mx-auto text-center">
+      <span class="inline-flex items-center rounded-full px-4 py-1.5 text-sm text-text-secondary mb-6 icon-surface">About Diverse Labs</span>
+      <h1 class="text-white font-bold mb-6">We Build Automation That Teams Actually Trust</h1>
+      <p class="text-xl text-text-secondary max-w-3xl mx-auto leading-relaxed">
+        Repetitive work should not consume your smartest people. We design agentic systems that reduce operating cost, increase speed, and preserve your existing stack.
+      </p>
+    </div>
+  </section>
+
+  <section class="page-section">
+    <div class="container max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+      <article class="rounded-2xl surface-card p-7 md:p-8">
+        <div class="w-11 h-11 rounded-xl icon-surface flex items-center justify-center mb-4">
+          <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12h18M12 3v18"/></svg>
+        </div>
+        <h3 class="text-white text-lg font-semibold mb-2">Outcome First</h3>
+        <p class="text-text-secondary mb-0">Every automation must improve a measurable metric: response time, conversion, cost per task, or throughput.</p>
+      </article>
+      <article class="rounded-2xl surface-card p-7 md:p-8">
+        <div class="w-11 h-11 rounded-xl icon-surface flex items-center justify-center mb-4">
+          <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
+        </div>
+        <h3 class="text-white text-lg font-semibold mb-2">No Rip-and-Replace</h3>
+        <p class="text-text-secondary mb-0">Your CRM, commerce stack, and data systems stay. We layer intelligence on top and keep your team moving.</p>
+      </article>
+      <article class="rounded-2xl surface-card p-7 md:p-8">
+        <div class="w-11 h-11 rounded-xl icon-surface flex items-center justify-center mb-4">
+          <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/></svg>
+        </div>
+        <h3 class="text-white text-lg font-semibold mb-2">Transparent Systems</h3>
+        <p class="text-text-secondary mb-0">Clear logs, clear prompts, clear governance. You always know what the AI is doing and why.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="page-section">
+    <div class="container max-w-6xl mx-auto my-2 md:my-0">
+      <h2 class="text-white font-bold mb-12 text-center">How We Work</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8">
+        <article class="rounded-xl surface-card p-7 md:p-9">
+          <span class="inline-flex w-8 h-8 rounded-full icon-surface text-white items-center justify-center text-sm mb-4">1</span>
+          <h3 class="text-white text-xl font-semibold mb-2">Discovery</h3>
+          <p class="text-text-secondary mb-0">We map repetitive workflows and quantify impact opportunities before writing a line of implementation code.</p>
+        </article>
+        <article class="rounded-xl surface-card p-7 md:p-9">
+          <span class="inline-flex w-8 h-8 rounded-full icon-surface text-white items-center justify-center text-sm mb-4">2</span>
+          <h3 class="text-white text-xl font-semibold mb-2">Integration</h3>
+          <p class="text-text-secondary mb-0">We connect directly into your existing tools with minimal friction and clear rollback-safe deployment paths.</p>
+        </article>
+        <article class="rounded-xl surface-card p-7 md:p-9">
+          <span class="inline-flex w-8 h-8 rounded-full icon-surface text-white items-center justify-center text-sm mb-4">3</span>
+          <h3 class="text-white text-xl font-semibold mb-2">Launch</h3>
+          <p class="text-text-secondary mb-0">Production rollout with monitoring, guardrails, and practical handoff so your team can run operations confidently.</p>
+        </article>
+        <article class="rounded-xl surface-card p-7 md:p-9">
+          <span class="inline-flex w-8 h-8 rounded-full icon-surface text-white items-center justify-center text-sm mb-4">4</span>
+          <h3 class="text-white text-xl font-semibold mb-2">Optimization</h3>
+          <p class="text-text-secondary mb-0">Weekly iteration on prompts, flows, and KPIs to compound performance gains month after month.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section-tight">
+    <div class="container max-w-4xl mx-auto text-center rounded-2xl surface-card p-6 sm:p-8 md:p-12 my-2 md:my-0">
+      <h2 class="text-white font-bold mb-4">Let’s Build Together</h2>
+      <p class="text-text-secondary text-lg mb-8 md:mb-10 max-w-2xl mx-auto">If this philosophy matches how your team wants to work, we can show you exactly what to automate first.</p>
+      <a href="https://calendar.app.google/auAoqGcMKPTePphG9" target="_blank" rel="noopener noreferrer" class="btn btn-primary px-8 py-3">
+        Schedule a Discovery Call
+      </a>
+    </div>
+  </section>
+</BaseLayout>

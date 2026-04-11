@@ -1,0 +1,170 @@
+---
+import BackgroundShader from '../components/BackgroundShader.astro';
+import '../styles/global.css';
+
+export interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  canonicalURL?: string;
+}
+
+const {
+  title = 'Diverse Labs - AI Agentic Solutions',
+  description = 'Automate your business processes with AI-powered agentic solutions. Lower costs, faster execution.',
+  image = '/og-image.png',
+  canonicalURL,
+} = Astro.props as Props;
+
+const actualTitle = title;
+const actualCanonicalURL = canonicalURL || Astro.url.href;
+const gaId = import.meta.env.PUBLIC_GA_MEASUREMENT_ID;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content={actualTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(image, Astro.url)} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={actualCanonicalURL} />
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:title" content={actualTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={new URL(image, Astro.url)} />
+    <meta name="twitter:card" content="summary_large_image" />
+    
+    <!-- Canonical -->
+    <link rel="canonical" href={actualCanonicalURL} />
+    
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    
+    <!-- Preload fonts -->
+    <link rel="preload" as="font" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" crossorigin />
+    
+    <title>{actualTitle}</title>
+    
+    <!-- JSON-LD Schema -->
+    <script type="application/ld+json">
+      {{
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "Diverse Labs",
+        "description": "AI Agentic Layer solutions for business automation",
+        "url": "https://diverselabs.org",
+        "telephone": "",
+        "email": "team@diverselabs.org",
+        "sameAs": [],
+        "areaServed": "Worldwide",
+        "priceRange": "$$",
+        "knowsAbout": ["Artificial Intelligence", "Business Automation", "AI Agents", "Integration"]
+      }}
+    </script>
+
+    {gaId && (
+      <>
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}></script>
+        <script is:inline define:vars={{ gaId }}>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){window.dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', gaId);
+        </script>
+      </>
+    )}
+  </head>
+  <body>
+    <BackgroundShader />
+    
+    <!-- Navigation -->
+    <div class="fixed top-0 left-0 right-0 z-50 px-3 pt-3 md:px-6 md:pt-6">
+      <nav class="container max-w-7xl mx-auto backdrop-blur-md bg-black/60 border border-white/10 rounded-full shadow-2xl shadow-black/20">
+        <div class="px-4 py-3 md:px-8 md:py-4 flex items-center justify-between gap-3">
+          <a href="/" class="flex items-center gap-2 md:gap-3 text-lg md:text-xl font-bold text-white hover:text-gray-300 transition-colors">
+            <img src="/logo.svg" alt="Diverse Labs" class="w-7 h-7 md:w-8 md:h-8" />
+            Diverse Labs
+          </a>
+          <ul class="hidden md:flex gap-8 items-center">
+            <li><a href="/" class="text-sm text-text-secondary hover:text-white transition-colors">Home</a></li>
+            <li><a href="/work" class="text-sm text-text-secondary hover:text-white transition-colors">Work</a></li>
+            <li><a href="/about" class="text-sm text-text-secondary hover:text-white transition-colors">About</a></li>
+            <li><a href="https://calendar.app.google/auAoqGcMKPTePphG9" target="_blank" rel="noopener noreferrer" class="btn btn-primary text-sm py-2.5 px-6 rounded-full">Contact</a></li>
+          </ul>
+
+          <details class="md:hidden relative">
+            <summary class="nav-summary flex items-center justify-center w-10 h-10 rounded-full border border-white/15 bg-white/5 text-white cursor-pointer">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 7h16M4 12h16M4 17h16" />
+              </svg>
+            </summary>
+            <div class="absolute right-0 mt-3 w-56 rounded-2xl border border-white/10 bg-black/90 backdrop-blur-md p-4 shadow-2xl">
+              <a href="/" class="block px-3 py-2.5 text-sm text-text-secondary hover:text-white">Home</a>
+              <a href="/work" class="block px-3 py-2.5 text-sm text-text-secondary hover:text-white">Work</a>
+              <a href="/about" class="block px-3 py-2.5 text-sm text-text-secondary hover:text-white">About</a>
+              <a href="https://calendar.app.google/auAoqGcMKPTePphG9" target="_blank" rel="noopener noreferrer" class="block mt-2 btn btn-primary text-sm py-2.5 px-4 text-center">Contact</a>
+            </div>
+          </details>
+        </div>
+      </nav>
+    </div>
+
+    <!-- Main content slot -->
+    <main>
+      <slot />
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black/55 backdrop-blur-md">
+      <div class="container max-w-6xl mx-auto py-14 md:py-16">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-14">
+          <!-- Brand -->
+          <div>
+            <h3 class="text-white font-bold mb-5 text-lg">Diverse Labs</h3>
+            <p class="text-text-secondary leading-relaxed mb-4">AI Agentic solutions for modern enterprises.</p>
+            <p class="text-text-tertiary text-xs font-mono tracking-wide uppercase mb-0">&copy; 2026 Diverse Labs. All rights reserved.</p>
+          </div>
+
+          <!-- Product Links -->
+          <div>
+            <h4 class="text-white font-semibold mb-5 text-base">Product</h4>
+            <ul class="space-y-3.5">
+              <li><a href="/work" class="text-text-secondary hover:text-white transition-colors inline-block">Case Studies</a></li>
+              <li><a href="/about" class="text-text-secondary hover:text-white transition-colors inline-block">About</a></li>
+            </ul>
+          </div>
+
+          <!-- Company -->
+          <div>
+            <h4 class="text-white font-semibold mb-5 text-base">Company</h4>
+            <ul class="space-y-3.5">
+              <li><a href="https://calendar.app.google/auAoqGcMKPTePphG9" target="_blank" rel="noopener noreferrer" class="text-text-secondary hover:text-white transition-colors inline-block">Contact</a></li>
+              <li><a href="#" class="text-text-secondary hover:text-white transition-colors inline-block">Blog</a></li>
+              <li><a href="#" class="text-text-secondary hover:text-white transition-colors inline-block">Docs</a></li>
+            </ul>
+          </div>
+
+          <!-- Contact -->
+          <div>
+            <h4 class="text-white font-semibold mb-5 text-base">Get in Touch</h4>
+            <a href="mailto:team@diverselabs.org" class="text-text-secondary hover:text-white transition-colors block mb-3">team@diverselabs.org</a>
+            <a href="https://www.linkedin.com/company/diverse-labs-org" target="_blank" rel="noopener noreferrer" class="text-text-secondary hover:text-white transition-colors block mb-4">
+              LinkedIn
+            </a>
+            <a href="https://calendar.app.google/auAoqGcMKPTePphG9" target="_blank" rel="noopener noreferrer" class="text-white hover:text-gray-300 transition-colors font-medium inline-flex items-center gap-2">
+              Book a call →
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

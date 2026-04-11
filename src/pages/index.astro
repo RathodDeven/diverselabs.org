@@ -1,17 +1,143 @@
 ---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ServiceCard from '../components/ServiceCard.astro';
 
+const title = 'Diverse Labs - AI Agentic Solutions for Modern Business';
+const description = 'Automate your business processes with AI-powered agentic solutions. Reduce costs, increase efficiency, and scale faster.';
+
+// Lucide icon paths as SVG d attributes
+const icons = {
+  messageCircle: "M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z",
+  phone: "M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z",
+  search: "m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607z",
+  fileText: "M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z M14 2v6h6 M16 13H8 M16 17H8 M10 9H8",
+  trendingUp: "m3 17 3-3 4 4 8-8 3 3 M21 7v6h-6",
+  sparkles: "m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275z",
+  video: "m16 10 5.66-3.29a1 1 0 0 1 1.34.94v7.7a1 1 0 0 1-1.34.94L16 14 M2 10a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2z"
+};
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout title={title} description={description}>
+  <!-- Hero Section -->
+  <section class="min-h-[calc(100vh-7.25rem)] flex items-center justify-center relative pt-8 md:pt-10">
+    <div class="absolute inset-0 bg-linear-to-b from-transparent via-transparent to-bg-primary pointer-events-none"></div>
+    <div class="container max-w-5xl mx-auto text-center relative z-10">
+      <h1 class="text-white font-bold mb-8 leading-tight">
+        Cut Costs with Practical AI Automation.
+      </h1>
+      <p class="text-base md:text-lg text-text-secondary mb-12 max-w-3xl mx-auto leading-relaxed">
+        We identify your highest-cost manual workflows and show a practical rollout path you can deploy on top of your existing stack.
+      </p>
+      <div class="flex flex-col items-center gap-4 justify-center">
+        <a href="https://calendar.app.google/auAoqGcMKPTePphG9" target="_blank" rel="noopener noreferrer" class="btn btn-primary text-lg px-8 py-4">
+          Book a Discovery Call
+        </a>
+        <a href="#capabilities" class="btn btn-secondary text-base px-7 py-3">
+          Explore Solutions
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services/Capabilities Section -->
+  <section id="capabilities" class="page-section">
+    <div class="container max-w-7xl">
+      <div class="text-center mb-20">
+        <h2 class="text-white font-bold mb-6">What We Build</h2>
+        <p class="text-xl text-text-secondary max-w-3xl mx-auto">
+          AI agentic solutions tailored to your business. From customer support to product discovery, we automate the tasks that consume resources.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <ServiceCard 
+          title="AI Customer Support Agents"
+          description="Intelligent chatbots that reply in your voice, handle customer inquiries, and escalate when needed. Available 24/7 without the overhead."
+          features={['Multi-channel deployment', 'Context-aware responses', 'Integration with CRM']}
+          iconPath={icons.messageCircle}
+        />
+        
+        <ServiceCard 
+          title="AI-Driven Lead Generation"
+          description="Automated call agents that qualify leads from your CRM, assess interest, and log outcomes. No more manual list dialing."
+          features={['Intelligent call handling', 'Real-time CRM updates', 'Auto follow-ups & retries']}
+          iconPath={icons.phone}
+        />
+        
+        <ServiceCard 
+          title="Intelligent Product Discovery"
+          description="Image search, semantic product matching, and natural language queries across your entire catalog. 'Find me gold watches under 3000' just works."
+          features={['Visual product search', 'Semantic understanding', 'WooCommerce ready']}
+          iconPath={icons.search}
+        />
+        
+        <ServiceCard 
+          title="AI Video & UGC Creation"
+          description="High-quality AI ads and UGC videos for brands. Human-like movement, vibrant high-quality textured avatars with natural voices. Scale your content without compromising quality."
+          features={['Human-like avatars', 'Natural voice synthesis', 'Brand-aligned content']}
+          iconPath={icons.video}
+        />
+        
+        <ServiceCard 
+          title="Talk to Your Data"
+          description="Upload PDFs, spreadsheets, or CSVs. Get instant answers. Your team extracts insights without touching databases."
+          features={['PDF & Excel parsing', 'Natural language queries', 'Permission-aware access']}
+          iconPath={icons.fileText}
+        />
+        
+        <ServiceCard 
+          title="ML-Powered Operations"
+          description="Custom machine learning pipelines. Demand forecasting. Fraud detection. Anomaly spotting. Built on your data."
+          features={['Predictive analytics', 'Automated workflows', 'Real-time insights']}
+          iconPath={icons.trendingUp}
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Why It Matters Section -->
+  <section class="page-section">
+    <div class="container max-w-6xl mx-auto">
+      <h2 class="text-white font-bold mb-12 text-center">Why Automation Matters Now</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <article class="rounded-2xl surface-card p-7">
+          <div class="w-11 h-11 rounded-xl icon-surface flex items-center justify-center mb-5">
+            <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v18M3 12h18"/></svg>
+          </div>
+          <h3 class="text-white font-bold text-2xl mb-3">Lower Cost</h3>
+          <p class="text-text-secondary mb-0 leading-relaxed">Repetitive workflows consume budget fast. Automation cuts manual effort and reduces per-task cost dramatically.</p>
+        </article>
+
+        <article class="rounded-2xl surface-card p-7">
+          <div class="w-11 h-11 rounded-xl icon-surface flex items-center justify-center mb-5">
+            <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M12 5v14"/></svg>
+          </div>
+          <h3 class="text-white font-bold text-2xl mb-3">Faster Execution</h3>
+          <p class="text-text-secondary mb-0 leading-relaxed">From lead qualification to customer support, AI handles high-volume actions instantly and consistently.</p>
+        </article>
+
+        <article class="rounded-2xl surface-card p-7">
+          <div class="w-11 h-11 rounded-xl icon-surface flex items-center justify-center mb-5">
+            <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20V10m8 10V4m8 16v-7"/></svg>
+          </div>
+          <h3 class="text-white font-bold text-2xl mb-3">Better Outcomes</h3>
+          <p class="text-text-secondary mb-0 leading-relaxed">You keep your current systems, but with smarter execution, cleaner data, and measurable business improvement.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="page-section">
+    <div class="container max-w-4xl mx-auto text-center">
+      <h2 class="text-white font-bold mb-6 text-4xl md:text-5xl">Ready to Automate?</h2>
+      <p class="text-text-secondary mb-10 text-xl leading-relaxed max-w-2xl mx-auto">
+        Let's talk about what's draining your team's time. We'll show you exactly how automation saves money.
+      </p>
+      <a href="https://calendar.app.google/auAoqGcMKPTePphG9" target="_blank" rel="noopener noreferrer" class="btn btn-primary text-lg px-10 py-5 inline-block">
+        Schedule a 30-Minute Discovery Call
+      </a>
+    </div>
+  </section>
+</BaseLayout>

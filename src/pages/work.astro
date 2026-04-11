@@ -1,0 +1,132 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = 'Work - Diverse Labs';
+const description = 'See how we\'ve helped businesses automate their most critical processes.';
+
+const projects = [
+  {
+    name: 'NudgeFlow (for ClickPe, YC S23)',
+    website: 'https://drive.google.com/file/d/10uMQ51a0u_D_SWAobehndmie-6HTT-lZ/view',
+    image: '/work/nudgeflow.webp',
+    description:
+      'Customer support and lead generation automation for ClickPe. We built a WhatsApp chatbot plus a lead-generation call agent that classifies leads, triggers follow-ups, retries dropped journeys, and syncs outcomes to workflow systems.',
+    ctaLabel: 'Watch demo video',
+    ctaHref: 'https://drive.google.com/file/d/10uMQ51a0u_D_SWAobehndmie-6HTT-lZ/view',
+  },
+  {
+    name: 'BloomersTV',
+    website: 'https://bloomers.tv/',
+    image: '/work/bloomerstv.webp',
+    description:
+      'A live streaming platform built around the Lens ecosystem, reflecting our ability to ship creator-focused and community-driven digital products with production quality.',
+    ctaLabel: 'Visit website',
+    ctaHref: 'https://bloomers.tv/',
+  },
+  {
+    name: 'Paiso',
+    website: 'https://paiso.xyz/',
+    image: '/work/paiso.webp',
+    description:
+      'A consumer fintech app (live on Play Store) centered on fast cash and rewards, showing our experience in building user-facing financial product journeys with a clear growth and engagement focus.',
+    ctaLabel: 'Visit website',
+    ctaHref: 'https://paiso.xyz/',
+  },
+  {
+    name: 'DANZ NOW',
+    website: 'https://danz.now/',
+    image: '/work/danz-now.webp',
+    description:
+      'A movement and event-based digital platform built around “Move. Connect. Earn.”, rewarding users for dancing, hosting events, and participating in community experiences.',
+    ctaLabel: 'Visit website',
+    ctaHref: 'https://danz.now/',
+  },
+  {
+    name: 'Hand Protocol',
+    website: 'https://handprotocol.org/',
+    image: '/work/hand-protocol.webp',
+    description:
+      'A platform for public goods projects that connects impactful initiatives with donors and streamlines the contribution process through a clear digital experience.',
+    ctaLabel: 'Visit website',
+    ctaHref: 'https://handprotocol.org/',
+  },
+];
+---
+
+<BaseLayout title={title} description={description}>
+  <!-- Hero Section -->
+  <section class="page-section-tight pt-10 md:pt-12">
+    <div class="container max-w-4xl mx-auto text-center">
+      <h1 class="text-white font-bold mb-6">Our Work</h1>
+      <p class="text-xl text-text-secondary max-w-2xl mx-auto">
+        Real problems. Real solutions. Production-grade automations deployed for leading companies.
+      </p>
+    </div>
+  </section>
+
+  <!-- Case Studies Section -->
+  <section class="page-section-tight pt-0">
+    <div class="container">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold text-white mb-4">Featured Projects</h2>
+        <p class="text-text-secondary max-w-2xl mx-auto">
+          From AI chatbots to fintech platforms—each project showcases our ability to ship fast and scale smart.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+        {projects.map((project) => (
+          <article class="group">
+            <a href={project.ctaHref} target="_blank" rel="noopener noreferrer" class="block">
+              <div class="surface-card aspect-video rounded-xl mb-6 overflow-hidden transition-all">
+                <img
+                  src={project.image}
+                  alt={`${project.name} project screenshot`}
+                  width="1280"
+                  height="720"
+                  loading="lazy"
+                  decoding="async"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+            </a>
+            <h3 class="text-white font-bold text-xl mb-3 group-hover:text-gray-300 transition-colors">
+              {project.name}
+            </h3>
+            <p class="text-text-secondary mb-5 leading-relaxed">{project.description}</p>
+            <div class="flex items-center gap-4 flex-wrap">
+              <a
+                href={project.ctaHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-white text-sm font-semibold hover:text-gray-300 transition-colors inline-flex items-center gap-1"
+              >
+                {project.ctaLabel}
+                <span class="inline-block group-hover:translate-x-1 transition-transform">→</span>
+              </a>
+              <span class="text-border">·</span>
+              <a
+                href={project.website}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-text-tertiary text-sm hover:text-text-primary transition-colors"
+              >
+                {project.website.replace('https://', '').replace('http://', '').replace('www.', '')}
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <div class="mt-24 text-center pt-16 max-w-3xl mx-auto">
+        <h3 class="text-white text-2xl font-bold mb-4">Your project could be here.</h3>
+        <p class="text-text-secondary text-lg mb-8">
+          Let's talk about what we can automate for you.
+        </p>
+        <a href="https://calendar.app.google/auAoqGcMKPTePphG9" target="_blank" rel="noopener noreferrer" class="btn btn-primary text-lg px-8 py-4">
+          Schedule a Discovery Call
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

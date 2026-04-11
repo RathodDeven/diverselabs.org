@@ -1,0 +1,113 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = 'Contact - Diverse Labs';
+const description = 'Let\'s talk about automating your business.';
+---
+
+<BaseLayout title={title} description={description}>
+  <!-- Hero Section -->
+  <section class="page-section-tight pt-10 md:pt-12">
+    <div class="container max-w-3xl mx-auto text-center">
+      <h1 class="text-white font-bold mb-4">Let's Talk</h1>
+      <p class="text-lg text-text-secondary">
+        Tell us about your business. We'll show you what we can automate.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contact Content -->
+  <section class="page-section">
+    <div class="container max-w-3xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <!-- CTA -->
+        <div class="surface-card rounded-2xl p-6 md:p-8">
+          <h2 class="text-white font-bold mb-6">Schedule a Discovery Call</h2>
+          <p class="text-text-secondary mb-8">
+            30 minutes. No pitch. Just a conversation about what's draining your team and how we can help.
+          </p>
+          <a href="https://calendar.app.google/auAoqGcMKPTePphG9" target="_blank" rel="noopener noreferrer" class="btn btn-primary text-lg inline-block">
+            Schedule Call →
+          </a>
+        </div>
+
+        <!-- FAQ -->
+        <div class="surface-card rounded-2xl p-6 md:p-8">
+          <h2 class="text-white font-bold mb-6">Common Questions</h2>
+          
+          <div class="space-y-6">
+            <div>
+              <h3 class="text-white font-semibold mb-2">How long does implementation take?</h3>
+              <p class="text-text-secondary text-sm">
+                Depends on complexity. Simple chatbots: 2-4 weeks. Complex integrations: 6-8 weeks. We give you a timeline after discovery.
+              </p>
+            </div>
+
+            <div>
+              <h3 class="text-white font-semibold mb-2">Do you work with our existing tools?</h3>
+              <p class="text-text-secondary text-sm">
+                Yes. We integrate with your CRM, e-commerce platform, databases—whatever you're already using. No rip-and-replace.
+              </p>
+            </div>
+
+            <div>
+              <h3 class="text-white font-semibold mb-2">What's the cost?</h3>
+              <p class="text-text-secondary text-sm">
+                Custom pricing based on the scope of automation. We typically save clients 3-5x the implementation cost within the first year.
+              </p>
+            </div>
+
+            <div>
+              <h3 class="text-white font-semibold mb-2">Do you maintain the solution after launch?</h3>
+              <p class="text-text-secondary text-sm">
+                Absolutely. We monitor performance, optimize continuously, and support your team. Think of us as your AI ops team.
+              </p>
+            </div>
+
+            <div>
+              <h3 class="text-white font-semibold mb-2">What if it's not working?</h3>
+              <p class="text-text-secondary text-sm">
+                We iterate. We measure. We refine. If something isn't delivering value, we fix it or adjust the approach. Your success is our success.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Section -->
+  <section class="page-section-tight">
+    <div class="container max-w-3xl mx-auto text-center surface-panel rounded-2xl p-8 md:p-10">
+      <h2 class="text-white font-bold mb-8">Why Trust Us</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="surface-card rounded-xl p-5">
+          <div class="text-3xl font-bold text-text-primary mb-2">10+</div>
+          <p class="text-text-secondary text-sm">Live AI agents in production</p>
+        </div>
+        <div class="surface-card rounded-xl p-5">
+          <div class="text-3xl font-bold text-text-primary mb-2">100%</div>
+          <p class="text-text-secondary text-sm">Integration success rate</p>
+        </div>
+        <div class="surface-card rounded-xl p-5">
+          <div class="text-3xl font-bold text-text-primary mb-2">3-5x</div>
+          <p class="text-text-secondary text-sm">Average cost ROI in year one</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="page-section-tight">
+    <div class="container max-w-3xl mx-auto text-center surface-panel rounded-2xl p-8 md:p-10">
+      <h2 class="text-white font-bold mb-4">Ready to Reduce Costs and Free Up Your Team?</h2>
+      <p class="text-text-secondary mb-8">
+        Let's schedule a conversation. No obligations. Just ideas.
+      </p>
+      <a href="https://calendar.app.google/auAoqGcMKPTePphG9" target="_blank" rel="noopener noreferrer" class="btn btn-primary text-lg">
+        Book a Discovery Call
+      </a>
+    </div>
+  </section>
+</BaseLayout>

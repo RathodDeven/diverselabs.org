@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /.env
+Disallow: /.git
+Disallow: /node_modules
+
+Sitemap: https://diverselabs.org/sitemap-index.xml
+
+# Crawl delay (in seconds)
+Crawl-delay: 1
+
+# User-agent specific rules
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: MJ12bot
+Crawl-delay: 10
