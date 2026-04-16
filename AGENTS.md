@@ -5,7 +5,7 @@
 - Stack: Astro 6, React (islands where needed), Tailwind CSS 4
 - Output mode: Static site
 - Deploy target: Cloudflare Pages (Git integration)
-- Primary CTA: https://calendar.app.google/auAoqGcMKPTePphG9
+- Primary CTA: https://cal.com/diverselabs/30min
 - Secondary contact: team@diverselabs.org
 
 ## Core Product Intent

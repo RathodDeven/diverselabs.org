@@ -91,7 +91,7 @@ The site will be available at `http://localhost:3000` for development or in the 
 - **Automated Content Generation** - AI-driven blog & copy
 
 ### Primary CTA
-**Discovery Call** - https://calendar.app.google/auAoqGcMKPTePphG9
+**Discovery Call** - https://cal.com/diverselabs/30min
 - 30-minute consultation
 - No commitment required
 - Identify automation opportunities
