@@ -489,13 +489,11 @@ const websiteSchema = {
       }
 
       // ── Custom cursor ────────────────────────────────────────────
-      function initCursor() {
+      // Single IIFE — event listeners & rAF loop registered once.
+      // Each handler queries the DOM directly so page transitions
+      // (which swap body content) never leave stale element references.
+      ;(function () {
         if (!window.matchMedia('(pointer: fine)').matches) return;
-        const dot = document.getElementById('cursor-dot');
-        const ring = document.getElementById('cursor-ring');
-        const glow = document.getElementById('cursor-glow');
-        const ripple = document.getElementById('cursor-ripple');
-        if (!dot || !ring) return;
 
         let mx = 0, my = 0, rx = 0, ry = 0, gx = 0, gy = 0;
         let glowScale = 1, glowTargetScale = 1;
@@ -503,7 +501,8 @@ const websiteSchema = {
 
         document.addEventListener('mousemove', (e) => {
           mx = e.clientX; my = e.clientY;
-          dot.style.transform = `translate(${mx}px, ${my}px)`;
+          const dot = document.getElementById('cursor-dot');
+          if (dot) dot.style.transform = `translate(${mx}px, ${my}px)`;
           document.body.classList.add('cursor-active');
         }, { passive: true });
 
@@ -529,10 +528,11 @@ const websiteSchema = {
           document.body.classList.add('cursor-click');
           glowTargetScale = 0.65;
           // Fire crosshair ripple from click origin
+          const ripple = document.getElementById('cursor-ripple');
           if (ripple) {
             ripple.style.setProperty('--ripple-pos', `translate(${e.clientX - 18}px, ${e.clientY - 18}px)`);
             ripple.classList.remove('fire');
-            void (ripple as HTMLElement).offsetWidth;
+            void ripple.offsetWidth;
             ripple.classList.add('fire');
           }
         });
@@ -546,10 +546,16 @@ const websiteSchema = {
         });
 
         (function loop() {
+          // getElementById is O(1); querying each frame keeps refs fresh
+          // after every Astro view-transition without any extra bookkeeping.
+          const ring = document.getElementById('cursor-ring');
+          const glow = document.getElementById('cursor-glow');
           // Ring follows with moderate lag
-          rx += (mx - rx) * 0.09;
-          ry += (my - ry) * 0.09;
-          ring.style.transform = `translate(${rx}px, ${ry}px)`;
+          if (ring) {
+            rx += (mx - rx) * 0.09;
+            ry += (my - ry) * 0.09;
+            ring.style.transform = `translate(${rx}px, ${ry}px)`;
+          }
           // Glow follows with slow lag + lerped scale
           if (glow) {
             gx += (mx - gx) * 0.055;
@@ -559,7 +565,7 @@ const websiteSchema = {
           }
           requestAnimationFrame(loop);
         })();
-      }
+      })();
 
       // ── Init all on load ─────────────────────────────────────────
       function initAll() {
@@ -571,10 +577,9 @@ const websiteSchema = {
       }
 
       if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', () => { initAll(); initCursor(); });
+        document.addEventListener('DOMContentLoaded', initAll);
       } else {
         initAll();
-        initCursor();
       }
 
       // Re-run on Astro page transitions
