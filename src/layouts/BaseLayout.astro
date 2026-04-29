@@ -270,6 +270,16 @@ const websiteSchema = {
       // ── Smooth wheel scroll (momentum) ──────────────────────────
       ;(function () {
         if (!window.matchMedia('(pointer: fine)').matches) return;
+        // macOS trackpads & Magic Mouse already provide OS-level momentum
+        // scrolling. Intercepting wheel events with { passive: false } forces
+        // every event off the compositor thread onto the main JS thread, which
+        // causes severe scroll lag on macOS. Skip the custom scroll there and
+        // let the browser (+ CSS scroll-behavior: smooth) handle everything.
+        const isMac =
+          (navigator as any).userAgentData?.platform === 'macOS' ||
+          /Mac/.test(navigator.platform) ||
+          navigator.userAgent.includes('Macintosh');
+        if (isMac) return;
         let ease = 0.1;
         let target = window.scrollY;
         let current = window.scrollY;
