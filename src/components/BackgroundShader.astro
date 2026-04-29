@@ -77,41 +77,38 @@
         this.gl.FRAGMENT_SHADER,
         `
         precision mediump float;
-        
+
         uniform vec2 u_resolution;
         uniform vec2 u_mouse;
         uniform float u_time;
-        
-        float fbm(vec2 p) {
-          float value = 0.0;
-          float amp = 0.5;
-          for (int i = 0; i < 5; i++) {
-            value += amp * sin(p.x) * cos(p.y);
-            p = mat2(1.6, 1.2, -1.2, 1.6) * p;
-            amp *= 0.5;
-          }
-          return value;
-        }
-        
+
         void main() {
           vec2 uv = gl_FragCoord.xy / u_resolution;
-          vec2 centered = (uv - 0.5) * vec2(u_resolution.x / u_resolution.y, 1.0);
+          vec2 aspect = vec2(u_resolution.x / u_resolution.y, 1.0);
+          vec2 centered = (uv - 0.5) * aspect;
 
-          float t = u_time * 0.35;
-          float flow1 = fbm(centered * 2.5 + vec2(t, -t * 0.7));
-          float flow2 = fbm(centered * 3.4 + vec2(-t * 0.6, t * 0.9));
-          float wave = sin((centered.x + flow1 * 0.5) * 6.0 + t * 2.0) * 0.08;
+          float t = u_time * 0.055;
 
-          float vignette = smoothstep(1.2, 0.1, length(centered));
-          float streak = smoothstep(0.2, 0.95, 0.5 + flow1 * 0.5 + flow2 * 0.2 + wave);
+          // Two slow-drifting soft luminosity blobs — barely visible
+          vec2 b1 = vec2(cos(t * 1.1) * 0.28, sin(t * 0.75) * 0.18);
+          vec2 b2 = vec2(sin(t * 0.85 + 1.4) * 0.32, cos(t * 1.15 + 2.1) * 0.16);
 
-          vec2 mousePos = (u_mouse - 0.5) * vec2(u_resolution.x / u_resolution.y, 1.0);
-          float mouseGlow = smoothstep(0.5, 0.0, distance(centered, mousePos)) * 0.12;
+          float g1 = exp(-dot(centered - b1, centered - b1) * 3.2) * 0.048;
+          float g2 = exp(-dot(centered - b2, centered - b2) * 4.2) * 0.032;
 
-          vec3 base = vec3(0.03, 0.04, 0.06);
-          vec3 accent = vec3(0.12, 0.16, 0.20);
-          vec3 color = base + accent * streak * vignette;
-          color += mouseGlow;
+          // Vignette — slightly brighter in center
+          float vignette = 1.0 - smoothstep(0.45, 1.3, length(centered));
+
+          // Very faint mouse proximity bloom
+          vec2 mouse = (u_mouse - 0.5) * aspect;
+          float mouseBloom = exp(-dot(centered - mouse, centered - mouse) * 10.0) * 0.022;
+
+          float lum = (g1 + g2) * vignette + mouseBloom;
+
+          // Base: #080808, almost black, barely-cool tint on glow
+          vec3 base = vec3(0.031, 0.031, 0.031);
+          vec3 glowColor = vec3(0.88, 0.91, 1.0);
+          vec3 color = base + glowColor * lum;
 
           gl_FragColor = vec4(color, 1.0);
         }

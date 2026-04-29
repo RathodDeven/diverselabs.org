@@ -1,82 +1,230 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const title = 'About - Diverse Labs';
-const description = 'We believe in automating what\'s repetitive so teams can focus on what matters.';
+const title = 'About Diverse Labs | Engineering-First AI & Software Company';
+const description = 'Diverse Labs is an engineering-first company building custom AI systems and production software. Outcome-first, no-rip-and-replace approach.';
+const keywords = 'about Diverse Labs, AI agency, software development company, AI automation, custom AI systems, web app development';
+
+const team = [
+  {
+    name: 'Deven Rathod',
+    image: '/people/deven-rathod.webp',
+    bio: '3× founder with 5+ years designing, building, and shipping production-grade software & AI systems. Built consumer products used by 20k+ users. Software he built has helped teams raise $1M+.',
+    links: {
+      twitter: 'https://x.com/devenrathodrd',
+      linkedin: 'https://www.linkedin.com/in/deven-rathod-475b39205/',
+      github: 'https://github.com/RathodDeven/',
+    },
+  },
+  {
+    name: 'Ronit Parikh',
+    image: '/people/ronit-parikh.webp',
+    bio: 'IIT Bombay grad. Previously founded fintech startup Paiso.xyz. Leads GTM, outreach, product direction, client discovery and business development at Diverse Labs.',
+    links: {
+      linkedin: 'https://www.linkedin.com/in/ronit-p-b70742208/',
+    },
+  },
+    {
+    name: 'Akanksha Bansal',
+    image: '/people/akanksha-bansal.webp',
+    bio: 'IIT Bombay grad. Ex junior consultant at Bain & Company. Now leads content strategy, marketing and outreach, bringing sharp analytical thinking to every campaign.',
+    links: {
+      linkedin: 'https://www.linkedin.com/in/akanksha-bansal-20a8b8357',
+    },
+  },
+  {
+    name: 'Daaud Saifi',
+    image: '/people/daaud-saifi.webp',
+    bio: 'Professional VFX artist with 5+ years in high-end film and AI video production. Videos crafted by him have garnered millions of views across platforms worldwide.',
+    links: {},
+  }
+
+];
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} keywords={keywords}>
+
+  <!-- ═══════════════════════════════════════════
+       HERO
+       ═══════════════════════════════════════════ -->
   <section class="page-section-tight">
     <div class="container max-w-5xl mx-auto text-center">
-      <span class="inline-flex items-center rounded-full px-4 py-1.5 text-sm text-text-secondary mb-6 icon-surface">About Diverse Labs</span>
-      <h1 class="text-white font-bold mb-6">We Build Automation That Teams Actually Trust</h1>
-      <p class="text-xl text-text-secondary max-w-3xl mx-auto leading-relaxed">
-        Repetitive work should not consume your smartest people. We design agentic systems that reduce operating cost, increase speed, and preserve your existing stack.
+      <div class="flex justify-center mb-7 reveal">
+        <span class="badge">About Diverse Labs</span>
+      </div>
+      <h1 class="text-white font-extrabold mb-6 reveal reveal-delay-1">
+        We Build Automation<br />Teams Actually Trust
+      </h1>
+      <p class="text-xl text-text-secondary max-w-3xl mx-auto leading-relaxed reveal reveal-delay-2">
+        Repetitive work should not consume your smartest people. We design and build
+        AI systems and production software that reduce operating cost, increase speed,
+        and integrate cleanly with your existing stack.
       </p>
     </div>
   </section>
 
-  <section class="page-section">
-    <div class="container max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
-      <article class="rounded-2xl surface-card p-7 md:p-8">
-        <div class="w-11 h-11 rounded-xl icon-surface flex items-center justify-center mb-4">
-          <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12h18M12 3v18"/></svg>
-        </div>
-        <h3 class="text-white text-lg font-semibold mb-2">Outcome First</h3>
-        <p class="text-text-secondary mb-0">Every automation must improve a measurable metric: response time, conversion, cost per task, or throughput.</p>
-      </article>
-      <article class="rounded-2xl surface-card p-7 md:p-8">
-        <div class="w-11 h-11 rounded-xl icon-surface flex items-center justify-center mb-4">
-          <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
-        </div>
-        <h3 class="text-white text-lg font-semibold mb-2">No Rip-and-Replace</h3>
-        <p class="text-text-secondary mb-0">Your CRM, commerce stack, and data systems stay. We layer intelligence on top and keep your team moving.</p>
-      </article>
-      <article class="rounded-2xl surface-card p-7 md:p-8">
-        <div class="w-11 h-11 rounded-xl icon-surface flex items-center justify-center mb-4">
-          <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/></svg>
-        </div>
-        <h3 class="text-white text-lg font-semibold mb-2">Transparent Systems</h3>
-        <p class="text-text-secondary mb-0">Clear logs, clear prompts, clear governance. You always know what the AI is doing and why.</p>
-      </article>
-    </div>
-  </section>
 
-  <section class="page-section">
-    <div class="container max-w-6xl mx-auto my-2 md:my-0">
-      <h2 class="text-white font-bold mb-12 text-center">How We Work</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8">
-        <article class="rounded-xl surface-card p-7 md:p-9">
-          <span class="inline-flex w-8 h-8 rounded-full icon-surface text-white items-center justify-center text-sm mb-4">1</span>
-          <h3 class="text-white text-xl font-semibold mb-2">Discovery</h3>
-          <p class="text-text-secondary mb-0">We map repetitive workflows and quantify impact opportunities before writing a line of implementation code.</p>
-        </article>
-        <article class="rounded-xl surface-card p-7 md:p-9">
-          <span class="inline-flex w-8 h-8 rounded-full icon-surface text-white items-center justify-center text-sm mb-4">2</span>
-          <h3 class="text-white text-xl font-semibold mb-2">Integration</h3>
-          <p class="text-text-secondary mb-0">We connect directly into your existing tools with minimal friction and clear rollback-safe deployment paths.</p>
-        </article>
-        <article class="rounded-xl surface-card p-7 md:p-9">
-          <span class="inline-flex w-8 h-8 rounded-full icon-surface text-white items-center justify-center text-sm mb-4">3</span>
-          <h3 class="text-white text-xl font-semibold mb-2">Launch</h3>
-          <p class="text-text-secondary mb-0">Production rollout with monitoring, guardrails, and practical handoff so your team can run operations confidently.</p>
-        </article>
-        <article class="rounded-xl surface-card p-7 md:p-9">
-          <span class="inline-flex w-8 h-8 rounded-full icon-surface text-white items-center justify-center text-sm mb-4">4</span>
-          <h3 class="text-white text-xl font-semibold mb-2">Optimization</h3>
-          <p class="text-text-secondary mb-0">Weekly iteration on prompts, flows, and KPIs to compound performance gains month after month.</p>
-        </article>
+  <!-- ═══════════════════════════════════════════
+       PHILOSOPHY
+       ═══════════════════════════════════════════ -->
+  <section class="page-section line-grid relative">
+    <div class="absolute inset-0 bg-linear-to-b from-[#080808] via-transparent to-[#080808] pointer-events-none" aria-hidden="true"></div>
+    <div class="container max-w-6xl mx-auto relative z-10">
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+        <div>
+          <p class="section-label mb-4 reveal">Our Belief</p>
+          <h2 class="text-white font-bold mb-6 reveal reveal-delay-1">
+            Growth Doesn't Require More People. It Requires Smarter Systems.
+          </h2>
+          <div class="space-y-4 text-text-secondary leading-relaxed reveal reveal-delay-2">
+            <p>
+              For decades, the default playbook for scaling a business was simple: hire more people.
+              More support staff. More sales reps. More operations managers. Growth meant headcount.
+            </p>
+            <p>
+              That playbook is obsolete. The companies that will dominate their markets in the next
+              decade won't be the ones with the most employees; they'll be the ones with the most
+              intelligent operational infrastructure.
+            </p>
+            <p>
+              AI isn't just a chatbot you bolt onto a website. When applied correctly, custom-built
+              for your specific workflows, your data, and your business rules, it becomes a
+              competitive moat. The gap between companies that build this infrastructure now and
+              those that wait will compound every quarter.
+            </p>
+            <p style="margin:0">
+              We exist to close that gap for our clients. Outcome-first. Transparent. Custom.
+              No rip-and-replace. No black boxes. Just measurable results.
+            </p>
+          </div>
+        </div>
+
+        <div class="space-y-5">
+          <article class="surface-card card-hover rounded-2xl p-6 reveal reveal-delay-1">
+            <div class="philosophy-border">
+              <h3 class="text-white font-semibold text-base mb-2">Outcome First</h3>
+              <p class="text-text-secondary text-sm leading-relaxed" style="margin:0">
+                Every automation must improve a measurable metric: response time, conversion,
+                cost per task, or throughput. We don't build activity. We build results.
+              </p>
+            </div>
+          </article>
+          <article class="surface-card card-hover rounded-2xl p-6 reveal reveal-delay-2">
+            <div class="philosophy-border">
+              <h3 class="text-white font-semibold text-base mb-2">No Rip-and-Replace</h3>
+              <p class="text-text-secondary text-sm leading-relaxed" style="margin:0">
+                Your CRM, e-commerce stack, and databases stay. We layer intelligence on top
+                and keep your team moving without disruption.
+              </p>
+            </div>
+          </article>
+          <article class="surface-card card-hover rounded-2xl p-6 reveal reveal-delay-3">
+            <div class="philosophy-border">
+              <h3 class="text-white font-semibold text-base mb-2">Full Control</h3>
+              <p class="text-text-secondary text-sm leading-relaxed" style="margin:0">
+                Fully automated, human-in-the-loop, or hybrid: you decide what runs
+                automatically and what requires approval. No black boxes, ever.
+              </p>
+            </div>
+          </article>
+          <article class="surface-card card-hover rounded-2xl p-6 reveal reveal-delay-4">
+            <div class="philosophy-border">
+              <h3 class="text-white font-semibold text-base mb-2">Transparent Systems</h3>
+              <p class="text-text-secondary text-sm leading-relaxed" style="margin:0">
+                Clear logs, clear prompts, clear governance. You always know what the AI
+                is doing, why it made a decision, and how to change it.
+              </p>
+            </div>
+          </article>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="page-section-tight">
-    <div class="container max-w-4xl mx-auto text-center rounded-2xl surface-card p-6 sm:p-8 md:p-12 my-2 md:my-0">
-      <h2 class="text-white font-bold mb-4">Let’s Build Together</h2>
-      <p class="text-text-secondary text-lg mb-8 md:mb-10 max-w-2xl mx-auto">If this philosophy matches how your team wants to work, we can show you exactly what to automate first.</p>
-      <a href="https://cal.com/diverselabs/30min" target="_blank" rel="noopener noreferrer" class="btn btn-primary px-8 py-3">
-        Schedule a Discovery Call
-      </a>
+
+  <!-- ═══════════════════════════════════════════
+       TEAM
+       ═══════════════════════════════════════════ -->
+  <section class="page-section">
+    <div class="container max-w-6xl mx-auto">
+      <div class="text-center mb-12 reveal">
+        <p class="section-label mb-4">The Team</p>
+        <h2 class="text-white font-bold">The People Behind the Work</h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
+        {team.map((member, i) => (
+          <article class={`surface-card card-hover rounded-2xl p-6 reveal reveal-delay-${i + 1} flex flex-col`}>
+            <div class="mb-4">
+              <img
+                src={member.image}
+                alt={member.name}
+                width="72"
+                height="72"
+                class="w-18 h-18 rounded-full object-cover object-top mb-4 border border-white/10"
+                loading="lazy"
+              />
+              <h3 class="text-white font-bold text-base leading-tight mb-0.5">{member.name}</h3>
+            </div>
+            <p class="text-text-secondary text-sm leading-relaxed flex-1" style="margin:0 0 1rem">{member.bio}</p>
+            {Object.keys(member.links).length > 0 && (
+              <div class="flex items-center gap-3 mt-auto pt-1">
+                {member.links.twitter && (
+                  <a href={member.links.twitter} target="_blank" rel="noopener noreferrer"
+                     class="text-text-tertiary hover:text-white transition-colors"
+                     aria-label={`${member.name} on X`}>
+                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.74l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                    </svg>
+                  </a>
+                )}
+                {member.links.linkedin && (
+                  <a href={member.links.linkedin} target="_blank" rel="noopener noreferrer"
+                     class="text-text-tertiary hover:text-white transition-colors"
+                     aria-label={`${member.name} on LinkedIn`}>
+                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                  </a>
+                )}
+                {member.links.github && (
+                  <a href={member.links.github} target="_blank" rel="noopener noreferrer"
+                     class="text-text-tertiary hover:text-white transition-colors"
+                     aria-label={`${member.name} on GitHub`}>
+                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                  </a>
+                )}
+              </div>
+            )}
+          </article>
+        ))}
+      </div>
     </div>
   </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       CTA
+       ═══════════════════════════════════════════ -->
+  <section class="page-section-tight">
+    <div class="container max-w-4xl mx-auto text-center">
+      <div class="surface-panel rounded-3xl p-10 md:p-14 reveal">
+        <h2 class="text-white font-bold mb-4">Let's Build Together</h2>
+        <p class="text-text-secondary text-lg mb-8 max-w-xl mx-auto leading-relaxed">
+          If this approach matches how your team wants to operate, we can show
+          you exactly what to automate first, and what it will be worth.
+        </p>
+        <a href="https://cal.com/diverselabs/30min"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="btn btn-primary px-8 py-3.5 text-base">
+          Schedule a Discovery Call
+        </a>
+      </div>
+    </div>
+  </section>
+
 </BaseLayout>

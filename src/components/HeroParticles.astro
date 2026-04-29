@@ -1,0 +1,144 @@
+---
+// Lightweight canvas particle constellation — desktop/fine-pointer only
+---
+<canvas id="hero-particles" aria-hidden="true" class="particles-canvas"></canvas>
+
+<style>
+  .particles-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 1.4s ease;
+  }
+
+  @media (pointer: coarse) {
+    .particles-canvas { display: none; }
+  }
+</style>
+
+<script>
+  ;(function initParticles() {
+    if (!window.matchMedia('(pointer: fine)').matches) return;
+
+    const canvasEl = document.getElementById('hero-particles');
+    if (!(canvasEl instanceof HTMLCanvasElement)) return;
+    const canvas: HTMLCanvasElement = canvasEl;
+
+    const ctxRaw = canvas.getContext('2d');
+    if (!ctxRaw) return;
+    const ctx: CanvasRenderingContext2D = ctxRaw;
+
+    const section = canvas.parentElement;
+    let W = 0, H = 0, mx = -9999, my = -9999, alive = true;
+
+    function resize() {
+      if (!section) return;
+      W = section.offsetWidth;
+      H = section.offsetHeight;
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      canvas.width = W * dpr;
+      canvas.height = H * dpr;
+      canvas.style.width = W + 'px';
+      canvas.style.height = H + 'px';
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+
+    resize();
+    window.addEventListener('resize', resize, { passive: true });
+
+    const count = Math.min(65, Math.max(30, Math.floor((W * H) / 12000)));
+    const pts = Array.from({ length: count }, () => ({
+      x: Math.random() * W,
+      y: Math.random() * H,
+      vx: (Math.random() - 0.5) * 0.25,
+      vy: (Math.random() - 0.5) * 0.25,
+      r: Math.random() * 1.0 + 0.5,
+    }));
+
+    window.addEventListener('mousemove', (e: MouseEvent) => {
+      if (!section) return;
+      const r = section.getBoundingClientRect();
+      if (e.clientY >= r.top && e.clientY <= r.bottom) {
+        mx = e.clientX - r.left;
+        my = e.clientY - r.top;
+      } else { mx = -9999; my = -9999; }
+    }, { passive: true });
+
+    const CONN = 140, REP = 100, ATTRACT = 180;
+
+    function frame() {
+      if (!alive) return;
+      ctx.clearRect(0, 0, W, H);
+
+      for (const p of pts) {
+        const dx = p.x - mx, dy = p.y - my;
+        const d = Math.sqrt(dx * dx + dy * dy);
+
+        // Repulsion close to cursor
+        if (d < REP && d > 0.5) {
+          const f = (REP - d) / REP * 0.5;
+          p.vx += (dx / d) * f;
+          p.vy += (dy / d) * f;
+        }
+        // Soft attraction at medium range — draws particles toward cursor area
+        else if (d < ATTRACT && d > REP) {
+          const f = ((d - REP) / (ATTRACT - REP)) * 0.018;
+          p.vx -= (dx / d) * f;
+          p.vy -= (dy / d) * f;
+        }
+
+        p.vx *= 0.982; p.vy *= 0.982;
+        p.x += p.vx; p.y += p.vy;
+        if (p.x < -5) p.x = W + 5; else if (p.x > W + 5) p.x = -5;
+        if (p.y < -5) p.y = H + 5; else if (p.y > H + 5) p.y = -5;
+
+        // Glow particle when near cursor
+        const proximity = d < ATTRACT ? 1 - d / ATTRACT : 0;
+        const alpha = 0.45 + proximity * 0.4;
+        const radius = p.r + proximity * 1.2;
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, radius, 0, 6.283);
+        ctx.fillStyle = `rgba(255,255,255,${alpha})`;
+        ctx.fill();
+
+        // Subtle glow ring on close particles
+        if (proximity > 0.35) {
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, radius * 2.5, 0, 6.283);
+          ctx.fillStyle = `rgba(255,255,255,${proximity * 0.06})`;
+          ctx.fill();
+        }
+      }
+
+      ctx.lineWidth = 0.6;
+      for (let i = 0; i < pts.length; i++) {
+        for (let j = i + 1; j < pts.length; j++) {
+          const dx = pts[i].x - pts[j].x;
+          const dy = pts[i].y - pts[j].y;
+          const d = Math.sqrt(dx * dx + dy * dy);
+          if (d < CONN) {
+            // Boost line opacity when both endpoints are near cursor
+            const dI = Math.sqrt((pts[i].x-mx)**2+(pts[i].y-my)**2);
+            const dJ = Math.sqrt((pts[j].x-mx)**2+(pts[j].y-my)**2);
+            const nearBoost = (dI < ATTRACT || dJ < ATTRACT) ? 0.12 : 0;
+            ctx.beginPath();
+            ctx.moveTo(pts[i].x, pts[i].y);
+            ctx.lineTo(pts[j].x, pts[j].y);
+            ctx.strokeStyle = `rgba(255,255,255,${(1 - d / CONN) * (0.1 + nearBoost)})`;
+            ctx.stroke();
+          }
+        }
+      }
+      requestAnimationFrame(frame);
+    }
+
+    requestAnimationFrame(() => { canvas.style.opacity = '0.45'; });
+    frame();
+    document.addEventListener('astro:before-swap', () => { alive = false; });
+  })();
+</script>
