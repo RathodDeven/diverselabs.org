@@ -888,7 +888,11 @@ body.cursor-click .cursor-dot {
 }
 @media (max-width: 860px) {
   .sw-feature-row { grid-template-columns: 1fr; }
-  .sw-device-frame { display: none; }
+  .sw-device-frame {
+    display: block;
+    margin: 1.5rem auto 0;
+    max-width: 220px;
+  }
 }
 
 .sw-feature-content h3 {
@@ -1203,7 +1207,10 @@ button, a, input, textarea, select {
 
 @media (max-width: 900px) {
   .phil-row { grid-template-columns: 1fr; }
-  .phil-vis-panel { display: none; }
+  .phil-vis-panel {
+    margin: 1.25rem auto 0;
+    width: 200px;
+  }
 }
 
 .phil-row-body h3 { font-size: clamp(1.05rem, 2vw, 1.3rem); margin-bottom: 0.5rem; }
