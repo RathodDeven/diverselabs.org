@@ -199,21 +199,25 @@ a:not(.btn):hover {
   padding-bottom: 0.05em;
 }
 
+/* Pure CSS animation — no JS / IntersectionObserver required.
+   Using animation instead of a JS-toggled class ensures the text
+   always appears even when IO fires late or computes the shifted
+   bounding rect as outside the viewport (a known Safari/Firefox bug). */
+@keyframes hero-wipe-up {
+  from { transform: translateY(105%); }
+  to   { transform: translateY(0); }
+}
+
 .hero-line-text {
   display: block;
-  transform: translateY(105%);
-  transition: transform 0.95s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: hero-wipe-up 0.95s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
-.hero-line-text.in-view {
-  transform: translateY(0);
-}
-
-.hero-line-text.d2 { transition-delay: 0.2s; }
-.hero-line-text.d3 { transition-delay: 0.35s; }
+.hero-line-text.d2 { animation-delay: 0.2s; }
+.hero-line-text.d3 { animation-delay: 0.35s; }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-line-text { transform: none; transition: none; }
+  .hero-line-text { animation: none; }
 }
 
 /* Scroll reveal */

@@ -435,17 +435,6 @@ const websiteSchema = {
         document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
       }
 
-      // ── Hero line reveal (clip-path translateY) ──────────────────
-      function initHeroLines() {
-        const lineObs = new IntersectionObserver(
-          (entries) => entries.forEach(e => {
-            if (e.isIntersecting) { e.target.classList.add('in-view'); lineObs.unobserve(e.target); }
-          }),
-          { threshold: 0.05 }
-        );
-        document.querySelectorAll('.hero-line-text').forEach(el => lineObs.observe(el));
-      }
-
       // ── Number counter animation ─────────────────────────────────
       function initCounters() {
         document.querySelectorAll('[data-count]').forEach((el) => {
@@ -570,7 +559,6 @@ const websiteSchema = {
       // ── Init all on load ─────────────────────────────────────────
       function initAll() {
         initReveal();
-        initHeroLines();
         initCounters();
         initMagnetic();
         updateProgress();
