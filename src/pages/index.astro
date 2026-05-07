@@ -1,138 +1,134 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import FAQ from '../components/FAQ.astro';
 import HeroParticles from '../components/HeroParticles.astro';
 
 const title = 'Diverse Labs | AI Agents & Automation for Growing Businesses';
-const description = 'Custom AI agents, workflow automation, and production software for businesses ready to scale. Outcome-first. Built fast, shipped right.';
+const description = 'AI automation systems, software products, and AI video production for teams that want faster execution with measurable outcomes.';
 
 const services = [
   {
     num: '01',
-    title: 'AI Customer Support Agents',
-    description: 'Intelligent agents that respond in your voice, handle inquiries across all channels, escalate when needed, and learn from every interaction. Available 24/7 without overhead.',
-    features: ['Multi-channel: chat, email, WhatsApp', 'Context-aware, on-brand responses', 'Seamless CRM integration & handoff'],
-    demoType: 'chat',
+    title: 'AI Chat & Support Agents',
+    desc: 'Conversational agents trained on your knowledge base that handle customer queries, qualify leads, and escalate intelligently.',
+    features: ['Multi-turn conversation', 'CRM integration', 'Escalation routing'],
+    mockup: 'chat',
   },
   {
     num: '02',
-    title: 'AI-Driven Lead Generation',
-    description: 'Automated voice and message agents that qualify leads from your CRM, assess buying intent, and log outcomes in real time. No more manual list dialing or cold follow-ups.',
-    features: ['Intelligent call & message handling', 'Real-time CRM sync & scoring', 'Auto follow-ups and retry logic'],
-    demoType: 'pipeline',
+    title: 'Lead Gen & CRM Automation',
+    desc: 'Automated pipelines that capture, score, and route leads — syncing directly to your CRM and triggering follow-ups without manual input.',
+    features: ['Lead scoring', 'Auto follow-up sequences', 'Pipeline sync'],
+    mockup: 'pipeline',
   },
   {
     num: '03',
-    title: 'Intelligent Product Discovery',
-    description: "Image search, semantic product matching, and natural language queries across your entire catalog. Say 'Find me gold watches under $3000' and it just works.",
-    features: ['Visual similarity search', 'Natural language understanding', 'WooCommerce & Shopify ready'],
-    demoType: 'search',
+    title: 'Semantic Search & Document Intelligence',
+    desc: 'RAG-powered search over your internal documents, PDFs, and databases. Find answers in seconds, not hours.',
+    features: ['RAG architecture', 'PDF & doc parsing', 'Instant retrieval'],
+    mockup: 'search',
   },
   {
     num: '04',
-    title: 'AI Video & UGC Creation',
-    description: 'High-quality AI-generated ads and UGC videos with human-like avatars, natural voices, and brand-aligned messaging. Scale content output without compromising quality.',
-    features: ['Photorealistic avatars', 'Natural voice synthesis', 'Brand voice and style alignment'],
-    demoType: 'video',
+    title: 'AI Video & Creative Production',
+    desc: 'High-quality AI-generated video ads, UGC content, and brand creatives with photorealistic avatars and natural voice.',
+    features: ['Photorealistic avatars', 'Brand-aligned scripts', 'Fast turnaround'],
+    mockup: 'video',
   },
   {
     num: '05',
-    title: 'Talk to Your Data',
-    description: 'Upload PDFs, spreadsheets, or connect your databases. Your team gets instant plain-language answers with no SQL required, no data team bottleneck, and no waiting.',
-    features: ['PDF, Excel, CSV ingestion', 'Natural language queries (RAG)', 'Permission-aware secure access'],
-    demoType: 'query',
+    title: 'Data Query & Analysis',
+    desc: 'Natural-language interfaces to your databases. Ask questions in plain English, get structured answers and live charts.',
+    features: ['NL-to-SQL', 'Auto dashboards', 'Anomaly alerts'],
+    mockup: 'terminal',
   },
   {
     num: '06',
-    title: 'ML-Powered Operations',
-    description: 'Custom machine learning pipelines built on your data. Demand forecasting, fraud detection, anomaly detection. Predictive intelligence that improves every decision.',
-    features: ['Predictive analytics & forecasting', 'Automated anomaly detection', 'Real-time operational insights'],
-    demoType: 'chart',
+    title: 'Predictive Analytics & ML',
+    desc: 'Custom models trained on your data to forecast demand, churn, or performance — embedded directly into your workflow.',
+    features: ['Custom ML models', 'Trend forecasting', 'Performance monitoring'],
+    mockup: 'chart',
   },
 ];
 
-const swServices = [
-  {
-    title: 'Web Applications',
-    description: 'Full-stack web platforms built with modern frameworks. From internal dashboards to customer-facing SaaS products. Fast, scalable, and production-ready from first deployment.',
-    tags: ['React', 'Next.js', 'Astro', 'Node.js'],
-  },
-  {
-    title: 'Mobile Applications',
-    description: 'Native and cross-platform mobile apps for iOS and Android. App Store and Play Store ready. Shipped consumer fintech, creator, and utility apps used by thousands.',
-    tags: ['React Native', 'Flutter', 'iOS', 'Android'],
-  },
-  {
-    title: 'Desktop Software',
-    description: 'Cross-platform desktop applications for Windows, macOS, and Linux. Internal enterprise tools, data management apps, and power-user utilities built for performance.',
-    tags: ['Electron', 'Tauri', 'Windows', 'macOS', 'Linux'],
-  },
-  {
-    title: 'AI-Powered Products',
-    description: 'Software built with AI as a core feature, not an add-on. Semantic search, document intelligence, voice interfaces, recommendation engines, all built on your data from the ground up.',
-    tags: ['LLM', 'RAG', 'Fine-tuning', 'Voice AI'],
-  },
+const allClients = [
+  { name: 'ClickPe',                   logo: '/companies/clickpe.jpeg',          href: 'https://clickpe.ai/' },
+  { name: 'ScaleUp Inc',               logo: '/companies/scaleup.jpeg',          href: 'https://scaleupinc.com/' },
+  { name: 'AD360',                     logo: '/companies/ad360.jpeg',            href: 'https://ad360.in/' },
+  { name: 'DigitalKalakari',           logo: '/companies/digitalkalakari.jpeg',  href: 'https://digitalkalakari.com/' },
+  { name: 'Mezh Studio',               logo: '/companies/mezh_studio.jpeg',      href: 'https://www.instagram.com/mezh.studio/' },
+  { name: 'BloomersTV',                logo: '/companies/bloomerstv.jpeg',       href: 'https://bloomers.tv/' },
+  { name: 'Hand Protocol',             logo: '/companies/handprotocol.jpeg',     href: 'https://handprotocol.org/' },
+  { name: 'DANZ NOW',                  logo: '/companies/danz.jpeg',             href: 'https://danz.now/' },
+  { name: 'Interality',                logo: '/companies/interality.jpeg',       href: 'https://www.instagram.com/interality/' },
+  { name: 'Paiso',                     logo: '/companies/paiso.jpeg',            href: 'https://paiso.xyz/' },
+  { name: 'Vikram Enterprise',         logo: '/companies/vikram_enterprise.jpeg' },
+  { name: 'Vashi Integrated Solutions',logo: '/companies/vashi.jpeg' },
+  { name: 'Landboard',                 logo: '/companies/landboard.jpeg' },
+  { name: 'Celo',                      logo: '/companies/celo.jpeg' },
+  { name: 'Lens',                      logo: '/companies/lens.jpeg' },
+  { name: 'Livepeer',                  logo: '/companies/livepeer.jpeg' },
 ];
 
-const marqueeItems = [
-  'AI Agents', 'Workflow Automation', 'Web Applications', 'Mobile Apps', 'LLM Integration',
-  'Lead Generation', 'Customer Support', 'Product Discovery', 'ML Pipelines', 'Desktop Software',
-  'Voice Agents', 'Custom Models', 'API Development', 'Process Automation', 'RAG Systems',
-];
+const rowSize = Math.ceil(allClients.length / 3);
+const firstClientRow = allClients.slice(0, rowSize);
+const secondClientRow = allClients.slice(rowSize, rowSize * 2);
+const thirdClientRow = allClients.slice(rowSize * 2);
 
-const faqs = [
+const homeProjects = [
   {
-    question: 'What is an AI agent and how is it different from a regular chatbot?',
-    answer: 'A chatbot follows scripted rules and responds to predefined inputs. An AI agent is far more capable: it understands context, reasons through multi-step problems, executes actions across tools and APIs, and completes goals autonomously. Think of a chatbot as a vending machine and an AI agent as a skilled employee who never sleeps.',
+    name: 'NudgeFlow for Clickpe (YC S23)',
+    image: '/work/nudgeflow.webp',
+    href: 'https://drive.google.com/file/d/10uMQ51a0u_D_SWAobehndmie-6HTT-lZ/view',
+    tags: ['AI system', 'Voice agent'],
+    description: 'WhatsApp chatbot and voice call agent for ClickPe that classifies leads, triggers follow-ups, and syncs outcomes to workflow systems.',
   },
   {
-    question: 'How does Diverse Labs customize AI systems for our specific business?',
-    answer: 'We start with a paid discovery session where we map your exact workflows, data sources, and business rules. From there, we design an AI system built specifically for your stack, not a generic template. The agent knows your products, your tone, your processes, and connects to your existing tools from day one.',
+    name: 'AI Creatives',
+    image: '/work/ai-creatives-thumbnail.png',
+    href: '/work?tab=ai-creatives',
+    tags: ['AI video', 'UGC'],
+    description: 'Photorealistic AI-generated video ads and UGC content with natural voices, produced for brands at speed.',
   },
   {
-    question: 'Do you build regular software too, like web apps and mobile apps, or only AI?',
-    answer: 'Both. Our team builds production-grade web applications, mobile apps (iOS and Android), desktop software, and AI-powered products from the ground up. We have shipped real products used by thousands of people across fintech, creator platforms, and enterprise tools.',
+    name: 'BloomersTV',
+    image: '/work/bloomerstv.webp',
+    href: 'https://bloomers.tv/',
+    tags: ['Web app', 'Blockchain'],
+    description: 'A live streaming platform built around the Lens ecosystem for creator-focused community digital products.',
   },
   {
-    question: 'What is human-in-the-loop automation and can we control it?',
-    answer: 'Human-in-the-loop means a human reviews and approves specific actions before the AI proceeds. For example: an AI drafts a customer response and a team member approves it before it sends. We offer fully automated, human-in-the-loop, and hybrid designs; you decide which stages require human approval and which run automatically. You have total control.',
+    name: 'Paiso',
+    image: '/work/paiso.webp',
+    href: 'https://paiso.xyz/',
+    tags: ['Mobile app', 'Fintech'],
+    description: 'A consumer fintech app live on the Play Store, centered on fast cash access and rewards for everyday users.',
   },
   {
-    question: 'Will we need to replace our existing tools and systems?',
-    answer: 'No. We build on top of what you already have. Whether you use Salesforce, HubSpot, WooCommerce, Shopify, custom databases, or anything else, our AI layer integrates into your existing stack. No rip-and-replace, no disruption to current operations.',
+    name: 'DANZ NOW',
+    image: '/work/danz-now.webp',
+    href: 'https://danz.now/',
+    tags: ['Mobile app'],
+    description: 'A movement and event platform rewarding users for dancing, hosting events, and participating in community experiences.',
   },
   {
-    question: 'How long does it take to build and deploy an AI system?',
-    answer: 'It depends on complexity. A focused AI agent (like a customer support bot) typically takes 2–4 weeks from discovery to live deployment. A multi-agent system with deep CRM integrations can take 8–12 weeks. We provide a precise timeline after the initial discovery call, with clear milestones at each stage.',
+    name: 'Hand Protocol',
+    image: '/work/hand-protocol.webp',
+    href: 'https://handprotocol.org/',
+    tags: ['Web app', 'Blockchain'],
+    description: 'A platform connecting public goods projects with donors through a streamlined digital contribution experience.',
   },
-  {
-    question: 'What industries and business types do you work with?',
-    answer: 'We work primarily with e-commerce, fintech, SaaS, and professional services companies with high-volume repetitive workflows. Customer support, lead qualification, document processing, data analysis: these are areas where automation delivers measurable ROI quickly. Company size ranges from funded startups to established enterprises.',
-  },
-  {
-    question: 'What does a typical engagement with Diverse Labs look like?',
-    answer: 'We start with a discovery session to scope the opportunity and propose a clear implementation plan with milestones. After delivery, we monitor performance and iterate weekly. Most clients see measurable results within the first 30 days of deployment, and we stay engaged to compound gains over time.',
-  },
+
 ];
 ---
 
 <BaseLayout title={title} description={description}>
-
-  <!-- ═══════════════════════════════════════════
-       HERO
-       ═══════════════════════════════════════════ -->
   <section class="min-h-[calc(100vh-7.25rem)] flex items-center justify-center relative pt-8 md:pt-12 dot-grid">
-    <!-- Gradient fade at bottom -->
     <div class="absolute inset-0 bg-linear-to-b from-transparent via-transparent to-[#080808] pointer-events-none" style="z-index:3"></div>
-    <!-- Radial glow center -->
     <div class="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_40%,rgba(255,255,255,0.04),transparent)] pointer-events-none" style="z-index:1"></div>
-    <!-- Aurora rotating beams -->
     <div class="hero-aurora" aria-hidden="true"></div>
-    <!-- Particle constellation -->
     <HeroParticles />
 
     <div class="container max-w-5xl mx-auto text-center relative z-10">
-      <!-- Available badge -->
       <div class="flex justify-center mb-8 reveal">
         <span class="badge">
           <span class="badge-dot" aria-hidden="true"></span>
@@ -140,18 +136,14 @@ const faqs = [
         </span>
       </div>
 
-      <!-- Main headline -->
       <h1 class="text-white font-extrabold mb-6" style="letter-spacing:-0.04em;line-height:1.0;" aria-label="Your AI Tech Partner.">
         <span class="hero-line" aria-hidden="true"><span class="hero-line-text">Your AI Tech Partner.</span></span>
       </h1>
 
-      <!-- Subtext -->
       <p class="text-lg md:text-xl text-text-secondary mb-10 max-w-2xl mx-auto leading-relaxed reveal reveal-delay-2">
-        We build custom AI agents, workflow automation, and software
-        for businesses ready to scale intelligently.
+        We build specialized AI systems for your business that save time, increase revenue, and delight customers.
       </p>
 
-      <!-- CTAs -->
       <div class="flex flex-col sm:flex-row items-center gap-4 justify-center mb-16 reveal reveal-delay-3">
         <a href="https://cal.com/diverselabs/30min"
            target="_blank"
@@ -159,12 +151,11 @@ const faqs = [
            class="btn btn-primary magnetic text-base px-8 py-3.5 w-full sm:w-auto">
           Book a Discovery Call
         </a>
-        <a href="#capabilities" class="btn btn-secondary text-base px-7 py-3.5 w-full sm:w-auto">
-          See what we build
+        <a href="#work-scroll" class="btn btn-secondary text-base px-7 py-3.5 w-full sm:w-auto">
+          Explore the work
         </a>
       </div>
 
-      <!-- Stats row -->
       <div class="grid grid-cols-3 gap-3 md:gap-4 max-w-xl mx-auto reveal reveal-delay-4">
         <div class="surface-card rounded-xl p-4 md:p-5 text-center">
           <div class="text-2xl md:text-3xl font-bold text-white tracking-tight mb-0.5" data-count="10" data-suffix="+">10+</div>
@@ -180,7 +171,6 @@ const faqs = [
         </div>
       </div>
 
-      <!-- Scroll indicator -->
       <div class="mt-14 flex justify-center scroll-indicator">
         <svg class="w-5 h-5 text-white/30" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5" aria-hidden="true">
           <path d="M19 9l-7 7-7-7" />
@@ -189,489 +179,290 @@ const faqs = [
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════════
-       CAPABILITIES MARQUEE
-       ═══════════════════════════════════════════ -->
-  <section aria-hidden="true" class="py-6 overflow-hidden border-y border-white/5">
-    <div class="marquee-outer">
-      <div class="marquee-track">
-        {[...marqueeItems, ...marqueeItems].map((item) => (
-          <span class="flex items-center gap-5 px-6 text-sm text-text-secondary font-medium whitespace-nowrap tracking-wide">
-            {item}
-            <span class="w-1 h-1 rounded-full bg-white/25 shrink-0" aria-hidden="true"></span>
-          </span>
+  <section class="page-section line-grid">
+    <div class="container max-w-7xl mx-auto">
+      <div class="mb-10 reveal">
+        <p class="section-label mb-3">Trusted By</p>
+        <h2 class="text-white font-bold">15+ Teams we have worked with</h2>
+      </div>
+    </div>
+
+    <div class="logo-marquee-block logo-marquee-compact reveal reveal-delay-1" aria-label="Clients and partners row one">
+      <div class="logo-marquee-track triple">
+        {[...firstClientRow, ...firstClientRow, ...firstClientRow].map((client) => (
+          client.href ? (
+            <a class="logo-card" href={client.href} target="_blank" rel="noopener noreferrer" aria-label={`Visit ${client.name}`}>
+              <img src={client.logo} alt={`${client.name} logo`} loading="lazy" decoding="async" />
+              <span class="logo-link-arrow" aria-hidden="true">↗</span>
+            </a>
+          ) : (
+            <div class="logo-card">
+              <img src={client.logo} alt={`${client.name} logo`} loading="lazy" decoding="async" />
+            </div>
+          )
+        ))}
+      </div>
+    </div>
+
+    <div class="logo-marquee-block logo-marquee-compact reveal reveal-delay-2" aria-label="Clients and partners row two">
+      <div class="logo-marquee-track triple reverse">
+        {[...secondClientRow, ...secondClientRow, ...secondClientRow].map((client) => (
+          client.href ? (
+            <a class="logo-card" href={client.href} target="_blank" rel="noopener noreferrer" aria-label={`Visit ${client.name}`}>
+              <img src={client.logo} alt={`${client.name} logo`} loading="lazy" decoding="async" />
+              <span class="logo-link-arrow" aria-hidden="true">↗</span>
+            </a>
+          ) : (
+            <div class="logo-card">
+              <img src={client.logo} alt={`${client.name} logo`} loading="lazy" decoding="async" />
+            </div>
+          )
+        ))}
+      </div>
+    </div>
+
+    <div class="logo-marquee-block logo-marquee-compact reveal reveal-delay-3" aria-label="Clients and partners row three">
+      <div class="logo-marquee-track triple">
+        {[...thirdClientRow, ...thirdClientRow, ...thirdClientRow].map((client) => (
+          client.href ? (
+            <a class="logo-card" href={client.href} target="_blank" rel="noopener noreferrer" aria-label={`Visit ${client.name}`}>
+              <img src={client.logo} alt={`${client.name} logo`} loading="lazy" decoding="async" />
+              <span class="logo-link-arrow" aria-hidden="true">↗</span>
+            </a>
+          ) : (
+            <div class="logo-card">
+              <img src={client.logo} alt={`${client.name} logo`} loading="lazy" decoding="async" />
+            </div>
+          )
         ))}
       </div>
     </div>
   </section>
 
-
-  <!-- ═══════════════════════════════════════════
-       PHILOSOPHY / MANIFESTO
-       ═══════════════════════════════════════════ -->
-  <section class="page-section line-grid relative">
+  <section id="capabilities" class="page-section line-grid relative">
     <div class="absolute inset-0 bg-linear-to-b from-[#080808] via-transparent to-[#080808] pointer-events-none"></div>
-    <div class="container max-w-6xl mx-auto relative z-10">
-
+    <div class="container max-w-7xl mx-auto relative z-10">
       <div class="mb-14 reveal">
-        <p class="section-label mb-4">Philosophy</p>
-        <h2 class="text-white font-bold max-w-3xl">
-          The New Competitive Edge
-        </h2>
-        <p class="text-lg text-text-secondary max-w-2xl mt-4 leading-relaxed">
-          Companies that will win in the next decade aren't the ones with
-          the biggest teams. They're the ones that use AI as infrastructure:
-          custom systems that know their business, execute their workflows,
-          and compound value every day.
-        </p>
-      </div>
-
-      <div class="phil-rows">
-
-        <!-- Row 01 — Focus -->
-        <div class="phil-row reveal reveal-delay-1">
-          <div class="phil-row-body">
-            <h3 class="text-white font-bold">Focus on What Matters</h3>
-            <p>
-              Your best people should be solving your hardest problems,
-              not managing repetitive tasks that AI handles better, faster,
-              and at a fraction of the cost.
-            </p>
-          </div>
-          <div class="phil-vis-panel" aria-hidden="true">
-            <div class="pv-checklist">
-              <div class="pv-task pv-done">
-                <div class="pv-check">✓</div>
-                <span class="pv-label">Manual data entry</span>
-              </div>
-              <div class="pv-task pv-done">
-                <div class="pv-check">✓</div>
-                <span class="pv-label">Email triage</span>
-              </div>
-              <div class="pv-task">
-                <div class="pv-pulse-dot"></div>
-                <span class="pv-label">Support tickets…</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Row 02 — Control -->
-        <div class="phil-row reveal reveal-delay-2">
-          <div class="phil-row-body">
-            <h3 class="text-white font-bold">Total Control, Zero Black Boxes</h3>
-            <p>
-              You decide what runs automatically and what requires approval.
-              Fully automated, human-in-the-loop, or hybrid: every system
-              is configurable to match your risk tolerance.
-            </p>
-          </div>
-          <div class="phil-vis-panel" aria-hidden="true">
-            <div class="pv-flow">
-              <div class="pv-node">Input</div>
-              <div class="pv-arrow">→</div>
-              <div class="pv-node pv-node-main">Your Rules</div>
-              <div class="pv-arrow">→</div>
-              <div class="pv-node">Auto ✓</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Row 03 — Custom -->
-        <div class="phil-row reveal reveal-delay-3">
-          <div class="phil-row-body">
-            <h3 class="text-white font-bold">Built for You, Not for Everyone</h3>
-            <p>
-              Off-the-shelf tools are optimised for the average use case, which means
-              they're suboptimal for yours. Every system we build is custom:
-              your data, your tone, your stack.
-            </p>
-          </div>
-          <div class="phil-vis-panel" aria-hidden="true">
-            <div class="pv-bars">
-              <div class="pv-bar-row">
-                <span class="pv-bar-lbl">Generic</span>
-                <div class="pv-bar-track"><div class="pv-bar-fill pv-bar-low"></div></div>
-              </div>
-              <div class="pv-bar-row">
-                <span class="pv-bar-lbl">Custom</span>
-                <div class="pv-bar-track"><div class="pv-bar-fill pv-bar-high"></div></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ═══════════════════════════════════════════
-       AI CAPABILITIES
-       ═══════════════════════════════════════════ -->
-  <section id="capabilities" class="page-section">
-    <div class="container max-w-7xl">
-      <div class="mb-14 reveal">
-        <p class="section-label mb-4">AI Systems</p>
-        <h2 class="text-white font-bold mb-4">Intelligent Automation<br />That Drives Revenue</h2>
+        <p class="section-label mb-4">What We Build</p>
+        <h2 class="text-white font-bold mb-4">AI Systems That Do Real Work</h2>
         <p class="text-lg text-text-secondary max-w-2xl leading-relaxed">
-          Custom AI agents built for your specific workflows. Each system is measurable from day one.
+          Custom AI systems and workflows, built for your team and stack.
         </p>
       </div>
 
       <div class="service-cards-grid">
         {services.map((s, i) => (
           <div class={`service-card-item reveal reveal-delay-${(i % 3) + 1}`}>
-            {/* Mockup visual — always visible at top */}
-            <div class="service-card-mockup" aria-hidden="true">
+            <div class="service-card-mockup">
               <div class="svc-mockup">
-
-                {/* Chat demo — Support Agents */}
-                {s.demoType === 'chat' && (
+                {s.mockup === 'chat' && (
                   <div>
                     <div class="sm-bar">
                       <span class="sm-dot"></span><span class="sm-dot"></span><span class="sm-dot"></span>
                       <span class="sm-bar-title">Support Agent</span>
                     </div>
                     <div class="sm-chat">
-                      <div class="sm-bubble sm-user" style="animation-delay:0.3s">Hi, my order hasn't arrived</div>
-                      <div class="sm-bubble sm-bot"  style="animation-delay:1.0s">Order #4821 ships tomorrow. Tracking link sent!</div>
-                      <div class="sm-bubble sm-user" style="animation-delay:1.8s">Can I change the address?</div>
-                      <div class="sm-typing" style="animation-delay:2.4s">
-                        <span></span><span></span><span></span>
-                      </div>
+                      <div class="sm-bubble sm-user" style="animation-delay:0.4s">Hi, where is my order?</div>
+                      <div class="sm-typing" style="animation-delay:0.9s"><span></span><span></span><span></span></div>
+                      <div class="sm-bubble sm-bot" style="animation-delay:1.6s">Your order #4821 ships tomorrow. I've sent tracking to your email.</div>
                     </div>
                   </div>
                 )}
-
-                {/* Pipeline demo — Lead Generation */}
-                {s.demoType === 'pipeline' && (
+                {s.mockup === 'pipeline' && (
                   <div>
                     <div class="sm-bar">
                       <span class="sm-dot"></span><span class="sm-dot"></span><span class="sm-dot"></span>
-                      <span class="sm-bar-title">CRM Pipeline</span>
+                      <span class="sm-bar-title">Lead Pipeline</span>
                     </div>
                     <div class="sm-pipeline">
                       <div class="sm-col">
                         <div class="sm-col-hdr">New</div>
                         <div class="sm-card" style="animation-delay:0.3s">Acme Corp</div>
-                        <div class="sm-card" style="animation-delay:0.5s">Beta Inc</div>
+                        <div class="sm-card" style="animation-delay:0.5s">TechStart</div>
                       </div>
                       <div class="sm-col">
                         <div class="sm-col-hdr">Qualified</div>
-                        <div class="sm-card sm-card-hot" style="animation-delay:0.7s">TechFlow</div>
+                        <div class="sm-card sm-card-hot" style="animation-delay:0.7s">Globex Inc</div>
                       </div>
                       <div class="sm-col">
                         <div class="sm-col-hdr">Closing</div>
-                        <div class="sm-card" style="animation-delay:0.9s">Nexus Ltd</div>
+                        <div class="sm-card" style="animation-delay:0.9s">Initech</div>
                       </div>
                     </div>
                   </div>
                 )}
-
-                {/* Search demo — Product Discovery */}
-                {s.demoType === 'search' && (
+                {s.mockup === 'search' && (
                   <div>
                     <div class="sm-bar">
                       <span class="sm-dot"></span><span class="sm-dot"></span><span class="sm-dot"></span>
                       <div class="sm-search-bar-wrap">
-                        <svg class="w-2.5 h-2.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-                        <span>gold watch under $3000</span>
+                        <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                        <span>refund policy Q3</span>
                       </div>
                     </div>
                     <div class="sm-imgrid">
-                      <div class="sm-imgbox" style="animation-delay:0.3s"></div>
-                      <div class="sm-imgbox sm-imgbox-hl" style="animation-delay:0.6s"></div>
+                      <div class="sm-imgbox sm-imgbox-hl" style="animation-delay:0.3s"></div>
+                      <div class="sm-imgbox" style="animation-delay:0.5s"></div>
+                      <div class="sm-imgbox" style="animation-delay:0.7s"></div>
                       <div class="sm-imgbox" style="animation-delay:0.9s"></div>
-                      <div class="sm-imgbox" style="animation-delay:1.2s"></div>
                     </div>
                   </div>
                 )}
-
-                {/* Video player demo */}
-                {s.demoType === 'video' && (
+                {s.mockup === 'video' && (
                   <div>
                     <div class="sm-bar">
                       <span class="sm-dot"></span><span class="sm-dot"></span><span class="sm-dot"></span>
-                      <span class="sm-bar-title">AI Video Studio</span>
+                      <span class="sm-bar-title">AI Creative Studio</span>
                     </div>
                     <div class="sm-player">
                       <div class="sm-video-frame">
-                        <div class="sm-play-btn">
-                          <div class="sm-play-icon"></div>
-                        </div>
+                        <div class="sm-play-btn"><div class="sm-play-icon"></div></div>
                       </div>
-                      <div class="sm-progress-bar">
-                        <div class="sm-progress-fill"></div>
-                      </div>
+                      <div class="sm-progress-bar"><div class="sm-progress-fill"></div></div>
                     </div>
                   </div>
                 )}
-
-                {/* Query terminal demo — Talk to Data */}
-                {s.demoType === 'query' && (
+                {s.mockup === 'terminal' && (
                   <div>
                     <div class="sm-bar">
                       <span class="sm-dot"></span><span class="sm-dot"></span><span class="sm-dot"></span>
-                      <span class="sm-bar-title">Data Query</span>
+                      <span class="sm-bar-title">Query Engine</span>
                     </div>
                     <div class="sm-terminal">
-                      <div class="sm-cmd"  style="animation-delay:0.4s">$ show Q3 revenue by region</div>
-                      <div class="sm-out"  style="animation-delay:1.0s">North: $842k (+12%)</div>
-                      <div class="sm-out"  style="animation-delay:1.2s">South: $517k (+8%)</div>
-                      <div class="sm-out"  style="animation-delay:1.4s">West:  $391k (+21%)</div>
-                      <div class="sm-caret" style="animation-delay:1.7s">▌</div>
+                      <div class="sm-cmd" style="animation-delay:0.3s">$ ask "revenue by region last 90d"</div>
+                      <div class="sm-out" style="animation-delay:0.9s">Running SQL… 1,240ms</div>
+                      <div class="sm-out" style="animation-delay:1.4s">North: $84k · South: $61k · West: $102k</div>
+                      <div class="sm-caret" style="animation-delay:1.9s">▌</div>
                     </div>
                   </div>
                 )}
-
-                {/* Chart demo — ML Ops */}
-                {s.demoType === 'chart' && (
+                {s.mockup === 'chart' && (
                   <div>
                     <div class="sm-bar">
                       <span class="sm-dot"></span><span class="sm-dot"></span><span class="sm-dot"></span>
-                      <span class="sm-bar-title">ML Forecast</span>
+                      <span class="sm-bar-title">Forecast Model</span>
                     </div>
                     <div class="sm-chart">
-                      <div class="sm-bar-v"    style={`height:38px; animation-delay:0.3s`}></div>
-                      <div class="sm-bar-v"    style={`height:52px; animation-delay:0.45s`}></div>
-                      <div class="sm-bar-v sm-bar-v-hi" style={`height:68px; animation-delay:0.6s`}></div>
-                      <div class="sm-bar-v"    style={`height:44px; animation-delay:0.75s`}></div>
-                      <div class="sm-bar-v sm-bar-v-hi" style={`height:72px; animation-delay:0.9s`}></div>
-                      <div class="sm-bar-v"    style={`height:56px; animation-delay:1.05s`}></div>
+                      <div class="sm-bar-v" style="height:28px; animation-delay:0.3s"></div>
+                      <div class="sm-bar-v" style="height:44px; animation-delay:0.45s"></div>
+                      <div class="sm-bar-v" style="height:36px; animation-delay:0.6s"></div>
+                      <div class="sm-bar-v sm-bar-v-hi" style="height:62px; animation-delay:0.75s"></div>
+                      <div class="sm-bar-v" style="height:50px; animation-delay:0.9s"></div>
+                      <div class="sm-bar-v sm-bar-v-hi" style="height:72px; animation-delay:1.05s"></div>
                     </div>
                   </div>
                 )}
-
               </div>
             </div>
-
-            {/* Card content */}
             <div class="service-card-content">
               <div class="service-card-header">
+                <span class="service-card-num">{s.num}</span>
                 <h3 class="service-card-title">{s.title}</h3>
               </div>
-              <p class="service-card-desc">{s.description}</p>
+              <p class="service-card-desc">{s.desc}</p>
               <ul class="service-card-features">
-                {s.features.map(f => <li>{f}</li>)}
+                {s.features.map((f) => <li>{f}</li>)}
               </ul>
-              {s.demoType === 'video' && (
-                <a href="/work?tab=ai-creatives" class="service-card-cta">
-                  View AI Creatives
-                  <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                </a>
-              )}
+              <a href="https://cal.com/diverselabs/30min" target="_blank" rel="noopener noreferrer" class="service-card-cta">
+                Discuss this system <span aria-hidden="true">→</span>
+              </a>
             </div>
           </div>
         ))}
       </div>
     </div>
   </section>
-  <!-- ═══════════════════════════════════════════
-       SOFTWARE DEVELOPMENT
-       ═══════════════════════════════════════════ -->
-  <section id="software" class="page-section">
-    <div class="container max-w-7xl">
-      <hr class="section-divider mb-20" />
+
+  <section id="work-scroll" class="work-reel-section" aria-label="Selected Work">
+    <div class="container max-w-7xl mx-auto work-reel-header reveal">
+      <p class="section-label mb-3">Selected Work</p>
+      <h2 class="text-white font-bold">Selected Work</h2>
+    </div>
+
+    <div class="work-reel-sticky" id="work-reel-sticky">
+      <div class="work-reel-track" id="work-reel-track">
+        {homeProjects.map((project, i) => (
+          <article class={`work-reel-card reveal reveal-delay-${(i % 3) + 1}`}>
+            <a
+              href={project.href}
+              target={project.href.startsWith('http') ? '_blank' : undefined}
+              rel={project.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+              class="work-reel-link"
+            >
+              <div class="work-reel-media">
+                <img
+                  src={project.image}
+                  alt={`${project.name} preview`}
+                  width="800"
+                  height="500"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="work-reel-content">
+                <h3>{project.name}</h3>
+                <p class="work-reel-desc">{project.description}</p>
+                <div class="work-reel-tags">
+                  {project.tags.map((tag) => <span>{tag}</span>)}
+                </div>
+                <span class="work-reel-open">
+                  Open project <span aria-hidden="true">→</span>
+                </span>
+              </div>
+            </a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section line-grid relative">
+    <div class="absolute inset-0 bg-linear-to-b from-[#080808] via-transparent to-[#080808] pointer-events-none"></div>
+    <div class="container max-w-6xl mx-auto relative z-10">
       <div class="mb-14 reveal">
-        <p class="section-label mb-4">Software Engineering</p>
-        <h2 class="text-white font-bold mb-4">End-to-End Software Development</h2>
-        <p class="text-lg text-text-secondary max-w-2xl leading-relaxed">
-          Beyond AI systems, we build production-grade software from the ground up.
-          Our engineering team's deep expertise means every product
-          is built to scale, ship fast, and run reliably.
+        <p class="section-label mb-4">Philosophy</p>
+        <h2 class="text-white font-bold max-w-3xl">Build Smart Systems, Not Bigger Teams</h2>
+        <p class="text-lg text-text-secondary max-w-2xl mt-4 leading-relaxed">
+          Our goal is simple: replace repetitive work with custom AI workflows your team controls.
         </p>
       </div>
 
-      <div class="sw-features">
-        {swServices.map((s, i) => (
-          <div class={`sw-feature-row reveal reveal-delay-${(i % 4) + 1}`}>
-            <div class="sw-feature-content">
-              <h3>{s.title}</h3>
-              <p>{s.description}</p>
-              <div class="sw-feature-tags">
-                {s.tags.map(t => <span>{t}</span>)}
-              </div>
-            </div>
-            <div class="sw-device-frame" aria-hidden="true">
-
-              {/* Browser — Web Applications */}
-              {i === 0 && (
-                <div class="sdf-chrome">
-                  <div class="sdf-titlebar">
-                    <span class="sdf-dot"></span><span class="sdf-dot"></span><span class="sdf-dot"></span>
-                    <div class="sdf-url"></div>
-                  </div>
-                  <div class="sdf-body">
-                    <div class="sdf-line" style="--w:85%; animation-delay:0.25s"></div>
-                    <div class="sdf-line" style="--w:60%; animation-delay:0.4s"></div>
-                    <div class="sdf-block" style="animation-delay:0.55s"></div>
-                    <div class="sdf-line" style="--w:72%; animation-delay:0.7s"></div>
-                    <div class="sdf-line" style="--w:50%; animation-delay:0.85s"></div>
-                  </div>
-                </div>
-              )}
-
-              {/* Phone — Mobile Applications */}
-              {i === 1 && (
-                <div class="sdf-phone-wrap">
-                  <div class="sdf-phone-inner">
-                    <div class="sdf-notch"></div>
-                    <div class="sdf-phone-body">
-                      <div class="sdf-app-row" style="animation-delay:0.3s"></div>
-                      <div class="sdf-app-row" style="animation-delay:0.5s"></div>
-                      <div class="sdf-app-row" style="animation-delay:0.7s"></div>
-                      <div class="sdf-app-row" style="animation-delay:0.9s"></div>
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {/* OS Window — Desktop Software */}
-              {i === 2 && (
-                <div class="sdf-chrome">
-                  <div class="sdf-titlebar">
-                    <span class="sdf-dot"></span><span class="sdf-dot"></span><span class="sdf-dot"></span>
-                    <span class="sdf-wintitle">Dashboard.app</span>
-                  </div>
-                  <div class="sdf-body">
-                    <div class="sdf-trow sdf-trow-hdr" style="animation-delay:0.25s"></div>
-                    <div class="sdf-trow" style="animation-delay:0.4s"></div>
-                    <div class="sdf-trow" style="animation-delay:0.55s"></div>
-                    <div class="sdf-trow" style="animation-delay:0.7s"></div>
-                    <div class="sdf-trow" style="animation-delay:0.85s"></div>
-                  </div>
-                </div>
-              )}
-
-              {/* Terminal — AI Products */}
-              {i === 3 && (
-                <div class="sdf-chrome">
-                  <div class="sdf-titlebar">
-                    <span class="sdf-dot"></span><span class="sdf-dot"></span><span class="sdf-dot"></span>
-                    <span class="sdf-wintitle">AI Engine</span>
-                  </div>
-                  <div class="sdf-term">
-                    <div class="sdf-tline" style="animation-delay:0.3s">$ generate_response --model gpt-4o</div>
-                    <div class="sdf-tline sdf-tline-out" style="animation-delay:0.9s">Loading context…</div>
-                    <div class="sdf-tline sdf-tline-out" style="animation-delay:1.4s">Processing 2,481 tokens</div>
-                    <div class="sdf-tline" style="animation-delay:1.9s">Output ready ✓</div>
-                    <div class="sdf-tcaret" style="animation-delay:2.2s">▌</div>
-                  </div>
-                </div>
-              )}
-
-            </div>
+      <div class="phil-compact-grid">
+        <article class="surface-card phil-compact-card reveal reveal-delay-1">
+          <div class="phil-compact-head">
+            <h3 class="text-white font-bold">Focus on What Matters</h3>
+            <span class="phil-compact-chip">01</span>
           </div>
-        ))}
+          <p>Let your team spend time on high-impact work, not repetitive ops.</p>
+        </article>
+
+        <article class="surface-card phil-compact-card reveal reveal-delay-2">
+          <div class="phil-compact-head">
+            <h3 class="text-white font-bold">Control Without Black Boxes</h3>
+            <span class="phil-compact-chip">02</span>
+          </div>
+          <p>Choose what runs automatically and what needs human approval.</p>
+        </article>
+
+        <article class="surface-card phil-compact-card reveal reveal-delay-3">
+          <div class="phil-compact-head">
+            <h3 class="text-white font-bold">Built for Your Workflow</h3>
+            <span class="phil-compact-chip">03</span>
+          </div>
+          <p>Every system is custom to your data, stack, and business logic.</p>
+        </article>
       </div>
     </div>
   </section>
 
-
-  <!-- ═══════════════════════════════════════════
-       WHY NOW — NUMBERS
-       ═══════════════════════════════════════════ -->
-  <section class="page-section">
-    <div class="container max-w-6xl mx-auto">
-      <div class="surface-panel rounded-3xl p-8 md:p-12 lg:p-16 relative overflow-hidden">
-        <!-- Background accent -->
-        <div class="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-20%,rgba(255,255,255,0.04),transparent)] pointer-events-none" aria-hidden="true"></div>
-
-        <div class="relative z-10">
-          <div class="text-center mb-12 reveal">
-            <p class="section-label mb-4">The numbers</p>
-            <h2 class="text-white font-bold">Why Automation Matters Now</h2>
-          </div>
-
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-0 md:divide-x md:divide-white/[0.07]">
-            <div class="text-center md:px-8 reveal reveal-delay-1">
-              <div class="stat-number mb-2">70%</div>
-              <p class="text-text-secondary text-sm leading-relaxed" style="margin:0">
-                of repetitive business tasks can be fully or partially automated.
-                Most companies have yet to start.
-              </p>
-            </div>
-            <div class="text-center md:px-8 reveal reveal-delay-2">
-              <div class="stat-number mb-2">3&#8209;5×</div>
-              <p class="text-text-secondary text-sm leading-relaxed" style="margin:0">
-                average ROI within year one from reduced labor costs,
-                faster execution, and higher throughput.
-              </p>
-            </div>
-            <div class="text-center md:px-8 reveal reveal-delay-3">
-              <div class="stat-number mb-2">24/7</div>
-              <p class="text-text-secondary text-sm leading-relaxed" style="margin:0">
-                AI agents work continuously, never call in sick, never go on leave.
-                Consistent output at a fraction of per-task cost.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ═══════════════════════════════════════════
-       HOW WE WORK — TIMELINE
-       ═══════════════════════════════════════════ -->
-  <section class="page-section">
-    <div class="container max-w-5xl mx-auto">
-      <div class="text-center mb-16 reveal">
-        <p class="section-label mb-4">Process</p>
-        <h2 class="text-white font-bold">From Discovery to Live in Weeks</h2>
-      </div>
-
-      <div class="process-timeline" id="process-timeline">
-        {[
-          { n: '01', title: 'Discovery', text: 'We map your repetitive workflows, quantify the automation opportunity, and define the exact outcome we\'re building toward. No guessing, no filler.' },
-          { n: '02', title: 'Integration', text: 'We connect directly into your existing tools: CRM, databases, communication channels. Minimal disruption, rollback-safe deployments every time.' },
-          { n: '03', title: 'Launch', text: 'Production rollout with monitoring, guardrails, and a practical handoff so your team owns the day-to-day operation with full confidence.' },
-          { n: '04', title: 'Optimization', text: 'Weekly iteration on prompts, flows, and KPIs. AI systems compound in value. The longer they run with focused feedback, the sharper they get.' },
-        ].map((step, i) => (
-          <div class="process-step" data-idx={String(i)}>
-            <div class="psm" aria-hidden="true">
-              <div class="psm-dot">{step.n}</div>
-              {i < 3 && <div class="psm-track"><div class="psm-fill"></div></div>}
-            </div>
-            <div class="psc">
-              <h3>{step.title}</h3>
-              <p>{step.text}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ═══════════════════════════════════════════
-       FAQ
-       ═══════════════════════════════════════════ -->
-  <section class="page-section">
-    <div class="container max-w-3xl mx-auto">
-      <div class="text-center mb-10 reveal">
-        <p class="section-label mb-4">FAQ</p>
-        <h2 class="text-white font-bold">Common Questions</h2>
-      </div>
-      <FAQ faqs={faqs} />
-    </div>
-  </section>
-
-
-  <!-- ═══════════════════════════════════════════
-       FINAL CTA
-       ═══════════════════════════════════════════ -->
   <section class="page-section-tight">
     <div class="container max-w-4xl mx-auto text-center">
       <div class="surface-panel rounded-3xl p-10 md:p-16 relative overflow-hidden reveal">
         <div class="absolute inset-0 bg-[radial-gradient(ellipse_60%_60%_at_50%_100%,rgba(255,255,255,0.04),transparent)] pointer-events-none" aria-hidden="true"></div>
         <div class="relative z-10">
-          <h2 class="text-white font-bold mb-4">Ready to compete at a different level?</h2>
+          <h2 class="text-white font-bold mb-4">Still spending time on repetitive work?</h2>
           <p class="text-text-secondary text-lg mb-8 max-w-xl mx-auto leading-relaxed">
-            Let's talk about what's consuming your team's capacity. We'll show you
-            exactly what to automate first and what it'll be worth.
+            Let's build an AI system that saves your team time.
           </p>
           <div class="flex flex-col sm:flex-row items-center gap-4 justify-center">
             <a href="https://cal.com/diverselabs/30min"
@@ -690,24 +481,104 @@ const faqs = [
     </div>
   </section>
 
-
 <script>
-  function initProcessTimeline() {
-    const steps = document.querySelectorAll<HTMLElement>('.process-step');
-    if (!steps.length) return;
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('step-visible');
-          io.unobserve(entry.target);
-        }
+  function initWorkReel() {
+    const section = document.getElementById('work-scroll') as HTMLElement | null;
+    const sticky = document.getElementById('work-reel-sticky') as HTMLElement | null;
+    const track = document.getElementById('work-reel-track') as HTMLElement | null;
+    if (!section || !sticky || !track) return;
+
+    let maxTranslate = 0;
+    const isMobile = () => window.matchMedia('(max-width: 768px)').matches;
+    let raf = 0;
+
+    const cards = Array.from(track.querySelectorAll<HTMLElement>('.work-reel-card'));
+
+    const resetCards = () => {
+      cards.forEach((card) => {
+        card.style.transform = '';
+        card.style.opacity = '';
+        card.style.zIndex = '';
       });
-    }, { threshold: 0.35 });
-    steps.forEach(step => io.observe(step));
+    };
+
+    const measure = () => {
+      const viewW = window.innerWidth;
+      const firstCard = cards[0];
+      const cardWidth = firstCard?.getBoundingClientRect().width ?? Math.min(viewW * 0.74, 360);
+      const edgePad = Math.max(20, viewW / 2 - cardWidth / 2);
+      track.style.paddingLeft = `${edgePad}px`;
+      track.style.paddingRight = `${edgePad}px`;
+      maxTranslate = Math.max(0, track.scrollWidth - viewW);
+    };
+
+    const getProgress = () => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.offsetHeight;
+      const scrollable = Math.max(1, sectionHeight - window.innerHeight);
+      return Math.max(0, Math.min(1, (window.scrollY - sectionTop) / scrollable));
+    };
+
+    const update = () => {
+      if (isMobile()) return;
+      const progress = getProgress();
+      const translateX = progress * maxTranslate;
+      track.style.transform = `translate3d(${-translateX}px, 0, 0)`;
+
+      const centerX = window.innerWidth / 2;
+      cards.forEach((card) => {
+        const rect = card.getBoundingClientRect();
+        const cardCenter = rect.left + rect.width / 2;
+        const distance = Math.abs(centerX - cardCenter);
+        const normalized = Math.min(1, distance / (window.innerWidth * 0.48));
+        const scale = 0.82 + (1 - normalized) * 0.44;
+        const translateY = normalized * 18;
+        const opacity = 0.42 + (1 - normalized) * 0.58;
+
+        card.style.transform = `translateY(${translateY}px) scale(${scale})`;
+        card.style.opacity = String(opacity);
+        card.style.zIndex = String(Math.round((1 - normalized) * 100));
+      });
+    };
+
+    const setHeight = () => {
+      if (isMobile()) {
+        section.style.height = 'auto';
+        sticky.style.height = 'auto';
+        track.style.transform = 'none';
+        track.style.paddingLeft = '';
+        track.style.paddingRight = '';
+        resetCards();
+        return;
+      }
+
+      measure();
+      const stageHeight = Math.max(520, Math.min(760, Math.round(window.innerHeight * 0.8)));
+      section.style.height = `${stageHeight + maxTranslate}px`;
+      sticky.style.height = `${stageHeight}px`;
+      update();
+    };
+
+    const onScroll = () => {
+      if (raf) return;
+      raf = window.requestAnimationFrame(() => {
+        update();
+        raf = 0;
+      });
+    };
+
+    setHeight();
+    track.querySelectorAll('img').forEach((img) => {
+      if (!img.complete) img.addEventListener('load', setHeight, { once: true });
+    });
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', setHeight);
   }
-  if (document.readyState !== 'loading') initProcessTimeline();
-  else document.addEventListener('DOMContentLoaded', initProcessTimeline);
-  document.addEventListener('astro:page-load', initProcessTimeline);
+
+  if (document.readyState !== 'loading') initWorkReel();
+  else document.addEventListener('DOMContentLoaded', initWorkReel);
+  document.addEventListener('astro:page-load', initWorkReel);
 </script>
 
 </BaseLayout>

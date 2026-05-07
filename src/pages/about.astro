@@ -146,6 +146,85 @@ const team = [
 
 
   <!-- ═══════════════════════════════════════════
+       PROCESS TIMELINE
+       ═══════════════════════════════════════════ -->
+  <section class="page-section">
+    <div class="container max-w-6xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+        <div class="reveal">
+          <p class="section-label mb-4">How We Work</p>
+          <h2 class="text-white font-bold mb-5">
+            From Discovery to Live in Weeks
+          </h2>
+          <p class="text-text-secondary leading-relaxed">
+            Most agencies take months to ship anything meaningful.
+            We run a tight, structured process that gets you from idea to
+            production in weeks — without surprises.
+          </p>
+        </div>
+
+        <div class="process-timeline" id="process-timeline">
+          <div class="process-step" data-step>
+            <div class="psm">
+              <div class="psm-dot">01</div>
+              <div class="psm-track"><div class="psm-fill"></div></div>
+            </div>
+            <div class="psc">
+              <h3>Discovery &amp; Scoping</h3>
+              <p>We map your workflows, surface the highest-value automation opportunities, and define the exact system to build — in writing, before any code is written.</p>
+            </div>
+          </div>
+
+          <div class="process-step" data-step>
+            <div class="psm">
+              <div class="psm-dot">02</div>
+              <div class="psm-track"><div class="psm-fill"></div></div>
+            </div>
+            <div class="psc">
+              <h3>Architecture &amp; Design</h3>
+              <p>Data flows, integration points, approval logic, and system boundaries all locked down. You sign off on the design before development begins.</p>
+            </div>
+          </div>
+
+          <div class="process-step" data-step>
+            <div class="psm">
+              <div class="psm-dot">03</div>
+              <div class="psm-track"><div class="psm-fill"></div></div>
+            </div>
+            <div class="psc">
+              <h3>Build &amp; Integrate</h3>
+              <p>Full build with weekly check-ins delivered into your existing stack. Zero disruption to live operations. You see progress every week.</p>
+            </div>
+          </div>
+
+          <div class="process-step" data-step>
+            <div class="psm">
+              <div class="psm-dot">04</div>
+              <div class="psm-track"><div class="psm-fill"></div></div>
+            </div>
+            <div class="psc">
+              <h3>Test &amp; Refine</h3>
+              <p>Acceptance testing, edge cases, team training, and iteration. We don't hand off until you're confident the system works as intended.</p>
+            </div>
+          </div>
+
+          <div class="process-step" data-step>
+            <div class="psm">
+              <div class="psm-dot">05</div>
+              <div class="psm-track" style="display:none"></div>
+            </div>
+            <div class="psc">
+              <h3>Go Live &amp; Support</h3>
+              <p>Live deployment, monitoring, and ongoing support. Most systems are up, stable, and producing results within six weeks of kickoff.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
        TEAM
        ═══════════════════════════════════════════ -->
   <section class="page-section">
@@ -230,3 +309,26 @@ const team = [
   </section>
 
 </BaseLayout>
+
+<script>
+  function initProcessSteps() {
+    const steps = document.querySelectorAll<HTMLElement>('.process-step[data-step]');
+    if (!steps.length) return;
+    const obs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add('step-visible');
+            obs.unobserve(e.target);
+          }
+        });
+      },
+      { threshold: 0.25 }
+    );
+    steps.forEach((s) => obs.observe(s));
+  }
+
+  if (document.readyState !== 'loading') initProcessSteps();
+  else document.addEventListener('DOMContentLoaded', initProcessSteps);
+  document.addEventListener('astro:page-load', initProcessSteps);
+</script>
