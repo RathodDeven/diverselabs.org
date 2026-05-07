@@ -113,6 +113,41 @@ const homeProjects = [
   },
 
 ];
+
+const faqs = [
+  {
+    question: 'What is an AI agent and how is it different from a regular chatbot?',
+    answer: 'A chatbot follows scripted rules and responds to predefined inputs. An AI agent is far more capable: it understands context, reasons through multi-step problems, executes actions across tools and APIs, and completes goals autonomously. Think of a chatbot as a vending machine and an AI agent as a skilled employee who never sleeps.',
+  },
+  {
+    question: 'How does Diverse Labs customize AI systems for our specific business?',
+    answer: 'We start with a paid discovery session where we map your exact workflows, data sources, and business rules. From there, we design an AI system built specifically for your stack, not a generic template. The agent knows your products, your tone, your processes, and connects to your existing tools from day one.',
+  },
+  {
+    question: 'Do you build regular software too, like web apps and mobile apps, or only AI?',
+    answer: 'Both. Our team builds production-grade web applications, mobile apps (iOS and Android), desktop software, and AI-powered products from the ground up. We have shipped real products used by thousands of people across fintech, creator platforms, and enterprise tools.',
+  },
+  {
+    question: 'What is human-in-the-loop automation and can we control it?',
+    answer: 'Human-in-the-loop means a human reviews and approves specific actions before the AI proceeds. For example: an AI drafts a customer response and a team member approves it before it sends. We offer fully automated, human-in-the-loop, and hybrid designs; you decide which stages require human approval and which run automatically. You have total control.',
+  },
+  {
+    question: 'Will we need to replace our existing tools and systems?',
+    answer: 'No. We build on top of what you already have. Whether you use Salesforce, HubSpot, WooCommerce, Shopify, custom databases, or anything else, our AI layer integrates into your existing stack. No rip-and-replace, no disruption to current operations.',
+  },
+  {
+    question: 'How long does it take to build and deploy an AI system?',
+    answer: 'It depends on complexity. A focused AI agent (like a customer support bot) typically takes 2-4 weeks from discovery to live deployment. A multi-agent system with deep CRM integrations can take 8-12 weeks. We provide a precise timeline after the initial discovery call, with clear milestones at each stage.',
+  },
+  {
+    question: 'What industries and business types do you work with?',
+    answer: 'We work primarily with e-commerce, fintech, SaaS, and professional services companies with high-volume repetitive workflows. Customer support, lead qualification, document processing, data analysis: these are areas where automation delivers measurable ROI quickly. Company size ranges from funded startups to established enterprises.',
+  },
+  {
+    question: 'What does a typical engagement with Diverse Labs look like?',
+    answer: 'We start with a discovery session to scope the opportunity and propose a clear implementation plan with milestones. After delivery, we monitor performance and iterate weekly. Most clients see measurable results within the first 30 days of deployment, and we stay engaged to compound gains over time.',
+  },
+];
 ---
 
 <BaseLayout title={title} description={description}>
@@ -446,6 +481,25 @@ const homeProjects = [
   </section>
 
   <section class="page-section-tight">
+    <div class="container max-w-4xl mx-auto mb-16 md:mb-20 reveal">
+      <div class="mb-8 text-center">
+        <p class="section-label mb-3">FAQ</p>
+        <h2 class="text-white font-bold">Frequently Asked Questions</h2>
+      </div>
+
+      <div class="space-y-3 md:space-y-4">
+        {faqs.map((faq, i) => (
+          <details class="surface-card rounded-2xl px-5 py-4 md:px-6 md:py-5 group" open={i === 0}>
+            <summary class="list-none cursor-pointer flex items-start justify-between gap-4 text-left text-white font-semibold select-none">
+              <span>{faq.question}</span>
+              <span class="text-text-secondary transition-transform duration-300 group-open:rotate-45" aria-hidden="true">+</span>
+            </summary>
+            <p class="mt-3 md:mt-4 text-text-secondary leading-relaxed pr-2">{faq.answer}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+
     <div class="container max-w-4xl mx-auto text-center">
       <div class="surface-panel rounded-3xl p-10 md:p-16 relative overflow-hidden reveal">
         <div class="absolute inset-0 bg-[radial-gradient(ellipse_60%_60%_at_50%_100%,rgba(255,255,255,0.04),transparent)] pointer-events-none" aria-hidden="true"></div>
