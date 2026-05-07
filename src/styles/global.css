@@ -25,6 +25,17 @@ html {
   color-scheme: dark;
   scroll-behavior: smooth;
   scroll-padding-top: 100px;
+  -webkit-overflow-scrolling: touch;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-secondary);
+  line-height: 1.65;
+  position: relative;
+  overflow-x: hidden;
+  overscroll-behavior-y: none;
+  scroll-behavior: smooth;
 }
 
 /* Custom text selection */
@@ -47,15 +58,6 @@ html {
   syntax: '<angle>';
   inherits: false;
   initial-value: 180deg;
-}
-
-body {
-  background-color: var(--bg-primary);
-  color: var(--text-secondary);
-  line-height: 1.65;
-  position: relative;
-  overflow-x: hidden;
-  overscroll-behavior-y: none;
 }
 
 /* Subtle film grain texture for premium feel */
@@ -2020,5 +2022,6 @@ button, a, input, textarea, select {
   }
   .phil-compact-grid { grid-template-columns: 1fr; }
   .logo-marquee-compact { max-width: calc(100vw - 1.75rem); }
+  .logo-card { width: min(7.5rem, 35vw); }
 }
 
