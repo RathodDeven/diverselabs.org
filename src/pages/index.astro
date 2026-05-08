@@ -220,13 +220,13 @@ const faqs = [
       <div class="logo-marquee-track triple">
         {[...firstClientRow, ...firstClientRow, ...firstClientRow].map((client) => (
           client.href ? (
-            <a class="logo-card" href={client.href} target="_blank" rel="noopener noreferrer" aria-label={`Visit ${client.name}`}>
-              <img src={client.logo} alt={`${client.name} logo`} loading="lazy" decoding="async" />
+            <a class="logo-card" href={client.href} target="_blank" rel="nofollow noopener noreferrer" aria-label={`Visit ${client.name} website`}>
+              <img src={client.logo} alt={`${client.name} company logo`} loading="lazy" decoding="async" />
               <span class="logo-link-arrow" aria-hidden="true">↗</span>
             </a>
           ) : (
             <div class="logo-card">
-              <img src={client.logo} alt={`${client.name} logo`} loading="lazy" decoding="async" />
+              <img src={client.logo} alt={`${client.name} company logo`} loading="lazy" decoding="async" />
             </div>
           )
         ))}
@@ -237,13 +237,13 @@ const faqs = [
       <div class="logo-marquee-track triple reverse">
         {[...secondClientRow, ...secondClientRow, ...secondClientRow].map((client) => (
           client.href ? (
-            <a class="logo-card" href={client.href} target="_blank" rel="noopener noreferrer" aria-label={`Visit ${client.name}`}>
-              <img src={client.logo} alt={`${client.name} logo`} loading="lazy" decoding="async" />
+            <a class="logo-card" href={client.href} target="_blank" rel="nofollow noopener noreferrer" aria-label={`Visit ${client.name} website`}>
+              <img src={client.logo} alt={`${client.name} company logo`} loading="lazy" decoding="async" />
               <span class="logo-link-arrow" aria-hidden="true">↗</span>
             </a>
           ) : (
             <div class="logo-card">
-              <img src={client.logo} alt={`${client.name} logo`} loading="lazy" decoding="async" />
+              <img src={client.logo} alt={`${client.name} company logo`} loading="lazy" decoding="async" />
             </div>
           )
         ))}
@@ -254,13 +254,13 @@ const faqs = [
       <div class="logo-marquee-track triple">
         {[...thirdClientRow, ...thirdClientRow, ...thirdClientRow].map((client) => (
           client.href ? (
-            <a class="logo-card" href={client.href} target="_blank" rel="noopener noreferrer" aria-label={`Visit ${client.name}`}>
-              <img src={client.logo} alt={`${client.name} logo`} loading="lazy" decoding="async" />
+            <a class="logo-card" href={client.href} target="_blank" rel="nofollow noopener noreferrer" aria-label={`Visit ${client.name} website`}>
+              <img src={client.logo} alt={`${client.name} company logo`} loading="lazy" decoding="async" />
               <span class="logo-link-arrow" aria-hidden="true">↗</span>
             </a>
           ) : (
             <div class="logo-card">
-              <img src={client.logo} alt={`${client.name} logo`} loading="lazy" decoding="async" />
+              <img src={client.logo} alt={`${client.name} company logo`} loading="lazy" decoding="async" />
             </div>
           )
         ))}
