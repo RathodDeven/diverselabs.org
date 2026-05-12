@@ -16,6 +16,18 @@
     private startTime: number = Date.now();
     private mousePos: [number, number] = [0.5, 0.5];
     private animationFrame: number | null = null;
+    private onMouseMove = (e: MouseEvent) => {
+      this.mousePos = [e.clientX / window.innerWidth, 1.0 - e.clientY / window.innerHeight];
+    };
+    private onTouchMove = (e: TouchEvent) => {
+      if (e.touches.length > 0) {
+        const touch = e.touches[0];
+        this.mousePos = [touch.clientX / window.innerWidth, 1.0 - touch.clientY / window.innerHeight];
+      }
+    };
+    private onResize = () => {
+      this.resizeCanvas();
+    };
 
     connectedCallback() {
       this.init();
@@ -166,23 +178,9 @@
     }
 
     private setupEventListeners() {
-      // Mouse tracking
-      document.addEventListener('mousemove', (e) => {
-        this.mousePos = [e.clientX / window.innerWidth, 1.0 - e.clientY / window.innerHeight];
-      });
-
-      // Touch tracking
-      document.addEventListener('touchmove', (e) => {
-        if (e.touches.length > 0) {
-          const touch = e.touches[0];
-          this.mousePos = [touch.clientX / window.innerWidth, 1.0 - touch.clientY / window.innerHeight];
-        }
-      });
-
-      // Resize handler
-      window.addEventListener('resize', () => {
-        this.resizeCanvas();
-      });
+      document.addEventListener('mousemove', this.onMouseMove);
+      document.addEventListener('touchmove', this.onTouchMove);
+      window.addEventListener('resize', this.onResize);
     }
 
     private resizeCanvas() {
@@ -243,6 +241,9 @@
       if (this.animationFrame) {
         cancelAnimationFrame(this.animationFrame);
       }
+      document.removeEventListener('mousemove', this.onMouseMove);
+      document.removeEventListener('touchmove', this.onTouchMove);
+      window.removeEventListener('resize', this.onResize);
     }
   }
 
