@@ -24,7 +24,7 @@ npm run build
 npm run preview
 ```
 
-The site will be available at `http://localhost:3000` for development or in the `dist/` folder after building.
+The site will be available at `http://localhost:4321` for development (Astro default) or in the `dist/` folder after building.
 
 ## Project Structure
 
@@ -111,9 +111,7 @@ export default defineConfig({
 ```
 
 ### Tailwind CSS
-Custom theme in `tailwind.config.mjs`:
-- Extended color palette (dark theme)
-- Utility extensions
+This project uses Tailwind CSS v4 via the Vite plugin in `astro.config.mjs`.
 
 ### Environment Variables
 Create a `.env` file only if you want Google Analytics:
@@ -134,7 +132,7 @@ PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXX
 Set these in Cloudflare Pages:
 - **Build command:** `npm run build`
 - **Build output directory:** `dist`
-- **Node.js version:** 20.x LTS
+- **Node.js version:** 22.12.0+
 
 ### Step 3: Domain Configuration
 1. Add custom domain in Cloudflare Pages
@@ -187,9 +185,7 @@ Edit `src/components/BackgroundShader.astro`:
 - Mouse tracking (lines 195-205)
 
 ### Adding Analytics
-Uncomment in `src/layouts/BaseLayout.astro`:
-- Google Analytics script tag
-- Add your GA4 measurement ID
+Google Analytics is conditionally enabled in `src/layouts/BaseLayout.astro` when `PUBLIC_GA_MEASUREMENT_ID` is set.
 
 ## TypeScript
 
