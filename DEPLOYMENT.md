@@ -36,6 +36,8 @@ Required GitHub Secrets:
 Deployment command pattern:
 - `npx wrangler pages deploy dist --project-name=<project-name>`
 
+If your CI environment deploys with `npx wrangler versions upload`, keep a root `wrangler.jsonc` with an `assets.directory` pointing at `./dist` so Wrangler can upload static assets without requiring a Worker entrypoint.
+
 ## Environment Variables on Cloudflare Pages
 For this site, env vars are optional.
 

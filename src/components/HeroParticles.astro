@@ -48,7 +48,8 @@
     }
 
     resize();
-    window.addEventListener('resize', resize, { passive: true });
+    const onResize = () => resize();
+    window.addEventListener('resize', onResize, { passive: true });
 
     const count = Math.min(65, Math.max(30, Math.floor((W * H) / 12000)));
     const pts = Array.from({ length: count }, () => ({
@@ -59,14 +60,15 @@
       r: Math.random() * 1.0 + 0.5,
     }));
 
-    window.addEventListener('mousemove', (e: MouseEvent) => {
+    const onMouseMove = (e: MouseEvent) => {
       if (!section) return;
       const r = section.getBoundingClientRect();
       if (e.clientY >= r.top && e.clientY <= r.bottom) {
         mx = e.clientX - r.left;
         my = e.clientY - r.top;
       } else { mx = -9999; my = -9999; }
-    }, { passive: true });
+    };
+    window.addEventListener('mousemove', onMouseMove, { passive: true });
 
     const CONN = 140, REP = 100, ATTRACT = 180;
 
@@ -137,8 +139,15 @@
       requestAnimationFrame(frame);
     }
 
+    const cleanup = () => {
+      alive = false;
+      window.removeEventListener('resize', onResize);
+      window.removeEventListener('mousemove', onMouseMove);
+      document.removeEventListener('astro:before-swap', cleanup);
+    };
+
     requestAnimationFrame(() => { canvas.style.opacity = '0.45'; });
     frame();
-    document.addEventListener('astro:before-swap', () => { alive = false; });
+    document.addEventListener('astro:before-swap', cleanup);
   })();
 </script>
