@@ -54,12 +54,11 @@ const projects = [
 ];
 
 const aiVideos = [
-  { id: '1A9ZSrxl860w_nW0qSBR_oWUTNuu3Kfik', label: 'UGC Short Content' },
-  { id: '1h5HPTR_rTX9d-9oq9Ox7s0DFO2EasOWA', label: 'Product Promo'},
-  { id: '1rrbyfSE6qBxcBD5FKM_g4eCZMRS4aTVl', label: 'Fashion Promo'},
-  { id: '1WgdKZACOZzi2OPLEWGs7DxTjmdQ8g6xp', label: 'Product Reel'},
-  { id: '1dHUER8jPZu7qvdFSevkucamULVCzHo43', label: 'Luxury Brand'},
-  { id: '1lG1EaJ-p2ANU7mRw3brMsn_vZb0WOBOm', label: 'Lifestyle Promo'},
+  { id: '4Ekp3bFrF1M', label: 'Aguanea Can Showcase | AD Creative' },
+  { id: 'SWuk4UW41gw', label: 'Fendi Boots AI Timelapse | AD Creative' },
+  { id: 't_nK3JmUjNk', label: 'UGC Content with SFX and Overlay' },
+  { id: 'zHxz5vNCBkQ', label: 'YSL | Luxury Product Showcase' },
+  { id: 'ChPllafoxew', label: 'Katmaconie Heels AD Reel UGC' },
 ];
 ---
 
@@ -158,9 +157,9 @@ const aiVideos = [
             <div class="ai-video-card">
               <div class="ai-video-embed">
                 <iframe
-                  src={`https://drive.google.com/file/d/${v.id}/preview`}
+                  src={`https://www.youtube.com/embed/${v.id}?rel=0&playsinline=1`}
                   title={v.label}
-                  allow="autoplay; fullscreen"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowfullscreen
                   loading="lazy"
                 ></iframe>
