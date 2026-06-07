@@ -7,7 +7,7 @@ No. Not in the current setup.
 
 - No Pages Functions are used.
 - No Worker runtime code is required.
-- `team@diverselabs.org` is currently display/contact info only.
+- `deven@diverselabs.org` is currently display/contact info only.
 
 ## Recommended Deployment (Built-in Git CI/CD)
 This is the simplest and preferred option.

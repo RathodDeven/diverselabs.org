@@ -6,7 +6,7 @@
 - Output mode: Static site
 - Deploy target: Cloudflare Pages (Git integration)
 - Primary CTA: https://cal.com/diverselabs/30min
-- Secondary contact: team@diverselabs.org
+- Secondary contact: deven@diverselabs.org
 
 ## Core Product Intent
 - Premium monochrome agency website

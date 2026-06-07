@@ -97,7 +97,7 @@ The site will be available at `http://localhost:4321` for development (Astro def
 - Identify automation opportunities
 
 ### Secondary Contact
-**Email** - team@diverselabs.org
+**Email** - deven@diverselabs.org
 
 ## Configuration
 
