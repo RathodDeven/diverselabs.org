@@ -1,0 +1,12 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import WorkShowcase from '../../components/WorkShowcase.astro';
+
+const title = 'AI Creatives | Diverse Labs: AI-Generated Ads & UGC Videos';
+const description = 'AI-generated ad creatives and UGC videos by Diverse Labs: photorealistic avatars, natural voices, product showcases, and brand-aligned campaigns.';
+const keywords = 'AI creatives, AI video ads, AI UGC videos, AI-generated ads, product showcase videos, Diverse Labs AI creatives';
+---
+
+<BaseLayout title={title} description={description} keywords={keywords} image="/work/ai-creatives-thumbnail.png">
+  <WorkShowcase activeTab="ai-creatives" />
+</BaseLayout>
