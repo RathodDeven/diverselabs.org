@@ -66,6 +66,10 @@ const aiVideos = [
   { id: 't_nK3JmUjNk', label: 'UGC Content with SFX and Overlay' },
   { id: 'zHxz5vNCBkQ', label: 'YSL | Luxury Product Showcase' },
   { id: 'ChPllafoxew', label: 'Katmaconie Heels AD Reel UGC' },
+  { id: 'JbL9I818dAk', label: 'Self Care UGC AD' },
+  { id: '0KipJOs6H-c', label: 'Kitchen Utensil with a Catchy Hook | AD Creative' },
+  { id: '08PTaNOymAk', label: 'Cosmetic UGC with Product Showcase | UGC' },
+  { id: 'Os6CygUjs_4', label: 'Sports Boots Showcase AD' },
 ];
 ---
 
@@ -87,6 +91,7 @@ const aiVideos = [
           role="tab"
           aria-selected={String(isAllActive)}
           href="/work"
+          data-work-tab="all"
         >
           All Projects
         </a>
@@ -95,6 +100,7 @@ const aiVideos = [
           role="tab"
           aria-selected={String(isAiCreativesActive)}
           href="/work/ai-creatives"
+          data-work-tab="ai-creatives"
         >
           AI Creatives
         </a>
@@ -103,8 +109,11 @@ const aiVideos = [
   </div>
 </section>
 
-{isAllActive && (
-  <section class="page-section">
+<section
+  class="page-section work-panel"
+  data-work-panel="all"
+  hidden={!isAllActive}
+>
     <div class="container">
       <div class="proj-list">
         {projects.map((project, i) => (
@@ -142,11 +151,13 @@ const aiVideos = [
         ))}
       </div>
     </div>
-  </section>
-)}
+</section>
 
-{isAiCreativesActive && (
-  <section class="page-section-tight">
+<section
+  class="page-section-tight work-panel"
+  data-work-panel="ai-creatives"
+  hidden={!isAiCreativesActive}
+>
     <div class="container">
       <div class="section-head" data-reveal>
         <div>
@@ -173,8 +184,68 @@ const aiVideos = [
         ))}
       </div>
     </div>
-  </section>
-)}
+</section>
+
+<script>
+  // Tab switching swaps panels in place — no page navigation, no re-render
+  function initWorkTabs() {
+    const tabs = document.querySelectorAll<HTMLAnchorElement>('[data-work-tab]');
+    const panels = document.querySelectorAll<HTMLElement>('[data-work-panel]');
+    if (!tabs.length || !panels.length) return;
+
+    const titles: Record<string, string> = {
+      all: 'Our Work | Diverse Labs: AI Systems & Products in Production',
+      'ai-creatives': 'AI Creatives | Diverse Labs: AI-Generated Ads & UGC Videos',
+    };
+
+    const activate = (key: string) => {
+      tabs.forEach((tab) => {
+        const on = tab.dataset.workTab === key;
+        tab.classList.toggle('active', on);
+        tab.setAttribute('aria-selected', String(on));
+      });
+      panels.forEach((panel) => {
+        const on = panel.dataset.workPanel === key;
+        if (on && panel.hidden) {
+          panel.hidden = false;
+          // Reveal animations may have initialized while hidden — force visible
+          panel
+            .querySelectorAll<HTMLElement>('[data-reveal], [data-reveal-group] > *')
+            .forEach((el) => {
+              el.style.opacity = '1';
+              el.style.transform = 'none';
+            });
+          panel.classList.remove('panel-in');
+          void panel.offsetWidth;
+          panel.classList.add('panel-in');
+        } else if (!on) {
+          panel.hidden = true;
+        }
+      });
+      if (titles[key]) document.title = titles[key];
+      // Layout changed under pinned/scrubbed sections — let ScrollTrigger re-measure
+      window.dispatchEvent(new Event('resize'));
+    };
+
+    tabs.forEach((tab) => {
+      if (tab.dataset.bound) return;
+      tab.dataset.bound = 'true';
+      tab.addEventListener('click', (e) => {
+        if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
+        e.preventDefault();
+        const key = tab.dataset.workTab!;
+        activate(key);
+        // Keep the URL shareable without creating history entries or
+        // disturbing Astro's router state
+        history.replaceState(history.state, '', tab.href);
+      });
+    });
+  }
+
+  document.addEventListener('astro:page-load', initWorkTabs);
+  if (document.readyState !== 'loading') initWorkTabs();
+  else document.addEventListener('DOMContentLoaded', initWorkTabs);
+</script>
 
 <!-- CTA -->
 <section class="page-section-tight pb-24">

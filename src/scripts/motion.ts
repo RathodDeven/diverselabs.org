@@ -217,12 +217,24 @@ function initMarquees() {
   let skew = 0;
 
   const items = Array.from(tapes).map((tape) => ({
+    tape,
     track: tape.querySelector<HTMLElement>('[data-marquee-track]'),
     dir: tape.dataset.direction === 'right' ? 1 : -1,
     speed: parseFloat(tape.dataset.speed || '1'),
     skews: tape.dataset.skew !== 'false',
     pos: 0,
+    visible: true,
   }));
+
+  // Don't pay for tapes that aren't on screen
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      const item = items.find((it) => it.tape === entry.target);
+      if (item) item.visible = entry.isIntersecting;
+    });
+  });
+  items.forEach((it) => io.observe(it.tape));
+  onCleanup(() => io.disconnect());
 
   let lastTime = performance.now();
   const tick = () => {
@@ -239,7 +251,7 @@ function initMarquees() {
     skew += (gsap.utils.clamp(-5, 5, signed * 0.0035) - skew) * 0.08;
 
     items.forEach((it) => {
-      if (!it.track) return;
+      if (!it.track || !it.visible) return;
       it.pos += (5.2 * it.speed + boost) * dt * it.dir;
       if (it.pos <= -50) it.pos += 50;
       if (it.pos >= 0) it.pos -= 50;
@@ -411,6 +423,27 @@ function initProcess() {
 }
 
 /* ────────────────────────────────────────────────────────────
+   Service mockup scenes — pause CSS loops while offscreen
+   ──────────────────────────────────────────────────────────── */
+function initMockupPause() {
+  const mockups = document.querySelectorAll<HTMLElement>('.svc-mockup');
+  if (!mockups.length) return;
+  const io = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        (entry.target as HTMLElement).classList.toggle(
+          'sm-paused',
+          !entry.isIntersecting
+        );
+      });
+    },
+    { rootMargin: '80px' }
+  );
+  mockups.forEach((m) => io.observe(m));
+  onCleanup(() => io.disconnect());
+}
+
+/* ────────────────────────────────────────────────────────────
    Magnetic buttons
    ──────────────────────────────────────────────────────────── */
 function initMagnetic() {
@@ -433,28 +466,20 @@ function initMagnetic() {
 }
 
 /* ────────────────────────────────────────────────────────────
-   Nav — condensed after scroll, hides down / shows up
+   Nav — condensed pill after scroll, always visible
    ──────────────────────────────────────────────────────────── */
 function initNav() {
   const nav = document.getElementById('site-nav');
   if (!nav) return;
-  let lastY = window.scrollY;
   let raf = 0;
   const onScroll = () => {
     if (raf) return;
     raf = requestAnimationFrame(() => {
-      const y = window.scrollY;
-      nav.classList.toggle('nav-scrolled', y > 40);
-      const menuOpen = document.body.classList.contains('menu-open');
-      nav.classList.toggle(
-        'nav-hidden',
-        !menuOpen && y > 320 && y > lastY + 4
-      );
-      if (y < lastY - 4) nav.classList.remove('nav-hidden');
-      lastY = y;
+      nav.classList.toggle('nav-scrolled', window.scrollY > 40);
       raf = 0;
     });
   };
+  onScroll();
   window.addEventListener('scroll', onScroll, { passive: true });
   onCleanup(() => window.removeEventListener('scroll', onScroll));
 }
@@ -495,7 +520,7 @@ function showEverything() {
     );
 }
 
-function initMotion() {
+function initMotion(replayEnter = true) {
   cleanupFns.forEach((fn) => fn());
   cleanupFns = [];
   ScrollTrigger.getAll().forEach((t) => t.kill());
@@ -506,7 +531,7 @@ function initMotion() {
   }
 
   setupLenis();
-  pageEnter();
+  if (replayEnter) pageEnter();
   initNav();
   initSplits();
   initReveals();
@@ -517,6 +542,7 @@ function initMotion() {
   initReel();
   initScrubText();
   initProcess();
+  initMockupPause();
   initMagnetic();
 
   ScrollTrigger.refresh();
@@ -524,7 +550,13 @@ function initMotion() {
 }
 
 // astro:page-load fires on first load AND after every view transition
-document.addEventListener('astro:page-load', initMotion);
+document.addEventListener('astro:page-load', () => initMotion());
+
+// Desktop-only effects (pinned reel, parallax, stacks) are skipped when the
+// page loads narrow — re-init if the window later crosses the breakpoint
+window
+  .matchMedia('(min-width: 900px)')
+  .addEventListener('change', () => initMotion(false));
 // Safety net if ClientRouter is ever removed
 if (document.readyState !== 'loading') {
   setTimeout(() => {

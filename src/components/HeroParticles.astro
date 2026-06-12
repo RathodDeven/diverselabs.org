@@ -34,6 +34,7 @@
 
     const section = canvas.parentElement;
     let W = 0, H = 0, mx = -9999, my = -9999, alive = true;
+    let visible = true, rafQueued = false;
 
     function resize() {
       if (!section) return;
@@ -61,7 +62,7 @@
     }));
 
     const onMouseMove = (e: MouseEvent) => {
-      if (!section) return;
+      if (!section || !visible) return;
       const r = section.getBoundingClientRect();
       if (e.clientY >= r.top && e.clientY <= r.bottom) {
         mx = e.clientX - r.left;
@@ -70,10 +71,21 @@
     };
     window.addEventListener('mousemove', onMouseMove, { passive: true });
 
+    // Stop simulating entirely once the hero scrolls out of view
+    const io = new IntersectionObserver((entries) => {
+      visible = entries[0].isIntersecting;
+      if (visible && alive && !rafQueued) {
+        rafQueued = true;
+        requestAnimationFrame(frame);
+      }
+    });
+    if (section) io.observe(section);
+
     const CONN = 140, REP = 100, ATTRACT = 180;
 
     function frame() {
-      if (!alive) return;
+      rafQueued = false;
+      if (!alive || !visible) return;
       ctx.clearRect(0, 0, W, H);
 
       for (const p of pts) {
@@ -136,18 +148,21 @@
           }
         }
       }
+      rafQueued = true;
       requestAnimationFrame(frame);
     }
 
     const cleanup = () => {
       alive = false;
+      io.disconnect();
       window.removeEventListener('resize', onResize);
       window.removeEventListener('mousemove', onMouseMove);
       document.removeEventListener('astro:before-swap', cleanup);
     };
 
     requestAnimationFrame(() => { canvas.style.opacity = '0.45'; });
-    frame();
+    rafQueued = true;
+    requestAnimationFrame(frame);
     document.addEventListener('astro:before-swap', cleanup);
   })();
 </script>

@@ -83,7 +83,7 @@ const homeProjects = [
   },
   {
     name: 'AI Creatives',
-    image: '/work/ai-creatives-thumbnail.png',
+    image: '/work/ai-creatives-thumbnail.webp',
     href: '/work/ai-creatives',
     tags: ['AI video', 'UGC'],
     description: 'Photorealistic AI video ads and UGC content, produced for brands at speed.',
@@ -123,35 +123,35 @@ const tapeWords = ['AI Agents', 'Automation', 'AI Video', 'Web & Mobile', 'Data 
 const faqs = [
   {
     question: 'What is an AI agent and how is it different from a regular chatbot?',
-    answer: 'A chatbot follows scripted rules and responds to predefined inputs. An AI agent understands context, reasons through multi-step problems, executes actions across tools and APIs, and completes goals autonomously. Think of a chatbot as a vending machine and an AI agent as a skilled employee who never sleeps.',
+    answer: 'A chatbot follows scripts. An AI agent understands context, reasons through multi-step problems, and takes real actions across your tools — a vending machine versus a skilled employee who never sleeps.',
   },
   {
     question: 'How does Diverse Labs customize AI systems for our specific business?',
-    answer: 'We start with a free discovery session where we map your exact workflows, data sources, and business rules. From there, we design an AI solution built specifically for your stack, not a generic template. The agent knows your products, your tone, your processes, and connects to your existing tools from day one.',
+    answer: 'A free discovery session maps your workflows, data, and business rules. Then we build for your exact stack — your products, your tone, your tools — never a generic template.',
   },
   {
     question: 'Do you build regular software too, or only AI?',
-    answer: 'Both. Our team builds production-grade web applications, mobile apps (iOS and Android), desktop software, and AI-powered products from the ground up. We have shipped real products used by thousands of people across fintech, creator platforms, and enterprise tools.',
+    answer: 'Both. We ship production-grade web, mobile, and desktop products from the ground up — used by thousands of people across fintech, creator platforms, and enterprise tools.',
   },
   {
     question: 'What is human-in-the-loop automation and can we control it?',
-    answer: 'Human-in-the-loop means a human reviews and approves specific actions before the AI proceeds. We offer fully automated, human-in-the-loop, and hybrid designs; you decide which stages require human approval and which run automatically. You have total control.',
+    answer: 'A human approves specific actions before the AI proceeds. Fully automated, human-in-the-loop, or hybrid — you decide which stages need approval. Total control.',
   },
   {
     question: 'Will we need to replace our existing tools and systems?',
-    answer: 'No. We build on top of what you already have. Whether you use Salesforce, HubSpot, Shopify, custom databases, or anything else, our AI layer integrates into your existing stack. No rip-and-replace, no disruption to current operations.',
+    answer: 'No. Salesforce, HubSpot, Shopify, custom databases — whatever you run stays. Our AI layer integrates on top, with zero disruption to current operations.',
   },
   {
     question: 'How long does it take to build and deploy an AI system?',
-    answer: 'A focused AI agent typically takes 2-4 weeks from discovery to live deployment. A multi-agent system with deep CRM integrations can take 8-12 weeks. We provide a precise timeline after the initial discovery call, with clear milestones at each stage.',
+    answer: 'A focused AI agent: 2–4 weeks from discovery to live. Multi-agent systems with deep integrations: 8–12 weeks. You get a precise milestone timeline after the discovery call.',
   },
   {
     question: 'What industries and business types do you work with?',
-    answer: 'We work primarily with e-commerce, fintech, SaaS, and professional services companies with high-volume repetitive workflows. Company size ranges from funded startups to established enterprises.',
+    answer: 'Mainly e-commerce, fintech, SaaS, and professional services with high-volume repetitive workflows — from funded startups to established enterprises.',
   },
   {
     question: 'What does a typical engagement look like?',
-    answer: 'We start with a discovery session to scope the opportunity and propose a clear implementation plan with milestones. After delivery, we monitor performance and iterate weekly. Most clients see measurable results within the first 30 days of deployment.',
+    answer: 'Discovery call → scoped plan with milestones → build and deliver → weekly iteration. Most clients see measurable results within the first 30 days.',
   },
 ];
 ---
@@ -324,11 +324,13 @@ const faqs = [
                       <div class="sm-bar">
                         <span class="sm-dot"></span><span class="sm-dot"></span><span class="sm-dot"></span>
                         <span class="sm-bar-title">Support Agent</span>
+                        <span class="sm-live"><span class="sm-live-dot"></span>Live</span>
                       </div>
                       <div class="sm-chat">
-                        <div class="sm-bubble sm-user" style="animation-delay:0.4s">Hi, where is my order?</div>
-                        <div class="sm-typing" style="animation-delay:0.9s"><span></span><span></span><span></span></div>
-                        <div class="sm-bubble sm-bot" style="animation-delay:1.6s">Your order #4821 ships tomorrow. I've sent tracking to your email.</div>
+                        <div class="sm-bubble sm-user sm-w1">Hi, where is my order?</div>
+                        <div class="sm-typing sm-wty"><span></span><span></span><span></span></div>
+                        <div class="sm-bubble sm-bot sm-w3">Order #4821 ships tomorrow — tracking sent to your email.</div>
+                        <div class="sm-pill sm-w4">✓ Resolved &nbsp;·&nbsp; CRM updated</div>
                       </div>
                     </div>
                   )}
@@ -341,17 +343,25 @@ const faqs = [
                       <div class="sm-pipeline">
                         <div class="sm-col">
                           <div class="sm-col-hdr">New</div>
-                          <div class="sm-card" style="animation-delay:0.3s">Acme Corp</div>
-                          <div class="sm-card" style="animation-delay:0.5s">TechStart</div>
+                          <div class="sm-card sm-card-dim">TechStart</div>
                         </div>
                         <div class="sm-col">
                           <div class="sm-col-hdr">Qualified</div>
-                          <div class="sm-card sm-card-hot" style="animation-delay:0.7s">Globex Inc</div>
+                          <div class="sm-card sm-card-dim">Initech</div>
                         </div>
                         <div class="sm-col">
                           <div class="sm-col-hdr">Closing</div>
-                          <div class="sm-card" style="animation-delay:0.9s">Initech</div>
+                          <div class="sm-card sm-card-dim">Globex</div>
                         </div>
+                        <div class="sm-traveler" aria-hidden="true">
+                          <span class="sm-trav-name">Acme Corp</span>
+                          <span class="sm-score">
+                            <i class="sm-s1">54</i><i class="sm-s2">82</i><i class="sm-s3">96</i>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="sm-foot">
+                        <span class="sm-pill sm-w5">⚡ Follow-up sent automatically</span>
                       </div>
                     </div>
                   )}
@@ -361,14 +371,23 @@ const faqs = [
                         <span class="sm-dot"></span><span class="sm-dot"></span><span class="sm-dot"></span>
                         <div class="sm-search-bar-wrap">
                           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-                          <span>refund policy Q3</span>
+                          <span class="sm-typeq">refund policy Q3</span>
                         </div>
                       </div>
-                      <div class="sm-imgrid">
-                        <div class="sm-imgbox sm-imgbox-hl" style="animation-delay:0.3s"></div>
-                        <div class="sm-imgbox" style="animation-delay:0.5s"></div>
-                        <div class="sm-imgbox" style="animation-delay:0.7s"></div>
-                        <div class="sm-imgbox" style="animation-delay:0.9s"></div>
+                      <div class="sm-results">
+                        <div class="sm-doc sm-doc-hl sm-w2">
+                          <svg class="sm-doc-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+                          <span class="sm-doc-name">refund-policy-v3.pdf</span>
+                          <span class="sm-rel"><i class="sm-rel-fill sm-fill-a" style="--w:92%"></i></span>
+                          <span class="sm-doc-pct">92%</span>
+                        </div>
+                        <div class="sm-doc sm-w2a">
+                          <svg class="sm-doc-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+                          <span class="sm-doc-name">billing-faq.md</span>
+                          <span class="sm-rel"><i class="sm-rel-fill sm-fill-a" style="--w:74%"></i></span>
+                          <span class="sm-doc-pct">81%</span>
+                        </div>
+                        <div class="sm-answer sm-w4">→ Refunds are processed within 5 business days.</div>
                       </div>
                     </div>
                   )}
@@ -377,12 +396,25 @@ const faqs = [
                       <div class="sm-bar">
                         <span class="sm-dot"></span><span class="sm-dot"></span><span class="sm-dot"></span>
                         <span class="sm-bar-title">AI Creative Studio</span>
+                        <span class="sm-live sm-rec"><span class="sm-live-dot"></span>REC</span>
                       </div>
-                      <div class="sm-player">
-                        <div class="sm-video-frame">
-                          <div class="sm-play-btn"><div class="sm-play-icon"></div></div>
+                      <div class="sm-studio">
+                        <div class="sm-script sm-w1">“Meet the serum your skin has been waiting for…”</div>
+                        <div class="sm-stage sm-w2">
+                          <div class="sm-avatar" aria-hidden="true">
+                            <span class="sm-avatar-head"></span>
+                            <span class="sm-avatar-body"></span>
+                          </div>
+                          <div class="sm-wave" aria-hidden="true">
+                            <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+                          </div>
                         </div>
-                        <div class="sm-progress-bar"><div class="sm-progress-fill"></div></div>
+                        <div class="sm-render">
+                          <div class="sm-render-bar"><div class="sm-render-fill"></div></div>
+                          <span class="sm-render-lbl">
+                            <i class="sm-r1">Rendering 4K…</i><i class="sm-r2">✓ Ready to publish</i>
+                          </span>
+                        </div>
                       </div>
                     </div>
                   )}
@@ -393,10 +425,23 @@ const faqs = [
                         <span class="sm-bar-title">Query Engine</span>
                       </div>
                       <div class="sm-terminal">
-                        <div class="sm-cmd" style="animation-delay:0.3s">$ ask "revenue by region last 90d"</div>
-                        <div class="sm-out" style="animation-delay:0.9s">Running SQL… 1,240ms</div>
-                        <div class="sm-out" style="animation-delay:1.4s">North: $84k · South: $61k · West: $102k</div>
-                        <div class="sm-caret" style="animation-delay:1.9s">▌</div>
+                        <div class="sm-cmd"><span class="sm-typecmd">$ ask "revenue by region last 90d"</span></div>
+                        <div class="sm-sql sm-w3">→ SELECT region, SUM(total) FROM orders …</div>
+                        <div class="sm-rrow sm-w4">
+                          <span class="sm-rlbl">West</span>
+                          <span class="sm-rbar"><i class="sm-fill-b" style="--w:88%"></i></span>
+                          <span class="sm-rval">$102k</span>
+                        </div>
+                        <div class="sm-rrow sm-w4a">
+                          <span class="sm-rlbl">North</span>
+                          <span class="sm-rbar"><i class="sm-fill-b" style="--w:70%"></i></span>
+                          <span class="sm-rval">$84k</span>
+                        </div>
+                        <div class="sm-rrow sm-w4b">
+                          <span class="sm-rlbl">South</span>
+                          <span class="sm-rbar"><i class="sm-fill-b" style="--w:52%"></i></span>
+                          <span class="sm-rval">$61k</span>
+                        </div>
                       </div>
                     </div>
                   )}
@@ -407,12 +452,19 @@ const faqs = [
                         <span class="sm-bar-title">Forecast Model</span>
                       </div>
                       <div class="sm-chart">
-                        <div class="sm-bar-v" style="height:38px; animation-delay:0.3s"></div>
-                        <div class="sm-bar-v" style="height:58px; animation-delay:0.45s"></div>
-                        <div class="sm-bar-v" style="height:48px; animation-delay:0.6s"></div>
-                        <div class="sm-bar-v sm-bar-v-hi" style="height:80px; animation-delay:0.75s"></div>
-                        <div class="sm-bar-v" style="height:66px; animation-delay:0.9s"></div>
-                        <div class="sm-bar-v sm-bar-v-hi" style="height:94px; animation-delay:1.05s"></div>
+                        <div class="sm-chart-cols" aria-hidden="true">
+                          <div class="sm-bar-v" style="height:34px"></div>
+                          <div class="sm-bar-v" style="height:50px"></div>
+                          <div class="sm-bar-v" style="height:44px"></div>
+                          <div class="sm-bar-v" style="height:64px"></div>
+                          <div class="sm-bar-v sm-bar-fc" style="height:78px"></div>
+                          <div class="sm-bar-v sm-bar-fc" style="height:92px"></div>
+                        </div>
+                        <div class="sm-chart-lbls" aria-hidden="true">
+                          <span>Q1</span><span>Q2</span><span>Q3</span><span>Q4</span>
+                          <span class="sm-lbl-fc">Q1'</span><span class="sm-lbl-fc">Q2'</span>
+                        </div>
+                        <span class="sm-pill sm-chart-pill sm-w4">↑ 23% forecast</span>
                       </div>
                     </div>
                   )}

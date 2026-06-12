@@ -132,10 +132,18 @@ const steps = [
         <div class="lg:sticky lg:top-32">
           <p class="label mb-4" data-reveal>How we work</p>
           <h2 data-split>From discovery to live in weeks</h2>
-          <p class="mt-5 max-w-md" data-reveal data-reveal-delay="0.2">
-            A tight, structured process that gets you from idea to production
-            without surprises.
-          </p>
+
+          <div class="gantt" data-reveal data-reveal-delay="0.2" aria-hidden="true">
+            <div class="gantt-weeks">
+              <span>W1</span><span>W2</span><span>W3</span><span>W4</span><span>W5</span><span>W6</span>
+            </div>
+            <div class="gantt-row"><span class="gantt-lbl">Discover</span><span class="gantt-bar" style="--s:0; --e:1"></span></div>
+            <div class="gantt-row"><span class="gantt-lbl">Design</span><span class="gantt-bar" style="--s:1; --e:2"></span></div>
+            <div class="gantt-row"><span class="gantt-lbl">Build</span><span class="gantt-bar" style="--s:2; --e:4.5"></span></div>
+            <div class="gantt-row"><span class="gantt-lbl">Test</span><span class="gantt-bar" style="--s:4; --e:5"></span></div>
+            <div class="gantt-row"><span class="gantt-lbl">Live</span><span class="gantt-bar gantt-bar-live" style="--s:5; --e:6"></span></div>
+          </div>
+
           <div class="mt-8" data-reveal data-reveal-delay="0.3">
             <a href="https://cal.com/diverselabs/30min" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
               Start with a call
