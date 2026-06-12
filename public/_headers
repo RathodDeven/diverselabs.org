@@ -14,15 +14,15 @@
   ! Cache-Control
   Cache-Control: public, max-age=31536000, immutable
 
-# Unhashed media — replaced in place occasionally, refresh daily
-/*.png
-/*.jpg
-/*.jpeg
-/*.gif
-/*.webp
-/*.avif
-/*.svg
-/*.ico
-/*.mp4
+# Unhashed media directories — replaced in place occasionally, refresh daily
+/work/*
+  ! Cache-Control
+  Cache-Control: public, max-age=86400
+
+/people/*
+  ! Cache-Control
+  Cache-Control: public, max-age=86400
+
+/companies/*
   ! Cache-Control
   Cache-Control: public, max-age=86400
