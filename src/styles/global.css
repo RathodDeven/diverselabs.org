@@ -342,11 +342,14 @@ body.menu-open .nav-inner {
               box-shadow 0.4s ease, padding 0.4s ease;
 }
 #site-nav.nav-scrolled .nav-inner {
-  background: rgba(8, 8, 8, 0.72);
-  border-color: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
+  /* Lifted above the near-black page (#080808) so the pill reads as a
+     distinct surface; brighter hairline border defines its edge */
+  background: rgba(24, 24, 27, 0.82);
+  border-color: rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(20px) saturate(1.4);
+  -webkit-backdrop-filter: blur(20px) saturate(1.4);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.55),
+              inset 0 1px 0 rgba(255, 255, 255, 0.06);
   padding: 0.6rem 1.5rem;
 }
 
