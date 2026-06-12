@@ -8,8 +8,9 @@ const keywords = 'about Diverse Labs, AI agency, software development company, A
 const team = [
   {
     name: 'Deven Rathod',
+    role: 'Engineering & Product',
     image: '/people/deven-rathod.webp',
-    bio: '3× founder with 5+ years designing, building, and shipping production-grade software & AI systems. Built consumer products used by 20k+ users. Software he built has helped teams raise $1M+.',
+    bio: '3× founder, 5+ years shipping production software & AI systems. Built products used by 20k+ users; software he built has helped teams raise $1M+.',
     links: {
       twitter: 'https://x.com/devenrathodrd',
       linkedin: 'https://www.linkedin.com/in/deven-rathod-475b39205/',
@@ -18,312 +19,235 @@ const team = [
   },
   {
     name: 'Akanksha Bansal',
+    role: 'GTM & Marketing',
     image: '/people/akanksha-bansal.webp',
-    bio: 'Leads outreach, GTM, content strategy, and marketing at Diverse Labs, bringing sharp analytical thinking to every campaign.',
+    bio: 'Leads outreach, GTM, content strategy, and marketing — bringing sharp analytical thinking to every campaign.',
     links: {
       linkedin: 'https://www.linkedin.com/in/akanksha-bansal-20a8b8357/',
     },
   },
   {
     name: 'Daaud Saifi',
+    role: 'VFX & AI Video',
     image: '/people/daaud-saifi.webp',
-    bio: 'Professional VFX artist with 5+ years in high-end film and AI video production. Videos crafted by him have garnered millions of views across platforms worldwide.',
+    bio: 'Professional VFX artist with 5+ years in high-end film and AI video. His videos have earned millions of views worldwide.',
     links: {
-      linkedin: 'https://www.linkedin.com/in/daaud-saifi/'
+      linkedin: 'https://www.linkedin.com/in/daaud-saifi/',
     },
-  }
+  },
+];
 
+const principles = [
+  {
+    num: '(01)',
+    title: 'Outcome first',
+    desc: 'Every automation must move a measurable metric: response time, conversion, cost per task, or throughput.',
+  },
+  {
+    num: '(02)',
+    title: 'No rip-and-replace',
+    desc: 'Your CRM, e-commerce stack, and databases stay. We layer intelligence on top without disruption.',
+  },
+  {
+    num: '(03)',
+    title: 'Full control',
+    desc: 'Fully automated, human-in-the-loop, or hybrid — you decide what runs on its own and what needs approval.',
+  },
+  {
+    num: '(04)',
+    title: 'Transparent systems',
+    desc: 'Clear logs, clear prompts, clear governance. You always know what the AI did and why.',
+  },
+];
+
+const steps = [
+  {
+    title: 'Discovery & Scoping',
+    desc: 'We map your workflows, surface the highest-value opportunities, and define the exact system to build — in writing, before any code.',
+  },
+  {
+    title: 'Architecture & Design',
+    desc: 'Data flows, integration points, and approval logic locked down. You sign off on the design before development begins.',
+  },
+  {
+    title: 'Build & Integrate',
+    desc: 'Full build with weekly check-ins, delivered into your existing stack. Zero disruption to live operations.',
+  },
+  {
+    title: 'Test & Refine',
+    desc: 'Acceptance testing, edge cases, and team training. We don\'t hand off until you\'re confident it works.',
+  },
+  {
+    title: 'Go Live & Support',
+    desc: 'Live deployment, monitoring, and ongoing support. Most systems produce results within six weeks of kickoff.',
+  },
 ];
 ---
 
 <BaseLayout title={title} description={description} keywords={keywords}>
 
-  <!-- ═══════════════════════════════════════════
-       HERO
-       ═══════════════════════════════════════════ -->
-  <section class="page-section-tight">
-    <div class="container max-w-5xl mx-auto text-center">
-      <div class="flex justify-center mb-7 reveal">
-        <span class="badge">About Diverse Labs</span>
-      </div>
-      <h1 class="text-white font-extrabold mb-6 reveal reveal-delay-1">
-        We Build Automation<br />Teams Actually Trust
+  <!-- ═══════════════ HERO ═══════════════ -->
+  <section class="page-section-tight" style="padding-top: clamp(8rem, 16vh, 11rem)">
+    <div class="container">
+      <p class="label mb-6" data-reveal>About Diverse Labs</p>
+      <h1 class="display-hero" data-split style="font-size: clamp(2.8rem, 7.5vw, 6.5rem)">
+        Automation teams<br /><span class="text-outline">actually trust.</span>
       </h1>
-      <p class="text-xl text-text-secondary max-w-3xl mx-auto leading-relaxed reveal reveal-delay-2">
-        Repetitive work should not consume your smartest people. We design and build
-        AI systems and production software that reduce operating cost, increase speed,
-        and integrate cleanly with your existing stack.
+      <div class="mt-8 max-w-xl" data-reveal data-reveal-delay="0.35">
+        <p class="hero-sub">
+          We design AI systems and production software that cut operating cost,
+          increase speed, and integrate cleanly with your existing stack.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ BELIEF (scrubbed statement) ═══════════════ -->
+  <section class="page-section line-grid">
+    <div class="container">
+      <p class="label mb-8" data-reveal>Our belief</p>
+      <p class="scrub-statement" data-scrub-text style="max-width: 28ch">
+        Your team carries the judgment and relationships no AI can replicate.
+        The companies pulling ahead aren't cutting people — they're equipping
+        them with systems that absorb the repetitive work.
       </p>
-    </div>
-  </section>
 
-
-  <!-- ═══════════════════════════════════════════
-       PHILOSOPHY
-       ═══════════════════════════════════════════ -->
-  <section class="page-section line-grid relative">
-    <div class="absolute inset-0 bg-linear-to-b from-[#080808] via-transparent to-[#080808] pointer-events-none" aria-hidden="true"></div>
-    <div class="container max-w-6xl mx-auto relative z-10">
-
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-        <div>
-          <p class="section-label mb-4 reveal">Our Belief</p>
-          <h2 class="text-white font-bold mb-6 reveal reveal-delay-1">
-            Your Team Remains the Driver. AI Handles the Rest.
-          </h2>
-          <div class="space-y-4 text-text-secondary leading-relaxed reveal reveal-delay-2">
-            <p>
-              Your team already carries the relationships, the judgment, and the domain knowledge
-              that no AI can replicate. The goal was never to replace them — it’s to remove the
-              friction that slows them down and drains their energy on work that shouldn’t need a
-              human at all.
-            </p>
-            <p>
-              The companies pulling ahead aren’t the ones cutting headcount. They’re the ones
-              equipping their existing teams with AI systems that absorb the repetitive, high-volume
-              work — so people can focus on creativity, relationships, and decisions that actually
-              move the business forward.
-            </p>
-            <p>
-              Custom-built AI isn’t a bolt-on chatbot. When designed around your specific workflows,
-              your data, and your business rules, it becomes a force multiplier for every person on
-              your team. Humans stay in control; the AI works alongside them, doing the heavy lifting
-              in the background.
-            </p>
-            <p style="margin:0">
-              We exist to build that infrastructure for our clients. Outcome-first. Transparent. Custom.
-              No rip-and-replace. No black boxes. Your team, supercharged.
-            </p>
-          </div>
-        </div>
-
-        <div class="space-y-5">
-          <article class="surface-card card-hover rounded-2xl p-6 reveal reveal-delay-1">
-            <div class="philosophy-border">
-              <h3 class="text-white font-semibold text-base mb-2">Outcome First</h3>
-              <p class="text-text-secondary text-sm leading-relaxed" style="margin:0">
-                Every automation must improve a measurable metric: response time, conversion,
-                cost per task, or throughput. We don't build activity. We build results.
-              </p>
-            </div>
-          </article>
-          <article class="surface-card card-hover rounded-2xl p-6 reveal reveal-delay-2">
-            <div class="philosophy-border">
-              <h3 class="text-white font-semibold text-base mb-2">No Rip-and-Replace</h3>
-              <p class="text-text-secondary text-sm leading-relaxed" style="margin:0">
-                Your CRM, e-commerce stack, and databases stay. We layer intelligence on top
-                and keep your team moving without disruption.
-              </p>
-            </div>
-          </article>
-          <article class="surface-card card-hover rounded-2xl p-6 reveal reveal-delay-3">
-            <div class="philosophy-border">
-              <h3 class="text-white font-semibold text-base mb-2">Full Control</h3>
-              <p class="text-text-secondary text-sm leading-relaxed" style="margin:0">
-                Fully automated, human-in-the-loop, or hybrid: you decide what runs
-                automatically and what requires approval. No black boxes, ever.
-              </p>
-            </div>
-          </article>
-          <article class="surface-card card-hover rounded-2xl p-6 reveal reveal-delay-4">
-            <div class="philosophy-border">
-              <h3 class="text-white font-semibold text-base mb-2">Transparent Systems</h3>
-              <p class="text-text-secondary text-sm leading-relaxed" style="margin:0">
-                Clear logs, clear prompts, clear governance. You always know what the AI
-                is doing, why it made a decision, and how to change it.
-              </p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ═══════════════════════════════════════════
-       PROCESS TIMELINE
-       ═══════════════════════════════════════════ -->
-  <section class="page-section">
-    <div class="container max-w-6xl mx-auto">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
-        <div class="reveal">
-          <p class="section-label mb-4">How We Work</p>
-          <h2 class="text-white font-bold mb-5">
-            From Discovery to Live in Weeks
-          </h2>
-          <p class="text-text-secondary leading-relaxed">
-            Most agencies take months to ship anything meaningful.
-            We run a tight, structured process that gets you from idea to
-            production in weeks — without surprises.
-          </p>
-        </div>
-
-        <div class="process-timeline" id="process-timeline">
-          <div class="process-step" data-step>
-            <div class="psm">
-              <div class="psm-dot">01</div>
-              <div class="psm-track"><div class="psm-fill"></div></div>
-            </div>
-            <div class="psc">
-              <h3>Discovery &amp; Scoping</h3>
-              <p>We map your workflows, surface the highest-value automation opportunities, and define the exact system to build — in writing, before any code is written.</p>
-            </div>
-          </div>
-
-          <div class="process-step" data-step>
-            <div class="psm">
-              <div class="psm-dot">02</div>
-              <div class="psm-track"><div class="psm-fill"></div></div>
-            </div>
-            <div class="psc">
-              <h3>Architecture &amp; Design</h3>
-              <p>Data flows, integration points, approval logic, and system boundaries all locked down. You sign off on the design before development begins.</p>
-            </div>
-          </div>
-
-          <div class="process-step" data-step>
-            <div class="psm">
-              <div class="psm-dot">03</div>
-              <div class="psm-track"><div class="psm-fill"></div></div>
-            </div>
-            <div class="psc">
-              <h3>Build &amp; Integrate</h3>
-              <p>Full build with weekly check-ins delivered into your existing stack. Zero disruption to live operations. You see progress every week.</p>
-            </div>
-          </div>
-
-          <div class="process-step" data-step>
-            <div class="psm">
-              <div class="psm-dot">04</div>
-              <div class="psm-track"><div class="psm-fill"></div></div>
-            </div>
-            <div class="psc">
-              <h3>Test &amp; Refine</h3>
-              <p>Acceptance testing, edge cases, team training, and iteration. We don't hand off until you're confident the system works as intended.</p>
-            </div>
-          </div>
-
-          <div class="process-step" data-step>
-            <div class="psm">
-              <div class="psm-dot">05</div>
-              <div class="psm-track" style="display:none"></div>
-            </div>
-            <div class="psc">
-              <h3>Go Live &amp; Support</h3>
-              <p>Live deployment, monitoring, and ongoing support. Most systems are up, stable, and producing results within six weeks of kickoff.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ═══════════════════════════════════════════
-       TEAM
-       ═══════════════════════════════════════════ -->
-  <section class="page-section">
-    <div class="container max-w-6xl mx-auto">
-      <div class="text-center mb-12 reveal">
-        <p class="section-label mb-4">The Team</p>
-        <h2 class="text-white font-bold">The People Behind the Work</h2>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
-        {team.map((member, i) => (
-          <article class={`surface-card card-hover rounded-2xl p-6 reveal reveal-delay-${i + 1} flex flex-col`}>
-            <div class="mb-4">
-              <img
-                src={member.image}
-                alt={member.name}
-                width="72"
-                height="72"
-                class="w-18 h-18 rounded-full object-cover object-top mb-4 border border-white/10"
-                loading="lazy"
-              />
-              <h3 class="text-white font-bold text-base leading-tight mb-0.5">{member.name}</h3>
-            </div>
-            <p class="text-text-secondary text-sm leading-relaxed flex-1" style="margin:0 0 1rem">{member.bio}</p>
-            {Object.keys(member.links).length > 0 && (
-              <div class="flex items-center gap-3 mt-auto pt-1">
-                {member.links.twitter && (
-                  <a href={member.links.twitter} target="_blank" rel="noopener noreferrer"
-                     class="text-text-tertiary hover:text-white transition-colors"
-                     aria-label={`${member.name} on X`}>
-                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.74l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                    </svg>
-                  </a>
-                )}
-                {member.links.linkedin && (
-                  <a href={member.links.linkedin} target="_blank" rel="noopener noreferrer"
-                     class="text-text-tertiary hover:text-white transition-colors"
-                     aria-label={`${member.name} on LinkedIn`}>
-                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                    </svg>
-                  </a>
-                )}
-                {member.links.github && (
-                  <a href={member.links.github} target="_blank" rel="noopener noreferrer"
-                     class="text-text-tertiary hover:text-white transition-colors"
-                     aria-label={`${member.name} on GitHub`}>
-                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                      <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
-                    </svg>
-                  </a>
-                )}
-              </div>
-            )}
+      <div class="principle-grid cols-4" data-reveal-group>
+        {principles.map((p) => (
+          <article class="principle-card">
+            <span class="principle-glow" aria-hidden="true"></span>
+            <span class="principle-num mono-num">{p.num}</span>
+            <h3>{p.title}</h3>
+            <p>{p.desc}</p>
           </article>
         ))}
       </div>
     </div>
   </section>
 
+  <!-- ═══════════════ PROCESS ═══════════════ -->
+  <section class="page-section">
+    <div class="container">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-start">
+        <div class="lg:sticky lg:top-32">
+          <p class="label mb-4" data-reveal>How we work</p>
+          <h2 data-split>From discovery to live in weeks</h2>
 
-  <!-- ═══════════════════════════════════════════
-       CTA
-       ═══════════════════════════════════════════ -->
-  <section class="page-section-tight">
-    <div class="container max-w-4xl mx-auto text-center">
-      <div class="surface-panel rounded-3xl p-10 md:p-14 reveal">
-        <h2 class="text-white font-bold mb-4">Let's Build Together</h2>
-        <p class="text-text-secondary text-lg mb-8 max-w-xl mx-auto leading-relaxed">
-          If this approach matches how your team wants to operate, we can show
-          you exactly what to automate first, and what it will be worth.
-        </p>
-        <a href="https://cal.com/diverselabs/30min"
-           target="_blank"
-           rel="noopener noreferrer"
-           class="btn btn-primary px-8 py-3.5 text-base">
-          Schedule a Discovery Call
-        </a>
+          <div class="gantt" data-reveal data-reveal-delay="0.2" aria-hidden="true">
+            <div class="gantt-weeks">
+              <span>W1</span><span>W2</span><span>W3</span><span>W4</span><span>W5</span><span>W6</span>
+            </div>
+            <div class="gantt-row"><span class="gantt-lbl">Discover</span><span class="gantt-bar" style="--s:0; --e:1"></span></div>
+            <div class="gantt-row"><span class="gantt-lbl">Design</span><span class="gantt-bar" style="--s:1; --e:2"></span></div>
+            <div class="gantt-row"><span class="gantt-lbl">Build</span><span class="gantt-bar" style="--s:2; --e:4.5"></span></div>
+            <div class="gantt-row"><span class="gantt-lbl">Test</span><span class="gantt-bar" style="--s:4; --e:5"></span></div>
+            <div class="gantt-row"><span class="gantt-lbl">Live</span><span class="gantt-bar gantt-bar-live" style="--s:5; --e:6"></span></div>
+          </div>
+
+          <div class="mt-8" data-reveal data-reveal-delay="0.3">
+            <a href="https://cal.com/diverselabs/30min" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+              Start with a call
+            </a>
+          </div>
+        </div>
+
+        <div class="process-wrap" data-process>
+          <div class="process-rail" aria-hidden="true">
+            <div class="process-rail-fill" data-process-line></div>
+          </div>
+          {steps.map((step, i) => (
+            <div class="process-step">
+              <div class="process-dot mono-num">{String(i + 1).padStart(2, '0')}</div>
+              <div class="process-content">
+                <h3>{step.title}</h3>
+                <p>{step.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ TEAM ═══════════════ -->
+  <section class="page-section">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <div>
+          <p class="label mb-4">The team</p>
+          <h2>The people behind the work</h2>
+        </div>
+        <span class="head-side mono-num">(03)</span>
+      </div>
+
+      <div class="team-grid" data-reveal-group>
+        {team.map((member) => (
+          <article class="team-card">
+            <div class="team-photo">
+              <img
+                src={member.image}
+                alt={member.name}
+                width="480"
+                height="528"
+                loading="lazy"
+                decoding="async"
+              />
+              <div class="team-id">
+                <h3>{member.name}</h3>
+                <span class="team-role">{member.role}</span>
+              </div>
+            </div>
+            <div class="team-body">
+              <p>{member.bio}</p>
+              <div class="team-social">
+                {member.links.twitter && (
+                  <a href={member.links.twitter} target="_blank" rel="noopener noreferrer" aria-label={`${member.name} on X`}>
+                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.74l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                    </svg>
+                  </a>
+                )}
+                {member.links.linkedin && (
+                  <a href={member.links.linkedin} target="_blank" rel="noopener noreferrer" aria-label={`${member.name} on LinkedIn`}>
+                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                  </a>
+                )}
+                {member.links.github && (
+                  <a href={member.links.github} target="_blank" rel="noopener noreferrer" aria-label={`${member.name} on GitHub`}>
+                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                  </a>
+                )}
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ CTA ═══════════════ -->
+  <section class="page-section-tight pb-24">
+    <div class="container">
+      <div class="cta-panel" data-reveal>
+        <div class="relative z-10">
+          <h2 class="cta-title">Let's build together.</h2>
+          <p class="cta-sub">
+            We'll show you exactly what to automate first — and what it will be worth.
+          </p>
+          <a href="https://cal.com/diverselabs/30min"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="btn btn-primary btn-lg magnetic">
+            Schedule a Discovery Call
+            <span class="btn-arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
       </div>
     </div>
   </section>
 
 </BaseLayout>
-
-<script>
-  function initProcessSteps() {
-    const steps = document.querySelectorAll<HTMLElement>('.process-step[data-step]');
-    if (!steps.length) return;
-    const obs = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) {
-            e.target.classList.add('step-visible');
-            obs.unobserve(e.target);
-          }
-        });
-      },
-      { threshold: 0.25 }
-    );
-    steps.forEach((s) => obs.observe(s));
-  }
-
-  if (document.readyState !== 'loading') initProcessSteps();
-  else document.addEventListener('DOMContentLoaded', initProcessSteps);
-  document.addEventListener('astro:page-load', initProcessSteps);
-</script>

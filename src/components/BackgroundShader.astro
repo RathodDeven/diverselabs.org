@@ -13,6 +13,9 @@
     private canvas: HTMLCanvasElement | null = null;
     private gl: WebGLRenderingContext | null = null;
     private program: WebGLProgram | null = null;
+    private uResolution: WebGLUniformLocation | null = null;
+    private uMouse: WebGLUniformLocation | null = null;
+    private uTime: WebGLUniformLocation | null = null;
     private startTime: number = Date.now();
     private mousePos: [number, number] = [0.5, 0.5];
     private animationFrame: number | null = null;
@@ -157,6 +160,10 @@
       this.gl.enableVertexAttribArray(positionLocation);
       this.gl.vertexAttribPointer(positionLocation, 2, this.gl.FLOAT, false, 0, 0);
 
+      this.uResolution = this.gl.getUniformLocation(this.program, 'u_resolution');
+      this.uMouse = this.gl.getUniformLocation(this.program, 'u_mouse');
+      this.uTime = this.gl.getUniformLocation(this.program, 'u_time');
+
       this.gl.clearColor(0.04, 0.04, 0.04, 1.0);
     }
 
@@ -186,7 +193,9 @@
     private resizeCanvas() {
       if (!this.canvas) return;
 
-      const dpr = window.devicePixelRatio || 1;
+      // The shader output is intentionally soft — rendering above 1.5x DPR
+      // burns GPU fill rate with no visible difference on retina displays
+      const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
       this.canvas.width = window.innerWidth * dpr;
       this.canvas.height = window.innerHeight * dpr;
       this.canvas.style.width = window.innerWidth + 'px';
@@ -205,16 +214,11 @@
 
       const elapsed = (Date.now() - this.startTime) / 1000;
 
-      // Update uniforms
-      const resLoc = this.gl.getUniformLocation(this.program, 'u_resolution');
-      const mouseLoc = this.gl.getUniformLocation(this.program, 'u_mouse');
-      const timeLoc = this.gl.getUniformLocation(this.program, 'u_time');
-
       if (this.canvas) {
-        this.gl.uniform2f(resLoc, this.canvas.width, this.canvas.height);
+        this.gl.uniform2f(this.uResolution, this.canvas.width, this.canvas.height);
       }
-      this.gl.uniform2f(mouseLoc, this.mousePos[0], this.mousePos[1]);
-      this.gl.uniform1f(timeLoc, elapsed);
+      this.gl.uniform2f(this.uMouse, this.mousePos[0], this.mousePos[1]);
+      this.gl.uniform1f(this.uTime, elapsed);
 
       // Render
       this.gl.clear(this.gl.COLOR_BUFFER_BIT);
