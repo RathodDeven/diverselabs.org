@@ -9,37 +9,43 @@ const services = [
   {
     num: '01',
     title: 'AI Chat & Support Agents',
-    desc: 'Conversational agents trained on your knowledge base that handle customer queries, qualify leads, and escalate intelligently. Multi-turn conversations, CRM integration, and smart escalation routing built-in.',
+    desc: 'Conversational agents trained on your knowledge base that resolve queries, qualify leads, and escalate intelligently.',
+    chips: ['Multi-turn memory', 'CRM sync', 'Smart escalation'],
     mockup: 'chat',
   },
   {
     num: '02',
     title: 'Lead Gen & CRM Automation',
-    desc: 'Automated pipelines that capture, score, and route leads — syncing directly to your CRM and triggering follow-ups without manual input. Includes lead scoring, auto follow-up sequences, and pipeline sync.',
+    desc: 'Pipelines that capture, score, and route leads — then trigger follow-ups without anyone lifting a finger.',
+    chips: ['Lead scoring', 'Auto follow-ups', 'Pipeline sync'],
     mockup: 'pipeline',
   },
   {
     num: '03',
-    title: 'Semantic Search & Document Intelligence',
-    desc: 'RAG-powered search over your internal documents, PDFs, and databases. Find answers in seconds, not hours. Full RAG architecture, PDF & doc parsing, and instant retrieval.',
+    title: 'Semantic Search & Doc Intelligence',
+    desc: 'RAG-powered search across your documents, PDFs, and databases. Answers in seconds, not hours.',
+    chips: ['Full RAG stack', 'PDF parsing', 'Instant retrieval'],
     mockup: 'search',
   },
   {
     num: '04',
     title: 'AI Video & Creative Production',
-    desc: 'High-quality AI-generated video ads, UGC content, and brand creatives with photorealistic avatars and natural voice. Photorealistic avatars, brand-aligned scripts, and fast turnaround delivery.',
+    desc: 'Photorealistic AI video ads and UGC content with natural voices — produced at a fraction of studio cost.',
+    chips: ['Realistic avatars', 'Brand scripts', 'Fast turnaround'],
     mockup: 'video',
   },
   {
     num: '05',
     title: 'Data Query & Analysis',
-    desc: 'Natural-language interfaces to your databases. Ask questions in plain English, get structured answers and live charts. NL-to-SQL conversion, auto dashboards, and anomaly alerts.',
+    desc: 'Ask your database questions in plain English. Get structured answers, live charts, and alerts back.',
+    chips: ['NL-to-SQL', 'Auto dashboards', 'Anomaly alerts'],
     mockup: 'terminal',
   },
   {
     num: '06',
     title: 'Predictive Analytics & ML',
-    desc: 'Custom models trained on your data to forecast demand, churn, or performance — embedded directly into your workflow. Custom ML models, trend forecasting, and performance monitoring.',
+    desc: 'Custom models trained on your data to forecast demand, churn, or performance — embedded in your workflow.',
+    chips: ['Custom models', 'Forecasting', 'Live monitoring'],
     mockup: 'chart',
   },
 ];
@@ -63,334 +69,355 @@ const allClients = [
   { name: 'Livepeer',                  logo: '/companies/livepeer.jpeg' },
 ];
 
-const rowSize = Math.ceil(allClients.length / 3);
-const firstClientRow = allClients.slice(0, rowSize);
-const secondClientRow = allClients.slice(rowSize, rowSize * 2);
-const thirdClientRow = allClients.slice(rowSize * 2);
+const halfway = Math.ceil(allClients.length / 2);
+const logoRowOne = allClients.slice(0, halfway);
+const logoRowTwo = allClients.slice(halfway);
 
 const homeProjects = [
   {
-    name: 'NudgeFlow for Clickpe (YC S23)',
+    name: 'NudgeFlow · ClickPe (YC S23)',
     image: '/work/nudgeflow.webp',
     href: 'https://drive.google.com/file/d/10uMQ51a0u_D_SWAobehndmie-6HTT-lZ/view',
     tags: ['AI system', 'Voice agent'],
-    description: 'WhatsApp chatbot and voice call agent for ClickPe that classifies leads, triggers follow-ups, and syncs outcomes to workflow systems.',
+    description: 'WhatsApp + voice agents that classify leads and sync outcomes automatically.',
   },
   {
     name: 'AI Creatives',
     image: '/work/ai-creatives-thumbnail.png',
     href: '/work/ai-creatives',
     tags: ['AI video', 'UGC'],
-    description: 'Photorealistic AI-generated video ads and UGC content with natural voices, produced for brands at speed.',
+    description: 'Photorealistic AI video ads and UGC content, produced for brands at speed.',
   },
   {
     name: 'BloomersTV',
     image: '/work/bloomerstv.webp',
     href: 'https://bloomers.tv/',
     tags: ['Web app', 'Blockchain'],
-    description: 'A live streaming platform built around the Lens ecosystem for creator-focused community digital products.',
+    description: 'A live streaming platform built on the Lens ecosystem for creators.',
   },
   {
     name: 'Paiso',
     image: '/work/paiso.webp',
     href: 'https://paiso.xyz/',
     tags: ['Mobile app', 'Fintech'],
-    description: 'A consumer fintech app live on the Play Store, centered on fast cash access and rewards for everyday users.',
+    description: 'Consumer fintech app live on the Play Store — fast cash access and rewards.',
   },
   {
     name: 'DANZ NOW',
     image: '/work/danz-now.webp',
     href: 'https://danz.now/',
     tags: ['Mobile app'],
-    description: 'A movement and event platform rewarding users for dancing, hosting events, and participating in community experiences.',
+    description: 'A movement platform rewarding users for dancing and hosting events.',
   },
   {
     name: 'Hand Protocol',
     image: '/work/hand-protocol.webp',
     href: 'https://handprotocol.org/',
     tags: ['Web app', 'Blockchain'],
-    description: 'A platform connecting public goods projects with donors through a streamlined digital contribution experience.',
+    description: 'Connecting public goods projects with donors through a streamlined experience.',
   },
-
 ];
+
+const tapeWords = ['AI Agents', 'Automation', 'AI Video', 'Web & Mobile', 'Data & ML'];
 
 const faqs = [
   {
     question: 'What is an AI agent and how is it different from a regular chatbot?',
-    answer: 'A chatbot follows scripted rules and responds to predefined inputs. An AI agent is far more capable: it understands context, reasons through multi-step problems, executes actions across tools and APIs, and completes goals autonomously. Think of a chatbot as a vending machine and an AI agent as a skilled employee who never sleeps.',
+    answer: 'A chatbot follows scripted rules and responds to predefined inputs. An AI agent understands context, reasons through multi-step problems, executes actions across tools and APIs, and completes goals autonomously. Think of a chatbot as a vending machine and an AI agent as a skilled employee who never sleeps.',
   },
   {
     question: 'How does Diverse Labs customize AI systems for our specific business?',
-    answer: 'We start with a free discovery session where we map your exact workflows, data sources, and business rules — and identify the clear outcomes the system will deliver for your business. From there, we design an AI solution built specifically for your stack, not a generic template. The agent knows your products, your tone, your processes, and connects to your existing tools from day one.',
+    answer: 'We start with a free discovery session where we map your exact workflows, data sources, and business rules. From there, we design an AI solution built specifically for your stack, not a generic template. The agent knows your products, your tone, your processes, and connects to your existing tools from day one.',
   },
   {
-    question: 'Do you build regular software too, like web apps and mobile apps, or only AI?',
+    question: 'Do you build regular software too, or only AI?',
     answer: 'Both. Our team builds production-grade web applications, mobile apps (iOS and Android), desktop software, and AI-powered products from the ground up. We have shipped real products used by thousands of people across fintech, creator platforms, and enterprise tools.',
   },
   {
     question: 'What is human-in-the-loop automation and can we control it?',
-    answer: 'Human-in-the-loop means a human reviews and approves specific actions before the AI proceeds. For example: an AI drafts a customer response and a team member approves it before it sends. We offer fully automated, human-in-the-loop, and hybrid designs; you decide which stages require human approval and which run automatically. You have total control.',
+    answer: 'Human-in-the-loop means a human reviews and approves specific actions before the AI proceeds. We offer fully automated, human-in-the-loop, and hybrid designs; you decide which stages require human approval and which run automatically. You have total control.',
   },
   {
     question: 'Will we need to replace our existing tools and systems?',
-    answer: 'No. We build on top of what you already have. Whether you use Salesforce, HubSpot, WooCommerce, Shopify, custom databases, or anything else, our AI layer integrates into your existing stack. No rip-and-replace, no disruption to current operations.',
+    answer: 'No. We build on top of what you already have. Whether you use Salesforce, HubSpot, Shopify, custom databases, or anything else, our AI layer integrates into your existing stack. No rip-and-replace, no disruption to current operations.',
   },
   {
     question: 'How long does it take to build and deploy an AI system?',
-    answer: 'It depends on complexity. A focused AI agent (like a customer support bot) typically takes 2-4 weeks from discovery to live deployment. A multi-agent system with deep CRM integrations can take 8-12 weeks. We provide a precise timeline after the initial discovery call, with clear milestones at each stage.',
+    answer: 'A focused AI agent typically takes 2-4 weeks from discovery to live deployment. A multi-agent system with deep CRM integrations can take 8-12 weeks. We provide a precise timeline after the initial discovery call, with clear milestones at each stage.',
   },
   {
     question: 'What industries and business types do you work with?',
-    answer: 'We work primarily with e-commerce, fintech, SaaS, and professional services companies with high-volume repetitive workflows. Customer support, lead qualification, document processing, data analysis: these are areas where automation delivers measurable ROI quickly. Company size ranges from funded startups to established enterprises.',
+    answer: 'We work primarily with e-commerce, fintech, SaaS, and professional services companies with high-volume repetitive workflows. Company size ranges from funded startups to established enterprises.',
   },
   {
-    question: 'What does a typical engagement with Diverse Labs look like?',
-    answer: 'We start with a discovery session to scope the opportunity and propose a clear implementation plan with milestones. After delivery, we monitor performance and iterate weekly. Most clients see measurable results within the first 30 days of deployment, and we stay engaged to compound gains over time.',
+    question: 'What does a typical engagement look like?',
+    answer: 'We start with a discovery session to scope the opportunity and propose a clear implementation plan with milestones. After delivery, we monitor performance and iterate weekly. Most clients see measurable results within the first 30 days of deployment.',
   },
 ];
 ---
 
 <BaseLayout title={title} description={description}>
-  <section class="min-h-[calc(100vh-7.25rem)] flex items-center justify-center relative pt-8 md:pt-12 dot-grid">
-    <div class="absolute inset-0 bg-linear-to-b from-transparent via-transparent to-[#080808] pointer-events-none" style="z-index:3"></div>
-    <div class="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_40%,rgba(255,255,255,0.04),transparent)] pointer-events-none" style="z-index:1"></div>
+
+  <!-- ═══════════════ HERO ═══════════════ -->
+  <section class="hero">
+    <div class="hero-grid-bg" aria-hidden="true"></div>
     <div class="hero-aurora" aria-hidden="true"></div>
     <HeroParticles />
 
-    <div class="container max-w-5xl mx-auto text-center relative z-10">
-      <div class="flex justify-center mb-8 reveal">
+    <div class="container relative z-10">
+      <div class="mb-7" data-reveal>
         <span class="badge">
           <span class="badge-dot" aria-hidden="true"></span>
           Currently taking new projects
         </span>
       </div>
 
-      <h1 class="text-white font-extrabold mb-6" style="letter-spacing:-0.04em;line-height:1.0;" aria-label="Your AI Tech Partner.">
-        <span class="hero-line" aria-hidden="true"><span class="hero-line-text">Your AI Tech Partner.</span></span>
+      <h1 class="display-hero" data-split data-split-delay="0.15" aria-label="Your AI Tech Partner.">
+        Your AI<br /><span class="text-outline">Tech Partner.</span>
       </h1>
 
-      <p class="text-lg md:text-xl text-text-secondary mb-10 max-w-2xl mx-auto leading-relaxed reveal reveal-delay-2">
-        Building custom AI workflows that drive real business outcomes.
-      </p>
-
-      <div class="flex flex-col sm:flex-row items-center gap-4 justify-center mb-16 reveal reveal-delay-3">
-        <a href="https://cal.com/diverselabs/30min"
-           target="_blank"
-           rel="noopener noreferrer"
-           class="btn btn-primary magnetic text-base px-8 py-3.5 w-full sm:w-auto">
-          Book a Discovery Call
-        </a>
-        <a href="#work-scroll" class="btn btn-secondary text-base px-7 py-3.5 w-full sm:w-auto">
-          Explore the work
-        </a>
-      </div>
-
-      <div class="grid grid-cols-3 gap-3 md:gap-4 max-w-xl mx-auto reveal reveal-delay-4">
-        <div class="surface-card rounded-xl p-4 md:p-5 text-center">
-          <div class="text-2xl md:text-3xl font-bold text-white tracking-tight mb-0.5" data-count="10" data-suffix="+">10+</div>
-          <div class="text-xs text-text-secondary leading-snug">AI agents in<br/>production</div>
-        </div>
-        <div class="surface-card rounded-xl p-4 md:p-5 text-center">
-          <div class="text-2xl md:text-3xl font-bold text-white tracking-tight mb-0.5" data-count="15" data-suffix="+">15+</div>
-          <div class="text-xs text-text-secondary leading-snug">Products<br/>shipped</div>
-        </div>
-        <div class="surface-card rounded-xl p-4 md:p-5 text-center">
-          <div class="text-2xl md:text-3xl font-bold text-white tracking-tight mb-0.5">3&#8209;5×</div>
-          <div class="text-xs text-text-secondary leading-snug">Avg. ROI in<br/>year one</div>
-        </div>
-      </div>
-
-      <div class="mt-14 flex justify-center scroll-indicator">
-        <svg class="w-5 h-5 text-white/30" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5" aria-hidden="true">
-          <path d="M19 9l-7 7-7-7" />
-        </svg>
-      </div>
-    </div>
-  </section>
-
-  <section class="page-section line-grid">
-    <div class="container max-w-7xl mx-auto">
-      <div class="mb-10 reveal">
-        <p class="section-label mb-3">Trusted By</p>
-        <h2 class="text-white font-bold">15+ Teams we have worked with</h2>
-      </div>
-    </div>
-
-    <div class="logo-marquee-block logo-marquee-compact reveal reveal-delay-1" aria-label="Clients and partners row one">
-      <div class="logo-marquee-track triple">
-        {[...firstClientRow, ...firstClientRow, ...firstClientRow].map((client) => (
-          client.href ? (
-            <a class="logo-card" href={client.href} target="_blank" rel="nofollow noopener noreferrer" aria-label={`Visit ${client.name} website`}>
-              <img src={client.logo} alt={`${client.name} company logo`} loading="lazy" decoding="async" />
-              <span class="logo-link-arrow" aria-hidden="true">↗</span>
-            </a>
-          ) : (
-            <div class="logo-card">
-              <img src={client.logo} alt={`${client.name} company logo`} loading="lazy" decoding="async" />
-            </div>
-          )
-        ))}
-      </div>
-    </div>
-
-    <div class="logo-marquee-block logo-marquee-compact reveal reveal-delay-2" aria-label="Clients and partners row two">
-      <div class="logo-marquee-track triple reverse">
-        {[...secondClientRow, ...secondClientRow, ...secondClientRow].map((client) => (
-          client.href ? (
-            <a class="logo-card" href={client.href} target="_blank" rel="nofollow noopener noreferrer" aria-label={`Visit ${client.name} website`}>
-              <img src={client.logo} alt={`${client.name} company logo`} loading="lazy" decoding="async" />
-              <span class="logo-link-arrow" aria-hidden="true">↗</span>
-            </a>
-          ) : (
-            <div class="logo-card">
-              <img src={client.logo} alt={`${client.name} company logo`} loading="lazy" decoding="async" />
-            </div>
-          )
-        ))}
-      </div>
-    </div>
-
-    <div class="logo-marquee-block logo-marquee-compact reveal reveal-delay-3" aria-label="Clients and partners row three">
-      <div class="logo-marquee-track triple">
-        {[...thirdClientRow, ...thirdClientRow, ...thirdClientRow].map((client) => (
-          client.href ? (
-            <a class="logo-card" href={client.href} target="_blank" rel="nofollow noopener noreferrer" aria-label={`Visit ${client.name} website`}>
-              <img src={client.logo} alt={`${client.name} company logo`} loading="lazy" decoding="async" />
-              <span class="logo-link-arrow" aria-hidden="true">↗</span>
-            </a>
-          ) : (
-            <div class="logo-card">
-              <img src={client.logo} alt={`${client.name} company logo`} loading="lazy" decoding="async" />
-            </div>
-          )
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <section id="capabilities" class="page-section line-grid relative">
-    <div class="absolute inset-0 bg-linear-to-b from-[#080808] via-transparent to-[#080808] pointer-events-none"></div>
-    <div class="container max-w-7xl mx-auto relative z-10">
-      <div class="mb-14 reveal">
-        <p class="section-label mb-4">What We Build</p>
-        <h2 class="text-white font-bold mb-4">AI Systems That Do Real Work</h2>
-        <p class="text-lg text-text-secondary max-w-2xl leading-relaxed">
-          Custom AI systems and workflows, built for your team and stack.
+      <div class="mt-8 flex flex-col md:flex-row md:items-end md:justify-between gap-8">
+        <p class="hero-sub" data-reveal data-reveal-delay="0.45">
+          We design and ship custom AI agents, automation, and production software —
+          systems that do real work for your team.
         </p>
+
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3" data-reveal data-reveal-delay="0.55">
+          <a href="https://cal.com/diverselabs/30min"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="btn btn-primary btn-lg magnetic">
+            Book a Discovery Call
+            <span class="btn-arrow" aria-hidden="true">→</span>
+          </a>
+          <a href="#work" class="btn btn-secondary btn-lg">
+            Explore the work
+          </a>
+        </div>
       </div>
 
-      <div class="service-cards-grid">
-        {services.map((s, i) => (
-          <div class={`service-card-item reveal reveal-delay-${(i % 3) + 1}`}>
-            <div class="service-card-mockup">
-              <div class="svc-mockup">
-                {s.mockup === 'chat' && (
-                  <div>
-                    <div class="sm-bar">
-                      <span class="sm-dot"></span><span class="sm-dot"></span><span class="sm-dot"></span>
-                      <span class="sm-bar-title">Support Agent</span>
-                    </div>
-                    <div class="sm-chat">
-                      <div class="sm-bubble sm-user" style="animation-delay:0.4s">Hi, where is my order?</div>
-                      <div class="sm-typing" style="animation-delay:0.9s"><span></span><span></span><span></span></div>
-                      <div class="sm-bubble sm-bot" style="animation-delay:1.6s">Your order #4821 ships tomorrow. I've sent tracking to your email.</div>
-                    </div>
-                  </div>
-                )}
-                {s.mockup === 'pipeline' && (
-                  <div>
-                    <div class="sm-bar">
-                      <span class="sm-dot"></span><span class="sm-dot"></span><span class="sm-dot"></span>
-                      <span class="sm-bar-title">Lead Pipeline</span>
-                    </div>
-                    <div class="sm-pipeline">
-                      <div class="sm-col">
-                        <div class="sm-col-hdr">New</div>
-                        <div class="sm-card" style="animation-delay:0.3s">Acme Corp</div>
-                        <div class="sm-card" style="animation-delay:0.5s">TechStart</div>
-                      </div>
-                      <div class="sm-col">
-                        <div class="sm-col-hdr">Qualified</div>
-                        <div class="sm-card sm-card-hot" style="animation-delay:0.7s">Globex Inc</div>
-                      </div>
-                      <div class="sm-col">
-                        <div class="sm-col-hdr">Closing</div>
-                        <div class="sm-card" style="animation-delay:0.9s">Initech</div>
-                      </div>
-                    </div>
-                  </div>
-                )}
-                {s.mockup === 'search' && (
-                  <div>
-                    <div class="sm-bar">
-                      <span class="sm-dot"></span><span class="sm-dot"></span><span class="sm-dot"></span>
-                      <div class="sm-search-bar-wrap">
-                        <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-                        <span>refund policy Q3</span>
-                      </div>
-                    </div>
-                    <div class="sm-imgrid">
-                      <div class="sm-imgbox sm-imgbox-hl" style="animation-delay:0.3s"></div>
-                      <div class="sm-imgbox" style="animation-delay:0.5s"></div>
-                      <div class="sm-imgbox" style="animation-delay:0.7s"></div>
-                      <div class="sm-imgbox" style="animation-delay:0.9s"></div>
-                    </div>
-                  </div>
-                )}
-                {s.mockup === 'video' && (
-                  <div>
-                    <div class="sm-bar">
-                      <span class="sm-dot"></span><span class="sm-dot"></span><span class="sm-dot"></span>
-                      <span class="sm-bar-title">AI Creative Studio</span>
-                    </div>
-                    <div class="sm-player">
-                      <div class="sm-video-frame">
-                        <div class="sm-play-btn"><div class="sm-play-icon"></div></div>
-                      </div>
-                      <div class="sm-progress-bar"><div class="sm-progress-fill"></div></div>
-                    </div>
-                  </div>
-                )}
-                {s.mockup === 'terminal' && (
-                  <div>
-                    <div class="sm-bar">
-                      <span class="sm-dot"></span><span class="sm-dot"></span><span class="sm-dot"></span>
-                      <span class="sm-bar-title">Query Engine</span>
-                    </div>
-                    <div class="sm-terminal">
-                      <div class="sm-cmd" style="animation-delay:0.3s">$ ask "revenue by region last 90d"</div>
-                      <div class="sm-out" style="animation-delay:0.9s">Running SQL… 1,240ms</div>
-                      <div class="sm-out" style="animation-delay:1.4s">North: $84k · South: $61k · West: $102k</div>
-                      <div class="sm-caret" style="animation-delay:1.9s">▌</div>
-                    </div>
-                  </div>
-                )}
-                {s.mockup === 'chart' && (
-                  <div>
-                    <div class="sm-bar">
-                      <span class="sm-dot"></span><span class="sm-dot"></span><span class="sm-dot"></span>
-                      <span class="sm-bar-title">Forecast Model</span>
-                    </div>
-                    <div class="sm-chart">
-                      <div class="sm-bar-v" style="height:28px; animation-delay:0.3s"></div>
-                      <div class="sm-bar-v" style="height:44px; animation-delay:0.45s"></div>
-                      <div class="sm-bar-v" style="height:36px; animation-delay:0.6s"></div>
-                      <div class="sm-bar-v sm-bar-v-hi" style="height:62px; animation-delay:0.75s"></div>
-                      <div class="sm-bar-v" style="height:50px; animation-delay:0.9s"></div>
-                      <div class="sm-bar-v sm-bar-v-hi" style="height:72px; animation-delay:1.05s"></div>
-                    </div>
-                  </div>
-                )}
+      <div class="hero-stats" data-reveal data-reveal-delay="0.7">
+        <div class="hero-stat">
+          <div class="hero-stat-num"><span data-count="10" data-suffix="+">10+</span></div>
+          <div class="hero-stat-label">AI agents in production</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num"><span data-count="15" data-suffix="+">15+</span></div>
+          <div class="hero-stat-label">Products shipped</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">3–5×</div>
+          <div class="hero-stat-label">Avg. ROI in year one</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-cue" aria-hidden="true">
+      <span>Scroll</span>
+      <span class="scroll-cue-line"></span>
+    </div>
+  </section>
+
+  <!-- ═══════════════ TAPE MARQUEE ═══════════════ -->
+  <section class="tape" data-marquee data-speed="1" aria-hidden="true">
+    <div class="tape-track" data-marquee-track>
+      {[0, 1].map(() => (
+        <div class="tape-row">
+          {tapeWords.map((word, i) => (
+            <>
+              <span class={`tape-item${i % 2 === 1 ? ' outline' : ''}`}>{word}</span>
+              <span class="tape-star">✦</span>
+            </>
+          ))}
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- ═══════════════ TRUSTED BY ═══════════════ -->
+  <section class="page-section">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <div>
+          <p class="label mb-4">Trusted by</p>
+          <h2><span data-count="15" data-suffix="+">15+</span> teams we've shipped for</h2>
+        </div>
+        <span class="head-side">Startups → Enterprise</span>
+      </div>
+    </div>
+
+    <div class="logo-tape" data-marquee data-speed="0.55" data-skew="false" aria-label="Clients and partners">
+      <div class="logo-tape-track" data-marquee-track>
+        {[0, 1].map(() => (
+          <div class="logo-tape-row">
+            {logoRowOne.map((client) =>
+              client.href ? (
+                <a class="logo-card" href={client.href} target="_blank" rel="nofollow noopener noreferrer" aria-label={`Visit ${client.name} website`}>
+                  <img src={client.logo} alt={`${client.name} logo`} loading="lazy" decoding="async" />
+                  <span class="logo-arrow" aria-hidden="true">↗</span>
+                </a>
+              ) : (
+                <div class="logo-card">
+                  <img src={client.logo} alt={`${client.name} logo`} loading="lazy" decoding="async" />
+                </div>
+              )
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="logo-tape" data-marquee data-speed="0.55" data-skew="false" data-direction="right" aria-hidden="true">
+      <div class="logo-tape-track" data-marquee-track>
+        {[0, 1].map(() => (
+          <div class="logo-tape-row">
+            {logoRowTwo.map((client) =>
+              client.href ? (
+                <a class="logo-card" href={client.href} target="_blank" rel="nofollow noopener noreferrer" tabindex="-1" aria-label={`Visit ${client.name} website`}>
+                  <img src={client.logo} alt={`${client.name} logo`} loading="lazy" decoding="async" />
+                  <span class="logo-arrow" aria-hidden="true">↗</span>
+                </a>
+              ) : (
+                <div class="logo-card">
+                  <img src={client.logo} alt={`${client.name} logo`} loading="lazy" decoding="async" />
+                </div>
+              )
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ SERVICES (stacking cards) ═══════════════ -->
+  <section id="capabilities" class="page-section line-grid">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <div>
+          <p class="label mb-4">What we build</p>
+          <h2>AI systems that do real work</h2>
+        </div>
+        <span class="head-side mono-num">(06) Capabilities</span>
+      </div>
+
+      <div class="stack" data-stack>
+        {services.map((s) => (
+          <div class="stack-card">
+            <div class="stack-card-inner">
+              <div class="stack-copy">
+                <span class="stack-idx mono-num">{s.num} / 06</span>
+                <h3 class="stack-title">{s.title}</h3>
+                <p class="stack-desc">{s.desc}</p>
+                <div class="stack-chips">
+                  {s.chips.map((chip) => <span class="chip">{chip}</span>)}
+                </div>
+                <a href="https://cal.com/diverselabs/30min" target="_blank" rel="noopener noreferrer" class="stack-link">
+                  <span class="stack-link-arrow" aria-hidden="true">→</span>
+                  Discuss this system
+                </a>
               </div>
-            </div>
-            <div class="service-card-content">
-              <div class="service-card-header">
-                <h3 class="service-card-title">{s.title}</h3>
+
+              <div class="stack-visual" aria-hidden="true">
+                <div class="svc-mockup">
+                  {s.mockup === 'chat' && (
+                    <div>
+                      <div class="sm-bar">
+                        <span class="sm-dot"></span><span class="sm-dot"></span><span class="sm-dot"></span>
+                        <span class="sm-bar-title">Support Agent</span>
+                      </div>
+                      <div class="sm-chat">
+                        <div class="sm-bubble sm-user" style="animation-delay:0.4s">Hi, where is my order?</div>
+                        <div class="sm-typing" style="animation-delay:0.9s"><span></span><span></span><span></span></div>
+                        <div class="sm-bubble sm-bot" style="animation-delay:1.6s">Your order #4821 ships tomorrow. I've sent tracking to your email.</div>
+                      </div>
+                    </div>
+                  )}
+                  {s.mockup === 'pipeline' && (
+                    <div>
+                      <div class="sm-bar">
+                        <span class="sm-dot"></span><span class="sm-dot"></span><span class="sm-dot"></span>
+                        <span class="sm-bar-title">Lead Pipeline</span>
+                      </div>
+                      <div class="sm-pipeline">
+                        <div class="sm-col">
+                          <div class="sm-col-hdr">New</div>
+                          <div class="sm-card" style="animation-delay:0.3s">Acme Corp</div>
+                          <div class="sm-card" style="animation-delay:0.5s">TechStart</div>
+                        </div>
+                        <div class="sm-col">
+                          <div class="sm-col-hdr">Qualified</div>
+                          <div class="sm-card sm-card-hot" style="animation-delay:0.7s">Globex Inc</div>
+                        </div>
+                        <div class="sm-col">
+                          <div class="sm-col-hdr">Closing</div>
+                          <div class="sm-card" style="animation-delay:0.9s">Initech</div>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                  {s.mockup === 'search' && (
+                    <div>
+                      <div class="sm-bar">
+                        <span class="sm-dot"></span><span class="sm-dot"></span><span class="sm-dot"></span>
+                        <div class="sm-search-bar-wrap">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                          <span>refund policy Q3</span>
+                        </div>
+                      </div>
+                      <div class="sm-imgrid">
+                        <div class="sm-imgbox sm-imgbox-hl" style="animation-delay:0.3s"></div>
+                        <div class="sm-imgbox" style="animation-delay:0.5s"></div>
+                        <div class="sm-imgbox" style="animation-delay:0.7s"></div>
+                        <div class="sm-imgbox" style="animation-delay:0.9s"></div>
+                      </div>
+                    </div>
+                  )}
+                  {s.mockup === 'video' && (
+                    <div>
+                      <div class="sm-bar">
+                        <span class="sm-dot"></span><span class="sm-dot"></span><span class="sm-dot"></span>
+                        <span class="sm-bar-title">AI Creative Studio</span>
+                      </div>
+                      <div class="sm-player">
+                        <div class="sm-video-frame">
+                          <div class="sm-play-btn"><div class="sm-play-icon"></div></div>
+                        </div>
+                        <div class="sm-progress-bar"><div class="sm-progress-fill"></div></div>
+                      </div>
+                    </div>
+                  )}
+                  {s.mockup === 'terminal' && (
+                    <div>
+                      <div class="sm-bar">
+                        <span class="sm-dot"></span><span class="sm-dot"></span><span class="sm-dot"></span>
+                        <span class="sm-bar-title">Query Engine</span>
+                      </div>
+                      <div class="sm-terminal">
+                        <div class="sm-cmd" style="animation-delay:0.3s">$ ask "revenue by region last 90d"</div>
+                        <div class="sm-out" style="animation-delay:0.9s">Running SQL… 1,240ms</div>
+                        <div class="sm-out" style="animation-delay:1.4s">North: $84k · South: $61k · West: $102k</div>
+                        <div class="sm-caret" style="animation-delay:1.9s">▌</div>
+                      </div>
+                    </div>
+                  )}
+                  {s.mockup === 'chart' && (
+                    <div>
+                      <div class="sm-bar">
+                        <span class="sm-dot"></span><span class="sm-dot"></span><span class="sm-dot"></span>
+                        <span class="sm-bar-title">Forecast Model</span>
+                      </div>
+                      <div class="sm-chart">
+                        <div class="sm-bar-v" style="height:38px; animation-delay:0.3s"></div>
+                        <div class="sm-bar-v" style="height:58px; animation-delay:0.45s"></div>
+                        <div class="sm-bar-v" style="height:48px; animation-delay:0.6s"></div>
+                        <div class="sm-bar-v sm-bar-v-hi" style="height:80px; animation-delay:0.75s"></div>
+                        <div class="sm-bar-v" style="height:66px; animation-delay:0.9s"></div>
+                        <div class="sm-bar-v sm-bar-v-hi" style="height:94px; animation-delay:1.05s"></div>
+                      </div>
+                    </div>
+                  )}
+                </div>
               </div>
-              <p class="service-card-desc">{s.desc}</p>
-              <a href="https://cal.com/diverselabs/30min" target="_blank" rel="noopener noreferrer" class="service-card-cta">
-                Discuss this system <span aria-hidden="true">→</span>
-              </a>
             </div>
           </div>
         ))}
@@ -398,23 +425,29 @@ const faqs = [
     </div>
   </section>
 
-  <section id="work-scroll" class="work-reel-section" aria-label="Selected Work">
-    <div class="container max-w-7xl mx-auto work-reel-header reveal">
-      <p class="section-label mb-3">Selected Work</p>
-      <h2 class="text-white font-bold">Work Shipped for Real Teams</h2>
-    </div>
+  <!-- ═══════════════ WORK REEL (pinned horizontal) ═══════════════ -->
+  <section id="work" class="reel-section" data-reel aria-label="Selected work">
+    <div class="reel-viewport">
+      <div class="reel-head container">
+        <div>
+          <p class="label mb-4">Selected work</p>
+          <h2>Shipped for real teams</h2>
+        </div>
+        <span class="reel-count mono-num">
+          <span class="reel-current" data-reel-counter>01</span> / {String(homeProjects.length).padStart(2, '0')}
+        </span>
+      </div>
 
-    <div class="work-reel-sticky" id="work-reel-sticky">
-      <div class="work-reel-track" id="work-reel-track">
-        {homeProjects.map((project, i) => (
-          <article class={`work-reel-card reveal reveal-delay-${(i % 3) + 1}`}>
+      <div class="reel-track" data-reel-track>
+        {homeProjects.map((project) => (
+          <article class="reel-card">
             <a
               href={project.href}
               target={project.href.startsWith('http') ? '_blank' : undefined}
               rel={project.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-              class="work-reel-link"
+              aria-label={`Open ${project.name}`}
             >
-              <div class="work-reel-media">
+              <div class="reel-media">
                 <img
                   src={project.image}
                   alt={`${project.name} preview`}
@@ -423,102 +456,109 @@ const faqs = [
                   loading="lazy"
                   decoding="async"
                 />
+                <span class="reel-open">Open <span aria-hidden="true">↗</span></span>
               </div>
-              <div class="work-reel-content">
+              <div class="reel-meta">
                 <h3>{project.name}</h3>
-                <p class="work-reel-desc">{project.description}</p>
-                <div class="work-reel-tags">
-                  {project.tags.map((tag) => <span>{tag}</span>)}
+                <div class="reel-tags">
+                  {project.tags.map((tag) => <span class="chip">{tag}</span>)}
                 </div>
-                <span class="work-reel-open">
-                  Open project <span aria-hidden="true">→</span>
-                </span>
               </div>
+              <p class="reel-desc">{project.description}</p>
             </a>
           </article>
         ))}
       </div>
+
+      <div class="reel-progress container" aria-hidden="true">
+        <div class="reel-progress-track">
+          <div class="reel-progress-bar" data-reel-bar></div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section class="page-section line-grid relative">
-    <div class="absolute inset-0 bg-linear-to-b from-[#080808] via-transparent to-[#080808] pointer-events-none"></div>
-    <div class="container max-w-6xl mx-auto relative z-10">
-      <div class="mb-14 reveal">
-        <p class="section-label mb-4">Philosophy</p>
-          <h2 class="text-white font-bold max-w-3xl">Give Your Existing Team an AI Advantage</h2>
-        <p class="text-lg text-text-secondary max-w-2xl mt-4 leading-relaxed">
-          We build AI systems that work alongside your people — handling the routine so your team can focus on what moves the needle.
-        </p>
-      </div>
+  <!-- ═══════════════ PHILOSOPHY ═══════════════ -->
+  <section class="page-section">
+    <div class="container">
+      <p class="label mb-8" data-reveal>Philosophy</p>
+      <p class="scrub-statement" data-scrub-text>
+        Repetitive work shouldn't consume your smartest people. We build AI that
+        absorbs the routine — so your team drives the decisions that actually
+        move the business.
+      </p>
 
-      <div class="phil-compact-grid">
-        <article class="surface-card phil-compact-card reveal reveal-delay-1">
-          <div class="phil-compact-head">
-            <h3 class="text-white font-bold">Focus on What Matters</h3>
-            <span class="phil-compact-chip">01</span>
-          </div>
-          <p>Let your team spend time on high-impact work, not repetitive ops.</p>
+      <div class="principle-grid" data-reveal-group>
+        <article class="principle-card">
+          <span class="principle-glow" aria-hidden="true"></span>
+          <span class="principle-num mono-num">(01)</span>
+          <h3>Focus on what matters</h3>
+          <p>Your team spends time on high-impact work, not repetitive ops.</p>
         </article>
-
-        <article class="surface-card phil-compact-card reveal reveal-delay-2">
-          <div class="phil-compact-head">
-            <h3 class="text-white font-bold">Control Without Black Boxes</h3>
-            <span class="phil-compact-chip">02</span>
-          </div>
-          <p>Choose what runs automatically and what needs human approval.</p>
+        <article class="principle-card">
+          <span class="principle-glow" aria-hidden="true"></span>
+          <span class="principle-num mono-num">(02)</span>
+          <h3>Control without black boxes</h3>
+          <p>You choose what runs automatically and what needs human approval.</p>
         </article>
-
-        <article class="surface-card phil-compact-card reveal reveal-delay-3">
-          <div class="phil-compact-head">
-            <h3 class="text-white font-bold">Built for Your Workflow</h3>
-            <span class="phil-compact-chip">03</span>
-          </div>
+        <article class="principle-card">
+          <span class="principle-glow" aria-hidden="true"></span>
+          <span class="principle-num mono-num">(03)</span>
+          <h3>Built for your workflow</h3>
           <p>Every system is custom to your data, stack, and business logic.</p>
         </article>
       </div>
     </div>
   </section>
 
-  <section class="page-section-tight">
-    <div class="container max-w-4xl mx-auto mb-16 md:mb-20 reveal">
-      <div class="mb-8 text-center">
-        <p class="section-label mb-3">FAQ</p>
-        <h2 class="text-white font-bold">Frequently Asked Questions</h2>
+  <!-- ═══════════════ FAQ ═══════════════ -->
+  <section class="page-section">
+    <div class="container" style="max-width: 56rem">
+      <div class="section-head" data-reveal>
+        <div>
+          <p class="label mb-4">FAQ</p>
+          <h2>Common questions</h2>
+        </div>
+        <span class="head-side mono-num">({String(faqs.length).padStart(2, '0')})</span>
       </div>
 
-      <div class="space-y-3 md:space-y-4">
+      <div class="faq-list acc-group" data-reveal-group>
         {faqs.map((faq, i) => (
-          <details class="surface-card rounded-2xl px-5 py-4 md:px-6 md:py-5 group" open={i === 0}>
-            <summary class="list-none cursor-pointer flex items-start justify-between gap-4 text-left text-white font-semibold select-none">
-              <span>{faq.question}</span>
-              <span class="text-text-secondary transition-transform duration-300 group-open:rotate-45" aria-hidden="true">+</span>
-            </summary>
-            <p class="mt-3 md:mt-4 text-text-secondary leading-relaxed pr-2">{faq.answer}</p>
-          </details>
+          <div class={`faq-item acc-item${i === 0 ? ' open' : ''}`}>
+            <button class="faq-head acc-head" aria-expanded={i === 0 ? 'true' : 'false'}>
+              <span class="faq-idx mono-num">{String(i + 1).padStart(2, '0')}</span>
+              <span class="faq-q">{faq.question}</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-body">
+              <div class="faq-body-inner">
+                <p>{faq.answer}</p>
+              </div>
+            </div>
+          </div>
         ))}
       </div>
     </div>
+  </section>
 
-    <div class="container max-w-4xl mx-auto text-center">
-      <div class="surface-panel rounded-3xl p-10 md:p-16 relative overflow-hidden reveal">
-        <div class="absolute inset-0 bg-[radial-gradient(ellipse_60%_60%_at_50%_100%,rgba(255,255,255,0.04),transparent)] pointer-events-none" aria-hidden="true"></div>
+  <!-- ═══════════════ CTA ═══════════════ -->
+  <section class="page-section-tight pb-24">
+    <div class="container">
+      <div class="cta-panel" data-reveal>
         <div class="relative z-10">
-          <h2 class="text-white font-bold mb-4">Still spending time on repetitive work?</h2>
-          <p class="text-text-secondary text-lg mb-8 max-w-xl mx-auto leading-relaxed">
-            Let's build an AI system that saves your team time.
-          </p>
+          <p class="label no-rule mb-6 justify-center flex">Ready when you are</p>
+          <h2 class="cta-title" data-split>Still doing repetitive<br />work by hand?</h2>
+          <p class="cta-sub">Let's build an AI system that gives your team its time back.</p>
           <div class="flex flex-col sm:flex-row items-center gap-4 justify-center">
             <a href="https://cal.com/diverselabs/30min"
                target="_blank"
                rel="noopener noreferrer"
-               class="btn btn-primary magnetic text-base px-8 py-3.5">
+               class="btn btn-primary btn-lg magnetic">
               Book a Discovery Call
+              <span class="btn-arrow" aria-hidden="true">→</span>
             </a>
             <a href="mailto:deven@diverselabs.org"
-              target="_blank"
-              rel="noopener noreferrer"
-               class="text-text-secondary hover:text-white transition-colors text-sm">
+               class="footer-link text-sm">
               or email deven@diverselabs.org
             </a>
           </div>
@@ -526,105 +566,5 @@ const faqs = [
       </div>
     </div>
   </section>
-
-<script>
-  function initWorkReel() {
-    const section = document.getElementById('work-scroll') as HTMLElement | null;
-    const sticky = document.getElementById('work-reel-sticky') as HTMLElement | null;
-    const track = document.getElementById('work-reel-track') as HTMLElement | null;
-    if (!section || !sticky || !track) return;
-
-    let maxTranslate = 0;
-    const isMobile = () => window.matchMedia('(max-width: 768px)').matches;
-    let raf = 0;
-
-    const cards = Array.from(track.querySelectorAll<HTMLElement>('.work-reel-card'));
-
-    const resetCards = () => {
-      cards.forEach((card) => {
-        card.style.transform = '';
-        card.style.opacity = '';
-        card.style.zIndex = '';
-      });
-    };
-
-    const measure = () => {
-      const viewW = window.innerWidth;
-      const firstCard = cards[0];
-      const cardWidth = firstCard?.getBoundingClientRect().width ?? Math.min(viewW * 0.74, 360);
-      const edgePad = Math.max(20, viewW / 2 - cardWidth / 2);
-      track.style.paddingLeft = `${edgePad}px`;
-      track.style.paddingRight = `${edgePad}px`;
-      maxTranslate = Math.max(0, track.scrollWidth - viewW);
-    };
-
-    const getProgress = () => {
-      const sectionTop = section.offsetTop;
-      const sectionHeight = section.offsetHeight;
-      const scrollable = Math.max(1, sectionHeight - window.innerHeight);
-      return Math.max(0, Math.min(1, (window.scrollY - sectionTop) / scrollable));
-    };
-
-    const update = () => {
-      if (isMobile()) return;
-      const progress = getProgress();
-      const translateX = progress * maxTranslate;
-      track.style.transform = `translate3d(${-translateX}px, 0, 0)`;
-
-      const centerX = window.innerWidth / 2;
-      cards.forEach((card) => {
-        const rect = card.getBoundingClientRect();
-        const cardCenter = rect.left + rect.width / 2;
-        const distance = Math.abs(centerX - cardCenter);
-        const normalized = Math.min(1, distance / (window.innerWidth * 0.48));
-        const scale = 0.82 + (1 - normalized) * 0.44;
-        const translateY = normalized * 18;
-        const opacity = 0.42 + (1 - normalized) * 0.58;
-
-        card.style.transform = `translateY(${translateY}px) scale(${scale})`;
-        card.style.opacity = String(opacity);
-        card.style.zIndex = String(Math.round((1 - normalized) * 100));
-      });
-    };
-
-    const setHeight = () => {
-      if (isMobile()) {
-        section.style.height = 'auto';
-        sticky.style.height = 'auto';
-        track.style.transform = 'none';
-        track.style.paddingLeft = '';
-        track.style.paddingRight = '';
-        resetCards();
-        return;
-      }
-
-      measure();
-      const stageHeight = Math.max(520, Math.min(760, Math.round(window.innerHeight * 0.8)));
-      section.style.height = `${stageHeight + maxTranslate}px`;
-      sticky.style.height = `${stageHeight}px`;
-      update();
-    };
-
-    const onScroll = () => {
-      if (raf) return;
-      raf = window.requestAnimationFrame(() => {
-        update();
-        raf = 0;
-      });
-    };
-
-    setHeight();
-    track.querySelectorAll('img').forEach((img) => {
-      if (!img.complete) img.addEventListener('load', setHeight, { once: true });
-    });
-
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', setHeight);
-  }
-
-  if (document.readyState !== 'loading') initWorkReel();
-  else document.addEventListener('DOMContentLoaded', initWorkReel);
-  document.addEventListener('astro:page-load', initWorkReel);
-</script>
 
 </BaseLayout>

@@ -22,6 +22,15 @@ const {
 const actualTitle = title;
 const actualCanonicalURL = canonicalURL || Astro.url.href;
 const gaId = import.meta.env.PUBLIC_GA_MEASUREMENT_ID;
+const currentPath = Astro.url.pathname;
+const isActive = (path: string) =>
+  path === '/' ? currentPath === '/' : currentPath.startsWith(path);
+
+const navItems = [
+  { href: '/', label: 'Home' },
+  { href: '/work', label: 'Work' },
+  { href: '/about', label: 'About' },
+];
 
 const organizationSchema = {
   "@context": "https://schema.org",
@@ -87,6 +96,8 @@ const websiteSchema = {
     <meta name="robots" content="index, follow" />
     <meta name="author" content="Diverse Labs" />
 
+    <script is:inline>document.documentElement.classList.add('js');</script>
+
     <!-- Open Graph -->
     <meta property="og:title" content={actualTitle} />
     <meta property="og:description" content={description} />
@@ -108,10 +119,10 @@ const websiteSchema = {
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 
-    <!-- Google Fonts -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;450;500;550;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
     <title>{actualTitle}</title>
 
@@ -147,50 +158,56 @@ const websiteSchema = {
     <BackgroundShader />
 
     <!-- Navigation -->
-    <div class="fixed top-0 left-0 right-0 z-50 px-3 pt-3 md:px-6 md:pt-6">
-      <nav class="container max-w-7xl mx-auto backdrop-blur-xl bg-black/65 border border-white/8 rounded-full shadow-2xl shadow-black/30"
-           aria-label="Main navigation">
-        <div class="px-4 py-3 md:px-8 md:py-3.5 flex items-center justify-between gap-3">
-          <a href="/" class="flex items-center gap-2 md:gap-2.5 text-base md:text-lg font-bold text-white hover:text-gray-200 transition-colors"
-             aria-label="Diverse Labs home">
-            <img src="/logo.svg" alt="Diverse Labs logo" class="w-7 h-7 md:w-7 md:h-7" />
-            Diverse Labs
-          </a>
-          <ul class="hidden md:flex gap-7 items-center" role="list">
-            <li><a href="/" class="text-sm text-text-secondary hover:text-white transition-colors">Home</a></li>
-            <li><a href="/work" class="text-sm text-text-secondary hover:text-white transition-colors">Work</a></li>
-            <li><a href="/about" class="text-sm text-text-secondary hover:text-white transition-colors">About</a></li>
+    <header id="site-nav">
+      <nav class="nav-inner" aria-label="Main navigation">
+        <a href="/" class="nav-logo" aria-label="Diverse Labs home">
+          <img src="/logo.svg" alt="" width="28" height="28" />
+          Diverse&nbsp;Labs
+        </a>
+
+        <ul class="nav-links" role="list">
+          {navItems.map((item) => (
             <li>
-              <a href="https://cal.com/diverselabs/30min"
-                 target="_blank"
-                 rel="noopener noreferrer"
-                 class="btn btn-primary text-sm py-2 px-5 rounded-full">
-                Book a Call
+              <a href={item.href} class:list={['nav-link', { active: isActive(item.href) }]}>
+                {item.label}
               </a>
             </li>
-          </ul>
+          ))}
+          <li>
+            <a href="https://cal.com/diverselabs/30min"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="btn btn-primary nav-cta text-sm py-2.5 px-5">
+              Book a Call
+            </a>
+          </li>
+        </ul>
 
-          <details class="md:hidden relative">
-            <summary class="nav-summary flex items-center justify-center w-9 h-9 rounded-full border border-white/12 bg-white/4 text-white cursor-pointer"
-                     aria-label="Open menu">
-              <svg class="w-4.5 h-4.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M4 7h16M4 12h16M4 17h16" />
-              </svg>
-            </summary>
-            <div class="absolute right-0 mt-3 w-52 rounded-2xl border border-white/10 bg-black/95 backdrop-blur-xl p-3.5 shadow-2xl">
-              <a href="/" class="block px-3 py-2.5 text-sm text-text-secondary hover:text-white rounded-lg hover:bg-white/4 transition-colors">Home</a>
-              <a href="/work" class="block px-3 py-2.5 text-sm text-text-secondary hover:text-white rounded-lg hover:bg-white/4 transition-colors">Work</a>
-              <a href="/about" class="block px-3 py-2.5 text-sm text-text-secondary hover:text-white rounded-lg hover:bg-white/4 transition-colors">About</a>
-              <a href="https://cal.com/diverselabs/30min"
-                 target="_blank"
-                 rel="noopener noreferrer"
-                 class="block mt-2 btn btn-primary text-sm py-2.5 px-4 text-center rounded-full">
-                Book a Call
-              </a>
-            </div>
-          </details>
-        </div>
+        <button class="menu-btn" id="menu-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="menu-overlay">
+          <span></span>
+          <span></span>
+        </button>
       </nav>
+    </header>
+
+    <!-- Full-screen mobile menu -->
+    <div class="menu-overlay" id="menu-overlay" aria-hidden="true">
+      <nav aria-label="Mobile navigation">
+        {navItems.map((item, i) => (
+          <a href={item.href} class="menu-link">
+            <span class="menu-idx">0{i + 1}</span>
+            {item.label}
+          </a>
+        ))}
+        <a href="https://cal.com/diverselabs/30min" target="_blank" rel="noopener noreferrer" class="menu-link">
+          <span class="menu-idx">04</span>
+          Book a Call
+        </a>
+      </nav>
+      <div class="menu-foot">
+        <a href="mailto:deven@diverselabs.org">deven@diverselabs.org</a>
+        <span>Building AI systems worldwide</span>
+      </div>
     </div>
 
     <!-- Main content slot -->
@@ -199,175 +216,147 @@ const websiteSchema = {
     </main>
 
     <!-- Footer -->
-    <footer class="bg-black/60 backdrop-blur-xl border-t border-white/6" role="contentinfo">
-      <div class="container max-w-6xl mx-auto py-14 md:py-18">
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-12">
-          <!-- Brand -->
-          <div class="sm:col-span-2 lg:col-span-1">
-            <a href="/" class="flex items-center gap-2 mb-4">
-              <img src="/logo.svg" alt="Diverse Labs" class="w-6 h-6" />
-              <span class="text-white font-bold">Diverse Labs</span>
+    <footer class="site-footer" role="contentinfo">
+      <div class="container">
+        <div class="footer-cta-row">
+          <h2>Have a system in mind? Let's scope it.</h2>
+          <a href="https://cal.com/diverselabs/30min"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="btn btn-primary btn-lg magnetic">
+            Book a Discovery Call
+            <span class="btn-arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+
+        <div class="footer-grid">
+          <div class="footer-col">
+            <a href="/" class="nav-logo mb-4" style="display:inline-flex">
+              <img src="/logo.svg" alt="" width="26" height="26" />
+              Diverse&nbsp;Labs
             </a>
-            <p class="text-text-secondary text-sm leading-relaxed mb-5 max-w-xs">Custom AI systems and production software for businesses that compete to scale.</p>
-            <p class="text-text-tertiary text-xs tracking-wide">&copy; 2026 Diverse Labs. All rights reserved.</p>
+            <p class="footer-blurb">Custom AI systems and production software for teams that want to move faster.</p>
           </div>
 
-          <!-- Services -->
-          <div>
-            <h4 class="text-white font-semibold mb-4 text-sm tracking-wide">Services</h4>
-            <ul class="space-y-3" role="list">
-              <li><a href="/#capabilities" class="text-text-secondary hover:text-white transition-colors text-sm inline-block">AI Agents</a></li>
-              <li><a href="/#software" class="text-text-secondary hover:text-white transition-colors text-sm inline-block">Software Development</a></li>
-              <li><a href="/work" class="text-text-secondary hover:text-white transition-colors text-sm inline-block">Case Studies</a></li>
+          <div class="footer-col">
+            <h4>Site</h4>
+            <ul role="list">
+              <li><a href="/" class="footer-link">Home</a></li>
+              <li><a href="/work" class="footer-link">Work</a></li>
+              <li><a href="/work/ai-creatives" class="footer-link">AI Creatives</a></li>
+              <li><a href="/about" class="footer-link">About</a></li>
             </ul>
           </div>
 
-          <!-- Company -->
-          <div>
-            <h4 class="text-white font-semibold mb-4 text-sm tracking-wide">Company</h4>
-            <ul class="space-y-3" role="list">
-              <li><a href="/about" class="text-text-secondary hover:text-white transition-colors text-sm inline-block">About</a></li>
+          <div class="footer-col">
+            <h4>Connect</h4>
+            <ul role="list">
+              <li><a href="mailto:deven@diverselabs.org" class="footer-link">deven@diverselabs.org</a></li>
               <li>
-                <a href="https://cal.com/diverselabs/30min"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   class="text-text-secondary hover:text-white transition-colors text-sm inline-block">
-                  Contact
+                <a href="https://www.linkedin.com/company/diverse-labs-org" target="_blank" rel="noopener noreferrer" class="footer-link">
+                  LinkedIn <span aria-hidden="true">↗</span>
                 </a>
               </li>
               <li>
-                <a href="https://www.linkedin.com/company/diverse-labs-org"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   class="text-text-secondary hover:text-white transition-colors text-sm inline-block">
-                  LinkedIn
+                <a href="https://x.com/diverse_labs" target="_blank" rel="noopener noreferrer" class="footer-link">
+                  X (Twitter) <span aria-hidden="true">↗</span>
                 </a>
               </li>
               <li>
-                <a href="https://x.com/diverse_labs"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   class="text-text-secondary hover:text-white transition-colors text-sm inline-block">
-                  X (Twitter)
+                <a href="https://cal.com/diverselabs/30min" target="_blank" rel="noopener noreferrer" class="footer-link">
+                  Book a call <span aria-hidden="true">↗</span>
                 </a>
               </li>
             </ul>
           </div>
+        </div>
 
-          <!-- Get in Touch -->
-          <div>
-            <h4 class="text-white font-semibold mb-4 text-sm tracking-wide">Get in Touch</h4>
-            <a href="mailto:deven@diverselabs.org"
-               class="text-text-secondary hover:text-white transition-colors text-sm block mb-2.5">
-              deven@diverselabs.org
-            </a>
-            <a href="https://cal.com/diverselabs/30min"
-               target="_blank"
-               rel="noopener noreferrer"
-               class="inline-flex items-center gap-1.5 text-white hover:text-gray-300 transition-colors font-medium text-sm mt-3">
-              Book a discovery call
-              <span aria-hidden="true">→</span>
-            </a>
-          </div>
+        <a href="/" class="footer-mark" aria-label="Diverse Labs home">DIVERSE LABS</a>
+
+        <div class="footer-base">
+          <span>&copy; 2026 Diverse Labs</span>
+          <span>Engineering-first. Outcome-driven.</span>
         </div>
       </div>
     </footer>
 
-    <!-- Scroll progress & reveal observer -->
+    <!-- Motion system (Lenis + GSAP) -->
     <script>
-      // ── Smooth wheel scroll (momentum) ──────────────────────────
-      ;(function () {
-        if (!window.matchMedia('(pointer: fine)').matches) return;
-        // macOS trackpads & Magic Mouse already provide OS-level momentum
-        // scrolling. Intercepting wheel events with { passive: false } forces
-        // every event off the compositor thread onto the main JS thread, which
-        // causes severe scroll lag on macOS. Skip the custom scroll there and
-        // let the browser (+ CSS scroll-behavior: smooth) handle everything.
-        const isMac =
-          (navigator as any).userAgentData?.platform === 'macOS' ||
-          /Mac/.test(navigator.platform) ||
-          navigator.userAgent.includes('Macintosh');
-        if (isMac) return;
-        let ease = 0.1;
-        let target = window.scrollY;
-        let current = window.scrollY;
-        let running = false;
-        const getMax = () =>
-          document.documentElement.scrollHeight - window.innerHeight;
+      import '../scripts/motion';
+    </script>
 
-        function isContainerScrollable(el: Element | null): boolean {
-          while (el && el !== document.documentElement) {
-            const s = getComputedStyle(el as HTMLElement);
-            if (
-              /auto|scroll/.test(s.overflow + s.overflowY) &&
-              (el as HTMLElement).scrollHeight >
-                (el as HTMLElement).clientHeight + 1
-            )
-              return true;
-            el = (el as HTMLElement).parentElement;
-          }
-          return false;
-        }
+    <!-- UI behaviours: menu, accordions, progress, cursor, click sparks -->
+    <script>
+      // ── Mobile menu ──────────────────────────────────────────────
+      function bindMenu() {
+        const btn = document.getElementById('menu-btn');
+        const overlay = document.getElementById('menu-overlay');
+        if (!btn || !overlay || btn.dataset.bound) return;
+        btn.dataset.bound = 'true';
 
-        function tick() {
-          const diff = target - current;
-          current += diff * ease;
-          if (Math.abs(diff) > 0.5) {
-            window.scrollTo(0, current);
-            requestAnimationFrame(tick);
-          } else {
-            current = target;
-            window.scrollTo(0, target);
-            running = false;
-          }
-        }
+        const setOpen = (open: boolean) => {
+          document.body.classList.toggle('menu-open', open);
+          btn.setAttribute('aria-expanded', String(open));
+          overlay.setAttribute('aria-hidden', String(!open));
+          const lenis = (window as any).__lenis;
+          if (lenis) open ? lenis.stop() : lenis.start();
+          document.documentElement.style.overflow = open ? 'hidden' : '';
+        };
 
-        window.addEventListener(
-          'wheel',
-          (e) => {
-            if (isContainerScrollable(e.target as Element)) return;
-            e.preventDefault();
-            if (!running) current = window.scrollY;
-            let delta = e.deltaY;
-            if (e.deltaMode === 1) delta *= 32;
-            else if (e.deltaMode === 2) delta *= window.innerHeight * 0.8;
-            target = Math.max(0, Math.min(target + delta * 0.85, getMax()));
-            if (!running) {
-              running = true;
-              requestAnimationFrame(tick);
-            }
-          },
-          { passive: false }
+        btn.addEventListener('click', () =>
+          setOpen(!document.body.classList.contains('menu-open'))
         );
+        overlay.querySelectorAll('a').forEach((a) =>
+          a.addEventListener('click', () => setOpen(false))
+        );
+        document.addEventListener('astro:before-swap', () => setOpen(false));
+      }
 
-        // Anchor-link smooth scroll handler (works with our intercepted wheel)
-        document.addEventListener('click', (e) => {
-          const link = (e.target as Element).closest('a[href^="#"]');
-          if (!link) return;
-          const href = link.getAttribute('href');
-          const dest = href ? document.querySelector(href) : null;
-          if (!dest) return;
-          e.preventDefault();
-          const rect = dest.getBoundingClientRect();
-          target = Math.max(
-            0,
-            Math.min(window.scrollY + rect.top - 100, getMax())
-          );
-          current = window.scrollY;
-          if (!running) {
-            running = true;
-            requestAnimationFrame(tick);
-          }
+      // ── Generic accordion (.acc-item > .acc-head) ────────────────
+      function bindAccordions() {
+        document.querySelectorAll<HTMLElement>('.acc-head').forEach((head) => {
+          if (head.dataset.bound) return;
+          head.dataset.bound = 'true';
+          head.addEventListener('click', () => {
+            const item = head.closest('.acc-item');
+            if (!item) return;
+            const isOpen = item.classList.contains('open');
+            item
+              .closest('.acc-group')
+              ?.querySelectorAll('.acc-item.open')
+              .forEach((el) => {
+                el.classList.remove('open');
+                el.querySelector('.acc-head')?.setAttribute('aria-expanded', 'false');
+              });
+            item.classList.toggle('open', !isOpen);
+            head.setAttribute('aria-expanded', String(!isOpen));
+          });
         });
+      }
 
-        document.addEventListener('astro:page-load', () => {
-          target = window.scrollY;
-          current = window.scrollY;
-          running = false;
-        });
-      })();
+      // ── Scroll progress bar ──────────────────────────────────────
+      function updateProgress() {
+        const bar = document.getElementById('scroll-progress');
+        if (!bar) return;
+        const max = document.documentElement.scrollHeight - window.innerHeight;
+        const scrolled = max > 0 ? window.scrollY / max : 0;
+        bar.style.width = `${Math.min(scrolled * 100, 100)}%`;
+      }
+      window.addEventListener('scroll', updateProgress, { passive: true });
 
-      // ── Click burst particles (spark lines) ────────────────────
+      function initAll() {
+        bindMenu();
+        bindAccordions();
+        updateProgress();
+      }
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initAll);
+      } else {
+        initAll();
+      }
+      document.addEventListener('astro:page-load', initAll);
+
+      // ── Click burst particles (spark lines) ──────────────────────
       ;(function () {
         if (!window.matchMedia('(pointer: fine)').matches) return;
         const bc = document.createElement('canvas');
@@ -378,19 +367,17 @@ const websiteSchema = {
         function resizeBC() { bc.width = window.innerWidth; bc.height = window.innerHeight; }
         resizeBC();
         window.addEventListener('resize', resizeBC, { passive: true });
-        type SP = { x: number; y: number; vx: number; vy: number; life: number; len: number; a: number; kind: 'spark' | 'flash'; size: number; };
+        type SP = { x: number; y: number; vx: number; vy: number; life: number; len: number; a: number; kind: 'spark' | 'flash'; };
         const sps: SP[] = [];
         let braf: number | null = null;
         function spawnBurst(x: number, y: number) {
-          // Radial flash that expands then fades
-          sps.push({ x, y, vx: 0, vy: 0, life: 1, len: 0, a: 0, kind: 'flash', size: 0 });
-          // Spark lines
+          sps.push({ x, y, vx: 0, vy: 0, life: 1, len: 0, a: 0, kind: 'flash' });
           const n = 9;
           for (let i = 0; i < n; i++) {
             const a = (Math.PI * 2 / n) * i + (Math.random() - 0.5) * 0.45;
             const spd = Math.random() * 4.5 + 2;
             sps.push({ x, y, vx: Math.cos(a) * spd, vy: Math.sin(a) * spd,
-              life: 1, len: Math.random() * 9 + 4, a, kind: 'spark', size: 0 });
+              life: 1, len: Math.random() * 9 + 4, a, kind: 'spark' });
           }
           if (!braf) braf = requestAnimationFrame(drawBurst);
         }
@@ -401,7 +388,7 @@ const websiteSchema = {
             if (p.kind === 'flash') {
               p.life -= 0.14;
               if (p.life <= 0) { sps.splice(i, 1); continue; }
-              const r = 18 * (1 - p.life); // expands outward
+              const r = 18 * (1 - p.life);
               const grad = bctx!.createRadialGradient(p.x, p.y, 0, p.x, p.y, r);
               grad.addColorStop(0, `rgba(255,255,255,${p.life * 0.35})`);
               grad.addColorStop(1, 'rgba(255,255,255,0)');
@@ -429,76 +416,7 @@ const websiteSchema = {
         document.addEventListener('mousedown', (e) => spawnBurst(e.clientX, e.clientY));
       })();
 
-      // ── Scroll progress bar ──────────────────────────────────────
-      const progressBar = document.getElementById('scroll-progress');
-      function updateProgress() {
-        if (!progressBar) return;
-        const scrolled = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
-        progressBar.style.width = `${Math.min(scrolled * 100, 100)}%`;
-      }
-      window.addEventListener('scroll', updateProgress, { passive: true });
-
-      // ── Scroll reveal via IntersectionObserver ───────────────────
-      function initReveal() {
-        const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-              }
-            });
-          },
-          { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
-        );
-        document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
-      }
-
-      // ── Number counter animation ─────────────────────────────────
-      function initCounters() {
-        document.querySelectorAll('[data-count]').forEach((el) => {
-          const obs = new IntersectionObserver((entries) => {
-            entries.forEach(e => {
-              if (!e.isIntersecting) return;
-              obs.unobserve(e.target);
-              const target = parseFloat((el as HTMLElement).dataset.count || '0');
-              const suffix = (el as HTMLElement).dataset.suffix || '';
-              const duration = 1600;
-              const startTime = performance.now();
-              function easeOut(t: number) { return 1 - Math.pow(1 - t, 3); }
-              function tick(now: number) {
-                const progress = Math.min((now - startTime) / duration, 1);
-                const val = easeOut(progress) * target;
-                el.textContent = (Number.isInteger(target) ? Math.floor(val) : val.toFixed(1)) + suffix;
-                if (progress < 1) requestAnimationFrame(tick);
-              }
-              requestAnimationFrame(tick);
-            });
-          }, { threshold: 0.6 });
-          obs.observe(el);
-        });
-      }
-
-      // ── Magnetic buttons ─────────────────────────────────────────
-      function initMagnetic() {
-        document.querySelectorAll<HTMLElement>('.magnetic').forEach(btn => {
-          btn.addEventListener('mousemove', (e) => {
-            const r = btn.getBoundingClientRect();
-            const x = e.clientX - r.left - r.width / 2;
-            const y = e.clientY - r.top - r.height / 2;
-            btn.style.transform = `translate(${x * 0.25}px, ${y * 0.3}px)`;
-            btn.style.transitionDuration = '0.12s';
-          });
-          btn.addEventListener('mouseleave', () => {
-            btn.style.transform = 'translate(0, 0)';
-            btn.style.transitionDuration = '0.5s';
-          });
-        });
-      }
-
       // ── Custom cursor ────────────────────────────────────────────
-      // Single IIFE — event listeners & rAF loop registered once.
-      // Each handler queries the DOM directly so page transitions
-      // (which swap body content) never leave stale element references.
       ;(function () {
         if (!window.matchMedia('(pointer: fine)').matches) return;
 
@@ -517,13 +435,11 @@ const websiteSchema = {
           document.body.classList.remove('cursor-active');
         });
 
-        // Universal hover detection — any interactive/clickable element
         document.addEventListener('mouseover', (e) => {
           const t = e.target as Element;
           const hoverable = t.closest(
-            'a, button, summary, select, label, input[type="checkbox"], input[type="radio"], ' +
-            '[role="button"], [role="link"], [role="tab"], [role="menuitem"], [role="option"], ' +
-            '.btn, .service-header, .card-hover, details, [data-hover], .faq-item'
+            'a, button, summary, select, label, input, textarea, ' +
+            '[role="button"], [role="link"], [role="tab"], .btn, [data-hover]'
           );
           const isHovering = !!hoverable;
           document.body.classList.toggle('cursor-hover', isHovering);
@@ -534,7 +450,6 @@ const websiteSchema = {
           if (clickTimer) clearTimeout(clickTimer);
           document.body.classList.add('cursor-click');
           glowTargetScale = 0.65;
-          // Fire crosshair ripple from click origin
           const ripple = document.getElementById('cursor-ripple');
           if (ripple) {
             ripple.style.setProperty('--ripple-pos', `translate(${e.clientX - 18}px, ${e.clientY - 18}px)`);
@@ -553,17 +468,13 @@ const websiteSchema = {
         });
 
         (function loop() {
-          // getElementById is O(1); querying each frame keeps refs fresh
-          // after every Astro view-transition without any extra bookkeeping.
           const ring = document.getElementById('cursor-ring');
           const glow = document.getElementById('cursor-glow');
-          // Ring follows with moderate lag
           if (ring) {
             rx += (mx - rx) * 0.09;
             ry += (my - ry) * 0.09;
             ring.style.transform = `translate(${rx}px, ${ry}px)`;
           }
-          // Glow follows with slow lag + lerped scale
           if (glow) {
             gx += (mx - gx) * 0.055;
             gy += (my - gy) * 0.055;
@@ -573,23 +484,6 @@ const websiteSchema = {
           requestAnimationFrame(loop);
         })();
       })();
-
-      // ── Init all on load ─────────────────────────────────────────
-      function initAll() {
-        initReveal();
-        initCounters();
-        initMagnetic();
-        updateProgress();
-      }
-
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initAll);
-      } else {
-        initAll();
-      }
-
-      // Re-run on Astro page transitions
-      document.addEventListener('astro:page-load', initAll);
     </script>
   </body>
 </html>
