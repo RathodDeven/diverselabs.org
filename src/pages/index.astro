@@ -75,11 +75,25 @@ const logoRowTwo = allClients.slice(halfway);
 
 const homeProjects = [
   {
+    name: 'ScaleUp · Zoho CRM agent',
+    image: '/work/scaleup-crm.svg',
+    href: '/work/scaleup-zoho-crm-follow-up-agent',
+    tags: ['AI agent', 'Zoho CRM'],
+    description: 'A human-in-the-loop agent that drafts context-aware follow-ups inside Zoho CRM.',
+  },
+  {
     name: 'NudgeFlow · ClickPe (YC S23)',
     image: '/work/nudgeflow.webp',
-    href: 'https://drive.google.com/file/d/10uMQ51a0u_D_SWAobehndmie-6HTT-lZ/view',
+    href: '/work/clickpe-nudgeflow-whatsapp-voice-ai-agent',
     tags: ['AI system', 'Voice agent'],
     description: 'WhatsApp + voice agents that classify leads and sync outcomes automatically.',
+  },
+  {
+    name: 'Distributor catalog pipeline',
+    image: '/work/distributor-catalog.svg',
+    href: '/work/distributor-catalog-automation',
+    tags: ['Document AI', 'Extraction'],
+    description: 'Turns 200-page supplier price-list PDFs into a clean, matched catalog automatically.',
   },
   {
     name: 'AI Creatives',
@@ -154,6 +168,28 @@ const faqs = [
     answer: 'Discovery call → scoped plan with milestones → build and deliver → weekly iteration. Most clients see measurable results within the first 30 days.',
   },
 ];
+
+const testimonials = [
+  {
+    quote:
+      "Deven quickly understood our Zoho CRM and follow-up workflow, then built a secure, practical automation that gives our team useful context without adding operational noise. He combines strong technical execution with an operator's mindset — making Diverse Labs a reliable partner for turning complex workflows into tools we actually use.",
+    name: 'Marcos Buelvas',
+    title: 'Global Operations Consulting',
+    company: 'ScaleUp',
+    logo: '/companies/scaleup.jpeg',
+    image: '/people/marcos-buelvas.webp',
+    initials: 'MB',
+    relation: 'Client · June 2026',
+    // The recommendation lives in Deven's LinkedIn "Recommendations" section
+    recommendationUrl: 'https://www.linkedin.com/in/deven-rathod-475b39205',
+  },
+];
+const featured = testimonials[0];
+
+/** Builds a Gmail compose link (opens in a new tab) prefilled to Deven. */
+const gmailCompose = (subject: string, body: string) =>
+  `https://mail.google.com/mail/?view=cm&fs=1&to=deven@diverselabs.org` +
+  `&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 ---
 
 <BaseLayout title={title} description={description}>
@@ -311,7 +347,15 @@ const faqs = [
                 <div class="stack-chips">
                   {s.chips.map((chip) => <span class="chip">{chip}</span>)}
                 </div>
-                <a href="https://cal.com/diverselabs/30min" target="_blank" rel="noopener noreferrer" class="stack-link">
+                <a
+                  href={gmailCompose(
+                    `Let's discuss: ${s.title}`,
+                    `Hi Deven,\n\nI'm interested in ${s.title} for my team — can we talk through what you'd build?`
+                  )}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="stack-link"
+                >
                   <span class="stack-link-arrow" aria-hidden="true">→</span>
                   Discuss this system
                 </a>
@@ -527,6 +571,54 @@ const faqs = [
           <div class="reel-progress-bar" data-reel-bar></div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ TESTIMONIAL ═══════════════ -->
+  <section class="page-section" aria-label="Client recommendation">
+    <div class="container">
+      <figure class="tmonial" data-reveal>
+        <span class="tmonial-aura" aria-hidden="true"></span>
+        <div class="tmonial-head">
+          <span class="label no-rule">In their words</span>
+          <a class="tmonial-badge" href={featured.recommendationUrl} target="_blank" rel="noopener noreferrer" aria-label="View this recommendation on LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z" />
+            </svg>
+            Recommended on LinkedIn
+            <span class="tmonial-badge-arrow" aria-hidden="true">↗</span>
+          </a>
+        </div>
+
+        <blockquote class="tmonial-quote">
+          <span class="tmonial-mark" aria-hidden="true">“</span>{featured.quote}
+        </blockquote>
+
+        <figcaption class="tmonial-by">
+          <span class="tmonial-avatar">
+            <img
+              src={featured.image}
+              alt={featured.name}
+              width="56"
+              height="56"
+              loading="lazy"
+              decoding="async"
+              onerror="this.remove()"
+            />
+            <span class="tmonial-mono" aria-hidden="true">{featured.initials}</span>
+          </span>
+          <span class="tmonial-meta">
+            <span class="tmonial-name">
+              {featured.name}
+              <svg class="tmonial-verified" viewBox="0 0 24 24" aria-label="Verified" role="img">
+                <path fill="currentColor" d="m23 12-2.44-2.79.34-3.69-3.61-.82-1.89-3.2L12 2.96 8.6 1.5 6.71 4.69 3.1 5.5l.34 3.7L1 12l2.44 2.79-.34 3.7 3.61.82 1.89 3.2L12 21.04l3.4 1.46 1.89-3.19 3.61-.82-.34-3.69L23 12zm-12.91 4.72-3.8-3.81 1.48-1.48 2.32 2.33 5.85-5.87 1.48 1.48-7.33 7.35z" />
+              </svg>
+            </span>
+            <span class="tmonial-role">{featured.title} · {featured.company} · {featured.relation}</span>
+          </span>
+          <img class="tmonial-logo" src={featured.logo} alt={`${featured.company} logo`} width="40" height="40" loading="lazy" decoding="async" />
+        </figcaption>
+      </figure>
     </div>
   </section>
 

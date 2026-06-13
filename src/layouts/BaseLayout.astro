@@ -9,6 +9,8 @@ export interface Props {
   image?: string;
   canonicalURL?: string;
   keywords?: string;
+  /** Extra per-page JSON-LD objects (Article, Service, HowTo, FAQPage, BreadcrumbList, …) */
+  jsonLd?: Record<string, unknown>[];
 }
 
 const {
@@ -17,6 +19,7 @@ const {
   image = '/og-image.png',
   canonicalURL,
   keywords = 'AI agents, workflow automation, custom AI systems, web app development, mobile app development, AI chatbot, business automation, AI consulting, LLM integration',
+  jsonLd = [],
 } = Astro.props as Props;
 
 const actualTitle = title;
@@ -29,6 +32,7 @@ const isActive = (path: string) =>
 const navItems = [
   { href: '/', label: 'Home' },
   { href: '/work', label: 'Work' },
+  { href: '/blog', label: 'Insights' },
   { href: '/about', label: 'About' },
 ];
 
@@ -129,6 +133,9 @@ const websiteSchema = {
     <!-- Structured Data -->
     <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
     <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+    {jsonLd.map((schema) => (
+      <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+    ))}
 
     <!-- Astro View Transitions -->
     <ClientRouter />
@@ -200,7 +207,7 @@ const websiteSchema = {
           </a>
         ))}
         <a href="https://cal.com/diverselabs/30min" target="_blank" rel="noopener noreferrer" class="menu-link">
-          <span class="menu-idx">04</span>
+          <span class="menu-idx">0{navItems.length + 1}</span>
           Book a Call
         </a>
       </nav>
@@ -243,8 +250,18 @@ const websiteSchema = {
             <ul role="list">
               <li><a href="/" class="footer-link">Home</a></li>
               <li><a href="/work" class="footer-link">Work</a></li>
-              <li><a href="/work/ai-creatives" class="footer-link">AI Creatives</a></li>
+              <li><a href="/blog" class="footer-link">Insights</a></li>
               <li><a href="/about" class="footer-link">About</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Case studies</h4>
+            <ul role="list">
+              <li><a href="/work/scaleup-zoho-crm-follow-up-agent" class="footer-link">Zoho CRM follow-up agent</a></li>
+              <li><a href="/work/clickpe-nudgeflow-whatsapp-voice-ai-agent" class="footer-link">WhatsApp + voice lead agent</a></li>
+              <li><a href="/work/distributor-catalog-automation" class="footer-link">Distributor catalog pipeline</a></li>
+              <li><a href="/work/ai-creatives" class="footer-link">AI creatives</a></li>
             </ul>
           </div>
 
@@ -372,6 +389,11 @@ const websiteSchema = {
         function resizeBC() { bc.width = window.innerWidth; bc.height = window.innerHeight; }
         resizeBC();
         window.addEventListener('resize', resizeBC, { passive: true });
+        // View transitions swap <body>, detaching the canvas — re-attach it
+        document.addEventListener('astro:after-swap', () => {
+          if (!bc.isConnected) document.body.appendChild(bc);
+          resizeBC();
+        });
         type SP = { x: number; y: number; vx: number; vy: number; life: number; len: number; a: number; kind: 'spark' | 'flash'; };
         const sps: SP[] = [];
         let braf: number | null = null;
@@ -425,29 +447,48 @@ const websiteSchema = {
       ;(function () {
         if (!window.matchMedia('(pointer: fine)').matches) return;
 
-        // Static layout elements — resolve once, not per event/frame
-        const dot = document.getElementById('cursor-dot');
-        const ring = document.getElementById('cursor-ring');
-        const glow = document.getElementById('cursor-glow');
-        const body = document.body;
+        // Astro view transitions swap <body>, which recreates the cursor
+        // elements and wipes the body's cursor-* classes. So these refs are
+        // re-resolved (and state re-applied) on every swap, not cached once.
+        let dot: HTMLElement | null = null;
+        let ring: HTMLElement | null = null;
+        let glow: HTMLElement | null = null;
 
         let mx = 0, my = 0, rx = 0, ry = 0, gx = 0, gy = 0;
         let glowScale = 1, glowTargetScale = 1;
-        let active = false, hovering = false;
+        let entered = false, hovering = false;
         let clickTimer: ReturnType<typeof setTimeout> | null = null;
+
+        function rebind() {
+          dot = document.getElementById('cursor-dot');
+          ring = document.getElementById('cursor-ring');
+          glow = document.getElementById('cursor-glow');
+          hovering = false;
+          // The freshly swapped-in <body> lost its classes — if the pointer
+          // is still in the window, restore the active state immediately so
+          // the native cursor stays hidden and the custom one keeps its spot.
+          if (entered) {
+            document.body.classList.add('cursor-active');
+            if (dot) dot.style.transform = `translate3d(${mx}px, ${my}px, 0)`;
+            if (ring) ring.style.transform = `translate3d(${rx}px, ${ry}px, 0)`;
+            if (glow) glow.style.transform = `translate3d(${gx}px, ${gy}px, 0) scale(${glowScale})`;
+          }
+        }
+        rebind();
+        document.addEventListener('astro:after-swap', rebind);
 
         document.addEventListener('mousemove', (e) => {
           mx = e.clientX; my = e.clientY;
           if (dot) dot.style.transform = `translate3d(${mx}px, ${my}px, 0)`;
-          if (!active) {
-            active = true;
-            body.classList.add('cursor-active');
+          if (!entered) {
+            entered = true;
+            document.body.classList.add('cursor-active');
           }
         }, { passive: true });
 
         document.addEventListener('mouseleave', () => {
-          active = false;
-          body.classList.remove('cursor-active');
+          entered = false;
+          document.body.classList.remove('cursor-active');
         });
 
         document.addEventListener('mouseover', (e) => {
@@ -459,7 +500,7 @@ const websiteSchema = {
           const isHovering = !!hoverable;
           if (isHovering !== hovering) {
             hovering = isHovering;
-            body.classList.toggle('cursor-hover', isHovering);
+            document.body.classList.toggle('cursor-hover', isHovering);
             glowTargetScale = isHovering ? 1.35 : 1;
           }
         }, { passive: true });
@@ -480,7 +521,7 @@ const websiteSchema = {
         document.addEventListener('mouseup', () => {
           if (clickTimer) clearTimeout(clickTimer);
           clickTimer = setTimeout(() => {
-            body.classList.remove('cursor-click');
+            document.body.classList.remove('cursor-click');
             glowTargetScale = hovering ? 1.35 : 1;
           }, 120);
         });

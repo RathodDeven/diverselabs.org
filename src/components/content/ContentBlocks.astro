@@ -1,0 +1,190 @@
+---
+import type { Block } from '../../data/content';
+
+interface Props {
+  blocks: Block[];
+}
+const { blocks } = Astro.props as Props;
+
+const paras = (body: string) => body.split(/\n\n+/).map((p) => p.trim()).filter(Boolean);
+---
+
+<div class="doc-blocks">
+  {blocks.map((b) => {
+    if (b.kind === 'prose') {
+      return (
+        <section class="db db-prose" data-reveal>
+          {b.heading && <h2>{b.heading}</h2>}
+          {paras(b.body).map((p) => <p set:html={p} />)}
+        </section>
+      );
+    }
+
+    if (b.kind === 'flow') {
+      return (
+        <section class="db db-flow" data-reveal>
+          {b.title && <h2>{b.title}</h2>}
+          <ol class="flowchart" role="list">
+            {b.steps.map((s, i) => (
+              <li class="flow-node">
+                <span class="flow-idx mono-num">{String(i + 1).padStart(2, '0')}</span>
+                <span class="flow-label">{s.label}</span>
+                {s.sub && <span class="flow-sub">{s.sub}</span>}
+                {i < b.steps.length - 1 && <span class="flow-arrow" aria-hidden="true">→</span>}
+              </li>
+            ))}
+          </ol>
+          {b.caption && <p class="db-cap">{b.caption}</p>}
+        </section>
+      );
+    }
+
+    if (b.kind === 'steps') {
+      return (
+        <section class="db db-steps" data-reveal>
+          {b.title && <h2>{b.title}</h2>}
+          <ol class="steplist" role="list">
+            {b.items.map((s, i) => (
+              <li class="step-item">
+                <span class="step-n mono-num">{String(i + 1).padStart(2, '0')}</span>
+                <div class="step-body">
+                  <h3>{s.title}</h3>
+                  <p>{s.body}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+          {b.caption && <p class="db-cap">{b.caption}</p>}
+        </section>
+      );
+    }
+
+    if (b.kind === 'metrics') {
+      return (
+        <section class="db db-metrics" data-reveal>
+          {b.title && <h2>{b.title}</h2>}
+          <div class="metric-row" data-reveal-group>
+            {b.items.map((m) => (
+              <div class="metric">
+                <div class="metric-val">{m.value}</div>
+                <div class="metric-lab">{m.label}</div>
+              </div>
+            ))}
+          </div>
+        </section>
+      );
+    }
+
+    if (b.kind === 'compare') {
+      return (
+        <section class="db db-compare" data-reveal>
+          {b.title && <h2>{b.title}</h2>}
+          <div class="cmp-wrap">
+            <table class="cmp">
+              <thead>
+                <tr>
+                  {b.head.map((h, i) => (
+                    <th class:list={[{ 'cmp-hl': i === b.highlight }]}>{h}</th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {b.rows.map((row) => (
+                  <tr>
+                    {row.map((cell, i) => (
+                      <td class:list={[{ 'cmp-row-lead': i === 0, 'cmp-hl': i === b.highlight }]}>{cell}</td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          {b.caption && <p class="db-cap">{b.caption}</p>}
+        </section>
+      );
+    }
+
+    if (b.kind === 'split') {
+      return (
+        <section class="db db-split" data-reveal>
+          {b.title && <h2>{b.title}</h2>}
+          <div class="split-grid">
+            <div class="split-card split-before">
+              <span class="split-tag">{b.before.label}</span>
+              <ul role="list">
+                {b.before.points.map((p) => <li>{p}</li>)}
+              </ul>
+            </div>
+            <span class="split-arrow" aria-hidden="true">→</span>
+            <div class="split-card split-after">
+              <span class="split-tag">{b.after.label}</span>
+              <ul role="list">
+                {b.after.points.map((p) => <li>{p}</li>)}
+              </ul>
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    if (b.kind === 'stack') {
+      return (
+        <section class="db db-stack" data-reveal>
+          {b.title && <h2>{b.title}</h2>}
+          <div class="stack-groups">
+            {b.groups.map((g) => (
+              <div class="stack-group">
+                <span class="stack-glabel">{g.label}</span>
+                <div class="stack-chips">
+                  {g.items.map((it) => <span class="chip">{it}</span>)}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      );
+    }
+
+    if (b.kind === 'callouts') {
+      return (
+        <section class="db db-callouts" data-reveal>
+          {b.title && <h2>{b.title}</h2>}
+          <div class="callout-grid" data-reveal-group>
+            {b.items.map((c) => (
+              <div class="callout">
+                <h3>{c.title}</h3>
+                <p>{c.body}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+      );
+    }
+
+    if (b.kind === 'quote') {
+      return (
+        <section class="db db-quote" data-reveal>
+          <blockquote>
+            <span class="dq-mark" aria-hidden="true">“</span>{b.text}
+          </blockquote>
+          {(b.by || b.role) && (
+            <figcaption>
+              {b.by && <strong>{b.by}</strong>}
+              {b.role && <span>{b.role}</span>}
+            </figcaption>
+          )}
+        </section>
+      );
+    }
+
+    if (b.kind === 'note') {
+      return (
+        <section class="db db-note" data-reveal>
+          <p set:html={b.body} />
+        </section>
+      );
+    }
+
+    return null;
+  })}
+</div>
