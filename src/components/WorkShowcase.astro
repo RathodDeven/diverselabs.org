@@ -9,14 +9,34 @@ const isAiCreativesActive = activeTab === 'ai-creatives';
 
 const projects = [
   {
+    name: 'Zoho CRM follow-up agent',
+    client: 'ScaleUp',
+    website: '/work/scaleup-zoho-crm-follow-up-agent',
+    image: '/work/scaleup-crm.svg',
+    description:
+      'A human-in-the-loop AI agent that drafts context-aware email and LinkedIn follow-ups inside Zoho CRM — researched, reviewed, and sent only on approval.',
+    tags: ['AI agent', 'Zoho CRM', 'Human-in-the-loop'],
+    ctaLabel: 'Read case study',
+  },
+  {
     name: 'NudgeFlow',
     client: 'ClickPe · YC S23',
-    website: 'https://drive.google.com/file/d/10uMQ51a0u_D_SWAobehndmie-6HTT-lZ/view',
+    website: '/work/clickpe-nudgeflow-whatsapp-voice-ai-agent',
     image: '/work/nudgeflow.webp',
     description:
       'WhatsApp chatbot and voice call agent that classifies leads, triggers follow-ups, retries dropped journeys, and syncs outcomes to workflow systems.',
     tags: ['AI system', 'Voice agent', 'WhatsApp'],
-    ctaLabel: 'Watch demo',
+    ctaLabel: 'Read case study',
+  },
+  {
+    name: 'Distributor catalog pipeline',
+    client: 'Distributor · Catalog ops',
+    website: '/work/distributor-catalog-automation',
+    image: '/work/distributor-catalog.svg',
+    description:
+      'An AI pipeline that reads messy supplier price-list PDFs, structures every line, matches them to the catalog, and exports clean Excel — in minutes, not days.',
+    tags: ['Document AI', 'Extraction', 'Ops automation'],
+    ctaLabel: 'Read case study',
   },
   {
     name: 'BloomersTV',
@@ -71,6 +91,16 @@ const aiVideos = [
   { id: '08PTaNOymAk', label: 'Cosmetic UGC with Product Showcase | UGC' },
   { id: 'Os6CygUjs_4', label: 'Sports Boots Showcase AD' },
 ];
+
+/** Gmail compose link (opens in a new tab) prefilled to Deven. */
+const gmailCompose = (subject: string, body: string) =>
+  `https://mail.google.com/mail/?view=cm&fs=1&to=deven@diverselabs.org` +
+  `&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+const aiPricingMail = gmailCompose(
+  'AI creatives — pricing chat',
+  "Hi Deven,\n\nI'd love to chat about pricing for AI ad creatives / UGC videos for my brand."
+);
 ---
 
 <!-- Hero -->
@@ -120,8 +150,8 @@ const aiVideos = [
           <article class="proj-row" data-reveal>
             <a
               href={project.website}
-              target="_blank"
-              rel="noopener noreferrer"
+              target={project.website.startsWith('http') ? '_blank' : undefined}
+              rel={project.website.startsWith('http') ? 'noopener noreferrer' : undefined}
               class="proj-media"
               data-parallax
               data-parallax-speed="6"
@@ -140,7 +170,11 @@ const aiVideos = [
             <div class="proj-meta">
               <span class="proj-idx mono-num">{String(i + 1).padStart(2, '0')} — {project.client}</span>
               <h3>
-                <a href={project.website} target="_blank" rel="noopener noreferrer">{project.name}</a>
+                <a
+                  href={project.website}
+                  target={project.website.startsWith('http') ? '_blank' : undefined}
+                  rel={project.website.startsWith('http') ? 'noopener noreferrer' : undefined}
+                >{project.name}</a>
               </h3>
               <p>{project.description}</p>
               <div class="proj-tags">
@@ -182,6 +216,17 @@ const aiVideos = [
             <div class="ai-video-label">{v.label}</div>
           </div>
         ))}
+      </div>
+
+      <div class="ai-pricing" data-reveal>
+        <div>
+          <h3>Let's chat about pricing for your brand.</h3>
+          <p>Tell us what you're selling — we'll come back with creative directions and a price.</p>
+        </div>
+        <a href={aiPricingMail} target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg magnetic">
+          Chat about pricing
+          <span class="btn-arrow" aria-hidden="true">→</span>
+        </a>
       </div>
     </div>
 </section>

@@ -1,0 +1,109 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { caseStudies } from '../../data/caseStudies';
+import { posts } from '../../data/posts';
+import { breadcrumbJsonLd } from '../../data/content';
+
+const title = 'Insights & Case Studies | Diverse Labs';
+const description =
+  'Real AI automation case studies and field guides — Zoho CRM follow-up agents, WhatsApp + voice outreach, cold email systems, document extraction, and more.';
+const keywords =
+  'AI automation case studies, AI agent build guides, Zoho CRM automation, cold email automation, AI UGC ads, RAG document search';
+
+const typeLabel: Record<string, string> = {
+  'case-study': 'Case study',
+  tutorial: 'Tutorial',
+  comparison: 'Comparison',
+  pillar: 'Guide',
+  guide: 'Guide',
+};
+
+const studies = caseStudies.filter((d) => !d.draft);
+const articles = posts.filter((d) => !d.draft);
+
+const crumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'Insights', href: '/blog' },
+];
+const jsonLd = [breadcrumbJsonLd(crumbs)];
+---
+
+<BaseLayout title={title} description={description} keywords={keywords} jsonLd={jsonLd}>
+  <section class="page-section-tight" style="padding-top: clamp(8rem, 16vh, 11rem)">
+    <div class="container">
+      <p class="label mb-6" data-reveal>Insights</p>
+      <h1 class="display-hero" data-split style="font-size: clamp(2.6rem, 7vw, 5.5rem)">
+        Proof &amp; <span class="text-outline">field notes.</span>
+      </h1>
+      <div class="mt-8 max-w-xl" data-reveal data-reveal-delay="0.3">
+        <p class="hero-sub">
+          How we build AI systems that do real work — case studies from live client
+          engagements and practical guides from the things we ship.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  {studies.length > 0 && (
+    <section class="page-section-tight">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <div>
+            <p class="label mb-4">Case studies</p>
+            <h2>Shipped, in production</h2>
+          </div>
+          <span class="head-side mono-num">({String(studies.length).padStart(2, '0')})</span>
+        </div>
+        <div class="insight-grid" data-reveal-group>
+          {studies.map((d) => (
+            <a class="insight-card insight-card-proof" href={`/work/${d.slug}`}>
+              <div class="insight-top">
+                <span class="insight-type mono-num">{typeLabel[d.type]}</span>
+                {d.client && <span class="insight-client">{d.client}</span>}
+              </div>
+              <h3>{d.crumb ?? d.title}</h3>
+              <p>{d.description}</p>
+              <div class="insight-foot">
+                <div class="insight-tags">
+                  {d.tags.slice(0, 3).map((t) => <span class="chip">{t}</span>)}
+                </div>
+                <span class="insight-arrow" aria-hidden="true">→</span>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {articles.length > 0 && (
+    <section class="page-section-tight pb-24">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <div>
+            <p class="label mb-4">Guides</p>
+            <h2>Field notes</h2>
+          </div>
+          <span class="head-side mono-num">({String(articles.length).padStart(2, '0')})</span>
+        </div>
+        <div class="insight-grid" data-reveal-group>
+          {articles.map((d) => (
+            <a class="insight-card" href={`/blog/${d.slug}`}>
+              <div class="insight-top">
+                <span class="insight-type mono-num">{typeLabel[d.type]}</span>
+              </div>
+              <h3>{d.crumb ?? d.title}</h3>
+              <p>{d.description}</p>
+              <div class="insight-foot">
+                <div class="insight-tags">
+                  {d.tags.slice(0, 3).map((t) => <span class="chip">{t}</span>)}
+                </div>
+                <span class="insight-arrow" aria-hidden="true">→</span>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+</BaseLayout>
