@@ -20,8 +20,6 @@ import Lenis from 'lenis';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const reduced = () =>
-  window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const finePointer = () => window.matchMedia('(pointer: fine)').matches;
 const desktop = () => window.innerWidth >= 900;
 
@@ -39,7 +37,7 @@ const onCleanup = (fn: () => void) => cleanupFns.push(fn);
    Lenis — created once, survives Astro view transitions
    ──────────────────────────────────────────────────────────── */
 function setupLenis() {
-  if (reduced() || window.__lenis) return;
+  if (window.__lenis) return;
   const lenis = new Lenis({
     lerp: 0.1,
     smoothWheel: true,
@@ -500,35 +498,10 @@ function pageEnter() {
 /* ────────────────────────────────────────────────────────────
    Init / teardown
    ──────────────────────────────────────────────────────────── */
-function showEverything() {
-  document
-    .querySelectorAll<HTMLElement>(
-      '[data-reveal], [data-split], [data-scrub-text], [data-count]'
-    )
-    .forEach((el) => {
-      el.style.opacity = '1';
-      el.style.visibility = 'visible';
-      el.style.transform = 'none';
-    });
-  document
-    .querySelectorAll<HTMLElement>('[data-reveal-group]')
-    .forEach((g) =>
-      Array.from(g.children).forEach((c) => {
-        (c as HTMLElement).style.opacity = '1';
-        (c as HTMLElement).style.transform = 'none';
-      })
-    );
-}
-
 function initMotion(replayEnter = true) {
   cleanupFns.forEach((fn) => fn());
   cleanupFns = [];
   ScrollTrigger.getAll().forEach((t) => t.kill());
-
-  if (reduced()) {
-    showEverything();
-    return;
-  }
 
   setupLenis();
   if (replayEnter) pageEnter();

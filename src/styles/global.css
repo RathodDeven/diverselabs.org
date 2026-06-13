@@ -143,13 +143,14 @@ a { text-decoration: none; }
 
 /* ================================================================
    MOTION — initial states (gated on .js so no-JS users see all)
+   Motion is intentionally ALWAYS ON (we do not honor prefers-reduced-motion),
+   so these run for every browser — including Windows machines that request
+   reduced motion. The .js gate still protects no-JS users from a hidden page.
    ================================================================ */
-@media (prefers-reduced-motion: no-preference) {
-  .js [data-reveal],
-  .js [data-reveal-group] > * { opacity: 0; }
-  .js [data-split],
-  .js [data-scrub-text] { visibility: hidden; }
-}
+.js [data-reveal],
+.js [data-reveal-group] > * { opacity: 0; }
+.js [data-split],
+.js [data-scrub-text] { visibility: hidden; }
 
 .sw-mask {
   display: inline-block;
@@ -1174,16 +1175,7 @@ body.menu-open .menu-foot { opacity: 1; transform: none; }
 .sm-chart-pill { position: absolute; top: 12px; right: 14px; }
 
 /* Reduced motion — freeze every scene on its final frame */
-@media (prefers-reduced-motion: reduce) {
-  .svc-mockup * { animation: none !important; }
-  .sm-w1, .sm-w2, .sm-w2a, .sm-w3, .sm-w4, .sm-w4a, .sm-w4b, .sm-w5,
-  .sm-traveler, .sm-s3, .sm-r2 { opacity: 1; }
-  .sm-wty, .sm-s1, .sm-s2, .sm-r1 { opacity: 0; }
-  .sm-typeq, .sm-typecmd { width: auto; border-right: none; }
-  .sm-rel-fill, .sm-rbar i, .sm-render-fill { transform: scaleX(1); }
-  .sm-bar-v { transform: none; }
-  .sm-traveler { left: 68.5%; }
-}
+/* Mockup scenes loop on every browser — motion is intentionally always on. */
 
 /* ================================================================
    WORK REEL (pinned horizontal)
@@ -1707,9 +1699,6 @@ body.menu-open .menu-foot { opacity: 1; transform: none; }
 @keyframes panelIn {
   from { opacity: 0; transform: translateY(16px); }
   to { opacity: 1; transform: none; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .work-panel.panel-in { animation: none; }
 }
 
 /* AI video grid */
@@ -2250,14 +2239,8 @@ body.cursor-click .cursor-dot {
 ::view-transition-old(root),
 ::view-transition-new(root) { animation-duration: 0.25s; }
 
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-  .stack-card { position: static; }
-}
+/* No global reduced-motion reset — motion (and the sticky stacking cards) run
+   on every browser by design. */
 
 /* ================================================================
    CONTENT SYSTEM — case studies & insight articles
