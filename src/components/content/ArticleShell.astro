@@ -1,20 +1,16 @@
 ---
 import type { Doc } from '../../data/content';
+import { TYPE_LABELS } from '../../data/content';
 import Breadcrumb from './Breadcrumb.astro';
 import ContentBlocks from './ContentBlocks.astro';
+import Faq from '../Faq.astro';
+import CTAButton from '../CTAButton.astro';
 
 interface Props {
   doc: Doc;
   crumbs: { name: string; href: string }[];
 }
 const { doc, crumbs } = Astro.props as Props;
-const typeLabel: Record<string, string> = {
-  'case-study': 'Case study',
-  tutorial: 'Tutorial',
-  comparison: 'Comparison',
-  pillar: 'Guide',
-  guide: 'Guide',
-};
 ---
 
 <article class="doc">
@@ -24,7 +20,7 @@ const typeLabel: Record<string, string> = {
 
       <div class="doc-eyebrow" data-reveal>
         <span class="label no-rule">{doc.eyebrow}</span>
-        <span class="doc-type mono-num">{typeLabel[doc.type] ?? 'Article'}</span>
+        <span class="doc-type mono-num">{TYPE_LABELS[doc.type] ?? 'Article'}</span>
       </div>
 
       <h1 class="doc-title" data-split>{doc.title}</h1>
@@ -57,20 +53,7 @@ const typeLabel: Record<string, string> = {
     {doc.faq && doc.faq.length > 0 && (
       <section class="db db-faq" data-reveal>
         <h2>Frequently asked</h2>
-        <div class="faq-list acc-group">
-          {doc.faq.map((f, i) => (
-            <div class={`faq-item acc-item${i === 0 ? ' open' : ''}`}>
-              <button class="faq-head acc-head" aria-expanded={i === 0 ? 'true' : 'false'}>
-                <span class="faq-idx mono-num">{String(i + 1).padStart(2, '0')}</span>
-                <span class="faq-q">{f.q}</span>
-                <span class="faq-icon" aria-hidden="true">+</span>
-              </button>
-              <div class="faq-body">
-                <div class="faq-body-inner"><p>{f.a}</p></div>
-              </div>
-            </div>
-          ))}
-        </div>
+        <Faq items={doc.faq} />
       </section>
     )}
 
@@ -93,10 +76,7 @@ const typeLabel: Record<string, string> = {
       <div class="doc-cta">
         <h2>{doc.cta?.title ?? 'Want this for your team?'}</h2>
         <p>{doc.cta?.sub ?? "Tell us the workflow. We'll show you what to automate first — and what it's worth."}</p>
-        <a href="https://cal.com/diverselabs/30min" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg magnetic">
-          Book a Discovery Call
-          <span class="btn-arrow" aria-hidden="true">→</span>
-        </a>
+        <CTAButton href="https://cal.com/diverselabs/30min">Book a Discovery Call</CTAButton>
       </div>
     </section>
   </div>

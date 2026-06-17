@@ -2,21 +2,13 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { caseStudies } from '../../data/caseStudies';
 import { posts } from '../../data/posts';
-import { breadcrumbJsonLd } from '../../data/content';
+import { breadcrumbJsonLd, TYPE_LABELS } from '../../data/content';
 
 const title = 'Insights & Case Studies | Diverse Labs';
 const description =
   'Real AI automation case studies and field guides — Zoho CRM follow-up agents, WhatsApp + voice outreach, cold email systems, document extraction, and more.';
 const keywords =
   'AI automation case studies, AI agent build guides, Zoho CRM automation, cold email automation, AI UGC ads, RAG document search';
-
-const typeLabel: Record<string, string> = {
-  'case-study': 'Case study',
-  tutorial: 'Tutorial',
-  comparison: 'Comparison',
-  pillar: 'Guide',
-  guide: 'Guide',
-};
 
 const studies = caseStudies.filter((d) => !d.draft);
 const articles = posts.filter((d) => !d.draft);
@@ -58,7 +50,7 @@ const jsonLd = [breadcrumbJsonLd(crumbs)];
           {studies.map((d) => (
             <a class="insight-card insight-card-proof" href={`/work/${d.slug}`}>
               <div class="insight-top">
-                <span class="insight-type mono-num">{typeLabel[d.type]}</span>
+                <span class="insight-type mono-num">{TYPE_LABELS[d.type]}</span>
                 {d.client && <span class="insight-client">{d.client}</span>}
               </div>
               <h3>{d.crumb ?? d.title}</h3>
@@ -90,7 +82,7 @@ const jsonLd = [breadcrumbJsonLd(crumbs)];
           {articles.map((d) => (
             <a class="insight-card" href={`/blog/${d.slug}`}>
               <div class="insight-top">
-                <span class="insight-type mono-num">{typeLabel[d.type]}</span>
+                <span class="insight-type mono-num">{TYPE_LABELS[d.type]}</span>
               </div>
               <h3>{d.crumb ?? d.title}</h3>
               <p>{d.description}</p>

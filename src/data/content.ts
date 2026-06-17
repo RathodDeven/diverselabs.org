@@ -28,6 +28,15 @@ export type Block =
 export type DocType = 'case-study' | 'tutorial' | 'comparison' | 'pillar' | 'guide';
 export type Collection = 'work' | 'blog';
 
+/** Human label for each doc type (used in hero eyebrows + listing cards). */
+export const TYPE_LABELS: Record<DocType, string> = {
+  'case-study': 'Case study',
+  tutorial: 'Tutorial',
+  comparison: 'Comparison',
+  pillar: 'Guide',
+  guide: 'Guide',
+};
+
 export interface Doc {
   slug: string; // path within its collection, e.g. "scaleup-zoho-crm-follow-up-agent"
   collection: Collection;

@@ -1,4 +1,7 @@
 ---
+import { gmailCompose } from '../lib/mail';
+import CTAButton from './CTAButton.astro';
+
 interface Props {
   activeTab?: 'all' | 'ai-creatives';
 }
@@ -91,11 +94,6 @@ const aiVideos = [
   { id: '08PTaNOymAk', label: 'Cosmetic UGC with Product Showcase | UGC' },
   { id: 'Os6CygUjs_4', label: 'Sports Boots Showcase AD' },
 ];
-
-/** Gmail compose link (opens in a new tab) prefilled to Deven. */
-const gmailCompose = (subject: string, body: string) =>
-  `https://mail.google.com/mail/?view=cm&fs=1&to=deven@diverselabs.org` +
-  `&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
 const aiPricingMail = gmailCompose(
   'AI creatives — pricing chat',
@@ -223,10 +221,7 @@ const aiPricingMail = gmailCompose(
           <h3>Let's chat about pricing for your brand.</h3>
           <p>Tell us what you're selling — we'll come back with creative directions and a price.</p>
         </div>
-        <a href={aiPricingMail} target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg magnetic">
-          Chat about pricing
-          <span class="btn-arrow" aria-hidden="true">→</span>
-        </a>
+        <CTAButton href={aiPricingMail}>Chat about pricing</CTAButton>
       </div>
     </div>
 </section>
@@ -299,10 +294,7 @@ const aiPricingMail = gmailCompose(
       <div class="relative z-10">
         <h2 class="cta-title">Your project could be next.</h2>
         <p class="cta-sub">Let's talk about what we can build and automate for you.</p>
-        <a href="https://cal.com/diverselabs/30min" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg magnetic">
-          Schedule a Discovery Call
-          <span class="btn-arrow" aria-hidden="true">→</span>
-        </a>
+        <CTAButton href="https://cal.com/diverselabs/30min">Schedule a Discovery Call</CTAButton>
       </div>
     </div>
   </div>

@@ -2501,7 +2501,9 @@ body.cursor-click .cursor-dot {
 .split-arrow { align-self: center; color: rgba(255, 255, 255, 0.4); font-size: 1.2rem; }
 @media (max-width: 640px) {
   .split-grid { grid-template-columns: 1fr; }
-  .split-arrow { transform: rotate(90deg); padding: 0.2rem 0; }
+  /* shrink to the glyph before rotating — otherwise the blockified grid item
+     fills the column width and the rotated arrow overlaps the card above */
+  .split-arrow { justify-self: center; transform: rotate(90deg); padding: 0.2rem 0; }
 }
 
 /* Stack groups */

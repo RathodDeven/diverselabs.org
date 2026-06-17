@@ -1,0 +1,33 @@
+---
+/**
+ * Accordion FAQ list. Used on the home page, contact page, and every
+ * case-study / article (via ArticleShell). Behaviour is wired globally by
+ * bindAccordions() in BaseLayout. Section heading stays per-page.
+ */
+interface Props {
+  items: { q: string; a: string }[];
+  /** Add data-reveal-group for staggered entrance (home + contact). */
+  revealGroup?: boolean;
+  /** Open the first item by default. */
+  startOpen?: boolean;
+}
+const { items, revealGroup = false, startOpen = true } = Astro.props as Props;
+---
+
+<div class="faq-list acc-group" data-reveal-group={revealGroup ? '' : undefined}>
+  {items.map((f, i) => {
+    const open = startOpen && i === 0;
+    return (
+      <div class={`faq-item acc-item${open ? ' open' : ''}`}>
+        <button class="faq-head acc-head" aria-expanded={open ? 'true' : 'false'}>
+          <span class="faq-idx mono-num">{String(i + 1).padStart(2, '0')}</span>
+          <span class="faq-q">{f.q}</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-body">
+          <div class="faq-body-inner"><p>{f.a}</p></div>
+        </div>
+      </div>
+    );
+  })}
+</div>

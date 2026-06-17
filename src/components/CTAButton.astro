@@ -1,0 +1,28 @@
+---
+/**
+ * Primary call-to-action button: the `btn btn-primary btn-lg magnetic` anchor
+ * with a trailing arrow, used for "Book / Schedule a Discovery Call" and the
+ * AI-creatives pricing CTA across the site. Label goes in the default slot.
+ * External hrefs (http…) automatically get target=_blank + rel.
+ */
+interface Props {
+  href: string;
+  external?: boolean;
+  class?: string;
+}
+const {
+  href,
+  external,
+  class: className = 'btn btn-primary btn-lg magnetic',
+} = Astro.props as Props;
+const isExternal = external ?? href.startsWith('http');
+---
+
+<a
+  href={href}
+  class={className}
+  {...(isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+>
+  <slot />
+  <span class="btn-arrow" aria-hidden="true">→</span>
+</a>

@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Faq from '../components/Faq.astro';
+import CTAButton from '../components/CTAButton.astro';
 
 const title = 'Contact - Diverse Labs';
 const description = "Let's talk about automating your business.";
@@ -40,10 +42,7 @@ const quickFaqs = [
         </p>
       </div>
       <div class="mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-4" data-reveal data-reveal-delay="0.45">
-        <a href="https://cal.com/diverselabs/30min" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg magnetic">
-          Schedule a Discovery Call
-          <span class="btn-arrow" aria-hidden="true">→</span>
-        </a>
+        <CTAButton href="https://cal.com/diverselabs/30min">Schedule a Discovery Call</CTAButton>
         <a href="mailto:deven@diverselabs.org" class="footer-link">deven@diverselabs.org</a>
       </div>
     </div>
@@ -79,22 +78,7 @@ const quickFaqs = [
         </div>
       </div>
 
-      <div class="faq-list acc-group" data-reveal-group>
-        {quickFaqs.map((faq, i) => (
-          <div class={`faq-item acc-item${i === 0 ? ' open' : ''}`}>
-            <button class="faq-head acc-head" aria-expanded={i === 0 ? 'true' : 'false'}>
-              <span class="faq-idx mono-num">{String(i + 1).padStart(2, '0')}</span>
-              <span class="faq-q">{faq.q}</span>
-              <span class="faq-icon" aria-hidden="true">+</span>
-            </button>
-            <div class="faq-body">
-              <div class="faq-body-inner">
-                <p>{faq.a}</p>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
+      <Faq items={quickFaqs} revealGroup />
     </div>
   </section>
 
@@ -105,10 +89,7 @@ const quickFaqs = [
         <div class="relative z-10">
           <h2 class="cta-title">Ready to free up your team?</h2>
           <p class="cta-sub">No obligations. Just ideas.</p>
-          <a href="https://cal.com/diverselabs/30min" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg magnetic">
-            Book a Discovery Call
-            <span class="btn-arrow" aria-hidden="true">→</span>
-          </a>
+          <CTAButton href="https://cal.com/diverselabs/30min">Book a Discovery Call</CTAButton>
         </div>
       </div>
     </div>

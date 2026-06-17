@@ -1,6 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import HeroParticles from '../components/HeroParticles.astro';
+import Faq from '../components/Faq.astro';
+import CTAButton from '../components/CTAButton.astro';
+import { gmailCompose } from '../lib/mail';
 
 const title = 'Diverse Labs | AI Agents & Automation for Growing Businesses';
 const description = 'AI automation systems, software products, and AI video production for teams that want faster execution with measurable outcomes.';
@@ -185,11 +188,6 @@ const testimonials = [
   },
 ];
 const featured = testimonials[0];
-
-/** Builds a Gmail compose link (opens in a new tab) prefilled to Deven. */
-const gmailCompose = (subject: string, body: string) =>
-  `https://mail.google.com/mail/?view=cm&fs=1&to=deven@diverselabs.org` +
-  `&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 ---
 
 <BaseLayout title={title} description={description}>
@@ -219,13 +217,7 @@ const gmailCompose = (subject: string, body: string) =>
         </p>
 
         <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3" data-reveal data-reveal-delay="0.55">
-          <a href="https://cal.com/diverselabs/30min"
-             target="_blank"
-             rel="noopener noreferrer"
-             class="btn btn-primary btn-lg magnetic">
-            Book a Discovery Call
-            <span class="btn-arrow" aria-hidden="true">→</span>
-          </a>
+          <CTAButton href="https://cal.com/diverselabs/30min">Book a Discovery Call</CTAButton>
           <a href="#work" class="btn btn-secondary btn-lg">
             Explore the work
           </a>
@@ -666,22 +658,7 @@ const gmailCompose = (subject: string, body: string) =>
         <span class="head-side mono-num">({String(faqs.length).padStart(2, '0')})</span>
       </div>
 
-      <div class="faq-list acc-group" data-reveal-group>
-        {faqs.map((faq, i) => (
-          <div class={`faq-item acc-item${i === 0 ? ' open' : ''}`}>
-            <button class="faq-head acc-head" aria-expanded={i === 0 ? 'true' : 'false'}>
-              <span class="faq-idx mono-num">{String(i + 1).padStart(2, '0')}</span>
-              <span class="faq-q">{faq.question}</span>
-              <span class="faq-icon" aria-hidden="true">+</span>
-            </button>
-            <div class="faq-body">
-              <div class="faq-body-inner">
-                <p>{faq.answer}</p>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
+      <Faq items={faqs.map((f) => ({ q: f.question, a: f.answer }))} revealGroup />
     </div>
   </section>
 
@@ -694,13 +671,7 @@ const gmailCompose = (subject: string, body: string) =>
           <h2 class="cta-title" data-split>Still doing repetitive<br />work by hand?</h2>
           <p class="cta-sub">Let's build an AI system that gives your team its time back.</p>
           <div class="flex flex-col sm:flex-row items-center gap-4 justify-center">
-            <a href="https://cal.com/diverselabs/30min"
-               target="_blank"
-               rel="noopener noreferrer"
-               class="btn btn-primary btn-lg magnetic">
-              Book a Discovery Call
-              <span class="btn-arrow" aria-hidden="true">→</span>
-            </a>
+            <CTAButton href="https://cal.com/diverselabs/30min">Book a Discovery Call</CTAButton>
             <a href="mailto:deven@diverselabs.org"
                class="footer-link text-sm">
               or email deven@diverselabs.org

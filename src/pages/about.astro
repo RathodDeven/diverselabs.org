@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import CTAButton from '../components/CTAButton.astro';
 
 const title = 'About Diverse Labs | Engineering-First AI & Software Company';
 const description = 'Diverse Labs is an engineering-first company building custom AI systems and production software. Outcome-first, no-rip-and-replace approach.';
@@ -247,13 +248,7 @@ const steps = [
           <p class="cta-sub">
             We'll show you exactly what to automate first — and what it will be worth.
           </p>
-          <a href="https://cal.com/diverselabs/30min"
-             target="_blank"
-             rel="noopener noreferrer"
-             class="btn btn-primary btn-lg magnetic">
-            Schedule a Discovery Call
-            <span class="btn-arrow" aria-hidden="true">→</span>
-          </a>
+          <CTAButton href="https://cal.com/diverselabs/30min">Schedule a Discovery Call</CTAButton>
         </div>
       </div>
     </div>

@@ -1,5 +1,6 @@
 ---
 import BackgroundShader from '../components/BackgroundShader.astro';
+import CTAButton from '../components/CTAButton.astro';
 import '../styles/global.css';
 import ClientRouter from 'astro/components/ClientRouter.astro';
 
@@ -227,13 +228,7 @@ const websiteSchema = {
       <div class="container">
         <div class="footer-cta-row">
           <h2>Have a system in mind? Let's scope it.</h2>
-          <a href="https://cal.com/diverselabs/30min"
-             target="_blank"
-             rel="noopener noreferrer"
-             class="btn btn-primary btn-lg magnetic">
-            Book a Discovery Call
-            <span class="btn-arrow" aria-hidden="true">→</span>
-          </a>
+          <CTAButton href="https://cal.com/diverselabs/30min">Book a Discovery Call</CTAButton>
         </div>
 
         <div class="footer-grid">
