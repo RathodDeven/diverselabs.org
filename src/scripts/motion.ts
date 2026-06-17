@@ -12,7 +12,6 @@
  *   data-reel             → pinned horizontal scroll section
  *   data-scrub-text       → paragraph words brighten as you scroll
  *   data-process          → timeline line fill + step activation
- *   .magnetic             → magnetic hover on buttons
  */
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -20,7 +19,6 @@ import Lenis from 'lenis';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const finePointer = () => window.matchMedia('(pointer: fine)').matches;
 const desktop = () => window.innerWidth >= 900;
 
 declare global {
@@ -442,28 +440,6 @@ function initMockupPause() {
 }
 
 /* ────────────────────────────────────────────────────────────
-   Magnetic buttons
-   ──────────────────────────────────────────────────────────── */
-function initMagnetic() {
-  if (!finePointer()) return;
-  document.querySelectorAll<HTMLElement>('.magnetic').forEach((btn) => {
-    if (btn.dataset.magnetic) return;
-    btn.dataset.magnetic = 'true';
-    const xTo = gsap.quickTo(btn, 'x', { duration: 0.4, ease: 'power3' });
-    const yTo = gsap.quickTo(btn, 'y', { duration: 0.4, ease: 'power3' });
-    btn.addEventListener('mousemove', (e) => {
-      const r = btn.getBoundingClientRect();
-      xTo((e.clientX - r.left - r.width / 2) * 0.3);
-      yTo((e.clientY - r.top - r.height / 2) * 0.4);
-    });
-    btn.addEventListener('mouseleave', () => {
-      xTo(0);
-      yTo(0);
-    });
-  });
-}
-
-/* ────────────────────────────────────────────────────────────
    Nav — condensed pill after scroll, always visible
    ──────────────────────────────────────────────────────────── */
 function initNav() {
@@ -516,7 +492,6 @@ function initMotion(replayEnter = true) {
   initScrubText();
   initProcess();
   initMockupPause();
-  initMagnetic();
 
   ScrollTrigger.refresh();
   document.fonts?.ready.then(() => ScrollTrigger.refresh());
