@@ -82,77 +82,12 @@ export function initPortfolioScene(canvas: HTMLCanvasElement, options: SceneOpti
     const ty = sigmoidY(t) + (Math.random() - 0.5) * 0.18;
     trend.push(new THREE.Vector3(tx, ty, 0));
   }
-  // maturity — ascending step blocks (quality maturity model)
-  const maturity: THREE.Vector3[] = [];
-  {
-    const STEPS = 5, sw = (CHART_WIDTH - 1) / STEPS;
-    for (let i = 0; i < PARTICLE_COUNT; i++) {
-      const b = Math.min(STEPS - 1, Math.floor((i / PARTICLE_COUNT) * STEPS));
-      const x = CHART_LEFT + 0.5 + b * sw + Math.random() * sw * 0.85;
-      const maxH = (0.3 + 0.7 * ((b + 1) / STEPS)) * (CHART_HEIGHT - 1.2);
-      maturity.push(new THREE.Vector3(x, CHART_BOTTOM + 0.5 + Math.random() * maxH, 0));
-    }
-  }
-
-  // network — clusters at nodes + points strung along edges (manufacturing network)
-  const network: THREE.Vector3[] = [];
-  {
-    const nodes = [
-      new THREE.Vector3(-4.2, 1.4, 0), new THREE.Vector3(-1.4, 2.6, 0),
-      new THREE.Vector3(1.6, -1.2, 0), new THREE.Vector3(4.2, 0.8, 0),
-      new THREE.Vector3(0.2, -3.0, 0),
-    ];
-    const edges = [[0, 1], [1, 2], [2, 3], [0, 4], [2, 4]];
-    for (let i = 0; i < PARTICLE_COUNT; i++) {
-      if (i % 10 < 3) {
-        const e = edges[i % edges.length], a = nodes[e[0]], b = nodes[e[1]], t = Math.random();
-        network.push(new THREE.Vector3(
-          a.x + (b.x - a.x) * t + (Math.random() - 0.5) * 0.3,
-          a.y + (b.y - a.y) * t + (Math.random() - 0.5) * 0.3, 0));
-      } else {
-        const n = nodes[i % nodes.length], ang = Math.random() * Math.PI * 2, r = Math.random() * 0.7;
-        network.push(new THREE.Vector3(n.x + Math.cos(ang) * r, n.y + Math.sin(ang) * r, 0));
-      }
-    }
-  }
-
-  // signal — symmetric waveform columns (Voice-of-Customer)
-  const wave: THREE.Vector3[] = [];
-  {
-    const NW = 18, ww = (CHART_WIDTH - 1.2) / NW;
-    for (let i = 0; i < PARTICLE_COUNT; i++) {
-      const c = i % NW;
-      const amp = (0.35 + 0.65 * Math.abs(Math.sin(c * 0.6))) * (CHART_HEIGHT / 2 - 0.4);
-      wave.push(new THREE.Vector3(CHART_LEFT + 0.6 + (c + 0.5) * ww, (Math.random() * 2 - 1) * amp, 0));
-    }
-  }
-
-  // matrix — populated grid (CMC prioritization / QMS modules)
-  const matrix: THREE.Vector3[] = [];
-  {
-    const cols = 12, rows = 8;
-    const gw = (CHART_WIDTH - 1.4) / (cols - 1), gh = (CHART_HEIGHT - 1.2) / (rows - 1);
-    for (let i = 0; i < PARTICLE_COUNT; i++) {
-      const c = i % cols, r = Math.floor(i / cols) % rows;
-      matrix.push(new THREE.Vector3(
-        CHART_LEFT + 0.7 + c * gw + (Math.random() - 0.5) * 0.18,
-        CHART_BOTTOM + 0.6 + r * gh + (Math.random() - 0.5) * 0.18, 0));
-    }
-  }
-
-  // gauge — semicircular arc (supply-chain dashboard)
-  const gauge: THREE.Vector3[] = [];
-  {
-    const cx = 0, cy = -0.6, R = 3.3;
-    for (let i = 0; i < PARTICLE_COUNT; i++) {
-      const ang = Math.PI * (1 - i / (PARTICLE_COUNT - 1));
-      const r = R + (Math.random() - 0.5) * 0.35;
-      gauge.push(new THREE.Vector3(cx + Math.cos(ang) * r, cy + Math.sin(ang) * r, 0));
-    }
-  }
-
-  const targets = [scatter, bars, trend, maturity, network, wave, matrix, gauge];
-  const GRAPH_NAMES: SceneState['graph'][] = ['SCATTER', 'BARS', 'TREND', 'MATURITY', 'NETWORK', 'SIGNAL', 'MATRIX', 'GAUGE'];
+  // The particles settle into ONE legible end-state — the scatter / correlation
+  // cloud — and hold it. Real, detailed charts are showcased separately in the
+  // hero (as SVGs); particles can't render them legibly, so no abstract cycle.
+  const targets = [scatter];
+  const GRAPH_NAMES: SceneState['graph'][] = ['SCATTER'];
+  void bars; void trend; // kept for the trend-line mesh below
 
   // ─── Chaotic start positions ─────────────────────────────────────────────────
   const chaos: THREE.Vector3[] = [];
@@ -280,10 +215,6 @@ export function initPortfolioScene(canvas: HTMLCanvasElement, options: SceneOpti
     const mix = local > HOLD ? easeInOut((local - HOLD) / TRANS) : 0;
     const fromT = targets[idx], toT = targets[nxt];
 
-    // per-graph weight (index 2 = trend, used to fade the trend-line mesh)
-    const w = new Array(targets.length).fill(0) as number[];
-    w[idx] += 1 - mix; w[nxt] += mix;
-
     const posAttr = particleGeo.attributes.position as THREE.BufferAttribute;
     for (let i = 0; i < PARTICLE_COUNT; i++) {
       const a = fromT[i], b = toT[i];
@@ -308,7 +239,7 @@ export function initPortfolioScene(canvas: HTMLCanvasElement, options: SceneOpti
     gridMat.opacity = chartFade * 0.15;
     const labelFade = Math.max(0, (progress - 0.35) / 0.4);
     labels.forEach((s) => { (s.material as THREE.SpriteMaterial).opacity = labelFade * 0.85; });
-    trendMat.opacity = progress * w[2] * 0.9;   // only during TREND phase
+    trendMat.opacity = Math.max(0, (progress - 0.5) / 0.3) * 0.9;   // trend line through the scatter
 
     const cRotY = time * 0.8, cRotX = Math.sin(time * 0.6) * 0.4;
     group.rotation.y = cRotY * (1 - progress) + mouse.x * 0.05 * progress;

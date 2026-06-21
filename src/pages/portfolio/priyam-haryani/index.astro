@@ -1,10 +1,13 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import CTAButton from '../../../components/CTAButton.astro';
-import { portfolioCaseStudies, coverFor } from '../../../data/portfolio';
+import { portfolioCaseStudies, coverFor, portfolioStages } from '../../../data/portfolio';
 
 const BASE = '/portfolio/priyam-haryani';
 const cases = portfolioCaseStudies.filter((d) => !d.draft);
+
+// The real, anonymized stage charts — showcased as a cross-fading reel.
+const reel = Object.values(portfolioStages).flat();
 
 const lens = [
   { title: 'Incentives', desc: 'Model stakeholders as rational actors responding to the structures they face.' },
@@ -59,6 +62,38 @@ const lens = [
     <div class="pf-scroll-cue pf-z" aria-hidden="true">
       <span>Scroll</span>
       <span class="pf-scroll-line"></span>
+    </div>
+  </section>
+
+  <!-- ── Selected charts (real work, anonymized) ──────────────────── -->
+  <section class="page-section-tight pf-z">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <h2>Selected charts.</h2>
+        <span class="head-side">{reel.length} from the work</span>
+      </div>
+      <div class="pf-reel" data-reveal>
+        <div class="pf-reel-frame">
+          <div class="pf-reel-bar"><span></span><span></span><span></span><em>SELECTED CHARTS</em></div>
+          <div class="pf-reel-stage">
+            {reel.map((c, i) => (
+              <img
+                class:list={['pf-reel-img', { 'is-active': i === 0 }]}
+                src={c.src}
+                alt={c.label}
+                data-label={c.label}
+                loading={i === 0 ? 'eager' : 'lazy'}
+                width="640"
+                height="400"
+              />
+            ))}
+          </div>
+        </div>
+        <div class="pf-reel-cap">
+          <span class="mono-num" id="pf-reel-idx">01</span>
+          <span id="pf-reel-label">{reel[0]?.label}</span>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -271,6 +306,64 @@ const lens = [
   }
   .pf-byline:hover .pf-avatar { filter: grayscale(0); border-color: rgba(255, 255, 255, 0.28); }
 
+  /* Selected-charts reel — cross-fades the real stage SVGs */
+  .pf-reel { max-width: 900px; margin-inline: auto; }
+  .pf-reel-frame {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    border: 1px solid var(--line);
+    border-radius: 1rem;
+    overflow: hidden;
+    background: #0a0a0a;
+    box-shadow: 0 40px 120px rgba(0, 0, 0, 0.5);
+  }
+  .pf-reel-bar {
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0 14px;
+    border-bottom: 1px solid var(--line);
+    background: rgba(255, 255, 255, 0.03);
+    z-index: 2;
+  }
+  .pf-reel-bar span { width: 7px; height: 7px; border-radius: 50%; background: rgba(255, 255, 255, 0.16); }
+  .pf-reel-bar em {
+    margin-left: 8px;
+    font-family: var(--font-mono);
+    font-style: normal;
+    font-size: 0.6rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--faint);
+  }
+  .pf-reel-stage { position: absolute; inset: 34px 0 0 0; }
+  .pf-reel-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    opacity: 0;
+    transition: opacity 0.6s var(--ease-out);
+  }
+  .pf-reel-img.is-active { opacity: 1; }
+  .pf-reel-cap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.7rem;
+    margin-top: 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .pf-reel-cap .mono-num { color: var(--faint); }
+
   .pf-lens {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -393,4 +486,28 @@ const lens = [
   start();
   document.addEventListener('astro:page-load', start);
   document.addEventListener('astro:before-swap', stop);
+</script>
+
+<script>
+  // Cross-fade the "Selected charts" reel through the real stage SVGs.
+  let reelTimer: ReturnType<typeof setInterval> | undefined;
+  function initReel() {
+    const imgs = Array.from(document.querySelectorAll<HTMLImageElement>('.pf-reel-img'));
+    if (imgs.length < 2) return;
+    const idxEl = document.getElementById('pf-reel-idx');
+    const labelEl = document.getElementById('pf-reel-label');
+    let i = imgs.findIndex((im) => im.classList.contains('is-active'));
+    if (i < 0) i = 0;
+    const show = (n: number) => {
+      imgs.forEach((im, k) => im.classList.toggle('is-active', k === n));
+      if (idxEl) idxEl.textContent = String(n + 1).padStart(2, '0');
+      if (labelEl) labelEl.textContent = imgs[n].dataset.label || '';
+    };
+    if (reelTimer) clearInterval(reelTimer);
+    reelTimer = setInterval(() => { i = (i + 1) % imgs.length; show(i); }, 2800);
+  }
+  function stopReel() { if (reelTimer) { clearInterval(reelTimer); reelTimer = undefined; } }
+  initReel();
+  document.addEventListener('astro:page-load', initReel);
+  document.addEventListener('astro:before-swap', stopReel);
 </script>
