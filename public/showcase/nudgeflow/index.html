@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>NudgeFlow — WhatsApp + voice agent</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; padding: 0; height: 100%; background: #0a0a0a; overflow: hidden; }
+  * { box-sizing: border-box; }
+  #root { position: fixed; inset: 0; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script src="../_vendor/react.js"></script>
+<script src="../_vendor/react-dom.js"></script>
+<script src="./animations.js"></script>
+<script src="./scenes.js"></script>
+<script>
+  (function () {
+    var el = document.getElementById('root');
+    ReactDOM.createRoot(el).render(
+      React.createElement(
+        window.Stage,
+        { width: 1920, height: 1080, duration: 48.5, background: '#ffffff', persistKey: 'nudgeflow' },
+        React.createElement(window.NudgeFlowReel)
+      )
+    );
+  })();
+</script>
+</body>
+</html>
