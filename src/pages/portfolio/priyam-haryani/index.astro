@@ -13,6 +13,15 @@ const reel = Object.entries(portfolioStages).flatMap(([slug, stages]) => {
   return stages.map((s) => ({ ...s, href: `${BASE}/${slug}`, when: d?.timeframe ?? '' }));
 });
 
+// Year-wise segregation — group engagements by the latest year in their timeframe.
+const yearOf = (tf?: string) => {
+  const ys = (tf ?? '').match(/\d{4}/g)?.map(Number) ?? [];
+  return ys.length ? Math.max(...ys) : 0;
+};
+const casesByYear = [...new Set(cases.map((d) => yearOf(d.timeframe)))]
+  .sort((a, b) => b - a)
+  .map((year) => ({ year, items: cases.filter((d) => yearOf(d.timeframe) === year) }));
+
 const lens = [
   { title: 'Incentives', desc: 'Model stakeholders as rational actors responding to the structures they face.' },
   { title: 'Coordination', desc: 'Find where handoffs fail, where communication breaks, and where duplication hides.' },
@@ -31,11 +40,11 @@ const lens = [
   <canvas id="pf-scene" aria-hidden="true"></canvas>
 
   <!-- Selected-charts HUD — fixed, persists through scroll -->
-  <aside class="pf-hud" id="pf-hud" aria-label="Selected charts">
+  <aside class="pf-hud is-min" id="pf-hud" aria-label="Selected charts">
     <div class="pf-hud-bar">
       <span class="pf-hud-dot" aria-hidden="true"></span>
       <span class="pf-hud-title">Selected charts</span>
-      <button class="pf-hud-toggle" id="pf-hud-toggle" type="button" aria-label="Minimize selected charts">–</button>
+      <button class="pf-hud-toggle" id="pf-hud-toggle" type="button" aria-label="Expand selected charts">+</button>
     </div>
     <div class="pf-hud-body">
       <a class="pf-hud-stage" id="pf-hud-link" href={reel[0]?.href} aria-label="Open this case study">
@@ -137,32 +146,41 @@ const lens = [
         the problems and the work are real.
       </p>
 
-      <div class="pf-grid" data-reveal-group>
-        {cases.map((doc, i) => (
-          <a class="pf-card" href={`${BASE}/${doc.slug}`}>
-            <div class="pf-card-media">
-              <img src={coverFor(doc.slug)} alt="" loading="lazy" width="640" height="400" />
-            </div>
-            <div class="pf-card-body">
-              {doc.client && (
-                <div class="pf-card-client"><span>Client</span>{doc.client}</div>
-              )}
-              <div class="pf-card-top">
-                <span class="label no-rule">{doc.eyebrow}</span>
-                <span class="pf-card-idx mono-num">{doc.timeframe}</span>
-              </div>
-              <h3 class="pf-card-title">{doc.title}</h3>
-              <p class="pf-card-dek">{doc.dek}</p>
-              <div class="pf-card-foot">
-                <div class="pf-card-tags">
-                  {doc.tags.slice(0, 3).map((t) => <span class="chip">{t}</span>)}
+      {casesByYear.map(({ year, items }) => (
+        <div class="pf-year">
+          <div class="pf-year-head" data-reveal>
+            <span class="pf-year-num">{year}</span>
+            <span class="pf-year-rule"></span>
+            <span class="pf-year-count">{items.length} {items.length === 1 ? 'engagement' : 'engagements'}</span>
+          </div>
+          <div class="pf-grid" data-reveal-group>
+            {items.map((doc) => (
+              <a class="pf-card" href={`${BASE}/${doc.slug}`}>
+                <div class="pf-card-media">
+                  <img src={coverFor(doc.slug)} alt="" loading="lazy" width="640" height="400" />
                 </div>
-                <span class="pf-card-arrow" aria-hidden="true">→</span>
-              </div>
-            </div>
-          </a>
-        ))}
-      </div>
+                <div class="pf-card-body">
+                  {doc.client && (
+                    <div class="pf-card-client"><span>Client</span>{doc.client}</div>
+                  )}
+                  <div class="pf-card-top">
+                    <span class="label no-rule">{doc.eyebrow}</span>
+                    <span class="pf-card-idx mono-num">{doc.timeframe}</span>
+                  </div>
+                  <h3 class="pf-card-title">{doc.title}</h3>
+                  <p class="pf-card-dek">{doc.dek}</p>
+                  <div class="pf-card-foot">
+                    <div class="pf-card-tags">
+                      {doc.tags.slice(0, 3).map((t) => <span class="chip">{t}</span>)}
+                    </div>
+                    <span class="pf-card-arrow" aria-hidden="true">→</span>
+                  </div>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      ))}
     </div>
   </section>
 
@@ -401,6 +419,33 @@ const lens = [
   .pf-lens-card { background: var(--panel); padding: clamp(1.4rem, 2.4vw, 2rem); }
   .pf-lens-card h3 { font-size: 1.05rem; margin-bottom: 0.55rem; }
   .pf-lens-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.6; }
+
+  /* Year-wise segregation */
+  .pf-year { margin-bottom: clamp(2.5rem, 5vw, 4rem); }
+  .pf-year:last-child { margin-bottom: 0; }
+  .pf-year-head {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: clamp(1.25rem, 2.5vw, 1.75rem);
+  }
+  .pf-year-num {
+    font-family: var(--font-display);
+    font-size: clamp(1.7rem, 4vw, 2.6rem);
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    line-height: 1;
+  }
+  .pf-year-rule { flex: 1; height: 1px; background: var(--line); align-self: center; }
+  .pf-year-count {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--faint);
+    white-space: nowrap;
+  }
 
   /* Case-study grid */
   .pf-grid {
