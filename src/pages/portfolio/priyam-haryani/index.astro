@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import CTAButton from '../../../components/CTAButton.astro';
-import { portfolioCaseStudies } from '../../../data/portfolio';
+import { portfolioCaseStudies, coverFor } from '../../../data/portfolio';
 
 const BASE = '/portfolio/priyam-haryani';
 const cases = portfolioCaseStudies.filter((d) => !d.draft);
@@ -102,7 +102,7 @@ const lens = [
         {cases.map((doc, i) => (
           <a class="pf-card" href={`${BASE}/${doc.slug}`}>
             <div class="pf-card-media">
-              <img src={`/portfolio/${doc.slug}.svg`} alt="" loading="lazy" width="640" height="400" />
+              <img src={coverFor(doc.slug)} alt="" loading="lazy" width="640" height="400" />
             </div>
             <div class="pf-card-body">
               {doc.client && (

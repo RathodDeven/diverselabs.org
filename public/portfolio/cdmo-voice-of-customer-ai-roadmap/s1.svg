@@ -1,0 +1,26 @@
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Confidential Voice-of-Customer process flow">
+  <defs><pattern id="cd1" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#fff" fill-opacity="0.05"/></pattern>
+  <radialGradient id="cd1v" cx="50%" cy="40%" r="66%"><stop offset="0%" stop-color="#fff" stop-opacity="0.06"/><stop offset="100%" stop-color="#fff" stop-opacity="0"/></radialGradient></defs>
+  <rect width="640" height="400" fill="#0a0a0a"/><rect width="640" height="400" fill="url(#cd1)"/><rect width="640" height="400" fill="url(#cd1v)"/>
+  <!-- horizontal 4-step flow -->
+  <path d="M120 200 H520" stroke="#fff" stroke-opacity="0.3" stroke-width="2" stroke-dasharray="6 7" fill="none"/>
+  <g>
+    <circle cx="120" cy="200" r="34" fill="#fff" fill-opacity="0.10" stroke="#fff" stroke-opacity="0.7" stroke-width="2"/>
+    <circle cx="253" cy="200" r="34" fill="#fff" fill-opacity="0.12" stroke="#fff" stroke-opacity="0.75" stroke-width="2"/>
+    <circle cx="386" cy="200" r="34" fill="#fff" fill-opacity="0.14" stroke="#fff" stroke-opacity="0.8" stroke-width="2"/>
+    <circle cx="520" cy="200" r="34" fill="#fff" fill-opacity="0.20" stroke="#fff" stroke-opacity="0.9" stroke-width="2.5"/>
+  </g>
+  <!-- arrows -->
+  <g stroke="#fff" stroke-opacity="0.6" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M178 200 l-8 -5 m8 5 l-8 5" transform="translate(8,0)"/>
+    <path d="M311 200 l-8 -5 m8 5 l-8 5" transform="translate(8,0)"/>
+    <path d="M444 200 l-8 -5 m8 5 l-8 5" transform="translate(8,0)"/>
+  </g>
+  <g font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.6" text-anchor="middle">
+    <text x="120" y="204">CEO</text><text x="253" y="204">CDA</text><text x="386" y="204">INTERVIEW</text><text x="520" y="204">SYNTH</text>
+  </g>
+  <g font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.4" text-anchor="middle">
+    <text x="120" y="262">outreach</text><text x="253" y="262">3-way NDA</text><text x="386" y="262">independent</text><text x="520" y="262">aggregated</text>
+  </g>
+  <g font-family="'JetBrains Mono',monospace" font-size="10" fill="#fff" fill-opacity="0.5"><text x="120" y="120">CONFIDENTIAL VOICE-OF-CUSTOMER</text></g>
+</svg>

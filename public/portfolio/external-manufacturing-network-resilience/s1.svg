@@ -1,0 +1,21 @@
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Supplier landscape matrix rating suppliers across criteria">
+  <defs><pattern id="em1" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#fff" fill-opacity="0.05"/></pattern>
+  <radialGradient id="em1v" cx="50%" cy="40%" r="66%"><stop offset="0%" stop-color="#fff" stop-opacity="0.06"/><stop offset="100%" stop-color="#fff" stop-opacity="0"/></radialGradient></defs>
+  <rect width="640" height="400" fill="#0a0a0a"/><rect width="640" height="400" fill="url(#em1)"/><rect width="640" height="400" fill="url(#em1v)"/>
+  <g font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.45" text-anchor="middle">
+    <text x="252" y="78">QUALITY</text><text x="324" y="78">CAPACITY</text><text x="396" y="78">COST</text><text x="468" y="78">RISK</text><text x="540" y="78">FIT</text>
+  </g>
+  <g font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.55">
+    <text x="20" y="104">API</text><text x="20" y="142">BULK DP</text><text x="20" y="180">FINISH DP</text><text x="20" y="218">PACKAGING</text><text x="20" y="256">LOGISTICS</text><text x="20" y="294">BACKUP</text>
+  </g>
+  <!-- ratings: opacity = score; cols x 220,292,364,436,508 (w60 h24); rows y 92..282 step38 -->
+  <g>
+    <rect x="220" y="92" width="60" height="24" rx="4" fill="#fff" fill-opacity="0.40"/><rect x="292" y="92" width="60" height="24" rx="4" fill="#fff" fill-opacity="0.24"/><rect x="364" y="92" width="60" height="24" rx="4" fill="#fff" fill-opacity="0.16"/><rect x="436" y="92" width="60" height="24" rx="4" fill="#fff" fill-opacity="0.30"/><rect x="508" y="92" width="60" height="24" rx="4" fill="#fff" fill-opacity="0.40"/>
+    <rect x="220" y="130" width="60" height="24" rx="4" fill="#fff" fill-opacity="0.30"/><rect x="292" y="130" width="60" height="24" rx="4" fill="#fff" fill-opacity="0.40"/><rect x="364" y="130" width="60" height="24" rx="4" fill="#fff" fill-opacity="0.24"/><rect x="436" y="130" width="60" height="24" rx="4" fill="#fff" fill-opacity="0.16"/><rect x="508" y="130" width="60" height="24" rx="4" fill="#fff" fill-opacity="0.30"/>
+    <rect x="220" y="168" width="60" height="24" rx="4" fill="#fff" fill-opacity="0.40"/><rect x="292" y="168" width="60" height="24" rx="4" fill="#fff" fill-opacity="0.30"/><rect x="364" y="168" width="60" height="24" rx="4" fill="#fff" fill-opacity="0.40"/><rect x="436" y="168" width="60" height="24" rx="4" fill="#fff" fill-opacity="0.24"/><rect x="508" y="168" width="60" height="24" rx="4" fill="#fff" fill-opacity="0.16"/>
+    <rect x="220" y="206" width="60" height="24" rx="4" fill="#fff" fill-opacity="0.24"/><rect x="292" y="206" width="60" height="24" rx="4" fill="#fff" fill-opacity="0.16"/><rect x="364" y="206" width="60" height="24" rx="4" fill="#fff" fill-opacity="0.30"/><rect x="436" y="206" width="60" height="24" rx="4" fill="#fff" fill-opacity="0.40"/><rect x="508" y="206" width="60" height="24" rx="4" fill="#fff" fill-opacity="0.24"/>
+    <rect x="220" y="244" width="60" height="24" rx="4" fill="#fff" fill-opacity="0.30"/><rect x="292" y="244" width="60" height="24" rx="4" fill="#fff" fill-opacity="0.40"/><rect x="364" y="244" width="60" height="24" rx="4" fill="#fff" fill-opacity="0.16"/><rect x="436" y="244" width="60" height="24" rx="4" fill="#fff" fill-opacity="0.24"/><rect x="508" y="244" width="60" height="24" rx="4" fill="#fff" fill-opacity="0.40"/>
+    <rect x="220" y="282" width="60" height="24" rx="4" fill="#fff" fill-opacity="0.16"/><rect x="292" y="282" width="60" height="24" rx="4" fill="#fff" fill-opacity="0.24"/><rect x="364" y="282" width="60" height="24" rx="4" fill="#fff" fill-opacity="0.40"/><rect x="436" y="282" width="60" height="24" rx="4" fill="#fff" fill-opacity="0.30"/><rect x="508" y="282" width="60" height="24" rx="4" fill="#fff" fill-opacity="0.16"/>
+  </g>
+  <g font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.5"><text x="20" y="338">supplier landscape · 6 nodes × 5 criteria</text></g>
+</svg>

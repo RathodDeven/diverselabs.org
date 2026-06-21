@@ -1,0 +1,32 @@
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AI use-case prioritization by impact and effort with a phased roadmap">
+  <defs><pattern id="cd3" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#fff" fill-opacity="0.05"/></pattern>
+  <radialGradient id="cd3v" cx="50%" cy="40%" r="66%"><stop offset="0%" stop-color="#fff" stop-opacity="0.06"/><stop offset="100%" stop-color="#fff" stop-opacity="0"/></radialGradient></defs>
+  <rect width="640" height="400" fill="#0a0a0a"/><rect width="640" height="400" fill="url(#cd3)"/><rect width="640" height="400" fill="url(#cd3v)"/>
+  <!-- impact / effort matrix -->
+  <rect x="120" y="80" width="300" height="240" rx="6" fill="none" stroke="#fff" stroke-opacity="0.18" stroke-width="1.5"/>
+  <path d="M270 80 V320 M120 200 H420" stroke="#fff" stroke-opacity="0.12" stroke-width="1"/>
+  <!-- quick-win quadrant highlight (high impact, low effort = top-left) -->
+  <rect x="120" y="80" width="150" height="120" fill="#fff" fill-opacity="0.05"/>
+  <!-- use-case dots -->
+  <g fill="#fff">
+    <circle cx="180" cy="120" r="9" fill-opacity="0.9"/><circle cx="230" cy="150" r="8" fill-opacity="0.8"/><circle cx="200" cy="175" r="7" fill-opacity="0.7"/>
+    <circle cx="340" cy="140" r="7" fill-opacity="0.55"/><circle cx="370" cy="250" r="6" fill-opacity="0.4"/><circle cx="300" cy="270" r="6" fill-opacity="0.4"/><circle cx="250" cy="250" r="6" fill-opacity="0.5"/>
+  </g>
+  <g font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.45">
+    <text x="120" y="72">IMPACT ↑</text><text x="300" y="338" text-anchor="middle">EFFORT →</text>
+    <text x="150" y="98" fill-opacity="0.6">QUICK WINS</text>
+  </g>
+  <!-- phased roadmap arrow on the right -->
+  <g font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.5" text-anchor="middle">
+    <text x="520" y="100">ROADMAP</text>
+  </g>
+  <g>
+    <rect x="452" y="120" width="136" height="44" rx="7" fill="#fff" fill-opacity="0.16" stroke="#fff" stroke-opacity="0.6"/>
+    <rect x="452" y="180" width="136" height="44" rx="7" fill="#fff" fill-opacity="0.11" stroke="#fff" stroke-opacity="0.45"/>
+    <rect x="452" y="240" width="136" height="44" rx="7" fill="#fff" fill-opacity="0.08" stroke="#fff" stroke-opacity="0.35"/>
+  </g>
+  <g stroke="#fff" stroke-opacity="0.4" stroke-width="2" fill="none"><path d="M520 164 V180"/><path d="M520 224 V240"/></g>
+  <g font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.6" text-anchor="middle">
+    <text x="520" y="146">PILOT</text><text x="520" y="206">SCALE</text><text x="520" y="266">EMBED</text>
+  </g>
+</svg>

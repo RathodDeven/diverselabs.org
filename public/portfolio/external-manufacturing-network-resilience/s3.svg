@@ -1,0 +1,31 @@
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Global manufacturing network from API through distribution">
+  <defs><pattern id="em3" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#fff" fill-opacity="0.05"/></pattern>
+  <radialGradient id="em3v" cx="50%" cy="40%" r="66%"><stop offset="0%" stop-color="#fff" stop-opacity="0.06"/><stop offset="100%" stop-color="#fff" stop-opacity="0"/></radialGradient></defs>
+  <rect width="640" height="400" fill="#0a0a0a"/><rect width="640" height="400" fill="url(#em3)"/><rect width="640" height="400" fill="url(#em3v)"/>
+  <g font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.4" text-anchor="middle">
+    <text x="100" y="64">API</text><text x="250" y="64">DRUG PRODUCT</text><text x="410" y="64">PACKAGING</text><text x="560" y="64">DISTRIBUTION</text>
+  </g>
+  <!-- links -->
+  <g stroke="#fff" stroke-opacity="0.4" stroke-width="2" fill="none">
+    <path d="M130 150 C 180 150, 180 170, 222 178"/>
+    <path d="M130 250 C 180 250, 180 200, 222 192"/>
+    <path d="M286 185 H378"/>
+    <path d="M442 160 C 490 160, 500 190, 532 196"/>
+    <path d="M442 210 C 490 210, 500 196, 532 200"/>
+    <path d="M286 185 C 340 120, 360 120, 410 130"/>
+  </g>
+  <!-- API nodes (2 sources) -->
+  <g fill="#0a0a0a" stroke="#fff" stroke-opacity="0.6" stroke-width="2"><circle cx="100" cy="150" r="18"/><circle cx="100" cy="250" r="18"/></g>
+  <!-- DP node -->
+  <circle cx="254" cy="185" r="30" fill="#fff" fill-opacity="0.14" stroke="#fff" stroke-opacity="0.85" stroke-width="2.5"/>
+  <!-- secondary DP backup -->
+  <circle cx="410" cy="130" r="14" fill="#fff" fill-opacity="0.08" stroke="#fff" stroke-opacity="0.4" stroke-width="2"/>
+  <!-- packaging -->
+  <circle cx="410" cy="185" r="26" fill="#fff" fill-opacity="0.16" stroke="#fff" stroke-opacity="0.85" stroke-width="2.5"/>
+  <!-- distribution (2) -->
+  <g fill="#fff" fill-opacity="0.2" stroke="#fff" stroke-opacity="0.7" stroke-width="2"><circle cx="560" cy="160" r="16"/><circle cx="560" cy="240" r="16"/></g>
+  <g font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.6" text-anchor="middle">
+    <text x="100" y="153">A1</text><text x="100" y="253">A2</text><text x="254" y="188">DP</text><text x="410" y="188">PK</text>
+  </g>
+  <g font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.45"><text x="20" y="350">current + future network · primary &amp; backup routes</text></g>
+</svg>

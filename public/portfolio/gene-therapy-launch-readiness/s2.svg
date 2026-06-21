@@ -1,0 +1,19 @@
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Demand versus capacity over time with an S&amp;OP capacity line">
+  <defs><pattern id="gt2" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#fff" fill-opacity="0.05"/></pattern>
+  <radialGradient id="gt2v" cx="50%" cy="40%" r="66%"><stop offset="0%" stop-color="#fff" stop-opacity="0.06"/><stop offset="100%" stop-color="#fff" stop-opacity="0"/></radialGradient></defs>
+  <rect width="640" height="400" fill="#0a0a0a"/><rect width="640" height="400" fill="url(#gt2)"/><rect width="640" height="400" fill="url(#gt2v)"/>
+  <path d="M96 320 H560 M96 320 V70" stroke="#fff" stroke-opacity="0.45" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <g stroke="#fff" stroke-opacity="0.1" stroke-width="1"><path d="M96 260 H560"/><path d="M96 200 H560"/><path d="M96 140 H560"/></g>
+  <!-- demand bars rising -->
+  <g fill="#fff" fill-opacity="0.3">
+    <rect x="124" y="258" width="30" height="62" rx="3"/><rect x="184" y="236" width="30" height="84" rx="3"/><rect x="244" y="210" width="30" height="110" rx="3"/><rect x="304" y="186" width="30" height="134" rx="3"/><rect x="364" y="166" width="30" height="154" rx="3"/><rect x="424" y="150" width="30" height="170" rx="3"/><rect x="484" y="138" width="30" height="182" rx="3"/>
+  </g>
+  <!-- capacity line (S&amp;OP) + band -->
+  <path d="M110 250 L 200 230 L 290 222 L 380 200 L 470 175 L 540 150" stroke="#fff" stroke-opacity="0.9" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M110 250 L 200 230 L 290 222 L 380 200 L 470 175 L 540 150" stroke="#fff" stroke-opacity="0.18" stroke-width="14" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <g fill="#fff"><circle cx="200" cy="230" r="3.5"/><circle cx="290" cy="222" r="3.5"/><circle cx="380" cy="200" r="3.5"/><circle cx="470" cy="175" r="3.5"/></g>
+  <g font-family="'JetBrains Mono',monospace" font-size="10" fill="#fff" fill-opacity="0.45">
+    <text x="96" y="58">DEMAND vs CAPACITY</text>
+    <rect x="430" y="300" width="12" height="10" rx="2" fill="#fff" fill-opacity="0.3"/><text x="448" y="309" font-size="9">demand</text>
+  </g>
+</svg>

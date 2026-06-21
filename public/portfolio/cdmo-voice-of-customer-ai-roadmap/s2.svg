@@ -1,0 +1,27 @@
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Quality work-stream timeline on a biweekly cadence">
+  <defs><pattern id="cd2" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#fff" fill-opacity="0.05"/></pattern>
+  <radialGradient id="cd2v" cx="50%" cy="38%" r="68%"><stop offset="0%" stop-color="#fff" stop-opacity="0.06"/><stop offset="100%" stop-color="#fff" stop-opacity="0"/></radialGradient></defs>
+  <rect width="640" height="400" fill="#0a0a0a"/><rect width="640" height="400" fill="url(#cd2)"/><rect width="640" height="400" fill="url(#cd2v)"/>
+  <g font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.4" text-anchor="middle">
+    <text x="210" y="74">PHASE 1</text><text x="430" y="74">PHASE 2</text>
+  </g>
+  <!-- week grid -->
+  <g stroke="#fff" stroke-opacity="0.08" stroke-width="1">
+    <path d="M150 84 V336"/><path d="M210 84 V336"/><path d="M270 84 V336"/><path d="M330 84 V336"/><path d="M390 84 V336"/><path d="M450 84 V336"/><path d="M510 84 V336"/></g>
+  <path d="M140 336 H586" stroke="#fff" stroke-opacity="0.35" stroke-width="1.5"/>
+  <g font-family="'JetBrains Mono',monospace" font-size="10" fill="#fff" fill-opacity="0.55">
+    <text x="20" y="116">KICKOFF</text><text x="20" y="152">MAP</text><text x="20" y="188">INTERVIEW</text><text x="20" y="224">SITE VISIT</text><text x="20" y="260">REVIEW</text><text x="20" y="296">PROPOSE</text>
+  </g>
+  <!-- task bars -->
+  <g>
+    <rect x="150" y="104" width="46" height="22" rx="5" fill="#fff" fill-opacity="0.32" stroke="#fff" stroke-opacity="0.6"/>
+    <rect x="196" y="140" width="120" height="22" rx="5" fill="#fff" fill-opacity="0.24" stroke="#fff" stroke-opacity="0.5"/>
+    <rect x="210" y="176" width="180" height="22" rx="5" fill="#fff" fill-opacity="0.26" stroke="#fff" stroke-opacity="0.55"/>
+    <rect x="270" y="212" width="120" height="22" rx="5" fill="#fff" fill-opacity="0.22" stroke="#fff" stroke-opacity="0.5"/>
+    <rect x="330" y="248" width="120" height="22" rx="5" fill="#fff" fill-opacity="0.22" stroke="#fff" stroke-opacity="0.5"/>
+    <rect x="450" y="284" width="120" height="22" rx="5" fill="#fff" fill-opacity="0.34" stroke="#fff" stroke-opacity="0.7"/>
+  </g>
+  <!-- biweekly cadence markers -->
+  <g fill="#fff" fill-opacity="0.7"><circle cx="210" cy="92" r="3"/><circle cx="330" cy="92" r="3"/><circle cx="450" cy="92" r="3"/></g>
+  <g font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.45"><text x="150" y="360">biweekly status cadence</text></g>
+</svg>

@@ -677,3 +677,44 @@ if (localClients) {
     if (localClients[d.slug]) d.client = localClients[d.slug];
   }
 }
+
+/* ──────────────────────────────────────────────────────────────────────────
+   Project-stage diagrams. Anonymized SVGs redrawn FROM the real client slides
+   (no client data) — multiple per engagement, one per project stage. Shown as
+   a "How it progressed" gallery on the detail page. Stage 1 doubles as the
+   listing-card cover. Engagements without stage SVGs fall back to the single
+   /portfolio/<slug>.svg cover.
+   ────────────────────────────────────────────────────────────────────────── */
+export interface PortfolioStage { label: string; src: string }
+
+const stageSet = (slug: string, labels: [string, string, string]): PortfolioStage[] =>
+  labels.map((label, i) => ({ label, src: `/portfolio/${slug}/s${i + 1}.svg` }));
+
+export const portfolioStages: Record<string, PortfolioStage[]> = {
+  'gene-therapy-launch-readiness': stageSet('gene-therapy-launch-readiness',
+    ['Risk & gap assessment', 'Demand–capacity & S&OP', 'Person-in-plant playbook']),
+  'oncology-commercial-launch-supply': [], // awaiting source material
+  'rnd-quality-operating-model': stageSet('rnd-quality-operating-model',
+    ['Oversight assessment', 'Maturity model & heatmap', 'Future-state operating model']),
+  'external-manufacturing-network-resilience': stageSet('external-manufacturing-network-resilience',
+    ['Supplier landscape & matrix', 'Operations resilience & risk', 'Global manufacturing network']),
+  'cdmo-voice-of-customer-ai-roadmap': stageSet('cdmo-voice-of-customer-ai-roadmap',
+    ['Voice-of-Customer program', 'Quality assessment cadence', 'AI enablement roadmap']),
+  'us-distribution-3pl-selection': stageSet('us-distribution-3pl-selection',
+    ['Distribution model design', '3PL benchmark & scorecard', 'Launch implementation']),
+  'clinical-supply-techops-acceleration': stageSet('clinical-supply-techops-acceleration',
+    ['Sprint kickoff & objectives', 'Critical-path map & RACI', 'Future-state operating model']),
+  'clinical-supply-chain-dashboard': stageSet('clinical-supply-chain-dashboard',
+    ['Participants', 'Inventory', 'Resupply']),
+  'llm-voice-ai-market-research': stageSet('llm-voice-ai-market-research',
+    ['Market sizing by vertical', 'Growth trajectory & CAGR', 'Voice-AI landscape']),
+};
+
+// Drop any engagements declared but not yet illustrated (e.g. awaiting material).
+for (const k of Object.keys(portfolioStages)) {
+  if (portfolioStages[k].length === 0) delete portfolioStages[k];
+}
+
+/** Listing-card cover: first project stage if present, else the single cover. */
+export const coverFor = (slug: string): string =>
+  portfolioStages[slug]?.[0]?.src ?? `/portfolio/${slug}.svg`;

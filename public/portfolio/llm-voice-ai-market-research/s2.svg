@@ -1,0 +1,24 @@
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Growth trajectories with CAGR callouts across segments">
+  <defs><pattern id="ai2" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#fff" fill-opacity="0.05"/></pattern>
+  <radialGradient id="ai2v" cx="50%" cy="38%" r="66%"><stop offset="0%" stop-color="#fff" stop-opacity="0.06"/><stop offset="100%" stop-color="#fff" stop-opacity="0"/></radialGradient></defs>
+  <rect width="640" height="400" fill="#0a0a0a"/><rect width="640" height="400" fill="url(#ai2)"/><rect width="640" height="400" fill="url(#ai2v)"/>
+  <text x="40" y="64" font-family="'JetBrains Mono',monospace" font-size="10" fill="#fff" fill-opacity="0.5">GROWTH TRAJECTORY · CAGR</text>
+  <path d="M80 320 H580 M80 320 V90" stroke="#fff" stroke-opacity="0.45" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <g stroke="#fff" stroke-opacity="0.1" stroke-width="1"><path d="M80 250 H580"/><path d="M80 180 H580"/><path d="M80 120 H580"/></g>
+  <!-- three growth curves diverging from a common origin -->
+  <path d="M80 300 C 250 280, 360 180, 560 100" stroke="#fff" stroke-opacity="0.9" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <path d="M80 300 C 250 292, 380 240, 560 170" stroke="#fff" stroke-opacity="0.6" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M80 300 C 250 298, 380 275, 560 235" stroke="#fff" stroke-opacity="0.4" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <g fill="#fff"><circle cx="560" cy="100" r="4"/></g>
+  <g fill="#fff" fill-opacity="0.6"><circle cx="560" cy="170" r="3.5"/><circle cx="560" cy="235" r="3.5"/></g>
+  <!-- CAGR callouts -->
+  <g font-family="'JetBrains Mono',monospace" font-size="11" fill="#fff" text-anchor="end">
+    <text x="556" y="92">~43% CAGR</text>
+  </g>
+  <g font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.55" text-anchor="end">
+    <text x="556" y="162">~30%</text><text x="556" y="227">~22%</text>
+  </g>
+  <g font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.4">
+    <text x="80" y="342">2025</text><text x="320" y="342" text-anchor="middle">2027</text><text x="580" y="342" text-anchor="end">2030</text>
+  </g>
+</svg>

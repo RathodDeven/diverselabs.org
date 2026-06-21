@@ -1,0 +1,28 @@
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Risk and gap assessment across three pillars with a readiness score">
+  <defs><pattern id="gt1" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#fff" fill-opacity="0.05"/></pattern>
+  <radialGradient id="gt1v" cx="50%" cy="38%" r="68%"><stop offset="0%" stop-color="#fff" stop-opacity="0.06"/><stop offset="100%" stop-color="#fff" stop-opacity="0"/></radialGradient></defs>
+  <rect width="640" height="400" fill="#0a0a0a"/><rect width="640" height="400" fill="url(#gt1)"/><rect width="640" height="400" fill="url(#gt1v)"/>
+  <!-- readiness ring -->
+  <g transform="translate(548,70)">
+    <circle r="30" fill="none" stroke="#fff" stroke-opacity="0.14" stroke-width="6"/>
+    <circle r="30" fill="none" stroke="#fff" stroke-opacity="0.85" stroke-width="6" stroke-linecap="round" stroke-dasharray="131 188" transform="rotate(-90)"/>
+    <text y="5" font-family="'JetBrains Mono',monospace" font-size="13" fill="#fff" text-anchor="middle">70%</text>
+  </g>
+  <g font-family="'JetBrains Mono',monospace" font-size="10" fill="#fff" fill-opacity="0.55" text-anchor="middle">
+    <text x="120" y="86">PROCESS</text><text x="300" y="86">RESOURCES</text><text x="480" y="86">TIMELINE</text>
+  </g>
+  <!-- three pillar panels with checklist rows (filled = assessed, outline = gap) -->
+  <g>
+    <rect x="48" y="100" width="148" height="276" rx="10" fill="#fff" fill-opacity="0.04" stroke="#fff" stroke-opacity="0.2"/>
+    <rect x="228" y="100" width="148" height="276" rx="10" fill="#fff" fill-opacity="0.04" stroke="#fff" stroke-opacity="0.2"/>
+    <rect x="408" y="100" width="148" height="276" rx="10" fill="#fff" fill-opacity="0.04" stroke="#fff" stroke-opacity="0.2"/>
+  </g>
+  <g>
+    <!-- col1 -->
+    <rect x="64" y="120" width="116" height="22" rx="4" fill="#fff" fill-opacity="0.28"/><rect x="64" y="150" width="116" height="22" rx="4" fill="#fff" fill-opacity="0.28"/><rect x="64" y="180" width="116" height="22" rx="4" fill="none" stroke="#fff" stroke-opacity="0.5" stroke-dasharray="4 3"/><rect x="64" y="210" width="116" height="22" rx="4" fill="#fff" fill-opacity="0.28"/><rect x="64" y="240" width="116" height="22" rx="4" fill="#fff" fill-opacity="0.28"/><rect x="64" y="270" width="116" height="22" rx="4" fill="none" stroke="#fff" stroke-opacity="0.5" stroke-dasharray="4 3"/>
+    <!-- col2 -->
+    <rect x="244" y="120" width="116" height="22" rx="4" fill="#fff" fill-opacity="0.28"/><rect x="244" y="150" width="116" height="22" rx="4" fill="none" stroke="#fff" stroke-opacity="0.5" stroke-dasharray="4 3"/><rect x="244" y="180" width="116" height="22" rx="4" fill="#fff" fill-opacity="0.28"/><rect x="244" y="210" width="116" height="22" rx="4" fill="#fff" fill-opacity="0.28"/><rect x="244" y="240" width="116" height="22" rx="4" fill="none" stroke="#fff" stroke-opacity="0.5" stroke-dasharray="4 3"/>
+    <!-- col3 -->
+    <rect x="424" y="120" width="116" height="22" rx="4" fill="#fff" fill-opacity="0.28"/><rect x="424" y="150" width="116" height="22" rx="4" fill="#fff" fill-opacity="0.28"/><rect x="424" y="180" width="116" height="22" rx="4" fill="#fff" fill-opacity="0.28"/><rect x="424" y="210" width="116" height="22" rx="4" fill="none" stroke="#fff" stroke-opacity="0.5" stroke-dasharray="4 3"/>
+  </g>
+</svg>

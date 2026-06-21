@@ -1,0 +1,27 @@
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Current-state versus future-state end-to-end process maps">
+  <defs><pattern id="cs3" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#fff" fill-opacity="0.05"/></pattern>
+  <radialGradient id="cs3v" cx="50%" cy="40%" r="66%"><stop offset="0%" stop-color="#fff" stop-opacity="0.06"/><stop offset="100%" stop-color="#fff" stop-opacity="0"/></radialGradient></defs>
+  <rect width="640" height="400" fill="#0a0a0a"/><rect width="640" height="400" fill="url(#cs3)"/><rect width="640" height="400" fill="url(#cs3v)"/>
+  <g font-family="'JetBrains Mono',monospace" font-size="10" fill="#fff" fill-opacity="0.5">
+    <text x="40" y="110">CURRENT STATE</text><text x="40" y="270">FUTURE STATE</text>
+  </g>
+  <!-- current: tangled / gaps (dashed, broken) -->
+  <g stroke="#fff" stroke-opacity="0.4" stroke-width="2" fill="none">
+    <path d="M70 150 H150 M186 150 H266 M302 150 H382" stroke-dasharray="6 6"/>
+    <path d="M418 150 C 470 150, 470 180, 520 180" stroke-dasharray="6 6"/>
+  </g>
+  <g fill="none" stroke="#fff" stroke-opacity="0.5" stroke-width="2">
+    <rect x="40" y="134" width="32" height="32" rx="5"/><rect x="154" y="134" width="32" height="32" rx="5"/><rect x="270" y="134" width="32" height="32" rx="5"/><rect x="386" y="134" width="32" height="32" rx="5"/><rect x="518" y="164" width="32" height="32" rx="5"/>
+  </g>
+  <!-- gap markers -->
+  <g fill="#fff" fill-opacity="0.6" font-family="'JetBrains Mono',monospace" font-size="12" text-anchor="middle"><text x="226" y="125">×</text><text x="468" y="150">×</text></g>
+  <!-- future: clean linear flow -->
+  <path d="M70 310 H558" stroke="#fff" stroke-opacity="0.85" stroke-width="2.5"/>
+  <g fill="#fff" fill-opacity="0.16" stroke="#fff" stroke-opacity="0.7" stroke-width="2">
+    <rect x="40" y="294" width="32" height="32" rx="5"/><rect x="154" y="294" width="32" height="32" rx="5"/><rect x="270" y="294" width="32" height="32" rx="5"/><rect x="386" y="294" width="32" height="32" rx="5"/><rect x="502" y="294" width="32" height="32" rx="5"/>
+  </g>
+  <path d="M548 310 l-8 -5 m8 5 l-8 5" stroke="#fff" stroke-opacity="0.7" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- transform arrow -->
+  <path d="M320 200 V250" stroke="#fff" stroke-opacity="0.4" stroke-width="2" stroke-dasharray="4 4"/>
+  <path d="M312 244 l8 8 8 -8" stroke="#fff" stroke-opacity="0.6" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

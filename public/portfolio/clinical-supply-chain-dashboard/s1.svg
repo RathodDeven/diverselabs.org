@@ -1,0 +1,17 @@
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Participants pillar: enrollment versus target with reconciliation">
+  <defs><pattern id="cl1" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#fff" fill-opacity="0.05"/></pattern>
+  <radialGradient id="cl1v" cx="50%" cy="40%" r="66%"><stop offset="0%" stop-color="#fff" stop-opacity="0.06"/><stop offset="100%" stop-color="#fff" stop-opacity="0"/></radialGradient></defs>
+  <rect width="640" height="400" fill="#0a0a0a"/><rect width="640" height="400" fill="url(#cl1)"/><rect width="640" height="400" fill="url(#cl1v)"/>
+  <text x="40" y="64" font-family="'JetBrains Mono',monospace" font-size="11" fill="#fff" fill-opacity="0.6">PARTICIPANTS</text>
+  <path d="M96 320 H560 M96 320 V90" stroke="#fff" stroke-opacity="0.45" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <g stroke="#fff" stroke-opacity="0.1" stroke-width="1"><path d="M96 260 H560"/><path d="M96 200 H560"/><path d="M96 140 H560"/></g>
+  <!-- target line -->
+  <path d="M110 150 H548" stroke="#fff" stroke-opacity="0.4" stroke-width="2" stroke-dasharray="6 6"/>
+  <text x="556" y="146" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.5" text-anchor="end">target</text>
+  <!-- cumulative enrollment curve (S) approaching target -->
+  <path d="M110 300 C 220 290, 300 220, 380 180 C 450 150, 500 152, 548 150" stroke="#fff" stroke-opacity="0.9" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <g fill="#fff"><circle cx="220" cy="282" r="3.5"/><circle cx="300" cy="222" r="3.5"/><circle cx="380" cy="180" r="3.5"/><circle cx="470" cy="153" r="3.5"/></g>
+  <!-- reconciliation flag -->
+  <g transform="translate(300,222)"><circle r="13" fill="none" stroke="#fff" stroke-opacity="0.85" stroke-width="2"/><path d="M0 -6 V2 M0 6 v0.5" stroke="#fff" stroke-width="2" stroke-linecap="round"/></g>
+  <text x="300" y="252" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.55" text-anchor="middle">IRT vs cohort</text>
+</svg>

@@ -1,0 +1,30 @@
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Risk heat-map plotting risks by likelihood and impact">
+  <defs><pattern id="em2" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#fff" fill-opacity="0.05"/></pattern>
+  <radialGradient id="em2v" cx="50%" cy="40%" r="66%"><stop offset="0%" stop-color="#fff" stop-opacity="0.06"/><stop offset="100%" stop-color="#fff" stop-opacity="0"/></radialGradient></defs>
+  <rect width="640" height="400" fill="#0a0a0a"/><rect width="640" height="400" fill="url(#em2)"/><rect width="640" height="400" fill="url(#em2v)"/>
+  <!-- 5x5 heat grid: severity rises toward top-right (opacity ramp) -->
+  <g>
+    <!-- rows bottom(low impact) to top(high); cols left(low likelihood) to right -->
+    <!-- generate 5x5 with opacity ~ (col+row) -->
+    <g>
+      <rect x="150" y="260" width="72" height="44" fill="#fff" fill-opacity="0.05"/><rect x="222" y="260" width="72" height="44" fill="#fff" fill-opacity="0.08"/><rect x="294" y="260" width="72" height="44" fill="#fff" fill-opacity="0.11"/><rect x="366" y="260" width="72" height="44" fill="#fff" fill-opacity="0.15"/><rect x="438" y="260" width="72" height="44" fill="#fff" fill-opacity="0.20"/>
+      <rect x="150" y="216" width="72" height="44" fill="#fff" fill-opacity="0.08"/><rect x="222" y="216" width="72" height="44" fill="#fff" fill-opacity="0.11"/><rect x="294" y="216" width="72" height="44" fill="#fff" fill-opacity="0.15"/><rect x="366" y="216" width="72" height="44" fill="#fff" fill-opacity="0.20"/><rect x="438" y="216" width="72" height="44" fill="#fff" fill-opacity="0.27"/>
+      <rect x="150" y="172" width="72" height="44" fill="#fff" fill-opacity="0.11"/><rect x="222" y="172" width="72" height="44" fill="#fff" fill-opacity="0.15"/><rect x="294" y="172" width="72" height="44" fill="#fff" fill-opacity="0.20"/><rect x="366" y="172" width="72" height="44" fill="#fff" fill-opacity="0.27"/><rect x="438" y="172" width="72" height="44" fill="#fff" fill-opacity="0.34"/>
+      <rect x="150" y="128" width="72" height="44" fill="#fff" fill-opacity="0.15"/><rect x="222" y="128" width="72" height="44" fill="#fff" fill-opacity="0.20"/><rect x="294" y="128" width="72" height="44" fill="#fff" fill-opacity="0.27"/><rect x="366" y="128" width="72" height="44" fill="#fff" fill-opacity="0.34"/><rect x="438" y="128" width="72" height="44" fill="#fff" fill-opacity="0.42"/>
+      <rect x="150" y="84" width="72" height="44" fill="#fff" fill-opacity="0.20"/><rect x="222" y="84" width="72" height="44" fill="#fff" fill-opacity="0.27"/><rect x="294" y="84" width="72" height="44" fill="#fff" fill-opacity="0.34"/><rect x="366" y="84" width="72" height="44" fill="#fff" fill-opacity="0.42"/><rect x="438" y="84" width="72" height="44" fill="#fff" fill-opacity="0.52"/>
+    </g>
+    <g stroke="#fff" stroke-opacity="0.1" stroke-width="1" fill="none">
+      <rect x="150" y="84" width="360" height="220"/>
+    </g>
+  </g>
+  <!-- plotted risks -->
+  <g fill="none" stroke="#fff" stroke-width="2">
+    <circle cx="470" cy="106" r="9" stroke-opacity="0.9"/><circle cx="400" cy="150" r="8" stroke-opacity="0.8"/><circle cx="330" cy="196" r="7" stroke-opacity="0.7"/><circle cx="260" cy="240" r="6" stroke-opacity="0.6"/><circle cx="330" cy="110" r="7" stroke-opacity="0.8"/><circle cx="190" cy="282" r="6" stroke-opacity="0.5"/>
+  </g>
+  <!-- axes labels -->
+  <path d="M150 304 H510 M150 304 V84" stroke="#fff" stroke-opacity="0.4" stroke-width="1.5" fill="none"/>
+  <g font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.45">
+    <text x="330" y="330" text-anchor="middle">LIKELIHOOD →</text>
+    <text x="60" y="100">IMPACT</text><text x="60" y="114">↑</text>
+  </g>
+</svg>

@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import ArticleShell from '../../../components/content/ArticleShell.astro';
-import { portfolioCaseStudies } from '../../../data/portfolio';
+import { portfolioCaseStudies, portfolioStages } from '../../../data/portfolio';
 
 const BASE = '/portfolio/priyam-haryani';
 
@@ -12,6 +12,7 @@ export function getStaticPaths() {
 }
 
 const { doc } = Astro.props;
+const stages = portfolioStages[doc.slug];
 const crumbs = [
   { name: 'Portfolio', href: BASE },
   { name: doc.crumb ?? doc.title, href: `${BASE}/${doc.slug}` },
@@ -25,5 +26,10 @@ const crumbs = [
   noindex={true}
   standalone={true}
 >
-  <ArticleShell doc={doc} crumbs={crumbs} cover={`/portfolio/${doc.slug}.svg`} />
+  <ArticleShell
+    doc={doc}
+    crumbs={crumbs}
+    cover={stages ? undefined : `/portfolio/${doc.slug}.svg`}
+    stages={stages}
+  />
 </BaseLayout>

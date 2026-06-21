@@ -1,0 +1,27 @@
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="US distribution model: manufacturer through 3PL to specialty channels">
+  <defs><pattern id="ud1" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#fff" fill-opacity="0.05"/></pattern>
+  <radialGradient id="ud1v" cx="50%" cy="40%" r="66%"><stop offset="0%" stop-color="#fff" stop-opacity="0.06"/><stop offset="100%" stop-color="#fff" stop-opacity="0"/></radialGradient></defs>
+  <rect width="640" height="400" fill="#0a0a0a"/><rect width="640" height="400" fill="url(#ud1)"/><rect width="640" height="400" fill="url(#ud1v)"/>
+  <!-- flow: MFG -> 3PL/depot -> {drop-ship, direct-ship} -> hospitals/SP -->
+  <g stroke="#fff" stroke-opacity="0.4" stroke-width="2" fill="none">
+    <path d="M150 200 H236"/>
+    <path d="M324 180 C 380 130, 420 130, 470 138"/>
+    <path d="M324 220 C 380 270, 420 270, 470 262"/>
+  </g>
+  <!-- MFG -->
+  <rect x="72" y="172" width="78" height="56" rx="8" fill="#fff" fill-opacity="0.10" stroke="#fff" stroke-opacity="0.6" stroke-width="2"/>
+  <!-- 3PL hub -->
+  <circle cx="280" cy="200" r="40" fill="#fff" fill-opacity="0.16" stroke="#fff" stroke-opacity="0.9" stroke-width="2.5"/>
+  <!-- channels -->
+  <rect x="470" y="116" width="120" height="46" rx="8" fill="#fff" fill-opacity="0.10" stroke="#fff" stroke-opacity="0.55" stroke-width="2"/>
+  <rect x="470" y="238" width="120" height="46" rx="8" fill="#fff" fill-opacity="0.10" stroke="#fff" stroke-opacity="0.55" stroke-width="2"/>
+  <!-- cold chain hint -->
+  <g stroke="#fff" stroke-opacity="0.5" stroke-width="1.5" fill="none"><path d="M280 184 v-10 m0 36 v10 m-12 -18 h-10 m34 0 h10"/></g>
+  <g font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.65" text-anchor="middle">
+    <text x="111" y="204">MFG</text><text x="280" y="203">3PL</text><text x="530" y="143">DROP-SHIP</text><text x="530" y="265">DIRECT-SHIP</text>
+  </g>
+  <g font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.4" text-anchor="middle">
+    <text x="280" y="258">2–8°C · DSCSA</text>
+  </g>
+  <g font-family="'JetBrains Mono',monospace" font-size="10" fill="#fff" fill-opacity="0.5"><text x="72" y="84">US DISTRIBUTION MODEL</text></g>
+</svg>

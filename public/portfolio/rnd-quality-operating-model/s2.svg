@@ -1,0 +1,44 @@
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Maturity scorecard: current level versus target across dimensions">
+  <defs>
+    <pattern id="q2" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#ffffff" fill-opacity="0.05"/></pattern>
+    <radialGradient id="q2v" cx="50%" cy="40%" r="66%"><stop offset="0%" stop-color="#ffffff" stop-opacity="0.06"/><stop offset="100%" stop-color="#ffffff" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="640" height="400" fill="#0a0a0a"/><rect width="640" height="400" fill="url(#q2)"/><rect width="640" height="400" fill="url(#q2v)"/>
+
+  <!-- column headers L1..L5 -->
+  <g fill="#ffffff" fill-opacity="0.45" font-family="'JetBrains Mono',monospace" font-size="10" text-anchor="middle">
+    <text x="248" y="80">L1</text><text x="320" y="80">L2</text><text x="392" y="80">L3</text><text x="464" y="80">L4</text><text x="536" y="80">L5</text>
+  </g>
+  <!-- row labels -->
+  <g fill="#ffffff" fill-opacity="0.55" font-family="'JetBrains Mono',monospace" font-size="10">
+    <text x="20" y="106">ROLES</text>
+    <text x="20" y="146">OVERSIGHT</text>
+    <text x="20" y="186">PROCESS</text>
+    <text x="20" y="226">ESCALATION</text>
+    <text x="20" y="266">METRICS</text>
+    <text x="20" y="306">CADENCE</text>
+  </g>
+
+  <!-- cells: filled up to current level (heat), target = outlined cell -->
+  <g>
+    <!-- helper: 5 cells per row at x 216,288,360,432,504 (w64 h28), y rows 88,128,168,208,248,288 -->
+    <!-- ROLES current=3 target=4 -->
+    <rect x="216" y="88" width="64" height="28" rx="4" fill="#ffffff" fill-opacity="0.18"/><rect x="288" y="88" width="64" height="28" rx="4" fill="#ffffff" fill-opacity="0.26"/><rect x="360" y="88" width="64" height="28" rx="4" fill="#ffffff" fill-opacity="0.36"/><rect x="432" y="88" width="64" height="28" rx="4" fill="none" stroke="#ffffff" stroke-opacity="0.85" stroke-dasharray="4 3"/><rect x="504" y="88" width="64" height="28" rx="4" fill="#ffffff" fill-opacity="0.05"/>
+    <!-- OVERSIGHT current=2 target=4 -->
+    <rect x="216" y="128" width="64" height="28" rx="4" fill="#ffffff" fill-opacity="0.18"/><rect x="288" y="128" width="64" height="28" rx="4" fill="#ffffff" fill-opacity="0.30"/><rect x="360" y="128" width="64" height="28" rx="4" fill="#ffffff" fill-opacity="0.05"/><rect x="432" y="128" width="64" height="28" rx="4" fill="none" stroke="#ffffff" stroke-opacity="0.85" stroke-dasharray="4 3"/><rect x="504" y="128" width="64" height="28" rx="4" fill="#ffffff" fill-opacity="0.05"/>
+    <!-- PROCESS current=3 target=5 -->
+    <rect x="216" y="168" width="64" height="28" rx="4" fill="#ffffff" fill-opacity="0.18"/><rect x="288" y="168" width="64" height="28" rx="4" fill="#ffffff" fill-opacity="0.26"/><rect x="360" y="168" width="64" height="28" rx="4" fill="#ffffff" fill-opacity="0.36"/><rect x="432" y="168" width="64" height="28" rx="4" fill="#ffffff" fill-opacity="0.05"/><rect x="504" y="168" width="64" height="28" rx="4" fill="none" stroke="#ffffff" stroke-opacity="0.85" stroke-dasharray="4 3"/>
+    <!-- ESCALATION current=2 target=3 -->
+    <rect x="216" y="208" width="64" height="28" rx="4" fill="#ffffff" fill-opacity="0.18"/><rect x="288" y="208" width="64" height="28" rx="4" fill="#ffffff" fill-opacity="0.30"/><rect x="360" y="208" width="64" height="28" rx="4" fill="none" stroke="#ffffff" stroke-opacity="0.85" stroke-dasharray="4 3"/><rect x="432" y="208" width="64" height="28" rx="4" fill="#ffffff" fill-opacity="0.05"/><rect x="504" y="208" width="64" height="28" rx="4" fill="#ffffff" fill-opacity="0.05"/>
+    <!-- METRICS current=4 target=5 -->
+    <rect x="216" y="248" width="64" height="28" rx="4" fill="#ffffff" fill-opacity="0.18"/><rect x="288" y="248" width="64" height="28" rx="4" fill="#ffffff" fill-opacity="0.26"/><rect x="360" y="248" width="64" height="28" rx="4" fill="#ffffff" fill-opacity="0.36"/><rect x="432" y="248" width="64" height="28" rx="4" fill="#ffffff" fill-opacity="0.48"/><rect x="504" y="248" width="64" height="28" rx="4" fill="none" stroke="#ffffff" stroke-opacity="0.85" stroke-dasharray="4 3"/>
+    <!-- CADENCE current=3 target=4 -->
+    <rect x="216" y="288" width="64" height="28" rx="4" fill="#ffffff" fill-opacity="0.18"/><rect x="288" y="288" width="64" height="28" rx="4" fill="#ffffff" fill-opacity="0.26"/><rect x="360" y="288" width="64" height="28" rx="4" fill="#ffffff" fill-opacity="0.36"/><rect x="432" y="288" width="64" height="28" rx="4" fill="none" stroke="#ffffff" stroke-opacity="0.85" stroke-dasharray="4 3"/><rect x="504" y="288" width="64" height="28" rx="4" fill="#ffffff" fill-opacity="0.05"/>
+  </g>
+
+  <!-- legend -->
+  <g font-family="'JetBrains Mono',monospace" font-size="9" fill="#ffffff" fill-opacity="0.5">
+    <rect x="216" y="340" width="14" height="10" rx="2" fill="#ffffff" fill-opacity="0.36"/><text x="236" y="349">current</text>
+    <rect x="312" y="340" width="14" height="10" rx="2" fill="none" stroke="#ffffff" stroke-opacity="0.85" stroke-dasharray="4 3"/><text x="332" y="349">target</text>
+  </g>
+</svg>

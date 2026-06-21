@@ -1,0 +1,28 @@
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Implementation timeline from contracting to launch go-live">
+  <defs><pattern id="ud3" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#fff" fill-opacity="0.05"/></pattern>
+  <radialGradient id="ud3v" cx="50%" cy="40%" r="66%"><stop offset="0%" stop-color="#fff" stop-opacity="0.06"/><stop offset="100%" stop-color="#fff" stop-opacity="0"/></radialGradient></defs>
+  <rect width="640" height="400" fill="#0a0a0a"/><rect width="640" height="400" fill="url(#ud3)"/><rect width="640" height="400" fill="url(#ud3v)"/>
+  <!-- horizontal milestone timeline -->
+  <path d="M80 220 H560" stroke="#fff" stroke-opacity="0.4" stroke-width="2"/>
+  <g fill="#fff">
+    <circle cx="110" cy="220" r="6"/><circle cx="230" cy="220" r="6"/><circle cx="350" cy="220" r="6"/><circle cx="470" cy="220" r="6"/>
+  </g>
+  <!-- go-live star -->
+  <circle cx="560" cy="220" r="16" fill="#fff" fill-opacity="0.2" stroke="#fff" stroke-opacity="0.9" stroke-width="2.5"/>
+  <path d="M560 210 l3 7 7 0 -6 5 2 8 -6 -4 -6 4 2 -8 -6 -5 7 0 z" fill="#fff" transform="scale(0.8) translate(140,46)"/>
+  <!-- milestone labels (alternating) -->
+  <g font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.6" text-anchor="middle">
+    <text x="110" y="190">CONTRACT</text><text x="230" y="262">QA / REG</text><text x="350" y="190">KICKOFF</text><text x="470" y="262">READINESS</text><text x="560" y="186">GO-LIVE</text>
+  </g>
+  <!-- workstream lanes feeding launch -->
+  <g font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.4">
+    <text x="80" y="120">WORKSTREAMS</text>
+  </g>
+  <g stroke="#fff" stroke-linecap="round" stroke-width="6">
+    <g stroke-opacity="0.25"><path d="M120 140 H460"/><path d="M160 162 H500"/><path d="M120 184 H430"/></g>
+  </g>
+  <g font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.45">
+    <text x="470" y="143">trade</text><text x="510" y="165">ops</text><text x="440" y="187">finance</text>
+  </g>
+  <g stroke="#fff" stroke-opacity="0.3" stroke-width="1.5" stroke-dasharray="3 4"><path d="M460 140 L 556 210"/><path d="M500 162 L 556 212"/><path d="M430 184 L 552 214"/></g>
+</svg>
