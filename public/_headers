@@ -8,6 +8,13 @@
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: geolocation=(), microphone=(), camera=()
 
+# Showcase explainer videos are embedded as same-origin <iframe>s on our own
+# pages, so they must be framable. (The site-wide DENY above would block them.)
+/showcase/*
+  ! X-Frame-Options
+  X-Frame-Options: SAMEORIGIN
+  Content-Security-Policy: frame-ancestors 'self'
+
 # Hashed build output (JS/CSS) — filenames change on every content change,
 # safe to cache forever
 /_astro/*
