@@ -1,0 +1,29 @@
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A voice waveform feeding a forward roadmap of milestones">
+  <defs>
+    <pattern id="g5" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#ffffff" fill-opacity="0.05"/></pattern>
+    <radialGradient id="v5" cx="40%" cy="38%" r="68%"><stop offset="0%" stop-color="#ffffff" stop-opacity="0.06"/><stop offset="100%" stop-color="#ffffff" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="640" height="400" fill="#0a0a0a"/><rect width="640" height="400" fill="url(#g5)"/><rect width="640" height="400" fill="url(#v5)"/>
+  <!-- waveform -->
+  <g stroke="#ffffff" stroke-width="4" stroke-linecap="round">
+    <path d="M96 200 V200" stroke-opacity="0.5"/>
+    <path d="M120 175 V225" stroke-opacity="0.6"/>
+    <path d="M144 150 V250" stroke-opacity="0.7"/>
+    <path d="M168 120 V280" stroke-opacity="0.85"/>
+    <path d="M192 160 V240" stroke-opacity="0.7"/>
+    <path d="M216 135 V265" stroke-opacity="0.8"/>
+    <path d="M240 178 V222" stroke-opacity="0.6"/>
+    <path d="M264 158 V242" stroke-opacity="0.7"/>
+  </g>
+  <!-- arrow into roadmap -->
+  <path d="M292 200 H332" stroke="#ffffff" stroke-opacity="0.5" stroke-width="2" fill="none"/>
+  <path d="M326 192 l10 8 -10 8" stroke="#ffffff" stroke-opacity="0.7" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- roadmap dashed path with milestones -->
+  <path d="M356 200 H560" stroke="#ffffff" stroke-opacity="0.35" stroke-width="2" stroke-dasharray="6 8" fill="none"/>
+  <g>
+    <circle cx="372" cy="200" r="10" fill="#ffffff" fill-opacity="0.12" stroke="#ffffff" stroke-opacity="0.55" stroke-width="2"/>
+    <circle cx="438" cy="200" r="12" fill="#ffffff" fill-opacity="0.18" stroke="#ffffff" stroke-opacity="0.7" stroke-width="2"/>
+    <circle cx="504" cy="200" r="14" fill="#ffffff" fill-opacity="0.26" stroke="#ffffff" stroke-opacity="0.85" stroke-width="2.5"/>
+    <circle cx="560" cy="200" r="6" fill="#ffffff"/>
+  </g>
+</svg>

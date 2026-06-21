@@ -9,8 +9,10 @@ import CTAButton from '../CTAButton.astro';
 interface Props {
   doc: Doc;
   crumbs: { name: string; href: string }[];
+  /** Optional decorative cover/illustration rendered under the hero */
+  cover?: string;
 }
-const { doc, crumbs } = Astro.props as Props;
+const { doc, crumbs, cover } = Astro.props as Props;
 ---
 
 <article class="doc">
@@ -42,6 +44,12 @@ const { doc, crumbs } = Astro.props as Props;
         <div class="doc-herostat" data-reveal data-reveal-delay="0.4">
           <span class="doc-herostat-val">{doc.heroStat.value}</span>
           <span class="doc-herostat-lab">{doc.heroStat.label}</span>
+        </div>
+      )}
+
+      {cover && (
+        <div class="doc-cover" data-reveal data-reveal-delay="0.5">
+          <img src={cover} alt="" loading="lazy" width="640" height="400" />
         </div>
       )}
     </div>
@@ -81,3 +89,14 @@ const { doc, crumbs } = Astro.props as Props;
     </section>
   </div>
 </article>
+
+<style>
+  .doc-cover {
+    margin-top: clamp(2rem, 4vw, 3rem);
+    border: 1px solid var(--line);
+    border-radius: 1rem;
+    overflow: hidden;
+    background: #0a0a0a;
+  }
+  .doc-cover img { display: block; width: 100%; height: auto; }
+</style>

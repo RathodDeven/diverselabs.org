@@ -81,17 +81,22 @@ const lens = [
       <div class="pf-grid" data-reveal-group>
         {cases.map((doc, i) => (
           <a class="pf-card" href={`${BASE}/${doc.slug}`}>
-            <div class="pf-card-top">
-              <span class="label no-rule">{doc.eyebrow}</span>
-              <span class="pf-card-idx mono-num">{String(i + 1).padStart(2, '0')}</span>
+            <div class="pf-card-media">
+              <img src={`/portfolio/${doc.slug}.svg`} alt="" loading="lazy" width="640" height="400" />
             </div>
-            <h3 class="pf-card-title">{doc.title}</h3>
-            <p class="pf-card-dek">{doc.dek}</p>
-            <div class="pf-card-foot">
-              <div class="pf-card-tags">
-                {doc.tags.slice(0, 3).map((t) => <span class="chip">{t}</span>)}
+            <div class="pf-card-body">
+              <div class="pf-card-top">
+                <span class="label no-rule">{doc.eyebrow}</span>
+                <span class="pf-card-idx mono-num">{String(i + 1).padStart(2, '0')}</span>
               </div>
-              <span class="pf-card-arrow" aria-hidden="true">→</span>
+              <h3 class="pf-card-title">{doc.title}</h3>
+              <p class="pf-card-dek">{doc.dek}</p>
+              <div class="pf-card-foot">
+                <div class="pf-card-tags">
+                  {doc.tags.slice(0, 3).map((t) => <span class="chip">{t}</span>)}
+                </div>
+                <span class="pf-card-arrow" aria-hidden="true">→</span>
+              </div>
             </div>
           </a>
         ))}
@@ -202,14 +207,35 @@ const lens = [
   .pf-card {
     display: flex;
     flex-direction: column;
-    gap: 0.9rem;
-    padding: clamp(1.4rem, 2.4vw, 2rem);
     border: 1px solid var(--line);
     border-radius: 1.1rem;
     background: var(--panel);
+    overflow: hidden;
     transition: border-color 250ms var(--ease-out), transform 400ms var(--ease-out);
   }
   .pf-card:hover { border-color: rgba(255, 255, 255, 0.2); transform: translateY(-4px); }
+  .pf-card-media {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background: #0a0a0a;
+    border-bottom: 1px solid var(--line);
+  }
+  .pf-card-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 500ms var(--ease-out);
+  }
+  .pf-card:hover .pf-card-media img { transform: scale(1.04); }
+  .pf-card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    padding: clamp(1.3rem, 2.2vw, 1.7rem);
+    flex: 1;
+  }
   .pf-card-top { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
   .pf-card-idx { font-size: 0.72rem; color: var(--faint); }
   .pf-card-title {

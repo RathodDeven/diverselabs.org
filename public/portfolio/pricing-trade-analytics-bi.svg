@@ -1,0 +1,16 @@
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A combined bar-and-line BI chart">
+  <defs>
+    <pattern id="g13" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#ffffff" fill-opacity="0.05"/></pattern>
+    <radialGradient id="v13" cx="50%" cy="40%" r="66%"><stop offset="0%" stop-color="#ffffff" stop-opacity="0.06"/><stop offset="100%" stop-color="#ffffff" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="640" height="400" fill="#0a0a0a"/><rect width="640" height="400" fill="url(#g13)"/><rect width="640" height="400" fill="url(#v13)"/>
+  <path d="M110 300 H548 M110 300 V90" stroke="#ffffff" stroke-opacity="0.5" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <g stroke="#ffffff" stroke-opacity="0.18" stroke-width="1.5"><path d="M110 250 H548"/><path d="M110 200 H548"/><path d="M110 150 H548"/></g>
+  <!-- bars -->
+  <g fill="#ffffff" fill-opacity="0.28">
+    <rect x="140" y="230" width="34" height="70" rx="3"/><rect x="206" y="205" width="34" height="95" rx="3"/><rect x="272" y="215" width="34" height="85" rx="3"/><rect x="338" y="180" width="34" height="120" rx="3"/><rect x="404" y="195" width="34" height="105" rx="3"/><rect x="470" y="160" width="34" height="140" rx="3"/>
+  </g>
+  <!-- trend line over bars -->
+  <path d="M157 215 L 223 192 L 289 200 L 355 165 L 421 178 L 487 145" stroke="#ffffff" stroke-opacity="0.9" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <g fill="#ffffff"><circle cx="157" cy="215" r="4"/><circle cx="223" cy="192" r="4"/><circle cx="289" cy="200" r="4"/><circle cx="355" cy="165" r="4"/><circle cx="421" cy="178" r="4"/><circle cx="487" cy="145" r="4"/></g>
+</svg>

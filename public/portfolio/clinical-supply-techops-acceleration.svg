@@ -1,0 +1,27 @@
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Sprint board columns with a critical path threading through">
+  <defs>
+    <pattern id="g7" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#ffffff" fill-opacity="0.05"/></pattern>
+    <radialGradient id="v7" cx="50%" cy="40%" r="66%"><stop offset="0%" stop-color="#ffffff" stop-opacity="0.06"/><stop offset="100%" stop-color="#ffffff" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="640" height="400" fill="#0a0a0a"/><rect width="640" height="400" fill="url(#g7)"/><rect width="640" height="400" fill="url(#v7)"/>
+  <!-- three columns -->
+  <g fill="none" stroke="#ffffff" stroke-opacity="0.18" stroke-width="1.5">
+    <rect x="80" y="80" width="150" height="240" rx="8"/>
+    <rect x="245" y="80" width="150" height="240" rx="8"/>
+    <rect x="410" y="80" width="150" height="240" rx="8"/>
+  </g>
+  <g fill="#ffffff" fill-opacity="0.45" font-family="'JetBrains Mono',monospace" font-size="11" text-anchor="middle">
+    <text x="155" y="104">BACKLOG</text><text x="320" y="104">ACTIVE</text><text x="485" y="104">DONE</text>
+  </g>
+  <!-- cards -->
+  <g>
+    <rect x="96" y="120" width="118" height="34" rx="5" fill="#ffffff" fill-opacity="0.07" stroke="#ffffff" stroke-opacity="0.3"/>
+    <rect x="96" y="164" width="118" height="34" rx="5" fill="#ffffff" fill-opacity="0.07" stroke="#ffffff" stroke-opacity="0.3"/>
+    <rect x="261" y="120" width="118" height="34" rx="5" fill="#ffffff" fill-opacity="0.16" stroke="#ffffff" stroke-opacity="0.6"/>
+    <rect x="261" y="164" width="118" height="34" rx="5" fill="#ffffff" fill-opacity="0.16" stroke="#ffffff" stroke-opacity="0.6"/>
+    <rect x="426" y="120" width="118" height="34" rx="5" fill="#ffffff" fill-opacity="0.10" stroke="#ffffff" stroke-opacity="0.4"/>
+  </g>
+  <!-- critical path -->
+  <path d="M155 137 C 230 250, 245 250, 320 137 C 400 250, 410 250, 485 137" stroke="#ffffff" stroke-opacity="0.85" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <g fill="#ffffff"><circle cx="155" cy="137" r="5"/><circle cx="320" cy="137" r="5"/><circle cx="485" cy="137" r="5"/></g>
+</svg>

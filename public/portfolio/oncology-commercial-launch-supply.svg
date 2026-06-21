@@ -1,0 +1,18 @@
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Demand curve with base, upside and downside scenario bands">
+  <defs>
+    <pattern id="g2" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#ffffff" fill-opacity="0.05"/></pattern>
+    <radialGradient id="v2" cx="50%" cy="40%" r="65%"><stop offset="0%" stop-color="#ffffff" stop-opacity="0.06"/><stop offset="100%" stop-color="#ffffff" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="640" height="400" fill="#0a0a0a"/><rect width="640" height="400" fill="url(#g2)"/><rect width="640" height="400" fill="url(#v2)"/>
+  <path d="M110 310 H545 M110 310 V80" stroke="#ffffff" stroke-opacity="0.5" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <!-- scenario band -->
+  <path d="M110 300 C 250 250, 360 150, 540 70 L 540 150 C 360 220, 250 280, 110 300 Z" fill="#ffffff" fill-opacity="0.06"/>
+  <!-- upside -->
+  <path d="M110 300 C 250 240, 360 130, 540 70" stroke="#ffffff" stroke-opacity="0.45" stroke-width="2" stroke-dasharray="6 6" fill="none" stroke-linecap="round"/>
+  <!-- base -->
+  <path d="M110 305 C 250 265, 360 175, 540 110" stroke="#ffffff" stroke-opacity="0.95" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <!-- downside -->
+  <path d="M110 308 C 250 285, 360 220, 540 165" stroke="#ffffff" stroke-opacity="0.45" stroke-width="2" stroke-dasharray="6 6" fill="none" stroke-linecap="round"/>
+  <g fill="#ffffff"><circle cx="540" cy="110" r="4"/></g>
+  <g fill="#ffffff" fill-opacity="0.5"><circle cx="540" cy="70" r="3"/><circle cx="540" cy="165" r="3"/></g>
+</svg>
