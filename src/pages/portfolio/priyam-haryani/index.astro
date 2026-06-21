@@ -47,6 +47,14 @@ const lens = [
         <CTAButton href="https://cal.com/diverselabs/30min">Book a call</CTAButton>
         <a href="#work" class="btn btn-secondary">View selected work</a>
       </div>
+
+      <div class="pf-status" data-reveal data-reveal-delay="0.4" aria-hidden="true">
+        <span class="pf-status-dot"></span>
+        <span class="pf-status-label" id="pf-status-label">CHAOS</span>
+        <span class="pf-status-sep">/</span>
+        <span class="pf-status-sub" id="pf-status-sub">unstructured</span>
+        <span class="pf-status-bar"><i id="pf-status-fill"></i></span>
+      </div>
     </div>
     <div class="pf-scroll-cue pf-z" aria-hidden="true">
       <span>Scroll</span>
@@ -167,6 +175,57 @@ const lens = [
     flex-wrap: wrap;
     gap: 0.8rem;
     align-items: center;
+  }
+
+  /* Chaos → Order status read-out */
+  .pf-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    margin-top: 2rem;
+    padding: 0.55rem 0.95rem;
+    border: 1px solid var(--line);
+    border-radius: 0.7rem;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    width: fit-content;
+  }
+  .pf-status-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+    animation: pfPulse 1.8s ease-in-out infinite;
+    flex-shrink: 0;
+  }
+  @keyframes pfPulse {
+    0%, 100% { opacity: 0.35; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.5); }
+  }
+  .pf-status-label { color: var(--ink); font-weight: 500; }
+  .pf-status-sep { color: var(--faint); }
+  .pf-status-sub { color: var(--faint); min-width: 8ch; }
+  .pf-status-bar {
+    width: 54px;
+    height: 3px;
+    border-radius: 2px;
+    background: rgba(255, 255, 255, 0.12);
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .pf-status-bar i {
+    display: block;
+    height: 100%;
+    width: 0%;
+    background: rgba(255, 255, 255, 0.85);
+    transition: width 0.2s linear;
   }
 
   .pf-scroll-cue {
@@ -314,7 +373,17 @@ const lens = [
     if (!canvas || cleanup) return; // not on this page, or already running
     const isMobile = window.innerWidth < 768;
     const lowPower = navigator.hardwareConcurrency ? navigator.hardwareConcurrency <= 4 : false;
-    cleanup = initPortfolioScene(canvas, { reducedQuality: isMobile || lowPower });
+    cleanup = initPortfolioScene(canvas, {
+      reducedQuality: isMobile || lowPower,
+      onState: (s) => {
+        const label = document.getElementById('pf-status-label');
+        const sub = document.getElementById('pf-status-sub');
+        const fill = document.getElementById('pf-status-fill');
+        if (label) label.textContent = s.stage;
+        if (sub) sub.textContent = s.stage === 'CHAOS' ? 'unstructured' : s.graph.toLowerCase();
+        if (fill) fill.style.width = Math.round(s.progress * 100) + '%';
+      },
+    });
   }
 
   function stop() {
