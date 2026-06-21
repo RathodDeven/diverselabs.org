@@ -12,6 +12,8 @@ export interface Props {
   keywords?: string;
   /** When true, emit robots noindex,nofollow (for hidden / unlisted pages) */
   noindex?: boolean;
+  /** When true, hide the site nav + footer entirely (sealed / standalone page) */
+  standalone?: boolean;
   /** Extra per-page JSON-LD objects (Article, Service, HowTo, FAQPage, BreadcrumbList, …) */
   jsonLd?: Record<string, unknown>[];
 }
@@ -23,6 +25,7 @@ const {
   canonicalURL,
   keywords = 'AI agents, workflow automation, custom AI systems, web app development, mobile app development, AI chatbot, business automation, AI consulting, LLM integration',
   noindex = false,
+  standalone = false,
   jsonLd = [],
 } = Astro.props as Props;
 
@@ -168,6 +171,8 @@ const websiteSchema = {
 
     <BackgroundShader />
 
+    {!standalone && (
+    <>
     <!-- Navigation -->
     <header id="site-nav">
       <nav class="nav-inner" aria-label="Main navigation">
@@ -221,11 +226,15 @@ const websiteSchema = {
       </div>
     </div>
 
+    </>
+    )}
+
     <!-- Main content slot -->
     <main id="main-content">
       <slot />
     </main>
 
+    {!standalone && (
     <!-- Footer -->
     <footer class="site-footer" role="contentinfo">
       <div class="container">
@@ -294,6 +303,7 @@ const websiteSchema = {
         </div>
       </div>
     </footer>
+    )}
 
     <!-- Motion system (Lenis + GSAP) -->
     <script>

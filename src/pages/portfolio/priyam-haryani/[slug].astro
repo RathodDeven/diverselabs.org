@@ -23,6 +23,7 @@ const crumbs = [
   description={doc.description}
   keywords={doc.keywords}
   noindex={true}
+  standalone={true}
 >
   <ArticleShell doc={doc} crumbs={crumbs} cover={`/portfolio/${doc.slug}.svg`} />
 </BaseLayout>
