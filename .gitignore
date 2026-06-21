@@ -25,3 +25,7 @@ pnpm-debug.log*
 
 # claude local config
 .claude/
+
+# local-only review data (real client names) — must never be committed
+src/data/portfolio.clients.local.ts
+*.clients.local.ts

@@ -658,3 +658,22 @@ export const portfolioCaseStudies: Doc[] = [
     ],
   },
 ];
+
+/* ──────────────────────────────────────────────────────────────────────────
+   Optional LOCAL-ONLY client names (for on-screen review).
+   Real names live in ./portfolio.clients.local.ts, which is GITIGNORED and
+   never committed. import.meta.glob resolves to that file on a local machine
+   (names render in dev + local build) and to NOTHING on the pushed repo /
+   Cloudflare CI — so the deployed site is always fully ANONYMIZED.
+   No client names live in this committed file.
+   ────────────────────────────────────────────────────────────────────────── */
+const localClientMods = import.meta.glob('./portfolio.clients.local.ts', { eager: true }) as Record<
+  string,
+  { REVIEW_CLIENTS?: Record<string, string> }
+>;
+const localClients = Object.values(localClientMods)[0]?.REVIEW_CLIENTS;
+if (localClients) {
+  for (const d of portfolioCaseStudies) {
+    if (localClients[d.slug]) d.client = localClients[d.slug];
+  }
+}

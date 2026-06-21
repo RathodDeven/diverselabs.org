@@ -86,6 +86,9 @@ const lens = [
               <img src={`/portfolio/${doc.slug}.svg`} alt="" loading="lazy" width="640" height="400" />
             </div>
             <div class="pf-card-body">
+              {doc.client && (
+                <div class="pf-card-client"><span>Client</span>{doc.client}</div>
+              )}
               <div class="pf-card-top">
                 <span class="label no-rule">{doc.eyebrow}</span>
                 <span class="pf-card-idx mono-num">{String(i + 1).padStart(2, '0')}</span>
@@ -236,6 +239,24 @@ const lens = [
     gap: 0.9rem;
     padding: clamp(1.3rem, 2.2vw, 1.7rem);
     flex: 1;
+  }
+  .pf-card-client {
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+  .pf-card-client span {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--faint);
   }
   .pf-card-top { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
   .pf-card-idx { font-size: 0.72rem; color: var(--faint); }
