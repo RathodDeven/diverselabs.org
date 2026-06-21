@@ -199,28 +199,43 @@ const featured = testimonials[0];
     <HeroParticles />
 
     <div class="container relative z-10">
-      <div class="mb-7" data-reveal>
-        <span class="badge">
-          <span class="badge-dot" aria-hidden="true"></span>
-          Currently taking new projects
-        </span>
-      </div>
+      <div class="hero-layout">
+        <div class="hero-copy">
+          <div class="mb-7" data-reveal>
+            <span class="badge">
+              <span class="badge-dot" aria-hidden="true"></span>
+              Currently taking new projects
+            </span>
+          </div>
 
-      <h1 class="display-hero" data-split data-split-delay="0.15" aria-label="Your AI Tech Partner.">
-        Your AI<br /><span class="text-outline">Tech Partner.</span>
-      </h1>
+          <h1 class="display-hero" data-split data-split-delay="0.15" aria-label="Your AI Tech Partner.">
+            Your AI<br /><span class="text-outline">Tech Partner.</span>
+          </h1>
 
-      <div class="mt-8 flex flex-col md:flex-row md:items-end md:justify-between gap-8">
-        <p class="hero-sub" data-reveal data-reveal-delay="0.45">
-          We design and ship custom AI agents, automation, and production software —
-          systems that do real work for your team.
-        </p>
+          <p class="hero-sub mt-7" data-reveal data-reveal-delay="0.45">
+            We design and ship custom AI agents, automation, and production software —
+            systems that do real work for your team.
+          </p>
 
-        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3" data-reveal data-reveal-delay="0.55">
-          <CTAButton href="https://cal.com/diverselabs/30min">Book a Discovery Call</CTAButton>
-          <a href="#work" class="btn btn-secondary btn-lg">
-            Explore the work
-          </a>
+          <div class="hero-cta-row mt-8" data-reveal data-reveal-delay="0.55">
+            <CTAButton href="https://cal.com/diverselabs/30min">Book a Discovery Call</CTAButton>
+            <a href="#work" class="btn btn-secondary btn-lg">
+              Explore the work
+            </a>
+          </div>
+        </div>
+
+        <!-- Animated showreel (autoplays; pauses when scrolled out of view) -->
+        <div class="hero-showreel" data-hero-reel data-reveal data-reveal-delay="0.35">
+          <div class="hero-showreel-frame">
+            <iframe
+              src="/showcase/hero/index.html"
+              title="Diverse Labs — animated showreel"
+              loading="eager"
+              tabindex="-1"
+              scrolling="no"
+            ></iframe>
+          </div>
         </div>
       </div>
 
@@ -238,11 +253,6 @@ const featured = testimonials[0];
           <div class="hero-stat-label">Users reached</div>
         </div>
       </div>
-    </div>
-
-    <div class="scroll-cue" aria-hidden="true">
-      <span>Scroll</span>
-      <span class="scroll-cue-line"></span>
     </div>
   </section>
 
@@ -313,6 +323,75 @@ const featured = testimonials[0];
             )}
           </div>
         ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ SYSTEMS IN MOTION (playable explainers) ═══════════════ -->
+  <section id="in-motion" class="page-section">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <div>
+          <p class="label mb-4">See it in motion</p>
+          <h2>Real systems, working</h2>
+        </div>
+        <span class="head-side mono-num">(02) Explainers</span>
+      </div>
+
+      <div class="showcase-grid" data-reveal-group>
+        <article
+          class="showcase-card"
+          data-showcase
+          data-src="/showcase/nudgeflow/index.html"
+        >
+          <button class="showcase-media" type="button" aria-label="Play the NudgeFlow explainer">
+            <img class="showcase-poster" src="/work/nudgeflow.webp" alt="NudgeFlow — WhatsApp and voice AI agent" loading="lazy" decoding="async" width="800" height="450" />
+            <span class="showcase-scrim" aria-hidden="true"></span>
+            <span class="showcase-play" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z" /></svg>
+            </span>
+            <span class="showcase-dur mono-num" aria-hidden="true">0:48</span>
+          </button>
+          <div class="showcase-meta">
+            <div class="showcase-tags">
+              <span class="chip">WhatsApp agent</span>
+              <span class="chip">Voice AI</span>
+            </div>
+            <h3>NudgeFlow — WhatsApp + voice agent</h3>
+            <p>An AI agent that re-engages drop-offs over WhatsApp and voice, classifies intent, and syncs every outcome back automatically. Built for ClickPe (YC&nbsp;S23).</p>
+            <a href="/work/clickpe-nudgeflow-whatsapp-voice-ai-agent" class="showcase-link">
+              <span class="showcase-link-arrow" aria-hidden="true">→</span>
+              Read the case study
+            </a>
+          </div>
+        </article>
+
+        <article
+          class="showcase-card"
+          data-showcase
+          data-src="/showcase/crm/index.html"
+        >
+          <button class="showcase-media" type="button" aria-label="Play the CRM follow-up automation explainer">
+            <img class="showcase-poster" src="/work/scaleup-crm.svg" alt="CRM follow-up automation" loading="lazy" decoding="async" width="800" height="450" />
+            <span class="showcase-scrim" aria-hidden="true"></span>
+            <span class="showcase-play" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z" /></svg>
+            </span>
+            <span class="showcase-dur mono-num" aria-hidden="true">0:35</span>
+          </button>
+          <div class="showcase-meta">
+            <div class="showcase-tags">
+              <span class="chip">CRM-agnostic</span>
+              <span class="chip">Human-in-the-loop</span>
+            </div>
+            <h3>CRM follow-up automation</h3>
+            <p>Drafts context-aware follow-ups inside any CRM — reads the record, researches the web, finds the hook, and waits for your approval before anything sends.</p>
+            <a href="/work/scaleup-zoho-crm-follow-up-agent" class="showcase-link">
+              <span class="showcase-link-arrow" aria-hidden="true">→</span>
+              Read the case study
+            </a>
+          </div>
+        </article>
       </div>
     </div>
   </section>
@@ -681,5 +760,44 @@ const featured = testimonials[0];
       </div>
     </div>
   </section>
+
+  <script>
+    function initShowcase() {
+      // Facade: nothing loads until the visitor hits play (keeps the page light).
+      document.querySelectorAll<HTMLElement>('[data-showcase]').forEach((card) => {
+        if (card.dataset.bound) return;
+        card.dataset.bound = 'true';
+        const media = card.querySelector<HTMLElement>('.showcase-media');
+        const src = card.dataset.src;
+        if (!media || !src) return;
+        media.addEventListener('click', () => {
+          if (card.classList.contains('is-playing')) return;
+          const iframe = document.createElement('iframe');
+          iframe.className = 'showcase-iframe';
+          iframe.src = src;
+          iframe.title = card.querySelector('h3')?.textContent || 'Explainer video';
+          iframe.setAttribute('allowfullscreen', '');
+          iframe.setAttribute('loading', 'lazy');
+          media.appendChild(iframe);
+          card.classList.add('is-playing');
+        });
+      });
+
+      // Hero showreel: pause the animation loop while it's off-screen (CPU saving).
+      const reel = document.querySelector<HTMLElement>('[data-hero-reel]');
+      const frame = reel?.querySelector('iframe');
+      if (reel && frame && !reel.dataset.bound) {
+        reel.dataset.bound = 'true';
+        const io = new IntersectionObserver((entries) => {
+          const visible = entries[0].isIntersecting;
+          frame.contentWindow?.postMessage(visible ? 'dl-play' : 'dl-pause', location.origin);
+        }, { threshold: 0, rootMargin: '200px 0px' });
+        io.observe(reel);
+      }
+    }
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initShowcase);
+    else initShowcase();
+    document.addEventListener('astro:page-load', initShowcase);
+  </script>
 
 </BaseLayout>

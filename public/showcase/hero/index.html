@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>Diverse Labs — showreel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; padding: 0; height: 100%; background: #050505; overflow: hidden; }
+  * { box-sizing: border-box; }
+  #root { position: fixed; inset: 0; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script src="../_vendor/react.js"></script>
+<script src="../_vendor/react-dom.js"></script>
+<script src="./hero.js"></script>
+<script>
+  (function () {
+    var el = document.getElementById('root');
+    ReactDOM.createRoot(el).render(React.createElement(window.DiverseHero));
+    // Parent can pause/resume the rAF loop when the hero scrolls out of view.
+    window.addEventListener('message', function (e) {
+      if (!window.__dlPlay) return;
+      if (e.data === 'dl-pause') window.__dlPlay(false);
+      else if (e.data === 'dl-play') window.__dlPlay(true);
+    });
+  })();
+</script>
+</body>
+</html>
