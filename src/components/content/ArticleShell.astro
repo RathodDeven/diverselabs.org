@@ -37,6 +37,7 @@ const { doc, crumbs, cover, stages } = Astro.props as Props;
             {doc.client}
           </span>
         )}
+        {doc.timeframe && <span class="doc-when mono-num">{doc.timeframe}</span>}
         <div class="doc-tags">
           {doc.tags.map((t) => <span class="chip">{t}</span>)}
         </div>
@@ -107,6 +108,13 @@ const { doc, crumbs, cover, stages } = Astro.props as Props;
 </article>
 
 <style>
+  .doc-when {
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--faint);
+    align-self: center;
+  }
   .doc-cover {
     margin-top: clamp(2rem, 4vw, 3rem);
     border: 1px solid var(--line);

@@ -671,6 +671,24 @@ const localClientMods = import.meta.glob('./portfolio.clients.local.ts', { eager
   string,
   { REVIEW_CLIENTS?: Record<string, string> }
 >;
+/* Engagement timeframes (from the captured project dates). */
+const TIMEFRAMES: Record<string, string> = {
+  'gene-therapy-launch-readiness': '2023–2025',
+  'oncology-commercial-launch-supply': '2024–2026',
+  'rnd-quality-operating-model': 'Oct–Dec 2024',
+  'external-manufacturing-network-resilience': '2022–2023',
+  'cdmo-voice-of-customer-ai-roadmap': '2025–2026',
+  'us-distribution-3pl-selection': '2024–2026',
+  'clinical-supply-techops-acceleration': '2023–2024',
+  'cmc-portfolio-prioritization': '2024',
+  'clinical-supply-chain-dashboard': 'through 2026',
+  'saas-pricing-data-analytics': '2022–2023',
+  'llm-voice-ai-market-research': '2025',
+  'qms-governance-dashboards': '2022–2024',
+  'pricing-trade-analytics-bi': '2022–2023',
+};
+for (const d of portfolioCaseStudies) d.timeframe = TIMEFRAMES[d.slug];
+
 const localClients = Object.values(localClientMods)[0]?.REVIEW_CLIENTS;
 if (localClients) {
   for (const d of portfolioCaseStudies) {
