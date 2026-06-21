@@ -277,8 +277,9 @@ const lens = [
   .pf-status-sep { color: var(--faint); }
   .pf-status-sub { color: var(--faint); min-width: 8ch; }
   .pf-status-bar {
-    width: 54px;
-    height: 3px;
+    position: relative;
+    width: 64px;
+    height: 4px;
     border-radius: 2px;
     background: rgba(255, 255, 255, 0.12);
     overflow: hidden;
@@ -290,6 +291,16 @@ const lens = [
     width: 0%;
     background: rgba(255, 255, 255, 0.85);
     transition: width 0.2s linear;
+  }
+  /* midpoint waypoint tick */
+  .pf-status-bar::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: rgba(255, 255, 255, 0.5);
   }
 
   .pf-scroll-cue {
@@ -548,9 +559,13 @@ const lens = [
         const label = document.getElementById('pf-status-label');
         const sub = document.getElementById('pf-status-sub');
         const fill = document.getElementById('pf-status-fill');
-        if (label) label.textContent = s.stage;
-        if (sub) sub.textContent = s.stage === 'CHAOS' ? 'unstructured' : 'structured';
-        if (fill) fill.style.width = Math.round(s.progress * 100) + '%';
+        const p = s.progress;
+        const [lbl, sb] = p > 0.66 ? ['ORDER', 'structured']
+          : p > 0.33 ? ['FORMING', 'emerging']
+          : ['CHAOS', 'unstructured'];
+        if (label) label.textContent = lbl;
+        if (sub) sub.textContent = sb;
+        if (fill) fill.style.width = Math.round(p * 100) + '%';
       },
     });
   }
