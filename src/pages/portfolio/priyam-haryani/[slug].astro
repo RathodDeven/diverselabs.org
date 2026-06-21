@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ArticleShell from '../../../components/content/ArticleShell.astro';
+import { portfolioCaseStudies } from '../../../data/portfolio';
+
+const BASE = '/portfolio/priyam-haryani';
+
+export function getStaticPaths() {
+  return portfolioCaseStudies
+    .filter((d) => !d.draft)
+    .map((doc) => ({ params: { slug: doc.slug }, props: { doc } }));
+}
+
+const { doc } = Astro.props;
+const crumbs = [
+  { name: 'Portfolio', href: BASE },
+  { name: doc.crumb ?? doc.title, href: `${BASE}/${doc.slug}` },
+];
+---
+
+<BaseLayout
+  title={`${doc.seoTitle ?? doc.title} — Priyam Haryani`}
+  description={doc.description}
+  keywords={doc.keywords}
+  noindex={true}
+>
+  <ArticleShell doc={doc} crumbs={crumbs} />
+</BaseLayout>

@@ -10,6 +10,8 @@ export interface Props {
   image?: string;
   canonicalURL?: string;
   keywords?: string;
+  /** When true, emit robots noindex,nofollow (for hidden / unlisted pages) */
+  noindex?: boolean;
   /** Extra per-page JSON-LD objects (Article, Service, HowTo, FAQPage, BreadcrumbList, …) */
   jsonLd?: Record<string, unknown>[];
 }
@@ -20,6 +22,7 @@ const {
   image = '/og-image.png',
   canonicalURL,
   keywords = 'AI agents, workflow automation, custom AI systems, web app development, mobile app development, AI chatbot, business automation, AI consulting, LLM integration',
+  noindex = false,
   jsonLd = [],
 } = Astro.props as Props;
 
@@ -98,7 +101,7 @@ const websiteSchema = {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <meta name="keywords" content={keywords} />
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow'} />
     <meta name="author" content="Diverse Labs" />
 
     <script is:inline>document.documentElement.classList.add('js');</script>

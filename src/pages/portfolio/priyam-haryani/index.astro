@@ -1,0 +1,253 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import CTAButton from '../../../components/CTAButton.astro';
+import { portfolioCaseStudies } from '../../../data/portfolio';
+
+const BASE = '/portfolio/priyam-haryani';
+const cases = portfolioCaseStudies.filter((d) => !d.draft);
+
+const lens = [
+  { title: 'Incentives', desc: 'Model stakeholders as rational actors responding to the structures they face.' },
+  { title: 'Coordination', desc: 'Find where handoffs fail, where communication breaks, and where duplication hides.' },
+  { title: 'Governance', desc: 'Redesign decision rights, escalation paths and oversight structures.' },
+  { title: 'Information flow', desc: 'Map how data and insight move — and where they get blocked or distorted.' },
+];
+---
+
+<BaseLayout
+  title="Priyam Haryani — Independent Advisor, Pharma & Biotech Operations"
+  description="Economist and management consultant working on the operational, quality and regulatory problems pharma and biotech companies would rather not have. Selected engagements, anonymized."
+  noindex={true}
+>
+  <!-- Particle → graph scene (scroll-driven), behind content -->
+  <canvas id="pf-scene" aria-hidden="true"></canvas>
+
+  <!-- ── Hero ───────────────────────────────────────────────────────── -->
+  <section class="pf-hero">
+    <div class="container pf-z">
+      <span class="label" data-reveal>Independent Advisory</span>
+      <h1 class="display-hero pf-title" data-reveal data-reveal-delay="0.1">Priyam Haryani</h1>
+      <p class="pf-lede" data-reveal data-reveal-delay="0.2">
+        Economist and management consultant. I work on the operational, quality and
+        regulatory problems pharma and biotech companies would rather not have.
+      </p>
+      <div class="pf-cta-row" data-reveal data-reveal-delay="0.3">
+        <CTAButton href="https://cal.com/diverselabs/30min">Book a call</CTAButton>
+        <a href="#work" class="btn btn-secondary">View selected work</a>
+      </div>
+    </div>
+    <div class="pf-scroll-cue pf-z" aria-hidden="true">
+      <span>Scroll</span>
+      <span class="pf-scroll-line"></span>
+    </div>
+  </section>
+
+  <!-- ── Approach / lens ────────────────────────────────────────────── -->
+  <section class="page-section-tight pf-z">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <h2>Understanding why systems fail.</h2>
+        <span class="head-side">The lens</span>
+      </div>
+      <p class="pf-approach-intro" data-reveal>
+        Most organizational failures are not capability problems. They are failures of
+        incentives, coordination, governance design and information flow. That is the
+        lens I bring to every engagement — direct, and through consulting firms.
+      </p>
+      <div class="pf-lens" data-reveal-group>
+        {lens.map((l) => (
+          <div class="pf-lens-card">
+            <h3>{l.title}</h3>
+            <p>{l.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Selected work ──────────────────────────────────────────────── -->
+  <section id="work" class="page-section pf-z">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <h2>Engagements, anonymized.</h2>
+        <span class="head-side">{String(cases.length).padStart(2, '0')} case studies</span>
+      </div>
+      <p class="pf-approach-intro" data-reveal>
+        Representative work across pharma and biotech operations — supply chain, launch
+        readiness, quality, analytics and applied AI. Client identities are anonymized;
+        the problems and the work are real.
+      </p>
+
+      <div class="pf-grid" data-reveal-group>
+        {cases.map((doc, i) => (
+          <a class="pf-card" href={`${BASE}/${doc.slug}`}>
+            <div class="pf-card-top">
+              <span class="label no-rule">{doc.eyebrow}</span>
+              <span class="pf-card-idx mono-num">{String(i + 1).padStart(2, '0')}</span>
+            </div>
+            <h3 class="pf-card-title">{doc.title}</h3>
+            <p class="pf-card-dek">{doc.dek}</p>
+            <div class="pf-card-foot">
+              <div class="pf-card-tags">
+                {doc.tags.slice(0, 3).map((t) => <span class="chip">{t}</span>)}
+              </div>
+              <span class="pf-card-arrow" aria-hidden="true">→</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Closing CTA ────────────────────────────────────────────────── -->
+  <section class="page-section-tight pf-z">
+    <div class="container container-narrow">
+      <div class="doc-cta" data-reveal>
+        <h2>A problem worth solving?</h2>
+        <p>Operational, quality or regulatory — if it's the kind of thing teams would rather not have, let's talk.</p>
+        <CTAButton href="https://cal.com/diverselabs/30min">Book a Discovery Call</CTAButton>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Particle scene canvas — above the shader (-1), below content (.pf-z = 1) */
+  #pf-scene {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+  }
+  .pf-z { position: relative; z-index: 1; }
+
+  .pf-hero {
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    padding-top: 7rem;
+    padding-bottom: 4rem;
+  }
+  .pf-hero .container { position: relative; z-index: 1; }
+  .pf-title { margin: 1.4rem 0 0; }
+  .pf-lede {
+    margin-top: 1.6rem;
+    max-width: 40rem;
+    font-size: clamp(1.05rem, 1.7vw, 1.3rem);
+    color: var(--muted);
+    line-height: 1.6;
+  }
+  .pf-cta-row {
+    margin-top: 2.2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    align-items: center;
+  }
+
+  .pf-scroll-cue {
+    position: absolute;
+    bottom: 1.8rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--faint);
+  }
+  .pf-scroll-line {
+    width: 1px;
+    height: 2.6rem;
+    background: rgba(255, 255, 255, 0.14);
+  }
+
+  .pf-approach-intro {
+    max-width: 52ch;
+    color: var(--muted);
+    margin-bottom: clamp(2rem, 4vw, 3rem);
+    font-size: 1.02rem;
+  }
+
+  .pf-lens {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    border-radius: 1rem;
+    overflow: hidden;
+  }
+  @media (min-width: 880px) { .pf-lens { grid-template-columns: repeat(4, 1fr); } }
+  .pf-lens-card { background: var(--panel); padding: clamp(1.4rem, 2.4vw, 2rem); }
+  .pf-lens-card h3 { font-size: 1.05rem; margin-bottom: 0.55rem; }
+  .pf-lens-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.6; }
+
+  /* Case-study grid */
+  .pf-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: clamp(1rem, 2vw, 1.5rem);
+  }
+  @media (min-width: 720px) { .pf-grid { grid-template-columns: 1fr 1fr; } }
+
+  .pf-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    padding: clamp(1.4rem, 2.4vw, 2rem);
+    border: 1px solid var(--line);
+    border-radius: 1.1rem;
+    background: var(--panel);
+    transition: border-color 250ms var(--ease-out), transform 400ms var(--ease-out);
+  }
+  .pf-card:hover { border-color: rgba(255, 255, 255, 0.2); transform: translateY(-4px); }
+  .pf-card-top { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+  .pf-card-idx { font-size: 0.72rem; color: var(--faint); }
+  .pf-card-title {
+    font-size: clamp(1.15rem, 1.9vw, 1.4rem);
+    line-height: 1.25;
+    color: var(--ink);
+  }
+  .pf-card-dek { font-size: 0.92rem; color: var(--muted); line-height: 1.6; flex: 1; }
+  .pf-card-foot { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-top: 0.2rem; }
+  .pf-card-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .pf-card-arrow {
+    flex-shrink: 0;
+    color: var(--ink);
+    transition: transform 300ms var(--ease-out);
+  }
+  .pf-card:hover .pf-card-arrow { transform: translateX(4px); }
+
+  @media (max-width: 760px) { .pf-scroll-cue { display: none; } }
+</style>
+
+<script>
+  import { initPortfolioScene } from '../../../scripts/portfolio-scene';
+
+  let cleanup: (() => void) | undefined;
+
+  function start() {
+    const canvas = document.getElementById('pf-scene') as HTMLCanvasElement | null;
+    if (!canvas || cleanup) return; // not on this page, or already running
+    const isMobile = window.innerWidth < 768;
+    const lowPower = navigator.hardwareConcurrency ? navigator.hardwareConcurrency <= 4 : false;
+    cleanup = initPortfolioScene(canvas, { reducedQuality: isMobile || lowPower });
+  }
+
+  function stop() {
+    if (cleanup) { cleanup(); cleanup = undefined; }
+  }
+
+  start();
+  document.addEventListener('astro:page-load', start);
+  document.addEventListener('astro:before-swap', stop);
+</script>
