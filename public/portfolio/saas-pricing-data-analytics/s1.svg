@@ -1,0 +1,28 @@
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Good-better-best pricing tiers with a CPQ configurator">
+  <defs><pattern id="sp1" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#fff" fill-opacity="0.05"/></pattern>
+  <radialGradient id="sp1v" cx="50%" cy="40%" r="66%"><stop offset="0%" stop-color="#fff" stop-opacity="0.06"/><stop offset="100%" stop-color="#fff" stop-opacity="0"/></radialGradient></defs>
+  <rect width="640" height="400" fill="#0a0a0a"/><rect width="640" height="400" fill="url(#sp1)"/><rect width="640" height="400" fill="url(#sp1v)"/>
+  <text x="60" y="52" font-family="'JetBrains Mono',monospace" font-size="10" fill="#fff" fill-opacity="0.5">PRICING MODEL · GOOD / BETTER / BEST</text>
+  <!-- GBB tiers -->
+  <g>
+    <rect x="70" y="210" width="120" height="120" rx="9" fill="#fff" fill-opacity="0.08" stroke="#fff" stroke-opacity="0.4" stroke-width="2"/>
+    <rect x="206" y="160" width="120" height="170" rx="9" fill="#fff" fill-opacity="0.14" stroke="#fff" stroke-opacity="0.6" stroke-width="2"/>
+    <rect x="342" y="110" width="120" height="220" rx="9" fill="#fff" fill-opacity="0.22" stroke="#fff" stroke-opacity="0.9" stroke-width="2.5"/>
+  </g>
+  <g font-family="'JetBrains Mono',monospace" font-size="11" fill="#fff" text-anchor="middle">
+    <text x="130" y="200" fill-opacity="0.6">GOOD</text><text x="266" y="150" fill-opacity="0.75">BETTER</text><text x="402" y="100">BEST</text>
+  </g>
+  <!-- feature ticks per tier -->
+  <g stroke="#fff" stroke-linecap="round" stroke-width="3">
+    <g stroke-opacity="0.35"><path d="M88 240 H172"/><path d="M88 262 H150"/></g>
+    <g stroke-opacity="0.5"><path d="M224 190 H308"/><path d="M224 212 H290"/><path d="M224 234 H300"/></g>
+    <g stroke-opacity="0.7"><path d="M360 140 H444"/><path d="M360 162 H430"/><path d="M360 184 H440"/><path d="M360 206 H420"/></g>
+  </g>
+  <!-- CPQ configurator chip -->
+  <g>
+    <rect x="486" y="150" width="100" height="120" rx="8" fill="#fff" fill-opacity="0.05" stroke="#fff" stroke-opacity="0.35" stroke-dasharray="4 3"/>
+    <text x="536" y="176" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.55" text-anchor="middle">CPQ</text>
+    <g stroke="#fff" stroke-opacity="0.4" stroke-width="2"><path d="M500 196 H560"/><path d="M500 216 H560"/><path d="M500 236 H560"/></g>
+    <g fill="#fff" fill-opacity="0.7"><circle cx="548" cy="196" r="4"/><circle cx="512" cy="216" r="4"/><circle cx="548" cy="236" r="4"/></g>
+  </g>
+</svg>

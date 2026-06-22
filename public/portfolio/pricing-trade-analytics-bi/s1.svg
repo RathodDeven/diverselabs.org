@@ -1,0 +1,34 @@
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Data sources feeding a Power Query data model of related tables">
+  <defs><pattern id="co1" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#fff" fill-opacity="0.05"/></pattern>
+  <radialGradient id="co1v" cx="50%" cy="40%" r="66%"><stop offset="0%" stop-color="#fff" stop-opacity="0.06"/><stop offset="100%" stop-color="#fff" stop-opacity="0"/></radialGradient></defs>
+  <rect width="640" height="400" fill="#0a0a0a"/><rect width="640" height="400" fill="url(#co1)"/><rect width="640" height="400" fill="url(#co1v)"/>
+  <text x="60" y="52" font-family="'JetBrains Mono',monospace" font-size="10" fill="#fff" fill-opacity="0.5">DATA SOURCES → MODEL</text>
+  <!-- left: source files -->
+  <g>
+    <rect x="56" y="96" width="96" height="36" rx="6" fill="#fff" fill-opacity="0.08" stroke="#fff" stroke-opacity="0.45"/>
+    <rect x="56" y="170" width="96" height="36" rx="6" fill="#fff" fill-opacity="0.08" stroke="#fff" stroke-opacity="0.45"/>
+    <rect x="56" y="244" width="96" height="36" rx="6" fill="#fff" fill-opacity="0.08" stroke="#fff" stroke-opacity="0.45"/>
+  </g>
+  <g font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.55" text-anchor="middle">
+    <text x="104" y="118">2020</text><text x="104" y="192">2021</text><text x="104" y="266">2022</text>
+  </g>
+  <!-- Power Query hub -->
+  <g stroke="#fff" stroke-opacity="0.4" stroke-width="2" fill="none"><path d="M152 114 C 200 114, 200 186, 244 188"/><path d="M152 188 H244"/><path d="M152 262 C 200 262, 200 192, 244 190"/></g>
+  <circle cx="280" cy="188" r="36" fill="#fff" fill-opacity="0.14" stroke="#fff" stroke-opacity="0.85" stroke-width="2.5"/>
+  <text x="280" y="185" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" text-anchor="middle">POWER</text>
+  <text x="280" y="196" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" text-anchor="middle">QUERY</text>
+  <!-- right: model tables with relationships -->
+  <g stroke="#fff" stroke-opacity="0.4" stroke-width="2" fill="none"><path d="M316 188 H372"/><path d="M460 150 V150 M438 132 H470"/></g>
+  <g>
+    <rect x="372" y="110" width="92" height="50" rx="7" fill="#fff" fill-opacity="0.12" stroke="#fff" stroke-opacity="0.6" stroke-width="2"/>
+    <rect x="486" y="140" width="92" height="50" rx="7" fill="#fff" fill-opacity="0.10" stroke="#fff" stroke-opacity="0.5" stroke-width="2"/>
+    <rect x="372" y="216" width="92" height="50" rx="7" fill="#fff" fill-opacity="0.10" stroke="#fff" stroke-opacity="0.5" stroke-width="2"/>
+  </g>
+  <!-- relationship links between tables -->
+  <g stroke="#fff" stroke-opacity="0.5" stroke-width="1.5" fill="none">
+    <path d="M464 135 H486"/><path d="M418 160 V216"/><path d="M464 240 C 510 240, 532 200, 532 190"/>
+  </g>
+  <g font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.6" text-anchor="middle">
+    <text x="418" y="139">SALES</text><text x="532" y="169">REF</text><text x="418" y="245">MAPPING</text>
+  </g>
+</svg>

@@ -1,0 +1,28 @@
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Module training guide and a low-code platform capability assessment">
+  <defs><pattern id="rq3" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#fff" fill-opacity="0.05"/></pattern>
+  <radialGradient id="rq3v" cx="50%" cy="40%" r="66%"><stop offset="0%" stop-color="#fff" stop-opacity="0.06"/><stop offset="100%" stop-color="#fff" stop-opacity="0"/></radialGradient></defs>
+  <rect width="640" height="400" fill="#0a0a0a"/><rect width="640" height="400" fill="url(#rq3)"/><rect width="640" height="400" fill="url(#rq3v)"/>
+  <text x="60" y="52" font-family="'JetBrains Mono',monospace" font-size="10" fill="#fff" fill-opacity="0.5">TRAINING GUIDE · LOW-CODE ASSESSMENT</text>
+  <!-- left: training guide (module-by-module checklist) -->
+  <text x="60" y="86" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.5">TRAINING GUIDE</text>
+  <g>
+    <rect x="60" y="98" width="250" height="216" rx="9" fill="#fff" fill-opacity="0.05" stroke="#fff" stroke-opacity="0.3" stroke-width="1.5"/>
+  </g>
+  <g>
+    <g transform="translate(78,124)"><circle r="8" fill="#fff" fill-opacity="0.85"/><path d="M-4 0 l3 3 5 -6" stroke="#0a0a0a" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>
+    <g transform="translate(78,158)"><circle r="8" fill="#fff" fill-opacity="0.85"/><path d="M-4 0 l3 3 5 -6" stroke="#0a0a0a" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>
+    <g transform="translate(78,192)"><circle r="8" fill="#fff" fill-opacity="0.85"/><path d="M-4 0 l3 3 5 -6" stroke="#0a0a0a" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>
+    <g transform="translate(78,226)"><circle r="8" fill="none" stroke="#fff" stroke-opacity="0.45" stroke-width="2"/></g>
+    <g transform="translate(78,260)"><circle r="8" fill="none" stroke="#fff" stroke-opacity="0.45" stroke-width="2"/></g>
+    <g stroke="#fff" stroke-opacity="0.35" stroke-width="3" stroke-linecap="round"><path d="M98 124 H290"/><path d="M98 158 H270"/><path d="M98 192 H284"/><path d="M98 226 H262"/><path d="M98 260 H276"/></g>
+  </g>
+  <!-- right: low-code platform radar-ish capability bars -->
+  <text x="350" y="86" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.5">LOW-CODE CAPABILITY</text>
+  <g font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.45">
+    <text x="350" y="130">WORKFLOW</text><text x="350" y="166">INTEGRATION</text><text x="350" y="202">UI BUILD</text><text x="350" y="238">GOVERNANCE</text><text x="350" y="274">SCALE</text>
+  </g>
+  <g>
+    <g fill="none" stroke="#fff" stroke-opacity="0.12"><rect x="350" y="120" width="220" height="14" rx="3"/><rect x="350" y="156" width="220" height="14" rx="3"/><rect x="350" y="192" width="220" height="14" rx="3"/><rect x="350" y="228" width="220" height="14" rx="3"/><rect x="350" y="264" width="220" height="14" rx="3"/></g>
+    <g fill="#fff" fill-opacity="0.75"><rect x="350" y="120" width="180" height="14" rx="3"/><rect x="350" y="156" width="150" height="14" rx="3"/><rect x="350" y="192" width="200" height="14" rx="3"/><rect x="350" y="228" width="130" height="14" rx="3"/><rect x="350" y="264" width="170" height="14" rx="3"/></g>
+  </g>
+</svg>

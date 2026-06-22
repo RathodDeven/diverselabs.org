@@ -1,0 +1,24 @@
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Documented assumptions and a project-by-project self-serve training manual">
+  <defs><pattern id="co3" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#fff" fill-opacity="0.05"/></pattern>
+  <radialGradient id="co3v" cx="50%" cy="40%" r="66%"><stop offset="0%" stop-color="#fff" stop-opacity="0.06"/><stop offset="100%" stop-color="#fff" stop-opacity="0"/></radialGradient></defs>
+  <rect width="640" height="400" fill="#0a0a0a"/><rect width="640" height="400" fill="url(#co3)"/><rect width="640" height="400" fill="url(#co3v)"/>
+  <text x="60" y="52" font-family="'JetBrains Mono',monospace" font-size="10" fill="#fff" fill-opacity="0.5">ASSUMPTIONS &amp; TRAINING MANUAL</text>
+  <!-- left: assumptions list -->
+  <text x="60" y="86" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.5">DOCUMENTED ASSUMPTIONS</text>
+  <rect x="60" y="98" width="250" height="216" rx="9" fill="#fff" fill-opacity="0.05" stroke="#fff" stroke-opacity="0.3" stroke-width="1.5"/>
+  <g fill="#fff" fill-opacity="0.55"><circle cx="80" cy="126" r="3"/><circle cx="80" cy="156" r="3"/><circle cx="80" cy="186" r="3"/><circle cx="80" cy="216" r="3"/><circle cx="80" cy="246" r="3"/><circle cx="80" cy="276" r="3"/></g>
+  <g stroke="#fff" stroke-opacity="0.3" stroke-width="3" stroke-linecap="round">
+    <path d="M96 126 H290"/><path d="M96 156 H270"/><path d="M96 186 H284"/><path d="M96 216 H262"/><path d="M96 246 H278"/><path d="M96 276 H256"/>
+  </g>
+  <!-- right: stacked manual chapters per project -->
+  <text x="350" y="86" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.5">TRAINING MANUAL · per project</text>
+  <g>
+    <rect x="362" y="98" width="216" height="40" rx="7" fill="#fff" fill-opacity="0.14" stroke="#fff" stroke-opacity="0.55"/>
+    <rect x="376" y="146" width="216" height="40" rx="7" fill="#fff" fill-opacity="0.11" stroke="#fff" stroke-opacity="0.45"/>
+    <rect x="390" y="194" width="216" height="40" rx="7" fill="#fff" fill-opacity="0.08" stroke="#fff" stroke-opacity="0.38"/>
+    <rect x="404" y="242" width="216" height="40" rx="7" fill="#fff" fill-opacity="0.06" stroke="#fff" stroke-opacity="0.32"/>
+  </g>
+  <g fill="#fff" fill-opacity="0.6" font-family="'JetBrains Mono',monospace" font-size="8">
+    <text x="378" y="122">PROJECT 1</text><text x="392" y="170">PROJECT 2</text><text x="406" y="218">PROJECT 3</text><text x="420" y="266">PROJECT 4</text>
+  </g>
+</svg>

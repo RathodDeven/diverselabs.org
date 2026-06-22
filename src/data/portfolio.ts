@@ -727,6 +727,14 @@ export const portfolioStages: Record<string, PortfolioStage[]> = {
     ['Participants', 'Inventory', 'Resupply']),
   'llm-voice-ai-market-research': stageSet('llm-voice-ai-market-research',
     ['Market sizing by vertical', 'Growth trajectory & CAGR', 'Voice-AI landscape']),
+  'cmc-portfolio-prioritization': stageSet('cmc-portfolio-prioritization',
+    ['Portfolio prioritization', 'Project–resource matrix', 'Capacity & loading']),
+  'saas-pricing-data-analytics': stageSet('saas-pricing-data-analytics',
+    ['Pricing model (GBB / CPQ)', 'Data migration pipeline', 'Cohort analytics']),
+  'qms-governance-dashboards': stageSet('qms-governance-dashboards',
+    ['Module governance boards', 'Escalations & assessment', 'Training & low-code']),
+  'pricing-trade-analytics-bi': stageSet('pricing-trade-analytics-bi',
+    ['Data sources & model', 'Pricing & trade dashboard', 'Assumptions & training manual']),
 };
 
 // Drop any engagements declared but not yet illustrated (e.g. awaiting material).

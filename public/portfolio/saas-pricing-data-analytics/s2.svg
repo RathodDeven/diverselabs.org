@@ -1,0 +1,29 @@
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Multi-step data migration and cleaning pipeline">
+  <defs><pattern id="sp2" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#fff" fill-opacity="0.05"/></pattern>
+  <radialGradient id="sp2v" cx="50%" cy="40%" r="66%"><stop offset="0%" stop-color="#fff" stop-opacity="0.06"/><stop offset="100%" stop-color="#fff" stop-opacity="0"/></radialGradient></defs>
+  <rect width="640" height="400" fill="#0a0a0a"/><rect width="640" height="400" fill="url(#sp2)"/><rect width="640" height="400" fill="url(#sp2v)"/>
+  <text x="60" y="56" font-family="'JetBrains Mono',monospace" font-size="10" fill="#fff" fill-opacity="0.5">DATA MIGRATION &amp; CLEANING PIPELINE</text>
+  <!-- 5-step horizontal pipeline -->
+  <path d="M96 200 H544" stroke="#fff" stroke-opacity="0.3" stroke-width="2" stroke-dasharray="6 7"/>
+  <g>
+    <rect x="60" y="172" width="84" height="56" rx="8" fill="#fff" fill-opacity="0.10" stroke="#fff" stroke-opacity="0.6" stroke-width="2"/>
+    <rect x="180" y="172" width="84" height="56" rx="8" fill="#fff" fill-opacity="0.11" stroke="#fff" stroke-opacity="0.6" stroke-width="2"/>
+    <rect x="300" y="172" width="84" height="56" rx="8" fill="#fff" fill-opacity="0.12" stroke="#fff" stroke-opacity="0.65" stroke-width="2"/>
+    <rect x="420" y="172" width="84" height="56" rx="8" fill="#fff" fill-opacity="0.13" stroke="#fff" stroke-opacity="0.7" stroke-width="2"/>
+    <rect x="520" y="172" width="64" height="56" rx="8" fill="#fff" fill-opacity="0.20" stroke="#fff" stroke-opacity="0.9" stroke-width="2.5"/>
+  </g>
+  <g stroke="#fff" stroke-opacity="0.6" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M150 200 l-8 -5 m8 5 l-8 5" transform="translate(8,0)"/>
+    <path d="M270 200 l-8 -5 m8 5 l-8 5" transform="translate(8,0)"/>
+    <path d="M390 200 l-8 -5 m8 5 l-8 5" transform="translate(8,0)"/>
+    <path d="M510 200 l-8 -5 m8 5 l-8 5" transform="translate(8,0)"/>
+  </g>
+  <g font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.65" text-anchor="middle">
+    <text x="102" y="204">ACCOUNTS</text><text x="222" y="204">CONTRACTS</text><text x="342" y="204">DOMAINS</text><text x="462" y="204">MAPPING</text><text x="552" y="204">CLEAN</text>
+  </g>
+  <!-- reject/clean indicators under steps -->
+  <g font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.4" text-anchor="middle">
+    <text x="102" y="252">raw</text><text x="222" y="252">dedup</text><text x="342" y="252">resolve</text><text x="462" y="252">entitle</text><text x="552" y="252">load</text>
+  </g>
+  <g fill="#fff"><circle cx="552" cy="148" r="5"/></g>
+</svg>

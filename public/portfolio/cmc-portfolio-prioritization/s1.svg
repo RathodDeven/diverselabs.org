@@ -1,0 +1,22 @@
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Programs ranked by priority score">
+  <defs><pattern id="mu1" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#fff" fill-opacity="0.05"/></pattern>
+  <radialGradient id="mu1v" cx="50%" cy="38%" r="68%"><stop offset="0%" stop-color="#fff" stop-opacity="0.06"/><stop offset="100%" stop-color="#fff" stop-opacity="0"/></radialGradient></defs>
+  <rect width="640" height="400" fill="#0a0a0a"/><rect width="640" height="400" fill="url(#mu1)"/><rect width="640" height="400" fill="url(#mu1v)"/>
+  <text x="60" y="56" font-family="'JetBrains Mono',monospace" font-size="10" fill="#fff" fill-opacity="0.5">PORTFOLIO PRIORITIZATION</text>
+  <!-- ranked rows: program label + priority score bar, descending -->
+  <g font-family="'JetBrains Mono',monospace" font-size="10" fill="#fff" fill-opacity="0.6">
+    <text x="60" y="100">LEAD · BLA</text><text x="60" y="144">PIPELINE A</text><text x="60" y="188">PIPELINE B</text><text x="60" y="232">EARLY C</text><text x="60" y="276">EARLY D</text><text x="60" y="320">EXPLORATORY</text>
+  </g>
+  <g stroke-linecap="round" stroke-width="12">
+    <path d="M210 96 H540" stroke="#fff" stroke-opacity="0.85"/>
+    <path d="M210 140 H470" stroke="#fff" stroke-opacity="0.7"/>
+    <path d="M210 184 H430" stroke="#fff" stroke-opacity="0.55"/>
+    <path d="M210 228 H360" stroke="#fff" stroke-opacity="0.4"/>
+    <path d="M210 272 H320" stroke="#fff" stroke-opacity="0.3"/>
+    <path d="M210 316 H280" stroke="#fff" stroke-opacity="0.22"/>
+  </g>
+  <g font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.7" text-anchor="end">
+    <text x="556" y="100">P1</text><text x="556" y="144">P2</text><text x="556" y="188">P3</text><text x="556" y="232">P4</text><text x="556" y="276">P5</text><text x="556" y="320">P6</text>
+  </g>
+  <path d="M210 80 V332" stroke="#fff" stroke-opacity="0.18" stroke-width="1.5"/>
+</svg>

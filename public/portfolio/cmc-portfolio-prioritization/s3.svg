@@ -1,0 +1,24 @@
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Per-person capacity loading versus available FTE, flagging over-allocation">
+  <defs><pattern id="mu3" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#fff" fill-opacity="0.05"/></pattern>
+  <radialGradient id="mu3v" cx="50%" cy="40%" r="66%"><stop offset="0%" stop-color="#fff" stop-opacity="0.06"/><stop offset="100%" stop-color="#fff" stop-opacity="0"/></radialGradient></defs>
+  <rect width="640" height="400" fill="#0a0a0a"/><rect width="640" height="400" fill="url(#mu3)"/><rect width="640" height="400" fill="url(#mu3v)"/>
+  <text x="60" y="52" font-family="'JetBrains Mono',monospace" font-size="10" fill="#fff" fill-opacity="0.5">CAPACITY &amp; LOADING · per person</text>
+  <g font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.55">
+    <text x="40" y="98">R. A.</text><text x="40" y="138">S. B.</text><text x="40" y="178">M. C.</text><text x="40" y="218">J. D.</text><text x="40" y="258">K. E.</text><text x="40" y="298">L. F.</text>
+  </g>
+  <!-- 100% capacity reference line -->
+  <path d="M430 70 V316" stroke="#fff" stroke-opacity="0.4" stroke-width="1.5" stroke-dasharray="4 4"/>
+  <text x="430" y="64" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.45" text-anchor="middle">100%</text>
+  <!-- load bars; some exceed the 100% line (over-allocated) -->
+  <g>
+    <rect x="110" y="86" width="250" height="16" rx="3" fill="#fff" fill-opacity="0.7"/>
+    <rect x="110" y="126" width="360" height="16" rx="3" fill="#fff" fill-opacity="0.7"/><rect x="430" y="126" width="40" height="16" rx="3" fill="#fff" fill-opacity="0.95"/>
+    <rect x="110" y="166" width="210" height="16" rx="3" fill="#fff" fill-opacity="0.7"/>
+    <rect x="110" y="206" width="345" height="16" rx="3" fill="#fff" fill-opacity="0.7"/><rect x="430" y="206" width="25" height="16" rx="3" fill="#fff" fill-opacity="0.95"/>
+    <rect x="110" y="246" width="180" height="16" rx="3" fill="#fff" fill-opacity="0.7"/>
+    <rect x="110" y="286" width="300" height="16" rx="3" fill="#fff" fill-opacity="0.7"/>
+  </g>
+  <!-- over-allocation flags -->
+  <g fill="#fff" font-family="'JetBrains Mono',monospace" font-size="11" text-anchor="middle"><text x="484" y="139">!</text><text x="469" y="219">!</text></g>
+  <text x="60" y="338" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.45">! = over-allocated beyond available capacity</text>
+</svg>

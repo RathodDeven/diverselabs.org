@@ -1,0 +1,26 @@
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Cohort retention analysis with an account-health summary">
+  <defs><pattern id="sp3" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#fff" fill-opacity="0.05"/></pattern>
+  <radialGradient id="sp3v" cx="50%" cy="40%" r="66%"><stop offset="0%" stop-color="#fff" stop-opacity="0.06"/><stop offset="100%" stop-color="#fff" stop-opacity="0"/></radialGradient></defs>
+  <rect width="640" height="400" fill="#0a0a0a"/><rect width="640" height="400" fill="url(#sp3)"/><rect width="640" height="400" fill="url(#sp3v)"/>
+  <text x="60" y="52" font-family="'JetBrains Mono',monospace" font-size="10" fill="#fff" fill-opacity="0.5">COHORT ANALYTICS · retention</text>
+  <!-- cohort triangle: rows = cohorts, cols = months, opacity fades right -->
+  <g font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.4" text-anchor="middle">
+    <text x="118" y="84">M0</text><text x="170" y="84">M1</text><text x="222" y="84">M2</text><text x="274" y="84">M3</text><text x="326" y="84">M4</text><text x="378" y="84">M5</text>
+  </g>
+  <g font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.45"><text x="40" y="112">C1</text><text x="40" y="146">C2</text><text x="40" y="180">C3</text><text x="40" y="214">C4</text><text x="40" y="248">C5</text></g>
+  <g>
+    <!-- row1 full length -->
+    <rect x="92" y="96" width="48" height="26" rx="3" fill="#fff" fill-opacity="0.55"/><rect x="144" y="96" width="48" height="26" rx="3" fill="#fff" fill-opacity="0.42"/><rect x="196" y="96" width="48" height="26" rx="3" fill="#fff" fill-opacity="0.33"/><rect x="248" y="96" width="48" height="26" rx="3" fill="#fff" fill-opacity="0.26"/><rect x="300" y="96" width="48" height="26" rx="3" fill="#fff" fill-opacity="0.20"/><rect x="352" y="96" width="48" height="26" rx="3" fill="#fff" fill-opacity="0.15"/>
+    <rect x="92" y="130" width="48" height="26" rx="3" fill="#fff" fill-opacity="0.55"/><rect x="144" y="130" width="48" height="26" rx="3" fill="#fff" fill-opacity="0.40"/><rect x="196" y="130" width="48" height="26" rx="3" fill="#fff" fill-opacity="0.30"/><rect x="248" y="130" width="48" height="26" rx="3" fill="#fff" fill-opacity="0.22"/><rect x="300" y="130" width="48" height="26" rx="3" fill="#fff" fill-opacity="0.16"/>
+    <rect x="92" y="164" width="48" height="26" rx="3" fill="#fff" fill-opacity="0.55"/><rect x="144" y="164" width="48" height="26" rx="3" fill="#fff" fill-opacity="0.38"/><rect x="196" y="164" width="48" height="26" rx="3" fill="#fff" fill-opacity="0.27"/><rect x="248" y="164" width="48" height="26" rx="3" fill="#fff" fill-opacity="0.19"/>
+    <rect x="92" y="198" width="48" height="26" rx="3" fill="#fff" fill-opacity="0.55"/><rect x="144" y="198" width="48" height="26" rx="3" fill="#fff" fill-opacity="0.36"/><rect x="196" y="198" width="48" height="26" rx="3" fill="#fff" fill-opacity="0.24"/>
+    <rect x="92" y="232" width="48" height="26" rx="3" fill="#fff" fill-opacity="0.55"/><rect x="144" y="232" width="48" height="26" rx="3" fill="#fff" fill-opacity="0.34"/>
+  </g>
+  <!-- account-health donut -->
+  <g transform="translate(478,200)">
+    <circle r="58" fill="none" stroke="#fff" stroke-opacity="0.14" stroke-width="16"/>
+    <path d="M0 -58 A 58 58 0 0 1 50 30" fill="none" stroke="#fff" stroke-opacity="0.85" stroke-width="16" stroke-linecap="round"/>
+    <text y="0" font-family="'Space Grotesk',sans-serif" font-size="22" fill="#fff" text-anchor="middle">health</text>
+  </g>
+  <text x="478" y="290" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.45" text-anchor="middle">account-health scoring</text>
+</svg>
