@@ -1,30 +1,141 @@
-<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Risk heat-map plotting risks by likelihood and impact">
-  <defs><pattern id="em2" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#fff" fill-opacity="0.05"/></pattern>
-  <radialGradient id="em2v" cx="50%" cy="40%" r="66%"><stop offset="0%" stop-color="#fff" stop-opacity="0.06"/><stop offset="100%" stop-color="#fff" stop-opacity="0"/></radialGradient></defs>
-  <rect width="640" height="400" fill="#0a0a0a"/><rect width="640" height="400" fill="url(#em2)"/><rect width="640" height="400" fill="url(#em2v)"/>
-  <!-- 5x5 heat grid: severity rises toward top-right (opacity ramp) -->
-  <g>
-    <!-- rows bottom(low impact) to top(high); cols left(low likelihood) to right -->
-    <!-- generate 5x5 with opacity ~ (col+row) -->
-    <g>
-      <rect x="150" y="260" width="72" height="44" fill="#fff" fill-opacity="0.05"/><rect x="222" y="260" width="72" height="44" fill="#fff" fill-opacity="0.08"/><rect x="294" y="260" width="72" height="44" fill="#fff" fill-opacity="0.11"/><rect x="366" y="260" width="72" height="44" fill="#fff" fill-opacity="0.15"/><rect x="438" y="260" width="72" height="44" fill="#fff" fill-opacity="0.20"/>
-      <rect x="150" y="216" width="72" height="44" fill="#fff" fill-opacity="0.08"/><rect x="222" y="216" width="72" height="44" fill="#fff" fill-opacity="0.11"/><rect x="294" y="216" width="72" height="44" fill="#fff" fill-opacity="0.15"/><rect x="366" y="216" width="72" height="44" fill="#fff" fill-opacity="0.20"/><rect x="438" y="216" width="72" height="44" fill="#fff" fill-opacity="0.27"/>
-      <rect x="150" y="172" width="72" height="44" fill="#fff" fill-opacity="0.11"/><rect x="222" y="172" width="72" height="44" fill="#fff" fill-opacity="0.15"/><rect x="294" y="172" width="72" height="44" fill="#fff" fill-opacity="0.20"/><rect x="366" y="172" width="72" height="44" fill="#fff" fill-opacity="0.27"/><rect x="438" y="172" width="72" height="44" fill="#fff" fill-opacity="0.34"/>
-      <rect x="150" y="128" width="72" height="44" fill="#fff" fill-opacity="0.15"/><rect x="222" y="128" width="72" height="44" fill="#fff" fill-opacity="0.20"/><rect x="294" y="128" width="72" height="44" fill="#fff" fill-opacity="0.27"/><rect x="366" y="128" width="72" height="44" fill="#fff" fill-opacity="0.34"/><rect x="438" y="128" width="72" height="44" fill="#fff" fill-opacity="0.42"/>
-      <rect x="150" y="84" width="72" height="44" fill="#fff" fill-opacity="0.20"/><rect x="222" y="84" width="72" height="44" fill="#fff" fill-opacity="0.27"/><rect x="294" y="84" width="72" height="44" fill="#fff" fill-opacity="0.34"/><rect x="366" y="84" width="72" height="44" fill="#fff" fill-opacity="0.42"/><rect x="438" y="84" width="72" height="44" fill="#fff" fill-opacity="0.52"/>
-    </g>
-    <g stroke="#fff" stroke-opacity="0.1" stroke-width="1" fill="none">
-      <rect x="150" y="84" width="360" height="220"/>
-    </g>
-  </g>
-  <!-- plotted risks -->
-  <g fill="none" stroke="#fff" stroke-width="2">
-    <circle cx="470" cy="106" r="9" stroke-opacity="0.9"/><circle cx="400" cy="150" r="8" stroke-opacity="0.8"/><circle cx="330" cy="196" r="7" stroke-opacity="0.7"/><circle cx="260" cy="240" r="6" stroke-opacity="0.6"/><circle cx="330" cy="110" r="7" stroke-opacity="0.8"/><circle cx="190" cy="282" r="6" stroke-opacity="0.5"/>
-  </g>
-  <!-- axes labels -->
-  <path d="M150 304 H510 M150 304 V84" stroke="#fff" stroke-opacity="0.4" stroke-width="1.5" fill="none"/>
-  <g font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.45">
-    <text x="330" y="330" text-anchor="middle">LIKELIHOOD →</text>
-    <text x="60" y="100">IMPACT</text><text x="60" y="114">↑</text>
-  </g>
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Operations resilience and risk: impact versus vulnerability scatter with tolerance bands beside a scored risk register">
+  <defs>
+    <pattern id="g" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#fff" fill-opacity="0.05"/></pattern>
+    <radialGradient id="gv" cx="50%" cy="38%" r="66%"><stop offset="0%" stop-color="#fff" stop-opacity="0.06"/><stop offset="100%" stop-color="#fff" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="640" height="400" fill="#0a0a0a"/>
+  <rect width="640" height="400" fill="url(#g)"/>
+  <rect width="640" height="400" fill="url(#gv)"/>
+
+  <text x="32" y="34" font-family="'JetBrains Mono',monospace" font-size="10" fill="#fff" fill-opacity="0.5">OPERATIONS RESILIENCE &amp; RISK</text>
+  <text x="608" y="34" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.32">02 / 03</text>
+
+  
+  
+  <line x1="70" y1="72" x2="70" y2="300" stroke="#fff" stroke-opacity="0.22" stroke-width="1.5"/>
+  <line x1="70" y1="300" x2="330" y2="300" stroke="#fff" stroke-opacity="0.22" stroke-width="1.5"/>
+
+  <line x1="122" y1="72" x2="122" y2="300" stroke="#fff" stroke-opacity="0.10" stroke-width="1"/>
+  <line x1="174" y1="72" x2="174" y2="300" stroke="#fff" stroke-opacity="0.10" stroke-width="1"/>
+  <line x1="226" y1="72" x2="226" y2="300" stroke="#fff" stroke-opacity="0.10" stroke-width="1"/>
+  <line x1="278" y1="72" x2="278" y2="300" stroke="#fff" stroke-opacity="0.10" stroke-width="1"/>
+  <line x1="70" y1="254" x2="330" y2="254" stroke="#fff" stroke-opacity="0.10" stroke-width="1"/>
+  <line x1="70" y1="208" x2="330" y2="208" stroke="#fff" stroke-opacity="0.10" stroke-width="1"/>
+  <line x1="70" y1="162" x2="330" y2="162" stroke="#fff" stroke-opacity="0.10" stroke-width="1"/>
+  <line x1="70" y1="116" x2="330" y2="116" stroke="#fff" stroke-opacity="0.10" stroke-width="1"/>
+
+  <rect x="226" y="72" width="104" height="136" fill="#fff" fill-opacity="0.05"/>
+  
+  <line x1="226" y1="72" x2="226" y2="300" stroke="#fff" stroke-opacity="0.4" stroke-width="1.2" stroke-dasharray="4 4"/>
+  <line x1="70" y1="208" x2="330" y2="208" stroke="#fff" stroke-opacity="0.4" stroke-width="1.2" stroke-dasharray="4 4"/>
+  <text x="324" y="86" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.45">RISK TOLERANCE</text>
+
+  <text x="70" y="313" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.45">0</text>
+  <text x="122" y="313" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.45">1</text>
+  <text x="174" y="313" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.45">2</text>
+  <text x="226" y="313" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.45">3</text>
+  <text x="278" y="313" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.45">4</text>
+  <text x="330" y="313" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.45">5</text>
+  <text x="62" y="303" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.45">0</text>
+  <text x="62" y="257" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.45">1</text>
+  <text x="62" y="211" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.45">2</text>
+  <text x="62" y="165" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.45">3</text>
+  <text x="62" y="119" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.45">4</text>
+  <text x="62" y="76" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.45">5</text>
+
+  <text x="200" y="330" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.55">VULNERABILITY</text>
+  <text x="38" y="186" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.55" transform="rotate(-90 38 186)">IMPACT</text>
+
+  
+  <circle cx="122" cy="236" r="9" fill="#fff" fill-opacity="0.20" stroke="#fff" stroke-opacity="0.35" stroke-width="1"/>
+  <text x="122" y="239" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="7.5" fill="#fff" fill-opacity="0.6">R1</text>
+  
+  <circle cx="158" cy="162" r="10" fill="#fff" fill-opacity="0.22" stroke="#fff" stroke-opacity="0.35" stroke-width="1"/>
+  <text x="158" y="165" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="7.5" fill="#fff" fill-opacity="0.6">R2</text>
+  
+  <circle cx="195" cy="203" r="9" fill="#fff" fill-opacity="0.20" stroke="#fff" stroke-opacity="0.35" stroke-width="1"/>
+  <text x="195" y="206" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="7.5" fill="#fff" fill-opacity="0.6">R3</text>
+  
+  <circle cx="257" cy="185" r="11" fill="#fff" fill-opacity="0.24" stroke="#fff" stroke-opacity="0.4" stroke-width="1"/>
+  <text x="257" y="188" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="7.5" fill="#fff" fill-opacity="0.65">R4</text>
+
+  <line x1="283" y1="116" x2="205" y2="176" stroke="#fff" stroke-opacity="0.3" stroke-width="1" stroke-dasharray="3 3"/>
+  <circle cx="205" cy="176" r="11" fill="none" stroke="#fff" stroke-opacity="0.5" stroke-width="1.2" stroke-dasharray="3 3"/>
+  <text x="205" y="179" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="7" fill="#fff" fill-opacity="0.5">R5'</text>
+  <circle cx="283" cy="116" r="13" fill="#fff" fill-opacity="1"/>
+  <text x="283" y="119" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#0a0a0a" font-weight="bold">R5</text>
+  
+  <circle cx="236" cy="245" r="8" fill="#fff" fill-opacity="0.18" stroke="#fff" stroke-opacity="0.32" stroke-width="1"/>
+  <text x="236" y="248" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="7.5" fill="#fff" fill-opacity="0.6">R6</text>
+
+  
+  <text x="366" y="76" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.55">SCORED RISK REGISTER</text>
+  
+  <text x="366" y="96" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.45">ID</text>
+  <text x="492" y="96" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.45">IMP</text>
+  <text x="535" y="96" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.45">VUL</text>
+  <text x="592" y="96" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.45">TOT</text>
+  <line x1="366" y1="102" x2="612" y2="102" stroke="#fff" stroke-opacity="0.2" stroke-width="1"/>
+
+  
+  <text x="366" y="130" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.55">R1</text>
+  <rect x="384" y="119" width="80" height="6" rx="3" fill="#fff" fill-opacity="0.10"/>
+  <rect x="384" y="119" width="22" height="6" rx="3" fill="#fff" fill-opacity="0.30"/>
+  <text x="492" y="131" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.5">1.4</text>
+  <text x="535" y="131" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.5">1.0</text>
+  <text x="592" y="131" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.5">1.4</text>
+  <line x1="366" y1="143" x2="612" y2="143" stroke="#fff" stroke-opacity="0.08" stroke-width="1"/>
+
+  <text x="366" y="161" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.55">R2</text>
+  <rect x="384" y="150" width="80" height="6" rx="3" fill="#fff" fill-opacity="0.10"/>
+  <rect x="384" y="150" width="42" height="6" rx="3" fill="#fff" fill-opacity="0.30"/>
+  <text x="492" y="162" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.5">3.0</text>
+  <text x="535" y="162" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.5">1.7</text>
+  <text x="592" y="162" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.5">5.1</text>
+  <line x1="366" y1="174" x2="612" y2="174" stroke="#fff" stroke-opacity="0.08" stroke-width="1"/>
+
+  <text x="366" y="192" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.55">R3</text>
+  <rect x="384" y="181" width="80" height="6" rx="3" fill="#fff" fill-opacity="0.10"/>
+  <rect x="384" y="181" width="48" height="6" rx="3" fill="#fff" fill-opacity="0.30"/>
+  <text x="492" y="193" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.5">2.1</text>
+  <text x="535" y="193" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.5">2.4</text>
+  <text x="592" y="193" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.5">5.0</text>
+  <line x1="366" y1="205" x2="612" y2="205" stroke="#fff" stroke-opacity="0.08" stroke-width="1"/>
+
+  <text x="366" y="223" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.55">R4</text>
+  <rect x="384" y="212" width="80" height="6" rx="3" fill="#fff" fill-opacity="0.10"/>
+  <rect x="384" y="212" width="62" height="6" rx="3" fill="#fff" fill-opacity="0.34"/>
+  <text x="492" y="224" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.55">2.5</text>
+  <text x="535" y="224" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.55">3.6</text>
+  <text x="592" y="224" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.55">9.0</text>
+  <line x1="366" y1="236" x2="612" y2="236" stroke="#fff" stroke-opacity="0.08" stroke-width="1"/>
+
+  <rect x="360" y="241" width="252" height="30" rx="5" fill="#fff" fill-opacity="0.9"/>
+  <text x="366" y="254" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#0a0a0a" font-weight="bold">R5</text>
+  <text x="384" y="254" font-family="'JetBrains Mono',monospace" font-size="7" fill="#0a0a0a" fill-opacity="0.55">CURRENT</text>
+  <rect x="384" y="259" width="80" height="6" rx="3" fill="#0a0a0a" fill-opacity="0.15"/>
+  <rect x="384" y="259" width="74" height="6" rx="3" fill="#0a0a0a" fill-opacity="0.7"/>
+  <text x="492" y="262" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#0a0a0a" font-weight="bold">4.0</text>
+  <text x="535" y="262" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#0a0a0a" font-weight="bold">4.1</text>
+  <text x="592" y="262" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#0a0a0a" font-weight="bold">16.4</text>
+
+  <text x="384" y="287" font-family="'JetBrains Mono',monospace" font-size="7" fill="#fff" fill-opacity="0.45">OPTIMIZED</text>
+  <rect x="438" y="282" width="80" height="6" rx="3" fill="#fff" fill-opacity="0.10"/>
+  <rect x="438" y="282" width="40" height="6" rx="3" fill="#fff" fill-opacity="0.4" stroke="#fff" stroke-opacity="0.5" stroke-width="0.8" stroke-dasharray="3 2"/>
+  <text x="592" y="288" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.55">7.0</text>
+  <line x1="366" y1="299" x2="612" y2="299" stroke="#fff" stroke-opacity="0.08" stroke-width="1"/>
+
+  <text x="366" y="317" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.55">R6</text>
+  <rect x="384" y="306" width="80" height="6" rx="3" fill="#fff" fill-opacity="0.10"/>
+  <rect x="384" y="306" width="28" height="6" rx="3" fill="#fff" fill-opacity="0.28"/>
+  <text x="492" y="318" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.5">1.2</text>
+  <text x="535" y="318" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.5">3.2</text>
+  <text x="592" y="318" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.5">3.8</text>
+
+  <circle cx="372" cy="344" r="5" fill="#fff" fill-opacity="0.9"/>
+  <text x="382" y="347" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.5">CURRENT</text>
+  <circle cx="452" cy="344" r="5" fill="none" stroke="#fff" stroke-opacity="0.5" stroke-width="1.2" stroke-dasharray="3 2"/>
+  <text x="462" y="347" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.5">OPTIMIZED</text>
+
+  <text x="32" y="372" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.45">Impact × vulnerability matrix with tolerance bands and a scored register</text>
 </svg>

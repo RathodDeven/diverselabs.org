@@ -1,22 +1,98 @@
-<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Project–resource matrix: people allocated to activities">
-  <defs><pattern id="mu2" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#fff" fill-opacity="0.05"/></pattern>
-  <radialGradient id="mu2v" cx="50%" cy="40%" r="66%"><stop offset="0%" stop-color="#fff" stop-opacity="0.06"/><stop offset="100%" stop-color="#fff" stop-opacity="0"/></radialGradient></defs>
-  <rect width="640" height="400" fill="#0a0a0a"/><rect width="640" height="400" fill="url(#mu2)"/><rect width="640" height="400" fill="url(#mu2v)"/>
-  <text x="60" y="52" font-family="'JetBrains Mono',monospace" font-size="10" fill="#fff" fill-opacity="0.5">PROJECT – RESOURCE MATRIX</text>
-  <g font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.45" text-anchor="middle">
-    <text x="250" y="80">DS</text><text x="322" y="80">DP</text><text x="394" y="80">PFD</text><text x="466" y="80">CMC</text><text x="538" y="80">REG</text>
-  </g>
-  <g font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.55">
-    <text x="40" y="106">R. A.</text><text x="40" y="144">S. B.</text><text x="40" y="182">M. C.</text><text x="40" y="220">J. D.</text><text x="40" y="258">K. E.</text><text x="40" y="296">L. F.</text>
-  </g>
-  <!-- allocation cells (opacity = load) cols x216,288,360,432,504 (w64 h28) rows y92..272 -->
-  <g>
-    <rect x="216" y="92" width="64" height="28" rx="4" fill="#fff" fill-opacity="0.40"/><rect x="288" y="92" width="64" height="28" rx="4" fill="#fff" fill-opacity="0.14"/><rect x="360" y="92" width="64" height="28" rx="4" fill="#fff" fill-opacity="0.26"/><rect x="432" y="92" width="64" height="28" rx="4" fill="#fff" fill-opacity="0.36"/><rect x="504" y="92" width="64" height="28" rx="4" fill="#fff" fill-opacity="0.10"/>
-    <rect x="216" y="130" width="64" height="28" rx="4" fill="#fff" fill-opacity="0.16"/><rect x="288" y="130" width="64" height="28" rx="4" fill="#fff" fill-opacity="0.46"/><rect x="360" y="130" width="64" height="28" rx="4" fill="#fff" fill-opacity="0.20"/><rect x="432" y="130" width="64" height="28" rx="4" fill="#fff" fill-opacity="0.28"/><rect x="504" y="130" width="64" height="28" rx="4" fill="#fff" fill-opacity="0.34"/>
-    <rect x="216" y="168" width="64" height="28" rx="4" fill="#fff" fill-opacity="0.30"/><rect x="288" y="168" width="64" height="28" rx="4" fill="#fff" fill-opacity="0.18"/><rect x="360" y="168" width="64" height="28" rx="4" fill="#fff" fill-opacity="0.48"/><rect x="432" y="168" width="64" height="28" rx="4" fill="#fff" fill-opacity="0.14"/><rect x="504" y="168" width="64" height="28" rx="4" fill="#fff" fill-opacity="0.26"/>
-    <rect x="216" y="206" width="64" height="28" rx="4" fill="#fff" fill-opacity="0.22"/><rect x="288" y="206" width="64" height="28" rx="4" fill="#fff" fill-opacity="0.32"/><rect x="360" y="206" width="64" height="28" rx="4" fill="#fff" fill-opacity="0.16"/><rect x="432" y="206" width="64" height="28" rx="4" fill="#fff" fill-opacity="0.42"/><rect x="504" y="206" width="64" height="28" rx="4" fill="#fff" fill-opacity="0.18"/>
-    <rect x="216" y="244" width="64" height="28" rx="4" fill="#fff" fill-opacity="0.36"/><rect x="288" y="244" width="64" height="28" rx="4" fill="#fff" fill-opacity="0.24"/><rect x="360" y="244" width="64" height="28" rx="4" fill="#fff" fill-opacity="0.40"/><rect x="432" y="244" width="64" height="28" rx="4" fill="#fff" fill-opacity="0.20"/><rect x="504" y="244" width="64" height="28" rx="4" fill="#fff" fill-opacity="0.30"/>
-    <rect x="216" y="282" width="64" height="28" rx="4" fill="#fff" fill-opacity="0.14"/><rect x="288" y="282" width="64" height="28" rx="4" fill="#fff" fill-opacity="0.28"/><rect x="360" y="282" width="64" height="28" rx="4" fill="#fff" fill-opacity="0.22"/><rect x="432" y="282" width="64" height="28" rx="4" fill="#fff" fill-opacity="0.38"/><rect x="504" y="282" width="64" height="28" rx="4" fill="#fff" fill-opacity="0.16"/>
-  </g>
-  <text x="60" y="338" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.45">cell shade = FTE allocation</text>
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Project by resource allocation heat grid: six projects across five roles, with row and column totals and one over-allocated cell flagged">
+  <defs>
+    <pattern id="g" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#fff" fill-opacity="0.05"/></pattern>
+    <radialGradient id="gv" cx="50%" cy="38%" r="66%"><stop offset="0%" stop-color="#fff" stop-opacity="0.06"/><stop offset="100%" stop-color="#fff" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="640" height="400" fill="#0a0a0a"/>
+  <rect width="640" height="400" fill="url(#g)"/>
+  <rect width="640" height="400" fill="url(#gv)"/>
+
+  <text x="32" y="34" font-family="'JetBrains Mono',monospace" font-size="10" fill="#fff" fill-opacity="0.5">PROJECT · RESOURCE ALLOCATION</text>
+  <text x="608" y="34" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.32">02 / 03</text>
+
+  <text x="220" y="78" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#fff" fill-opacity="0.55">ROLE A</text>
+  <text x="290" y="78" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#fff" fill-opacity="0.55">ROLE B</text>
+  <text x="360" y="78" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#fff" fill-opacity="0.55">ROLE C</text>
+  <text x="430" y="78" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#fff" fill-opacity="0.55">ROLE D</text>
+  <text x="500" y="78" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#fff" fill-opacity="0.55">ROLE E</text>
+  <text x="572" y="78" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.45">TOTAL</text>
+
+  <line x1="60" y1="86" x2="604" y2="86" stroke="#fff" stroke-opacity="0.18" stroke-width="1"/>
+  
+  <line x1="538" y1="86" x2="538" y2="338" stroke="#fff" stroke-opacity="0.18" stroke-width="1"/>
+  
+  <line x1="60" y1="320" x2="604" y2="320" stroke="#fff" stroke-opacity="0.18" stroke-width="1"/>
+
+  <text x="60" y="111" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#fff" fill-opacity="0.55">PROJECT 1</text>
+  <text x="60" y="151" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#fff" fill-opacity="0.55">PROJECT 2</text>
+  <text x="60" y="191" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#fff" fill-opacity="0.55">PROJECT 3</text>
+  <text x="60" y="231" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#fff" fill-opacity="0.55">PROJECT 4</text>
+  <text x="60" y="271" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#fff" fill-opacity="0.55">PROJECT 5</text>
+  <text x="60" y="311" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#fff" fill-opacity="0.55">PROJECT 6</text>
+
+  
+
+  
+  <rect x="190" y="92" width="60" height="34" rx="5" fill="#fff" fill-opacity="0.30"/>
+  <rect x="260" y="92" width="60" height="34" rx="5" fill="#fff" fill-opacity="0.18"/>
+  <rect x="330" y="92" width="60" height="34" rx="5" fill="#fff" fill-opacity="0.24"/>
+  <rect x="400" y="92" width="60" height="34" rx="5" fill="#fff" fill-opacity="0.18"/>
+  <rect x="470" y="92" width="60" height="34" rx="5" fill="#fff" fill-opacity="0.20"/>
+  
+  <rect x="190" y="132" width="60" height="34" rx="5" fill="#fff" fill-opacity="0.20"/>
+  <rect x="260" y="132" width="60" height="34" rx="5" fill="#fff" fill-opacity="0.30"/>
+  <rect x="330" y="132" width="60" height="34" rx="5" fill="#fff" fill-opacity="0.18"/>
+  <rect x="400" y="132" width="60" height="34" rx="5" fill="#fff" fill-opacity="0.24"/>
+  <rect x="470" y="132" width="60" height="34" rx="5" fill="#fff" fill-opacity="0.18"/>
+  
+  <rect x="190" y="172" width="60" height="34" rx="5" fill="#fff" fill-opacity="0.24"/>
+  <rect x="260" y="172" width="60" height="34" rx="5" fill="#fff" fill-opacity="0.18"/>
+  <rect x="330" y="172" width="60" height="34" rx="5" fill="#fff" fill-opacity="0.30"/>
+  <rect x="400" y="172" width="60" height="34" rx="5" fill="#fff" fill-opacity="0.18"/>
+  <rect x="470" y="172" width="60" height="34" rx="5" fill="#fff" fill-opacity="0.20"/>
+  
+  <rect x="190" y="212" width="60" height="34" rx="5" fill="#fff" fill-opacity="0.18"/>
+  <rect x="260" y="212" width="60" height="34" rx="5" fill="#fff" fill-opacity="0.24"/>
+  <rect x="330" y="212" width="60" height="34" rx="5" fill="#fff" fill-opacity="0.95"/>
+  <text x="360" y="226" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" font-weight="bold" fill="#0a0a0a">OVER</text>
+  <text x="360" y="237" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="7.5" fill="#0a0a0a">!</text>
+  <rect x="400" y="212" width="60" height="34" rx="5" fill="#fff" fill-opacity="0.20"/>
+  <rect x="470" y="212" width="60" height="34" rx="5" fill="#fff" fill-opacity="0.18"/>
+  
+  <rect x="190" y="252" width="60" height="34" rx="5" fill="#fff" fill-opacity="0.18"/>
+  <rect x="260" y="252" width="60" height="34" rx="5" fill="#fff" fill-opacity="0.20"/>
+  <rect x="330" y="252" width="60" height="34" rx="5" fill="#fff" fill-opacity="0.24"/>
+  <rect x="400" y="252" width="60" height="34" rx="5" fill="#fff" fill-opacity="0.30"/>
+  <rect x="470" y="252" width="60" height="34" rx="5" fill="#fff" fill-opacity="0.18"/>
+  
+  <rect x="190" y="292" width="60" height="34" rx="5" fill="#fff" fill-opacity="0.20"/>
+  <rect x="260" y="292" width="60" height="34" rx="5" fill="#fff" fill-opacity="0.18"/>
+  <rect x="330" y="292" width="60" height="34" rx="5" fill="#fff" fill-opacity="0.20"/>
+  <rect x="400" y="292" width="60" height="34" rx="5" fill="#fff" fill-opacity="0.24"/>
+  <rect x="470" y="292" width="60" height="34" rx="5" fill="#fff" fill-opacity="0.30"/>
+
+  <rect x="548" y="100" width="40" height="18" rx="4" fill="#fff" fill-opacity="0.22"/>
+  <rect x="548" y="140" width="34" height="18" rx="4" fill="#fff" fill-opacity="0.22"/>
+  <rect x="548" y="180" width="36" height="18" rx="4" fill="#fff" fill-opacity="0.22"/>
+  <rect x="548" y="220" width="48" height="18" rx="4" fill="#fff" fill-opacity="0.38"/>
+  <rect x="548" y="260" width="38" height="18" rx="4" fill="#fff" fill-opacity="0.22"/>
+  <rect x="548" y="300" width="32" height="18" rx="4" fill="#fff" fill-opacity="0.22"/>
+
+  <text x="60" y="338" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.45">TOTAL</text>
+  <rect x="196" y="328" width="48" height="14" rx="4" fill="#fff" fill-opacity="0.22"/>
+  <rect x="266" y="328" width="48" height="14" rx="4" fill="#fff" fill-opacity="0.22"/>
+  <rect x="336" y="328" width="48" height="14" rx="4" fill="#fff" fill-opacity="0.38"/>
+  <rect x="406" y="328" width="48" height="14" rx="4" fill="#fff" fill-opacity="0.22"/>
+  <rect x="476" y="328" width="48" height="14" rx="4" fill="#fff" fill-opacity="0.22"/>
+
+  <rect x="60" y="352" width="16" height="12" rx="3" fill="#fff" fill-opacity="0.18"/>
+  <rect x="80" y="352" width="16" height="12" rx="3" fill="#fff" fill-opacity="0.24"/>
+  <rect x="100" y="352" width="16" height="12" rx="3" fill="#fff" fill-opacity="0.30"/>
+  <text x="122" y="362" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.45">LOW</text>
+  <text x="150" y="362" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.45">MED</text>
+  <text x="178" y="362" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.45">HIGH</text>
+  <rect x="214" y="352" width="14" height="12" rx="3" fill="#fff" fill-opacity="0.95"/>
+  <text x="234" y="362" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.45">OVER-ALLOCATED</text>
+
+  <text x="608" y="362" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.45">Allocation grid with totals + over-allocation flag</text>
 </svg>

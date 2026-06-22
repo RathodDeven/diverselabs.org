@@ -1,25 +1,67 @@
-<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Base, upside and downside demand scenarios with an obsolescence flag">
-  <defs><pattern id="on2" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#fff" fill-opacity="0.05"/></pattern>
-  <radialGradient id="on2v" cx="50%" cy="40%" r="66%"><stop offset="0%" stop-color="#fff" stop-opacity="0.06"/><stop offset="100%" stop-color="#fff" stop-opacity="0"/></radialGradient></defs>
-  <rect width="640" height="400" fill="#0a0a0a"/><rect width="640" height="400" fill="url(#on2)"/><rect width="640" height="400" fill="url(#on2v)"/>
-  <text x="80" y="56" font-family="'JetBrains Mono',monospace" font-size="10" fill="#fff" fill-opacity="0.5">DEMAND SCENARIOS · OBSOLESCENCE</text>
-  <path d="M80 310 H560 M80 310 V80" stroke="#fff" stroke-opacity="0.45" stroke-width="2" fill="none" stroke-linecap="round"/>
-  <g stroke="#fff" stroke-opacity="0.08" stroke-width="1"><path d="M80 250 H560"/><path d="M80 190 H560"/><path d="M80 130 H560"/></g>
-  <!-- scenario band -->
-  <path d="M100 295 C 250 250, 360 130, 540 80 L 540 175 C 360 230, 250 285, 100 300 Z" fill="#fff" fill-opacity="0.06"/>
-  <!-- upside (dashed) -->
-  <path d="M100 295 C 250 240, 360 120, 540 80" stroke="#fff" stroke-opacity="0.45" stroke-width="2" stroke-dasharray="6 6" fill="none" stroke-linecap="round"/>
-  <!-- base (solid) -->
-  <path d="M100 300 C 250 262, 360 175, 540 120" stroke="#fff" stroke-opacity="0.95" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-  <!-- downside (dashed) -->
-  <path d="M100 303 C 250 288, 360 220, 540 175" stroke="#fff" stroke-opacity="0.45" stroke-width="2" stroke-dasharray="6 6" fill="none" stroke-linecap="round"/>
-  <g fill="#fff" font-family="'JetBrains Mono',monospace" font-size="8" text-anchor="start">
-    <text x="544" y="82" fill-opacity="0.55">upside</text><text x="544" y="124" fill-opacity="0.9">base</text><text x="544" y="178" fill-opacity="0.55">downside</text>
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Three-scenario demand projection line chart with base, upside, and downside trajectories, launch milestone markers, and a shaded obsolescence-risk region at the tail">
+  <defs>
+    <pattern id="g" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#fff" fill-opacity="0.05"/></pattern>
+    <radialGradient id="gv" cx="50%" cy="38%" r="66%"><stop offset="0%" stop-color="#fff" stop-opacity="0.06"/><stop offset="100%" stop-color="#fff" stop-opacity="0"/></radialGradient>
+    <linearGradient id="risk" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#fff" stop-opacity="0.10"/><stop offset="100%" stop-color="#fff" stop-opacity="0.02"/></linearGradient>
+  </defs>
+  <rect width="640" height="400" fill="#0a0a0a"/><rect width="640" height="400" fill="url(#g)"/><rect width="640" height="400" fill="url(#gv)"/>
+
+  <text x="32" y="34" font-family="'JetBrains Mono',monospace" font-size="10" fill="#fff" fill-opacity="0.5">DEMAND SCENARIOS · OBSOLESCENCE</text>
+  <text x="608" y="34" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.32">02 / 03</text>
+
+  
+  <text x="44" y="200" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.5" transform="rotate(-90 44 200)" text-anchor="middle">DEMAND VOLUME</text>
+
+  <line x1="92" y1="70" x2="596" y2="70" stroke="#fff" stroke-opacity="0.10" stroke-width="1"/>
+  <line x1="92" y1="135" x2="596" y2="135" stroke="#fff" stroke-opacity="0.10" stroke-width="1"/>
+  <line x1="92" y1="200" x2="596" y2="200" stroke="#fff" stroke-opacity="0.10" stroke-width="1"/>
+  <line x1="92" y1="265" x2="596" y2="265" stroke="#fff" stroke-opacity="0.10" stroke-width="1"/>
+
+  <line x1="92" y1="70" x2="92" y2="330" stroke="#fff" stroke-opacity="0.22" stroke-width="1.5"/>
+  <line x1="92" y1="330" x2="596" y2="330" stroke="#fff" stroke-opacity="0.22" stroke-width="1.5"/>
+
+  <rect x="520" y="70" width="76" height="260" fill="url(#risk)"/>
+  <line x1="520" y1="70" x2="520" y2="330" stroke="#fff" stroke-opacity="0.18" stroke-width="1" stroke-dasharray="2 4"/>
+  <text x="558" y="92" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.45" text-anchor="middle">OBSOLESCENCE</text>
+  <text x="558" y="103" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.45" text-anchor="middle">RISK</text>
+
+  <path d="M92 300 C 170 296, 230 290, 296 282 S 420 274, 520 280 L 596 296" fill="none" stroke="#fff" stroke-opacity="0.42" stroke-width="1.6" stroke-linecap="round" stroke-dasharray="1.5 5"/>
+  
+  <path d="M92 300 C 180 280, 240 230, 308 170 S 440 96, 520 86 L 596 90" fill="none" stroke="#fff" stroke-opacity="0.50" stroke-width="1.6" stroke-linecap="round" stroke-dasharray="7 5"/>
+
+  <path d="M92 300 C 180 288, 240 256, 308 214 S 440 158, 520 150 L 596 164" fill="none" stroke="#fff" stroke-opacity="0.95" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <line x1="440" y1="120" x2="440" y2="276" stroke="#fff" stroke-opacity="0.18" stroke-width="1" stroke-dasharray="2 3"/>
+  <circle cx="440" cy="120" r="2.4" fill="#fff" fill-opacity="0.5"/>
+  <circle cx="440" cy="276" r="2.4" fill="#fff" fill-opacity="0.5"/>
+  <text x="448" y="200" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.45">spread</text>
+  <text x="448" y="210" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.45">vs base</text>
+
+  
+  <line x1="200" y1="330" x2="200" y2="70" stroke="#fff" stroke-opacity="0.14" stroke-width="1" stroke-dasharray="3 4"/>
+  <path d="M200 330 l-4 -7 8 0 z" fill="#fff" fill-opacity="0.55"/>
+  <text x="200" y="350" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.55" text-anchor="middle">Filing</text>
+  
+  <line x1="308" y1="330" x2="308" y2="70" stroke="#fff" stroke-opacity="0.14" stroke-width="1" stroke-dasharray="3 4"/>
+  <path d="M308 330 l-4 -7 8 0 z" fill="#fff" fill-opacity="0.55"/>
+  <text x="308" y="350" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.55" text-anchor="middle">Approval</text>
+  
+  <line x1="360" y1="330" x2="360" y2="70" stroke="#fff" stroke-opacity="0.20" stroke-width="1" stroke-dasharray="3 4"/>
+  <path d="M360 330 l-4 -7 8 0 z" fill="#fff" fill-opacity="0.9"/>
+  <circle cx="360" cy="183" r="3.4" fill="#fff"/>
+  <text x="360" y="350" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.62" text-anchor="middle">Launch</text>
+
+  <text x="344" y="367" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.45" text-anchor="middle">TIME →</text>
+
+  <g font-family="'JetBrains Mono',monospace" font-size="8.5">
+    <line x1="92" y1="52" x2="116" y2="52" stroke="#fff" stroke-opacity="0.95" stroke-width="2.6" stroke-linecap="round"/>
+    <text x="122" y="55" fill="#fff" fill-opacity="0.62">Base case</text>
+    <line x1="200" y1="52" x2="224" y2="52" stroke="#fff" stroke-opacity="0.50" stroke-width="1.6" stroke-linecap="round" stroke-dasharray="7 5"/>
+    <text x="230" y="55" fill="#fff" fill-opacity="0.5">Upside</text>
+    <line x1="296" y1="52" x2="320" y2="52" stroke="#fff" stroke-opacity="0.42" stroke-width="1.6" stroke-linecap="round" stroke-dasharray="1.5 5"/>
+    <text x="326" y="55" fill="#fff" fill-opacity="0.5">Downside</text>
   </g>
-  <!-- obsolescence flag: a batch dropping off before launch ramp -->
-  <g>
-    <rect x="150" y="255" width="26" height="40" rx="3" fill="#fff" fill-opacity="0.14" stroke="#fff" stroke-opacity="0.5" stroke-dasharray="4 3"/>
-    <path d="M163 300 l-6 14 12 0 z" fill="#fff" fill-opacity="0.6"/>
-  </g>
-  <text x="163" y="334" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.5" text-anchor="middle">obsolescence</text>
+
+  <text x="32" y="384" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.45">Three-scenario demand projection · launch milestones · obsolescence risk</text>
+  <text x="608" y="384" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.32">illustrative assumptions</text>
 </svg>

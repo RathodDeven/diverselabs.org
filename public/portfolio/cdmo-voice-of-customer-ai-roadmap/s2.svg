@@ -1,27 +1,74 @@
-<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Quality work-stream timeline on a biweekly cadence">
-  <defs><pattern id="cd2" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#fff" fill-opacity="0.05"/></pattern>
-  <radialGradient id="cd2v" cx="50%" cy="38%" r="68%"><stop offset="0%" stop-color="#fff" stop-opacity="0.06"/><stop offset="100%" stop-color="#fff" stop-opacity="0"/></radialGradient></defs>
-  <rect width="640" height="400" fill="#0a0a0a"/><rect width="640" height="400" fill="url(#cd2)"/><rect width="640" height="400" fill="url(#cd2v)"/>
-  <g font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.4" text-anchor="middle">
-    <text x="210" y="74">PHASE 1</text><text x="430" y="74">PHASE 2</text>
-  </g>
-  <!-- week grid -->
-  <g stroke="#fff" stroke-opacity="0.08" stroke-width="1">
-    <path d="M150 84 V336"/><path d="M210 84 V336"/><path d="M270 84 V336"/><path d="M330 84 V336"/><path d="M390 84 V336"/><path d="M450 84 V336"/><path d="M510 84 V336"/></g>
-  <path d="M140 336 H586" stroke="#fff" stroke-opacity="0.35" stroke-width="1.5"/>
-  <g font-family="'JetBrains Mono',monospace" font-size="10" fill="#fff" fill-opacity="0.55">
-    <text x="20" y="116">KICKOFF</text><text x="20" y="152">MAP</text><text x="20" y="188">INTERVIEW</text><text x="20" y="224">SITE VISIT</text><text x="20" y="260">REVIEW</text><text x="20" y="296">PROPOSE</text>
-  </g>
-  <!-- task bars -->
-  <g>
-    <rect x="150" y="104" width="46" height="22" rx="5" fill="#fff" fill-opacity="0.32" stroke="#fff" stroke-opacity="0.6"/>
-    <rect x="196" y="140" width="120" height="22" rx="5" fill="#fff" fill-opacity="0.24" stroke="#fff" stroke-opacity="0.5"/>
-    <rect x="210" y="176" width="180" height="22" rx="5" fill="#fff" fill-opacity="0.26" stroke="#fff" stroke-opacity="0.55"/>
-    <rect x="270" y="212" width="120" height="22" rx="5" fill="#fff" fill-opacity="0.22" stroke="#fff" stroke-opacity="0.5"/>
-    <rect x="330" y="248" width="120" height="22" rx="5" fill="#fff" fill-opacity="0.22" stroke="#fff" stroke-opacity="0.5"/>
-    <rect x="450" y="284" width="120" height="22" rx="5" fill="#fff" fill-opacity="0.34" stroke="#fff" stroke-opacity="0.7"/>
-  </g>
-  <!-- biweekly cadence markers -->
-  <g fill="#fff" fill-opacity="0.7"><circle cx="210" cy="92" r="3"/><circle cx="330" cy="92" r="3"/><circle cx="450" cy="92" r="3"/></g>
-  <g font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.45"><text x="150" y="360">biweekly status cadence</text></g>
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Quality assessment cadence grid mapping three review tiers against weekly, monthly, and quarterly intervals with scheduled checkpoints, owners, and a status legend">
+  <defs>
+    <pattern id="g" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#fff" fill-opacity="0.05"/></pattern>
+    <radialGradient id="gv" cx="50%" cy="38%" r="66%"><stop offset="0%" stop-color="#fff" stop-opacity="0.06"/><stop offset="100%" stop-color="#fff" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="640" height="400" fill="#0a0a0a"/>
+  <rect width="640" height="400" fill="url(#g)"/>
+  <rect width="640" height="400" fill="url(#gv)"/>
+
+  <text x="32" y="34" font-family="'JetBrains Mono',monospace" font-size="10" fill="#fff" fill-opacity="0.5">QUALITY ASSESSMENT CADENCE</text>
+  <text x="608" y="34" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.32">02 / 03</text>
+
+  <text x="300" y="78" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#fff" fill-opacity="0.55">WEEKLY</text>
+  <text x="404" y="78" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#fff" fill-opacity="0.55">MONTHLY</text>
+  <text x="508" y="78" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#fff" fill-opacity="0.55">QUARTERLY</text>
+  <text x="556" y="78" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.4">OWNER</text>
+
+  <line x1="252" y1="88" x2="252" y2="312" stroke="#fff" stroke-opacity="0.16" stroke-width="1"/>
+  <line x1="356" y1="88" x2="356" y2="312" stroke="#fff" stroke-opacity="0.16" stroke-width="1"/>
+  <line x1="460" y1="88" x2="460" y2="312" stroke="#fff" stroke-opacity="0.16" stroke-width="1"/>
+  <line x1="540" y1="88" x2="540" y2="312" stroke="#fff" stroke-opacity="0.16" stroke-width="1"/>
+
+  <rect x="32" y="96" width="208" height="56" rx="7" fill="#fff" fill-opacity="0.05"/>
+  <text x="48" y="121" font-family="'JetBrains Mono',monospace" font-size="11" fill="#fff" fill-opacity="0.62">Operational Review</text>
+  <text x="48" y="137" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.4">Tier 01 · execution</text>
+
+  <circle cx="300" cy="124" r="9" fill="#fff" fill-opacity="0.30"/>
+  <circle cx="300" cy="124" r="3" fill="#fff" fill-opacity="0.6"/>
+  
+  <circle cx="404" cy="124" r="9" fill="none" stroke="#fff" stroke-opacity="0.22" stroke-width="1.3"/>
+  
+  <line x1="502" y1="124" x2="514" y2="124" stroke="#fff" stroke-opacity="0.16" stroke-width="1.3" stroke-linecap="round"/>
+  <text x="556" y="128" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.5">Owner A</text>
+
+  <rect x="32" y="160" width="208" height="56" rx="7" fill="#fff" fill-opacity="0.05"/>
+  <text x="48" y="185" font-family="'JetBrains Mono',monospace" font-size="11" fill="#fff" fill-opacity="0.62">Scorecard Review</text>
+  <text x="48" y="201" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.4">Tier 02 · tactical</text>
+
+  <line x1="294" y1="188" x2="306" y2="188" stroke="#fff" stroke-opacity="0.16" stroke-width="1.3" stroke-linecap="round"/>
+  
+  <circle cx="404" cy="188" r="13" fill="none" stroke="#fff" stroke-opacity="0.9" stroke-width="1.5" stroke-dasharray="3 3"/>
+  <circle cx="404" cy="188" r="9" fill="#fff" fill-opacity="1"/>
+  <path d="M400 188 l3 3 l5 -6" fill="none" stroke="#0a0a0a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <circle cx="508" cy="188" r="9" fill="none" stroke="#fff" stroke-opacity="0.22" stroke-width="1.3"/>
+  <text x="556" y="192" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.5">Owner B</text>
+
+  <rect x="32" y="224" width="208" height="56" rx="7" fill="#fff" fill-opacity="0.05"/>
+  <text x="48" y="249" font-family="'JetBrains Mono',monospace" font-size="11" fill="#fff" fill-opacity="0.62">Steering Review</text>
+  <text x="48" y="265" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.4">Tier 03 · strategic</text>
+
+  <line x1="294" y1="252" x2="306" y2="252" stroke="#fff" stroke-opacity="0.16" stroke-width="1.3" stroke-linecap="round"/>
+  
+  <line x1="398" y1="252" x2="410" y2="252" stroke="#fff" stroke-opacity="0.16" stroke-width="1.3" stroke-linecap="round"/>
+  
+  <circle cx="508" cy="252" r="9" fill="#fff" fill-opacity="0.30"/>
+  <circle cx="508" cy="252" r="3" fill="#fff" fill-opacity="0.6"/>
+  <text x="556" y="256" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.5">Owner C</text>
+
+  <line x1="32" y1="328" x2="608" y2="328" stroke="#fff" stroke-opacity="0.12" stroke-width="1"/>
+
+  <circle cx="40" cy="348" r="6" fill="#fff" fill-opacity="0.30"/>
+  <circle cx="40" cy="348" r="2.4" fill="#fff" fill-opacity="0.6"/>
+  <text x="52" y="351" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.5">Recurring checkpoint</text>
+
+  <circle cx="220" cy="348" r="6" fill="none" stroke="#fff" stroke-opacity="0.22" stroke-width="1.3"/>
+  <text x="232" y="351" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.5">Periodic roll-up</text>
+
+  <circle cx="372" cy="348" r="6" fill="#fff" fill-opacity="1"/>
+  <path d="M369 348 l2 2 l4 -4.5" fill="none" stroke="#0a0a0a" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="384" y="351" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.6">Anchor cadence</text>
+
+  <text x="32" y="372" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.45">Review tiers mapped to recurring intervals</text>
 </svg>

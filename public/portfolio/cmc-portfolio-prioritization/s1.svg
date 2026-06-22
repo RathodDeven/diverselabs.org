@@ -1,22 +1,60 @@
-<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Programs ranked by priority score">
-  <defs><pattern id="mu1" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#fff" fill-opacity="0.05"/></pattern>
-  <radialGradient id="mu1v" cx="50%" cy="38%" r="68%"><stop offset="0%" stop-color="#fff" stop-opacity="0.06"/><stop offset="100%" stop-color="#fff" stop-opacity="0"/></radialGradient></defs>
-  <rect width="640" height="400" fill="#0a0a0a"/><rect width="640" height="400" fill="url(#mu1)"/><rect width="640" height="400" fill="url(#mu1v)"/>
-  <text x="60" y="56" font-family="'JetBrains Mono',monospace" font-size="10" fill="#fff" fill-opacity="0.5">PORTFOLIO PRIORITIZATION</text>
-  <!-- ranked rows: program label + priority score bar, descending -->
-  <g font-family="'JetBrains Mono',monospace" font-size="10" fill="#fff" fill-opacity="0.6">
-    <text x="60" y="100">LEAD · BLA</text><text x="60" y="144">PIPELINE A</text><text x="60" y="188">PIPELINE B</text><text x="60" y="232">EARLY C</text><text x="60" y="276">EARLY D</text><text x="60" y="320">EXPLORATORY</text>
-  </g>
-  <g stroke-linecap="round" stroke-width="12">
-    <path d="M210 96 H540" stroke="#fff" stroke-opacity="0.85"/>
-    <path d="M210 140 H470" stroke="#fff" stroke-opacity="0.7"/>
-    <path d="M210 184 H430" stroke="#fff" stroke-opacity="0.55"/>
-    <path d="M210 228 H360" stroke="#fff" stroke-opacity="0.4"/>
-    <path d="M210 272 H320" stroke="#fff" stroke-opacity="0.3"/>
-    <path d="M210 316 H280" stroke="#fff" stroke-opacity="0.22"/>
-  </g>
-  <g font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.7" text-anchor="end">
-    <text x="556" y="100">P1</text><text x="556" y="144">P2</text><text x="556" y="188">P3</text><text x="556" y="232">P4</text><text x="556" y="276">P5</text><text x="556" y="320">P6</text>
-  </g>
-  <path d="M210 80 V332" stroke="#fff" stroke-opacity="0.18" stroke-width="1.5"/>
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Value-versus-feasibility 2x2 bubble matrix prioritizing CMC projects; bubbles sized by resource demand; the high-value high-feasibility Do-First quadrant is emphasized">
+  <defs>
+    <pattern id="g" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#fff" fill-opacity="0.05"/></pattern>
+    <radialGradient id="gv" cx="50%" cy="38%" r="66%"><stop offset="0%" stop-color="#fff" stop-opacity="0.06"/><stop offset="100%" stop-color="#fff" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="640" height="400" fill="#0a0a0a"/>
+  <rect width="640" height="400" fill="url(#g)"/>
+  <rect width="640" height="400" fill="url(#gv)"/>
+
+  <text x="32" y="34" font-family="'JetBrains Mono',monospace" font-size="10" fill="#fff" fill-opacity="0.5">PORTFOLIO PRIORITIZATION · VALUE × FEASIBILITY</text>
+  <text x="608" y="34" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.32">01 / 03</text>
+
+  <rect x="88" y="60" width="500" height="278" rx="8" fill="none" stroke="#fff" stroke-opacity="0.14" stroke-width="1"/>
+
+  <rect x="338" y="60" width="250" height="139" rx="6" fill="#fff" fill-opacity="0.05"/>
+
+  <line x1="338" y1="60" x2="338" y2="338" stroke="#fff" stroke-opacity="0.18" stroke-width="1.25" stroke-dasharray="2 5"/>
+  <line x1="88" y1="199" x2="588" y2="199" stroke="#fff" stroke-opacity="0.18" stroke-width="1.25" stroke-dasharray="2 5"/>
+
+  <text x="84" y="64" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.45">HIGH</text>
+  <text x="84" y="338" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.45">LOW</text>
+  <text x="58" y="203" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#fff" fill-opacity="0.55" transform="rotate(-90 58 203)">VALUE / IMPACT</text>
+
+  <text x="120" y="354" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.45">HARD</text>
+  <text x="556" y="354" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.45">EASY</text>
+  <text x="338" y="354" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#fff" fill-opacity="0.55">FEASIBILITY / EFFORT</text>
+
+  <text x="100" y="76" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.5">PLAN</text>
+  <text x="576" y="76" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#fff" fill-opacity="0.9" font-weight="bold">DO FIRST</text>
+  <text x="100" y="328" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.5">RECONSIDER</text>
+  <text x="576" y="328" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.5">QUICK WIN</text>
+
+  <circle cx="170" cy="120" r="26" fill="#fff" fill-opacity="0.20" stroke="#fff" stroke-opacity="0.28" stroke-width="1"/>
+  <text x="170" y="123" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.55">P1</text>
+  <circle cx="255" cy="155" r="17" fill="#fff" fill-opacity="0.18" stroke="#fff" stroke-opacity="0.26" stroke-width="1"/>
+  <text x="255" y="158" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.5">P2</text>
+
+  <circle cx="430" cy="120" r="30" fill="#fff" fill-opacity="0.9" stroke="#fff" stroke-opacity="1" stroke-width="1.5"/>
+  <text x="430" y="124" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="#0a0a0a" font-weight="bold">P3</text>
+  <circle cx="510" cy="160" r="20" fill="#fff" fill-opacity="0.85" stroke="#fff" stroke-opacity="1" stroke-width="1.25"/>
+  <text x="510" y="163" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#0a0a0a" font-weight="bold">P4</text>
+  <circle cx="370" cy="170" r="13" fill="#fff" fill-opacity="0.85" stroke="#fff" stroke-opacity="1" stroke-width="1.25"/>
+  <text x="370" y="173" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#0a0a0a" font-weight="bold">P5</text>
+
+  <circle cx="160" cy="270" r="15" fill="#fff" fill-opacity="0.18" stroke="#fff" stroke-opacity="0.24" stroke-width="1"/>
+  <text x="160" y="273" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.5">P6</text>
+  <circle cx="245" cy="300" r="22" fill="#fff" fill-opacity="0.20" stroke="#fff" stroke-opacity="0.26" stroke-width="1"/>
+  <text x="245" y="303" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.5">P7</text>
+
+  <circle cx="445" cy="285" r="18" fill="#fff" fill-opacity="0.19" stroke="#fff" stroke-opacity="0.26" stroke-width="1"/>
+  <text x="445" y="288" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.5">P8</text>
+  <circle cx="525" cy="255" r="11" fill="#fff" fill-opacity="0.18" stroke="#fff" stroke-opacity="0.24" stroke-width="1"/>
+  <text x="525" y="258" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.5">P9</text>
+
+  <circle cx="478" cy="318" r="4" fill="#fff" fill-opacity="0.3"/>
+  <circle cx="500" cy="318" r="7" fill="#fff" fill-opacity="0.3"/>
+  <text x="514" y="321" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.45">RESOURCE</text>
+
+  <text x="32" y="372" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.45">Value-vs-feasibility matrix sizing CMC projects by resource demand</text>
 </svg>

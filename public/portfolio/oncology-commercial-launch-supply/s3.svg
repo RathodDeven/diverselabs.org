@@ -1,21 +1,72 @@
-<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="3PL and pack-and-label supplier scorecard with the selected provider highlighted">
-  <defs><pattern id="on3" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#fff" fill-opacity="0.05"/></pattern>
-  <radialGradient id="on3v" cx="50%" cy="38%" r="66%"><stop offset="0%" stop-color="#fff" stop-opacity="0.06"/><stop offset="100%" stop-color="#fff" stop-opacity="0"/></radialGradient></defs>
-  <rect width="640" height="400" fill="#0a0a0a"/><rect width="640" height="400" fill="url(#on3)"/><rect width="640" height="400" fill="url(#on3v)"/>
-  <text x="80" y="52" font-family="'JetBrains Mono',monospace" font-size="10" fill="#fff" fill-opacity="0.5">3PL · PACK &amp; LABEL SELECTION</text>
-  <!-- 3 candidate columns, middle selected -->
-  <rect x="244" y="78" width="150" height="262" rx="10" fill="#fff" fill-opacity="0.10" stroke="#fff" stroke-opacity="0.9" stroke-width="2.5"/>
-  <g font-family="'JetBrains Mono',monospace" font-size="10" fill="#fff" fill-opacity="0.5" text-anchor="middle">
-    <text x="148" y="70">VENDOR A</text><text x="319" y="70">VENDOR B</text><text x="490" y="70">VENDOR C</text>
-  </g>
-  <g font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.5">
-    <text x="20" y="106">ALLOCATION</text><text x="20" y="144">3-YR TCO</text><text x="20" y="182">CAPACITY</text><text x="20" y="220">QUALITY</text><text x="20" y="258">DSCSA</text><text x="20" y="296">FIT</text>
-  </g>
-  <g stroke-linecap="round" stroke-width="7">
-    <g stroke="#fff" stroke-opacity="0.3"><path d="M92 102 H180"/><path d="M92 140 H168"/><path d="M92 178 H200"/><path d="M92 216 H160"/><path d="M92 254 H188"/><path d="M92 292 H150"/></g>
-    <g stroke="#fff" stroke-opacity="0.9"><path d="M262 102 H372"/><path d="M262 140 H360"/><path d="M262 178 H378"/><path d="M262 216 H356"/><path d="M262 254 H374"/><path d="M262 292 H368"/></g>
-    <g stroke="#fff" stroke-opacity="0.3"><path d="M432 102 H520"/><path d="M432 140 H540"/><path d="M432 178 H500"/><path d="M432 216 H536"/><path d="M432 254 H512"/><path d="M432 292 H548"/></g>
-  </g>
-  <circle cx="319" cy="320" r="14" fill="#fff"/>
-  <path d="M312 320 l5 5 9 -10" stroke="#0a0a0a" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Spec comparison table of pack and configuration options across decision attributes, with Config B highlighted and boxed as the recommended pick">
+  <defs>
+    <pattern id="g" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#fff" fill-opacity="0.05"/></pattern>
+    <radialGradient id="gv" cx="50%" cy="38%" r="66%"><stop offset="0%" stop-color="#fff" stop-opacity="0.06"/><stop offset="100%" stop-color="#fff" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="640" height="400" fill="#0a0a0a"/>
+  <rect width="640" height="400" fill="url(#g)"/>
+  <rect width="640" height="400" fill="url(#gv)"/>
+
+  <text x="32" y="34" font-family="'JetBrains Mono',monospace" font-size="10" fill="#fff" fill-opacity="0.5">3PL &amp; PACK-LABEL · SPEC COMPARISON</text>
+  <text x="608" y="34" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.32">03 / 03</text>
+
+  <text x="170" y="58" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.5" letter-spacing="1.5">FILL / PROCESS</text>
+  <text x="440" y="58" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.5" letter-spacing="1.5">SUPPLY / STABILITY</text>
+
+  <line x1="116" y1="66" x2="316" y2="66" stroke="#fff" stroke-opacity="0.18" stroke-width="1"/>
+  <line x1="340" y1="66" x2="592" y2="66" stroke="#fff" stroke-opacity="0.18" stroke-width="1"/>
+
+  
+  <text x="36" y="80" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.55">OPTION</text>
+
+  <text x="164" y="80" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.55">Fill qty</text>
+  <text x="259" y="80" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.55">Yield</text>
+  <text x="354" y="80" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.55">Batch size</text>
+  <text x="449" y="80" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.55">Capacity</text>
+  <text x="544" y="80" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.55">Shelf-life</text>
+
+  <line x1="32" y1="90" x2="592" y2="90" stroke="#fff" stroke-opacity="0.2" stroke-width="1.5"/>
+
+  <line x1="116" y1="96" x2="116" y2="312" stroke="#fff" stroke-opacity="0.12" stroke-width="1"/>
+  <line x1="211.4" y1="96" x2="211.4" y2="312" stroke="#fff" stroke-opacity="0.12" stroke-width="1"/>
+  <line x1="306.6" y1="96" x2="306.6" y2="312" stroke="#fff" stroke-opacity="0.12" stroke-width="1"/>
+  <line x1="401.8" y1="96" x2="401.8" y2="312" stroke="#fff" stroke-opacity="0.12" stroke-width="1"/>
+  <line x1="497" y1="96" x2="497" y2="312" stroke="#fff" stroke-opacity="0.12" stroke-width="1"/>
+
+  
+  <text x="36" y="133" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#fff" fill-opacity="0.6">Config A</text>
+  
+  <rect x="135" y="126" width="34" height="6" rx="3" fill="#fff" fill-opacity="0.26"/>
+  <rect x="230" y="126" width="42" height="6" rx="3" fill="#fff" fill-opacity="0.26"/>
+  <rect x="325" y="126" width="28" height="6" rx="3" fill="#fff" fill-opacity="0.26"/>
+  <rect x="420" y="126" width="38" height="6" rx="3" fill="#fff" fill-opacity="0.26"/>
+  <rect x="515" y="126" width="30" height="6" rx="3" fill="#fff" fill-opacity="0.26"/>
+
+  <rect x="32" y="160" width="560" height="60" rx="8" fill="#fff" fill-opacity="0.1"/>
+  <rect x="32" y="160" width="560" height="60" rx="8" fill="none" stroke="#fff" stroke-opacity="0.9" stroke-width="2"/>
+  <text x="36" y="193" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#fff" fill-opacity="0.95" font-weight="bold">Config B</text>
+  <rect x="135" y="186" width="44" height="6" rx="3" fill="#fff" fill-opacity="0.95"/>
+  <rect x="230" y="186" width="50" height="6" rx="3" fill="#fff" fill-opacity="0.95"/>
+  <rect x="325" y="186" width="40" height="6" rx="3" fill="#fff" fill-opacity="0.95"/>
+  <rect x="420" y="186" width="46" height="6" rx="3" fill="#fff" fill-opacity="0.95"/>
+  <rect x="515" y="186" width="42" height="6" rx="3" fill="#fff" fill-opacity="0.95"/>
+
+  <text x="36" y="255" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#fff" fill-opacity="0.6">Config C</text>
+  <rect x="135" y="248" width="30" height="6" rx="3" fill="#fff" fill-opacity="0.26"/>
+  <rect x="230" y="248" width="36" height="6" rx="3" fill="#fff" fill-opacity="0.26"/>
+  <rect x="325" y="248" width="46" height="6" rx="3" fill="#fff" fill-opacity="0.26"/>
+  <rect x="420" y="248" width="32" height="6" rx="3" fill="#fff" fill-opacity="0.26"/>
+  <rect x="515" y="248" width="38" height="6" rx="3" fill="#fff" fill-opacity="0.26"/>
+
+  <rect x="486" y="166" width="100" height="17" rx="8" fill="#fff" fill-opacity="0.95"/>
+  <text x="536" y="178" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#0a0a0a" font-weight="bold">RECOMMENDED *</text>
+
+  <line x1="32" y1="158" x2="592" y2="158" stroke="#fff" stroke-opacity="0.1" stroke-width="1"/>
+  <line x1="32" y1="222" x2="592" y2="222" stroke="#fff" stroke-opacity="0.1" stroke-width="1"/>
+  <line x1="32" y1="282" x2="592" y2="282" stroke="#fff" stroke-opacity="0.12" stroke-width="1"/>
+
+  <text x="32" y="304" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.45">bar length = relative spec strength</text>
+  <text x="408" y="304" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.45">* meets launch-supply constraints</text>
+
+  <text x="32" y="372" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.45">Side-by-side spec comparison of configuration options with the recommended pick</text>
 </svg>

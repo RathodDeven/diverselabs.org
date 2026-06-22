@@ -1,26 +1,83 @@
-<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Confidential Voice-of-Customer process flow">
-  <defs><pattern id="cd1" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#fff" fill-opacity="0.05"/></pattern>
-  <radialGradient id="cd1v" cx="50%" cy="40%" r="66%"><stop offset="0%" stop-color="#fff" stop-opacity="0.06"/><stop offset="100%" stop-color="#fff" stop-opacity="0"/></radialGradient></defs>
-  <rect width="640" height="400" fill="#0a0a0a"/><rect width="640" height="400" fill="url(#cd1)"/><rect width="640" height="400" fill="url(#cd1v)"/>
-  <!-- horizontal 4-step flow -->
-  <path d="M120 200 H520" stroke="#fff" stroke-opacity="0.3" stroke-width="2" stroke-dasharray="6 7" fill="none"/>
-  <g>
-    <circle cx="120" cy="200" r="34" fill="#fff" fill-opacity="0.10" stroke="#fff" stroke-opacity="0.7" stroke-width="2"/>
-    <circle cx="253" cy="200" r="34" fill="#fff" fill-opacity="0.12" stroke="#fff" stroke-opacity="0.75" stroke-width="2"/>
-    <circle cx="386" cy="200" r="34" fill="#fff" fill-opacity="0.14" stroke="#fff" stroke-opacity="0.8" stroke-width="2"/>
-    <circle cx="520" cy="200" r="34" fill="#fff" fill-opacity="0.20" stroke="#fff" stroke-opacity="0.9" stroke-width="2.5"/>
-  </g>
-  <!-- arrows -->
-  <g stroke="#fff" stroke-opacity="0.6" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M178 200 l-8 -5 m8 5 l-8 5" transform="translate(8,0)"/>
-    <path d="M311 200 l-8 -5 m8 5 l-8 5" transform="translate(8,0)"/>
-    <path d="M444 200 l-8 -5 m8 5 l-8 5" transform="translate(8,0)"/>
-  </g>
-  <g font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.6" text-anchor="middle">
-    <text x="120" y="204">CEO</text><text x="253" y="204">CDA</text><text x="386" y="204">INTERVIEW</text><text x="520" y="204">SYNTH</text>
-  </g>
-  <g font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.4" text-anchor="middle">
-    <text x="120" y="262">outreach</text><text x="253" y="262">3-way NDA</text><text x="386" y="262">independent</text><text x="520" y="262">aggregated</text>
-  </g>
-  <g font-family="'JetBrains Mono',monospace" font-size="10" fill="#fff" fill-opacity="0.5"><text x="120" y="120">CONFIDENTIAL VOICE-OF-CUSTOMER</text></g>
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Voice-of-Customer interview guide: probing questions grouped by theme section, with a sequential question index, an interviewer-only prompt flagged for emphasis, and a per-respondent key-summary capture row">
+  <defs>
+    <pattern id="g" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#fff" fill-opacity="0.05"/></pattern>
+    <radialGradient id="gv" cx="50%" cy="38%" r="66%"><stop offset="0%" stop-color="#fff" stop-opacity="0.06"/><stop offset="100%" stop-color="#fff" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="640" height="400" fill="#0a0a0a"/><rect width="640" height="400" fill="url(#g)"/><rect width="640" height="400" fill="url(#gv)"/>
+
+  <text x="32" y="34" font-family="'JetBrains Mono',monospace" font-size="10" fill="#fff" fill-opacity="0.5">VOC · INTERVIEW GUIDE</text>
+  <text x="608" y="34" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.32">01 / 03</text>
+
+  <line x1="32" y1="54" x2="608" y2="54" stroke="#fff" stroke-opacity="0.18" stroke-width="1"/>
+  <text x="40"  y="49" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.55" letter-spacing="0.5">THEME SECTION</text>
+  <text x="206" y="49" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.55" letter-spacing="0.5">#</text>
+  <text x="240" y="49" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.55" letter-spacing="0.5">PROBING QUESTION</text>
+
+  <line x1="196" y1="54" x2="196" y2="334" stroke="#fff" stroke-opacity="0.12" stroke-width="1"/>
+  <line x1="230" y1="54" x2="230" y2="334" stroke="#fff" stroke-opacity="0.12" stroke-width="1"/>
+
+  <rect x="32" y="60" width="164" height="54" rx="6" fill="#fff" fill-opacity="0.05"/>
+  <text x="40" y="80" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#fff" fill-opacity="0.6">Context &amp;</text>
+  <text x="40" y="92" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#fff" fill-opacity="0.6">Relationship</text>
+  <line x1="40" y1="100" x2="170" y2="100" stroke="#fff" stroke-opacity="0.14" stroke-width="1"/>
+  <text x="40" y="111" font-family="'JetBrains Mono',monospace" font-size="7.5" fill="#fff" fill-opacity="0.38">SECTION 01</text>
+  
+  <text x="206" y="76" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.5">01</text>
+  <rect x="240" y="68" width="280" height="6" rx="3" fill="#fff" fill-opacity="0.26"/>
+  <rect x="240" y="78" width="210" height="6" rx="3" fill="#fff" fill-opacity="0.20"/>
+  <text x="206" y="100" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.5">02</text>
+  <rect x="240" y="92" width="256" height="6" rx="3" fill="#fff" fill-opacity="0.26"/>
+  <rect x="240" y="102" width="172" height="6" rx="3" fill="#fff" fill-opacity="0.20"/>
+
+  <rect x="32" y="120" width="164" height="54" rx="6" fill="#fff" fill-opacity="0.05"/>
+  <text x="40" y="140" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#fff" fill-opacity="0.6">Competitiveness</text>
+  <line x1="40" y1="150" x2="170" y2="150" stroke="#fff" stroke-opacity="0.14" stroke-width="1"/>
+  <text x="40" y="161" font-family="'JetBrains Mono',monospace" font-size="7.5" fill="#fff" fill-opacity="0.38">SECTION 02</text>
+  <text x="206" y="136" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.5">03</text>
+  <rect x="240" y="128" width="268" height="6" rx="3" fill="#fff" fill-opacity="0.26"/>
+  <rect x="240" y="138" width="196" height="6" rx="3" fill="#fff" fill-opacity="0.20"/>
+  <text x="206" y="160" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.5">04</text>
+  <rect x="240" y="152" width="238" height="6" rx="3" fill="#fff" fill-opacity="0.26"/>
+  <rect x="240" y="162" width="158" height="6" rx="3" fill="#fff" fill-opacity="0.20"/>
+
+  <rect x="32" y="180" width="164" height="54" rx="6" fill="#fff" fill-opacity="0.05"/>
+  <text x="40" y="200" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#fff" fill-opacity="0.6">Quantitative</text>
+  <text x="40" y="212" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#fff" fill-opacity="0.6">Assessment</text>
+  <line x1="40" y1="220" x2="170" y2="220" stroke="#fff" stroke-opacity="0.14" stroke-width="1"/>
+  <text x="40" y="231" font-family="'JetBrains Mono',monospace" font-size="7.5" fill="#fff" fill-opacity="0.38">SECTION 03</text>
+  <text x="206" y="196" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.5">05</text>
+  <rect x="240" y="188" width="252" height="6" rx="3" fill="#fff" fill-opacity="0.26"/>
+  <rect x="240" y="198" width="180" height="6" rx="3" fill="#fff" fill-opacity="0.20"/>
+
+  <rect x="240" y="210" width="300" height="18" rx="5" fill="#fff" fill-opacity="0.97"/>
+  <circle cx="251" cy="219" r="3.4" fill="#0a0a0a"/>
+  <text x="262" y="222.5" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#0a0a0a" font-weight="bold" letter-spacing="0.4">INTERVIEWER ONLY · probe, do not lead</text>
+  <text x="206" y="222" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.85">06</text>
+
+  <rect x="32" y="240" width="164" height="38" rx="6" fill="#fff" fill-opacity="0.05"/>
+  <text x="40" y="262" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#fff" fill-opacity="0.6">Proposal</text>
+  <text x="40" y="274" font-family="'JetBrains Mono',monospace" font-size="7.5" fill="#fff" fill-opacity="0.38">SECTION 04</text>
+  <text x="206" y="256" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.5">07</text>
+  <rect x="240" y="248" width="244" height="6" rx="3" fill="#fff" fill-opacity="0.26"/>
+  <rect x="240" y="258" width="166" height="6" rx="3" fill="#fff" fill-opacity="0.20"/>
+  <text x="206" y="274" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.5">08</text>
+  <rect x="240" y="270" width="206" height="6" rx="3" fill="#fff" fill-opacity="0.20"/>
+
+  <rect x="32" y="284" width="164" height="38" rx="6" fill="#fff" fill-opacity="0.05"/>
+  <text x="40" y="306" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#fff" fill-opacity="0.6">Closing</text>
+  <text x="40" y="318" font-family="'JetBrains Mono',monospace" font-size="7.5" fill="#fff" fill-opacity="0.38">SECTION 05</text>
+  <text x="206" y="300" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.5">09</text>
+  <rect x="240" y="292" width="228" height="6" rx="3" fill="#fff" fill-opacity="0.26"/>
+  <rect x="240" y="302" width="150" height="6" rx="3" fill="#fff" fill-opacity="0.20"/>
+  <text x="206" y="318" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.5">10</text>
+  <rect x="240" y="312" width="190" height="6" rx="3" fill="#fff" fill-opacity="0.20"/>
+
+  <line x1="32" y1="334" x2="608" y2="334" stroke="#fff" stroke-opacity="0.18" stroke-width="1"/>
+
+  <rect x="32" y="340" width="576" height="22" rx="6" fill="#fff" fill-opacity="0.08" stroke="#fff" stroke-opacity="0.20" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="44" y="354" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.6" letter-spacing="0.4">KEY SUMMARY</text>
+  <text x="148" y="354" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.4">per respondent — capture verbatim takeaways</text>
+  <line x1="430" y1="356" x2="596" y2="356" stroke="#fff" stroke-opacity="0.16" stroke-width="1"/>
+
+  <text x="32" y="372" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.45">Structured VoC interview guide grouping probing questions by theme section</text>
 </svg>

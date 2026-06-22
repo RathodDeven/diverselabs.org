@@ -1,28 +1,106 @@
-<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Good-better-best pricing tiers with a CPQ configurator">
-  <defs><pattern id="sp1" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#fff" fill-opacity="0.05"/></pattern>
-  <radialGradient id="sp1v" cx="50%" cy="40%" r="66%"><stop offset="0%" stop-color="#fff" stop-opacity="0.06"/><stop offset="100%" stop-color="#fff" stop-opacity="0"/></radialGradient></defs>
-  <rect width="640" height="400" fill="#0a0a0a"/><rect width="640" height="400" fill="url(#sp1)"/><rect width="640" height="400" fill="url(#sp1v)"/>
-  <text x="60" y="52" font-family="'JetBrains Mono',monospace" font-size="10" fill="#fff" fill-opacity="0.5">PRICING MODEL · GOOD / BETTER / BEST</text>
-  <!-- GBB tiers -->
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Good-Better-Best pricing exhibit: three tier columns with a shared feature checklist, the Better tier highlighted as recommended">
+  <defs>
+    <pattern id="g" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#fff" fill-opacity="0.05"/></pattern>
+    <radialGradient id="gv" cx="50%" cy="38%" r="66%"><stop offset="0%" stop-color="#fff" stop-opacity="0.06"/><stop offset="100%" stop-color="#fff" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="640" height="400" fill="#0a0a0a"/>
+  <rect width="640" height="400" fill="url(#g)"/>
+  <rect width="640" height="400" fill="url(#gv)"/>
+
+  <text x="32" y="34" font-family="'JetBrains Mono',monospace" font-size="10" fill="#fff" fill-opacity="0.5">PRICING MODEL · GBB / CPQ</text>
+  <text x="608" y="34" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.32">01 / 03</text>
+
+  <text x="32" y="92" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.5">FEATURE</text>
+
+  
+  <rect x="216" y="58" width="116" height="34" rx="6" fill="#fff" fill-opacity="0.06" stroke="#fff" stroke-opacity="0.16" stroke-width="1"/>
+  <text x="274" y="79" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="11" fill="#fff" fill-opacity="0.58">GOOD</text>
+
+  <rect x="346" y="50" width="116" height="42" rx="7" fill="#fff" fill-opacity="0.92" stroke="#fff" stroke-opacity="1" stroke-width="1.5"/>
+  <text x="404" y="71" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="12" fill="#0a0a0a" font-weight="bold">BETTER</text>
+  <text x="404" y="85" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="7.5" fill="#0a0a0a" fill-opacity="0.7">RECOMMENDED</text>
+
+  <rect x="476" y="58" width="116" height="34" rx="6" fill="#fff" fill-opacity="0.06" stroke="#fff" stroke-opacity="0.16" stroke-width="1"/>
+  <text x="534" y="79" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="11" fill="#fff" fill-opacity="0.58">BEST</text>
+
+  <rect x="346" y="100" width="116" height="248" rx="6" fill="#fff" fill-opacity="0.05"/>
+  <rect x="346" y="100" width="116" height="248" rx="6" fill="none" stroke="#fff" stroke-opacity="0.35" stroke-width="1"/>
+
+  
+  
+  <text x="32" y="126" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#fff" fill-opacity="0.55">Feature 1</text>
+  <text x="32" y="162" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#fff" fill-opacity="0.55">Feature 2</text>
+  <text x="32" y="198" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#fff" fill-opacity="0.55">Feature 3</text>
+  <text x="32" y="234" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#fff" fill-opacity="0.55">Feature 4</text>
+  <text x="32" y="270" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#fff" fill-opacity="0.55">Feature 5</text>
+  <text x="32" y="306" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#fff" fill-opacity="0.55">Feature 6</text>
+
+  <line x1="32" y1="140" x2="592" y2="140" stroke="#fff" stroke-opacity="0.10" stroke-width="1"/>
+  <line x1="32" y1="176" x2="592" y2="176" stroke="#fff" stroke-opacity="0.10" stroke-width="1"/>
+  <line x1="32" y1="212" x2="592" y2="212" stroke="#fff" stroke-opacity="0.10" stroke-width="1"/>
+  <line x1="32" y1="248" x2="592" y2="248" stroke="#fff" stroke-opacity="0.10" stroke-width="1"/>
+  <line x1="32" y1="284" x2="592" y2="284" stroke="#fff" stroke-opacity="0.10" stroke-width="1"/>
+  <line x1="32" y1="104" x2="592" y2="104" stroke="#fff" stroke-opacity="0.14" stroke-width="1"/>
+
+  
+  <g stroke-linecap="round">
+    
+    <circle cx="274" cy="118" r="7" fill="none" stroke="#fff" stroke-opacity="0.28" stroke-width="1.3"/>
+    <path d="M270.5 118 L273 120.5 L278 115" fill="none" stroke="#fff" stroke-opacity="0.4" stroke-width="1.3"/>
+    <circle cx="274" cy="154" r="7" fill="none" stroke="#fff" stroke-opacity="0.28" stroke-width="1.3"/>
+    <path d="M270.5 154 L273 156.5 L278 151" fill="none" stroke="#fff" stroke-opacity="0.4" stroke-width="1.3"/>
+    <line x1="269" y1="190" x2="279" y2="190" stroke="#fff" stroke-opacity="0.22" stroke-width="1.3"/>
+    <line x1="269" y1="226" x2="279" y2="226" stroke="#fff" stroke-opacity="0.22" stroke-width="1.3"/>
+    <line x1="269" y1="262" x2="279" y2="262" stroke="#fff" stroke-opacity="0.22" stroke-width="1.3"/>
+    <line x1="269" y1="298" x2="279" y2="298" stroke="#fff" stroke-opacity="0.22" stroke-width="1.3"/>
+  </g>
+
+  <g stroke-linecap="round">
+    
+    <circle cx="404" cy="118" r="7.5" fill="none" stroke="#fff" stroke-opacity="0.9" stroke-width="1.6"/>
+    <path d="M400 118 L403 121 L408.5 114.5" fill="none" stroke="#fff" stroke-opacity="1" stroke-width="1.7"/>
+    <circle cx="404" cy="154" r="7.5" fill="none" stroke="#fff" stroke-opacity="0.9" stroke-width="1.6"/>
+    <path d="M400 154 L403 157 L408.5 150.5" fill="none" stroke="#fff" stroke-opacity="1" stroke-width="1.7"/>
+    <circle cx="404" cy="190" r="7.5" fill="none" stroke="#fff" stroke-opacity="0.9" stroke-width="1.6"/>
+    <path d="M400 190 L403 193 L408.5 186.5" fill="none" stroke="#fff" stroke-opacity="1" stroke-width="1.7"/>
+    <circle cx="404" cy="226" r="7.5" fill="none" stroke="#fff" stroke-opacity="0.9" stroke-width="1.6"/>
+    <path d="M400 226 L403 229 L408.5 222.5" fill="none" stroke="#fff" stroke-opacity="1" stroke-width="1.7"/>
+    <circle cx="404" cy="262" r="7.5" fill="none" stroke="#fff" stroke-opacity="0.9" stroke-width="1.6"/>
+    <path d="M400 262 L403 265 L408.5 258.5" fill="none" stroke="#fff" stroke-opacity="1" stroke-width="1.7"/>
+    <line x1="399" y1="298" x2="409" y2="298" stroke="#fff" stroke-opacity="0.4" stroke-width="1.4"/>
+  </g>
+
+  <g stroke-linecap="round">
+    
+    <circle cx="534" cy="118" r="7" fill="none" stroke="#fff" stroke-opacity="0.28" stroke-width="1.3"/>
+    <path d="M530.5 118 L533 120.5 L538 115" fill="none" stroke="#fff" stroke-opacity="0.4" stroke-width="1.3"/>
+    <circle cx="534" cy="154" r="7" fill="none" stroke="#fff" stroke-opacity="0.28" stroke-width="1.3"/>
+    <path d="M530.5 154 L533 156.5 L538 151" fill="none" stroke="#fff" stroke-opacity="0.4" stroke-width="1.3"/>
+    <circle cx="534" cy="190" r="7" fill="none" stroke="#fff" stroke-opacity="0.28" stroke-width="1.3"/>
+    <path d="M530.5 190 L533 192.5 L538 187" fill="none" stroke="#fff" stroke-opacity="0.4" stroke-width="1.3"/>
+    <circle cx="534" cy="226" r="7" fill="none" stroke="#fff" stroke-opacity="0.28" stroke-width="1.3"/>
+    <path d="M530.5 226 L533 228.5 L538 223" fill="none" stroke="#fff" stroke-opacity="0.4" stroke-width="1.3"/>
+    <circle cx="534" cy="262" r="7" fill="none" stroke="#fff" stroke-opacity="0.28" stroke-width="1.3"/>
+    <path d="M530.5 262 L533 264.5 L538 259" fill="none" stroke="#fff" stroke-opacity="0.4" stroke-width="1.3"/>
+    <circle cx="534" cy="298" r="7" fill="none" stroke="#fff" stroke-opacity="0.28" stroke-width="1.3"/>
+    <path d="M530.5 298 L533 300.5 L538 295" fill="none" stroke="#fff" stroke-opacity="0.4" stroke-width="1.3"/>
+  </g>
+
+  <text x="32" y="330" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.5">RELATIVE PRICE</text>
+  
+  <rect x="234" y="332" width="80" height="6" rx="3" fill="#fff" fill-opacity="0.20"/>
+  
+  <rect x="356" y="332" width="96" height="6" rx="3" fill="#fff" fill-opacity="0.9"/>
+  
+  <rect x="486" y="332" width="96" height="6" rx="3" fill="#fff" fill-opacity="0.20"/>
+
   <g>
-    <rect x="70" y="210" width="120" height="120" rx="9" fill="#fff" fill-opacity="0.08" stroke="#fff" stroke-opacity="0.4" stroke-width="2"/>
-    <rect x="206" y="160" width="120" height="170" rx="9" fill="#fff" fill-opacity="0.14" stroke="#fff" stroke-opacity="0.6" stroke-width="2"/>
-    <rect x="342" y="110" width="120" height="220" rx="9" fill="#fff" fill-opacity="0.22" stroke="#fff" stroke-opacity="0.9" stroke-width="2.5"/>
+    <circle cx="38" cy="356" r="5.5" fill="none" stroke="#fff" stroke-opacity="0.4" stroke-width="1.2"/>
+    <path d="M35 356 L37 358 L41 353.5" fill="none" stroke="#fff" stroke-opacity="0.5" stroke-width="1.2" stroke-linecap="round"/>
+    <text x="49" y="359" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.45">Included</text>
+    <line x1="128" y1="356" x2="138" y2="356" stroke="#fff" stroke-opacity="0.22" stroke-width="1.3" stroke-linecap="round"/>
+    <text x="146" y="359" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.45">— Not included</text>
   </g>
-  <g font-family="'JetBrains Mono',monospace" font-size="11" fill="#fff" text-anchor="middle">
-    <text x="130" y="200" fill-opacity="0.6">GOOD</text><text x="266" y="150" fill-opacity="0.75">BETTER</text><text x="402" y="100">BEST</text>
-  </g>
-  <!-- feature ticks per tier -->
-  <g stroke="#fff" stroke-linecap="round" stroke-width="3">
-    <g stroke-opacity="0.35"><path d="M88 240 H172"/><path d="M88 262 H150"/></g>
-    <g stroke-opacity="0.5"><path d="M224 190 H308"/><path d="M224 212 H290"/><path d="M224 234 H300"/></g>
-    <g stroke-opacity="0.7"><path d="M360 140 H444"/><path d="M360 162 H430"/><path d="M360 184 H440"/><path d="M360 206 H420"/></g>
-  </g>
-  <!-- CPQ configurator chip -->
-  <g>
-    <rect x="486" y="150" width="100" height="120" rx="8" fill="#fff" fill-opacity="0.05" stroke="#fff" stroke-opacity="0.35" stroke-dasharray="4 3"/>
-    <text x="536" y="176" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.55" text-anchor="middle">CPQ</text>
-    <g stroke="#fff" stroke-opacity="0.4" stroke-width="2"><path d="M500 196 H560"/><path d="M500 216 H560"/><path d="M500 236 H560"/></g>
-    <g fill="#fff" fill-opacity="0.7"><circle cx="548" cy="196" r="4"/><circle cx="512" cy="216" r="4"/><circle cx="548" cy="236" r="4"/></g>
-  </g>
+
+  <text x="32" y="372" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.45">Good-Better-Best tiering with feature checklist; Better tier recommended</text>
 </svg>

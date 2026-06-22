@@ -1,27 +1,119 @@
-<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Resupply pillar: months-on-hand gauge and re-supply timing">
-  <defs><pattern id="cl3" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#fff" fill-opacity="0.05"/></pattern>
-  <radialGradient id="cl3v" cx="50%" cy="40%" r="66%"><stop offset="0%" stop-color="#fff" stop-opacity="0.06"/><stop offset="100%" stop-color="#fff" stop-opacity="0"/></radialGradient></defs>
-  <rect width="640" height="400" fill="#0a0a0a"/><rect width="640" height="400" fill="url(#cl3)"/><rect width="640" height="400" fill="url(#cl3v)"/>
-  <text x="40" y="64" font-family="'JetBrains Mono',monospace" font-size="11" fill="#fff" fill-opacity="0.6">RESUPPLY</text>
-  <!-- months-on-hand gauge -->
-  <g transform="translate(200,230)">
-    <path d="M-90 0 A 90 90 0 0 1 90 0" fill="none" stroke="#fff" stroke-opacity="0.15" stroke-width="14" stroke-linecap="round"/>
-    <path d="M-90 0 A 90 90 0 0 1 58 -68" fill="none" stroke="#fff" stroke-opacity="0.9" stroke-width="14" stroke-linecap="round"/>
-    <text y="-12" font-family="'Space Grotesk',sans-serif" font-size="30" fill="#fff" text-anchor="middle">4.2</text>
-    <text y="12" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.5" text-anchor="middle">MONTHS ON HAND</text>
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Resupply trigger logic: depot Months-on-Hand plotted against a reorder-point threshold with a trigger flag where it crosses below, a recommended resupply quantity and lead-time callout, and a rolling shipment-velocity trend below">
+  <defs>
+    <pattern id="g" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#fff" fill-opacity="0.05"/></pattern>
+    <radialGradient id="gv" cx="50%" cy="38%" r="66%"><stop offset="0%" stop-color="#fff" stop-opacity="0.06"/><stop offset="100%" stop-color="#fff" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="640" height="400" fill="#0a0a0a"/>
+  <rect width="640" height="400" fill="url(#g)"/>
+  <rect width="640" height="400" fill="url(#gv)"/>
+
+  <text x="32" y="34" font-family="'JetBrains Mono',monospace" font-size="10" fill="#fff" fill-opacity="0.5">RESUPPLY · TRIGGER LOGIC</text>
+  <text x="608" y="34" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.32">03 / 03</text>
+
+  
+  <rect x="32" y="52" width="438" height="186" rx="8" fill="#fff" fill-opacity="0.02" stroke="#fff" stroke-opacity="0.12" stroke-width="1"/>
+  <text x="44" y="70" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.5">MONTHS-ON-HAND</text>
+
+  <g font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.45">
+    <text x="50" y="84" text-anchor="end">6</text>
+    <text x="50" y="128" text-anchor="end">4</text>
+    <text x="50" y="172" text-anchor="end">2</text>
+    <text x="50" y="216" text-anchor="end">0</text>
   </g>
-  <!-- re-supply timing bars -->
-  <text x="380" y="120" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.5">RE-SUPPLY TIMING</text>
+  <g stroke="#fff" stroke-opacity="0.10" stroke-width="1">
+    <line x1="56" y1="81" x2="454" y2="81"/>
+    <line x1="56" y1="125" x2="454" y2="125"/>
+    <line x1="56" y1="169" x2="454" y2="169"/>
+  </g>
+  
+  <line x1="56" y1="80" x2="56" y2="213" stroke="#fff" stroke-opacity="0.20" stroke-width="1.5"/>
+  <line x1="56" y1="213" x2="454" y2="213" stroke="#fff" stroke-opacity="0.20" stroke-width="1.5"/>
+  
+  <g font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.45" text-anchor="middle">
+    <text x="96" y="226">W1</text>
+    <text x="152" y="226">W2</text>
+    <text x="208" y="226">W3</text>
+    <text x="264" y="226">W4</text>
+    <text x="320" y="226">W5</text>
+    <text x="376" y="226">W6</text>
+    <text x="432" y="226">W7</text>
+  </g>
+
+  <line x1="56" y1="169" x2="454" y2="169" stroke="#fff" stroke-opacity="0.5" stroke-width="1.5" stroke-dasharray="6 5"/>
+  <text x="450" y="163" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.55">REORDER POINT</text>
+
+  <rect x="320" y="169" width="134" height="44" fill="#fff" fill-opacity="0.05"/>
+
+  
+  <polyline points="96,98 152,116 208,135 264,153 320,171 376,184 432,193"
+            fill="none" stroke="#fff" stroke-opacity="0.4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <g fill="#fff" fill-opacity="0.45">
+    <circle cx="96" cy="98" r="2.5"/>
+    <circle cx="152" cy="116" r="2.5"/>
+    <circle cx="208" cy="135" r="2.5"/>
+    <circle cx="264" cy="153" r="2.5"/>
+    <circle cx="376" cy="184" r="2.5"/>
+    <circle cx="432" cy="193" r="2.5"/>
+  </g>
+
+  
+  <line x1="320" y1="171" x2="320" y2="213" stroke="#fff" stroke-opacity="0.85" stroke-width="1" stroke-dasharray="3 3"/>
+  <circle cx="320" cy="171" r="6.5" fill="#fff"/>
+  <circle cx="320" cy="171" r="11" fill="none" stroke="#fff" stroke-opacity="0.85" stroke-width="1.5"/>
+  
   <g>
-    <g font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.5">
-      <text x="372" y="156">SITE A</text><text x="372" y="186">SITE B</text><text x="372" y="216">SITE C</text><text x="372" y="246">DEPOT</text>
-    </g>
-    <g><rect x="436" y="146" width="150" height="14" rx="3" fill="#fff" fill-opacity="0.12"/><rect x="436" y="146" width="110" height="14" rx="3" fill="#fff" fill-opacity="0.7"/>
-       <rect x="436" y="176" width="150" height="14" rx="3" fill="#fff" fill-opacity="0.12"/><rect x="436" y="176" width="70" height="14" rx="3" fill="#fff" fill-opacity="0.7"/>
-       <rect x="436" y="206" width="150" height="14" rx="3" fill="#fff" fill-opacity="0.12"/><rect x="436" y="206" width="134" height="14" rx="3" fill="#fff" fill-opacity="0.7"/>
-       <rect x="436" y="236" width="150" height="14" rx="3" fill="#fff" fill-opacity="0.12"/><rect x="436" y="236" width="92" height="14" rx="3" fill="#fff" fill-opacity="0.7"/></g>
+    <line x1="320" y1="171" x2="320" y2="98" stroke="#fff" stroke-opacity="0.85" stroke-width="1.5"/>
+    <path d="M320 98 L356 98 L350 107 L356 116 L320 116 Z" fill="#fff"/>
+    <text x="338" y="110" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8.5" font-weight="bold" fill="#0a0a0a">TRIGGER</text>
   </g>
-  <!-- demand signal trigger -->
-  <g transform="translate(506,176)"><circle r="9" fill="#fff"/><path d="M-3 -1 l2 3 4 -5" stroke="#0a0a0a" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>
-  <text x="436" y="296" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.45">○ re-supply triggered on demand signal</text>
+
+  <rect x="482" y="52" width="130" height="186" rx="8" fill="#fff" fill-opacity="0.03" stroke="#fff" stroke-opacity="0.16" stroke-width="1"/>
+  <text x="497" y="72" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.5">RECOMMENDED</text>
+
+  <text x="497" y="98" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.45">RESUPPLY QTY</text>
+  <text x="497" y="116" font-family="'JetBrains Mono',monospace" font-size="15" fill="#fff" fill-opacity="0.9">+N units</text>
+
+  <line x1="497" y1="130" x2="597" y2="130" stroke="#fff" stroke-opacity="0.14" stroke-width="1"/>
+
+  <text x="497" y="150" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.45">LEAD TIME</text>
+  <text x="497" y="168" font-family="'JetBrains Mono',monospace" font-size="15" fill="#fff" fill-opacity="0.6">~T wks</text>
+
+  <line x1="497" y1="182" x2="597" y2="182" stroke="#fff" stroke-opacity="0.14" stroke-width="1"/>
+
+  <text x="497" y="202" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.45">STATUS</text>
+  <g>
+    <rect x="497" y="210" width="100" height="20" rx="5" fill="none" stroke="#fff" stroke-opacity="0.85" stroke-width="1.3" stroke-dasharray="4 3"/>
+    <path d="M507 220 l4 4 l7 -8" fill="none" stroke="#fff" stroke-opacity="0.85" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="524" y="224" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.85">ESCALATE</text>
+  </g>
+
+  <rect x="32" y="254" width="580" height="104" rx="8" fill="#fff" fill-opacity="0.02" stroke="#fff" stroke-opacity="0.12" stroke-width="1"/>
+  <text x="44" y="272" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.5">VELOCITY · ROLLING SHIPMENT / DISPENSE</text>
+
+  <line x1="56" y1="342" x2="596" y2="342" stroke="#fff" stroke-opacity="0.20" stroke-width="1.5"/>
+  
+  <g fill="#fff">
+    <rect x="84"  y="324" width="22" height="18" rx="3" fill-opacity="0.20"/>
+    <rect x="154" y="318" width="22" height="24" rx="3" fill-opacity="0.22"/>
+    <rect x="224" y="312" width="22" height="30" rx="3" fill-opacity="0.26"/>
+    <rect x="294" y="305" width="22" height="37" rx="3" fill-opacity="0.30"/>
+    <rect x="364" y="298" width="22" height="44" rx="3" fill-opacity="0.34"/>
+    <rect x="434" y="292" width="22" height="50" rx="3" fill-opacity="0.36"/>
+    <rect x="504" y="287" width="22" height="55" rx="3" fill-opacity="0.40"/>
+  </g>
+  
+  <polyline points="95,333 165,330 235,327 305,323 375,320 445,317 515,314"
+            fill="none" stroke="#fff" stroke-opacity="0.6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1 4"/>
+  <g font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.45" text-anchor="middle">
+    <text x="95" y="354">W1</text>
+    <text x="165" y="354">W2</text>
+    <text x="235" y="354">W3</text>
+    <text x="305" y="354">W4</text>
+    <text x="375" y="354">W5</text>
+    <text x="445" y="354">W6</text>
+    <text x="515" y="354">W7</text>
+  </g>
+  <text x="596" y="272" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.45">trend ▲</text>
+
+  <text x="32" y="372" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.45">MOH vs reorder-point threshold with trigger flags and a shipment-velocity trend</text>
 </svg>

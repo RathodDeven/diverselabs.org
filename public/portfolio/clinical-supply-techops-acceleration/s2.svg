@@ -1,38 +1,139 @@
-<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Critical-path map with a RACI responsibility grid">
-  <defs><pattern id="cs2" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#fff" fill-opacity="0.05"/></pattern>
-  <radialGradient id="cs2v" cx="50%" cy="38%" r="66%"><stop offset="0%" stop-color="#fff" stop-opacity="0.06"/><stop offset="100%" stop-color="#fff" stop-opacity="0"/></radialGradient></defs>
-  <rect width="640" height="400" fill="#0a0a0a"/><rect width="640" height="400" fill="url(#cs2)"/><rect width="640" height="400" fill="url(#cs2v)"/>
-  <text x="40" y="70" font-family="'JetBrains Mono',monospace" font-size="10" fill="#fff" fill-opacity="0.5">CRITICAL PATH</text>
-  <!-- critical path nodes -->
-  <path d="M70 130 H560" stroke="#fff" stroke-opacity="0.85" stroke-width="2.5"/>
-  <g fill="#fff"><circle cx="70" cy="130" r="7"/><circle cx="192" cy="130" r="7"/><circle cx="314" cy="130" r="7"/><circle cx="436" cy="130" r="7"/><circle cx="560" cy="130" r="7"/></g>
-  <!-- off-path (slack) branches -->
-  <g stroke="#fff" stroke-opacity="0.3" stroke-width="1.5" fill="none"><path d="M192 130 C 240 90, 280 90, 314 130"/><path d="M314 130 C 360 170, 400 170, 436 130"/></g>
-  <g fill="#fff" fill-opacity="0.4"><circle cx="253" cy="92" r="4"/><circle cx="375" cy="168" r="4"/></g>
-  <g font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.5" text-anchor="middle">
-    <text x="70" y="156">DS</text><text x="192" y="156">DP</text><text x="314" y="156">QC</text><text x="436" y="156">REL</text><text x="560" y="156">SITE</text>
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Critical-path map and RACI: four-phase swimlane of activity cards with the critical path highlighted across phases, and an activity-by-function RACI matrix">
+  <defs>
+    <pattern id="g" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#fff" fill-opacity="0.05"/></pattern>
+    <radialGradient id="gv" cx="50%" cy="38%" r="66%"><stop offset="0%" stop-color="#fff" stop-opacity="0.06"/><stop offset="100%" stop-color="#fff" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="640" height="400" fill="#0a0a0a"/>
+  <rect width="640" height="400" fill="url(#g)"/>
+  <rect width="640" height="400" fill="url(#gv)"/>
+
+  <text x="32" y="34" font-family="'JetBrains Mono',monospace" font-size="10" fill="#fff" fill-opacity="0.5">CRITICAL-PATH MAP · RACI</text>
+  <text x="608" y="34" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.32">02 / 03</text>
+
+  <g font-family="'JetBrains Mono',monospace">
+    
+    <path d="M32 56 H172 L186 70 L172 84 H32 Z" fill="#fff" fill-opacity="0.08" stroke="#fff" stroke-opacity="0.18" stroke-width="1"/>
+    <text x="44" y="74" font-size="9.5" fill="#fff" fill-opacity="0.58" letter-spacing="0.5">DESIGN</text>
+    
+    <path d="M190 56 H328 L342 70 L328 84 H190 L204 70 Z" fill="#fff" fill-opacity="0.08" stroke="#fff" stroke-opacity="0.18" stroke-width="1"/>
+    <text x="216" y="74" font-size="9.5" fill="#fff" fill-opacity="0.58" letter-spacing="0.5">START-UP</text>
+    
+    <path d="M346 56 H484 L498 70 L484 84 H346 L360 70 Z" fill="#fff" fill-opacity="0.08" stroke="#fff" stroke-opacity="0.18" stroke-width="1"/>
+    <text x="370" y="74" font-size="9.5" fill="#fff" fill-opacity="0.58" letter-spacing="0.5">EXECUTION</text>
+    
+    <path d="M502 56 H612 V84 H502 L516 70 Z" fill="#fff" fill-opacity="0.08" stroke="#fff" stroke-opacity="0.18" stroke-width="1"/>
+    <text x="528" y="74" font-size="9.5" fill="#fff" fill-opacity="0.58" letter-spacing="0.5">CLOSE-OUT</text>
   </g>
-  <!-- RACI grid -->
-  <text x="40" y="222" font-family="'JetBrains Mono',monospace" font-size="10" fill="#fff" fill-opacity="0.5">RACI</text>
-  <g font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.45" text-anchor="middle">
-    <text x="300" y="244">TECHOPS</text><text x="372" y="244">QUALITY</text><text x="444" y="244">CLINOPS</text><text x="516" y="244">SUPPLY</text>
+
+  <g font-family="'JetBrains Mono',monospace">
+    
+    <rect x="36" y="96" width="146" height="26" rx="5" fill="#fff" fill-opacity="0.20" stroke="#fff" stroke-opacity="0.16"/>
+    <text x="46" y="112" font-size="8.5" fill="#fff" fill-opacity="0.6">A1 · Scope</text>
+    <rect x="36" y="128" width="146" height="26" rx="5" fill="#fff" fill-opacity="0.18" stroke="#fff" stroke-opacity="0.14"/>
+    <text x="46" y="144" font-size="8.5" fill="#fff" fill-opacity="0.55">A2 · Reqs</text>
+
+    <rect x="196" y="96" width="140" height="26" rx="5" fill="#fff" fill-opacity="0.20" stroke="#fff" stroke-opacity="0.16"/>
+    <text x="206" y="112" font-size="8.5" fill="#fff" fill-opacity="0.6">A3 · Build</text>
+    <rect x="196" y="128" width="140" height="26" rx="5" fill="#fff" fill-opacity="0.18" stroke="#fff" stroke-opacity="0.14"/>
+    <text x="206" y="144" font-size="8.5" fill="#fff" fill-opacity="0.55">A4 · Qualify</text>
+
+    <rect x="352" y="96" width="140" height="26" rx="5" fill="#fff" fill-opacity="0.20" stroke="#fff" stroke-opacity="0.16"/>
+    <text x="362" y="112" font-size="8.5" fill="#fff" fill-opacity="0.6">A5 · Run</text>
+    <rect x="352" y="128" width="140" height="26" rx="5" fill="#fff" fill-opacity="0.18" stroke="#fff" stroke-opacity="0.14"/>
+    <text x="362" y="144" font-size="8.5" fill="#fff" fill-opacity="0.55">A6 · Monitor</text>
+
+    <rect x="508" y="96" width="104" height="26" rx="5" fill="#fff" fill-opacity="0.20" stroke="#fff" stroke-opacity="0.16"/>
+    <text x="518" y="112" font-size="8.5" fill="#fff" fill-opacity="0.6">A7 · Verify</text>
+    <rect x="508" y="128" width="104" height="26" rx="5" fill="#fff" fill-opacity="0.18" stroke="#fff" stroke-opacity="0.14"/>
+    <text x="518" y="144" font-size="8.5" fill="#fff" fill-opacity="0.55">A8 · Hand-off</text>
   </g>
-  <g font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.5">
-    <text x="40" y="272">PLAN</text><text x="40" y="300">MAKE</text><text x="40" y="328">SHIP</text>
+
+  <g stroke="#fff" stroke-opacity="0.16" stroke-width="1" fill="none" stroke-linecap="round">
+    <path d="M182 109 H196"/>
+    <path d="M336 109 H352"/>
+    <path d="M492 109 H508"/>
   </g>
-  <!-- cells with R/A/C/I letters -->
-  <g font-family="'JetBrains Mono',monospace" font-size="10" text-anchor="middle">
-    <g><rect x="270" y="256" width="60" height="22" rx="3" fill="#fff" fill-opacity="0.28"/><text x="300" y="271" fill="#0a0a0a">A</text></g>
-    <g><rect x="342" y="256" width="60" height="22" rx="3" fill="#fff" fill-opacity="0.12"/><text x="372" y="271" fill="#fff" fill-opacity="0.7">C</text></g>
-    <g><rect x="414" y="256" width="60" height="22" rx="3" fill="#fff" fill-opacity="0.12"/><text x="444" y="271" fill="#fff" fill-opacity="0.7">R</text></g>
-    <g><rect x="486" y="256" width="60" height="22" rx="3" fill="#fff" fill-opacity="0.08"/><text x="516" y="271" fill="#fff" fill-opacity="0.5">I</text></g>
-    <g><rect x="270" y="284" width="60" height="22" rx="3" fill="#fff" fill-opacity="0.28"/><text x="300" y="299" fill="#0a0a0a">R</text></g>
-    <g><rect x="342" y="284" width="60" height="22" rx="3" fill="#fff" fill-opacity="0.28"/><text x="372" y="299" fill="#0a0a0a">A</text></g>
-    <g><rect x="414" y="284" width="60" height="22" rx="3" fill="#fff" fill-opacity="0.08"/><text x="444" y="299" fill="#fff" fill-opacity="0.5">I</text></g>
-    <g><rect x="486" y="284" width="60" height="22" rx="3" fill="#fff" fill-opacity="0.12"/><text x="516" y="299" fill="#fff" fill-opacity="0.7">C</text></g>
-    <g><rect x="270" y="312" width="60" height="22" rx="3" fill="#fff" fill-opacity="0.12"/><text x="300" y="327" fill="#fff" fill-opacity="0.7">C</text></g>
-    <g><rect x="342" y="312" width="60" height="22" rx="3" fill="#fff" fill-opacity="0.08"/><text x="372" y="327" fill="#fff" fill-opacity="0.5">I</text></g>
-    <g><rect x="414" y="312" width="60" height="22" rx="3" fill="#fff" fill-opacity="0.28"/><text x="444" y="327" fill="#0a0a0a">A</text></g>
-    <g><rect x="486" y="312" width="60" height="22" rx="3" fill="#fff" fill-opacity="0.28"/><text x="516" y="327" fill="#0a0a0a">R</text></g>
+
+  <g fill="none" stroke="#fff" stroke-opacity="0.95" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="34" y="94" width="150" height="30" rx="6" stroke-dasharray="4 3"/>
+    <rect x="194" y="94" width="144" height="30" rx="6" stroke-dasharray="4 3"/>
+    <rect x="350" y="94" width="144" height="30" rx="6" stroke-dasharray="4 3"/>
+    <rect x="506" y="94" width="108" height="30" rx="6" stroke-dasharray="4 3"/>
+    
+    <path d="M184 109 H194 M334 109 H350 M490 109 H506"/>
   </g>
+  <text x="34" y="172" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.9">▸ CRITICAL PATH · A1 → A3 → A5 → A7</text>
+
+  <g font-family="'JetBrains Mono',monospace">
+    <text x="32" y="206" font-size="9" fill="#fff" fill-opacity="0.5">RACI · ACTIVITY × FUNCTION</text>
+
+    
+    <text x="34" y="232" font-size="8.5" fill="#fff" fill-opacity="0.45">ACTIVITY</text>
+    <g font-size="8.5" fill="#fff" fill-opacity="0.5" text-anchor="middle">
+      <text x="240" y="232">F1</text>
+      <text x="312" y="232">F2</text>
+      <text x="384" y="232">F3</text>
+      <text x="456" y="232">F4</text>
+      <text x="528" y="232">F5</text>
+    </g>
+
+    <g stroke="#fff" stroke-opacity="0.14" stroke-width="1">
+      
+      <line x1="32" y1="238" x2="572" y2="238"/>
+      <line x1="32" y1="254" x2="572" y2="254"/>
+      <line x1="32" y1="270" x2="572" y2="270"/>
+      <line x1="32" y1="286" x2="572" y2="286"/>
+      <line x1="32" y1="302" x2="572" y2="302"/>
+      <line x1="32" y1="318" x2="572" y2="318"/>
+      <line x1="32" y1="334" x2="572" y2="334"/>
+      <line x1="32" y1="350" x2="572" y2="350"/>
+      <line x1="32" y1="366" x2="572" y2="366"/>
+      
+      <line x1="204" y1="238" x2="204" y2="366" stroke-opacity="0.18"/>
+    </g>
+
+    <g font-size="8.5" fill="#fff" fill-opacity="0.55">
+      <text x="38" y="250">A1 Scope</text>
+      <text x="38" y="266">A2 Reqs</text>
+      <text x="38" y="282">A3 Build</text>
+      <text x="38" y="298">A4 Qualify</text>
+      <text x="38" y="314">A5 Run</text>
+      <text x="38" y="330">A6 Monitor</text>
+      <text x="38" y="346">A7 Verify</text>
+      <text x="38" y="362">A8 Hand-off</text>
+    </g>
+
+    <g font-size="8.5" text-anchor="middle" fill="#fff">
+      
+      <text x="240" y="250" fill-opacity="0.6">A</text><text x="312" y="250" fill-opacity="0.55">R</text><text x="384" y="250" fill-opacity="0.45">C</text><text x="456" y="250" fill-opacity="0.4">I</text><text x="528" y="250" fill-opacity="0.4">I</text>
+      
+      <text x="240" y="266" fill-opacity="0.5">C</text><text x="312" y="266" fill-opacity="0.6">A</text><text x="384" y="266" fill-opacity="0.55">R</text><text x="456" y="266" fill-opacity="0.4">I</text><text x="528" y="266" fill-opacity="0.45">C</text>
+      
+      <text x="240" y="282" fill-opacity="0.4">I</text><text x="312" y="282" fill-opacity="0.55">R</text><text x="384" y="282" fill-opacity="0.6">A</text><text x="456" y="282" fill-opacity="0.45">C</text><text x="528" y="282" fill-opacity="0.4">I</text>
+      
+      <text x="240" y="298" fill-opacity="0.45">C</text><text x="312" y="298" fill-opacity="0.4">I</text><text x="384" y="298" fill-opacity="0.6">A</text><text x="456" y="298" fill-opacity="0.55">R</text><text x="528" y="298" fill-opacity="0.4">I</text>
+      
+      <text x="240" y="314" fill-opacity="0.4">I</text><text x="312" y="314" fill-opacity="0.45">C</text><text x="384" y="314" fill-opacity="0.55">R</text><text x="456" y="314" fill-opacity="0.6">A</text><text x="528" y="314" fill-opacity="0.4">I</text>
+      
+      <text x="240" y="330" fill-opacity="0.4">I</text><text x="312" y="330" fill-opacity="0.4">I</text><text x="384" y="330" fill-opacity="0.45">C</text><text x="456" y="330" fill-opacity="0.6">A</text><text x="528" y="330" fill-opacity="0.55">R</text>
+      
+      <text x="240" y="346" fill-opacity="0.45">C</text><text x="312" y="346" fill-opacity="0.4">I</text><text x="384" y="346" fill-opacity="0.4">I</text><text x="456" y="346" fill-opacity="0.55">R</text><text x="528" y="346" fill-opacity="0.6">A</text>
+      
+      <text x="240" y="362" fill-opacity="0.6">A</text><text x="312" y="362" fill-opacity="0.4">I</text><text x="384" y="362" fill-opacity="0.4">I</text><text x="456" y="362" fill-opacity="0.45">C</text><text x="528" y="362" fill-opacity="0.55">R</text>
+    </g>
+  </g>
+
+  <g font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff">
+    <text x="586" y="232" fill-opacity="0.5">KEY</text>
+    <text x="586" y="252" fill-opacity="0.5">R Responsible</text>
+    <text x="586" y="268" fill-opacity="0.5">A Accountable</text>
+    <text x="586" y="284" fill-opacity="0.5">C Consulted</text>
+    <text x="586" y="300" fill-opacity="0.5">I Informed</text>
+    <line x1="586" y1="312" x2="612" y2="312" stroke="#fff" stroke-opacity="0.18"/>
+    <rect x="586" y="320" width="14" height="10" rx="3" fill="none" stroke="#fff" stroke-opacity="0.9" stroke-width="1.4" stroke-dasharray="3 2"/>
+    <text x="586" y="346" fill-opacity="0.6">Critical</text>
+    <text x="586" y="358" fill-opacity="0.6">path</text>
+  </g>
+
+  <text x="32" y="384" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.45">E2E swimlane · critical path highlighted · activity × function RACI</text>
 </svg>
