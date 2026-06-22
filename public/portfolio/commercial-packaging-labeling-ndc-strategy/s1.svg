@@ -1,0 +1,77 @@
+<svg viewBox="0 0 640 400" role="img" aria-label="Decision scorecard comparing pack-and-label CMO candidates across price, terms, engagement and bottle-plus-blister capability; one candidate paused, one added late, and one marked as the target." xmlns="http://www.w3.org/2000/svg" font-family="'JetBrains Mono',monospace">
+  <defs>
+    <pattern id="dots" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="1" fill="#fff" fill-opacity="0.05"/>
+    </pattern>
+    <radialGradient id="vig" cx="50%" cy="38%" r="66%">
+      <stop offset="0%" stop-color="#fff" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#fff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect x="0" y="0" width="640" height="400" fill="#0a0a0a"/>
+  <rect x="0" y="0" width="640" height="400" fill="url(#dots)"/>
+  <rect x="0" y="0" width="640" height="400" fill="url(#vig)"/>
+
+  <text x="32" y="34" font-size="10" fill="#fff" fill-opacity="0.5" letter-spacing="1.5">PACK &amp; LABEL · CMO SCREEN</text>
+  <text x="612" y="34" font-size="9" fill="#fff" fill-opacity="0.32" text-anchor="end">01 / 03</text>
+
+  <text x="56" y="78" font-size="9" fill="#fff" fill-opacity="0.5">CANDIDATE</text>
+  <text x="270" y="78" font-size="9" fill="#fff" fill-opacity="0.55" text-anchor="middle">Price/bottle</text>
+  <text x="360" y="78" font-size="9" fill="#fff" fill-opacity="0.55" text-anchor="middle">Terms</text>
+  <text x="450" y="78" font-size="9" fill="#fff" fill-opacity="0.55" text-anchor="middle">Engagement</text>
+  <text x="545" y="78" font-size="9" fill="#fff" fill-opacity="0.55" text-anchor="middle">Bottle+blister</text>
+
+  <line x1="32" y1="88" x2="608" y2="88" stroke="#fff" stroke-opacity="0.22" stroke-width="1.5" stroke-linecap="round"/>
+
+  <line x1="225" y1="92" x2="225" y2="332" stroke="#fff" stroke-opacity="0.12" stroke-width="1"/>
+  <line x1="315" y1="92" x2="315" y2="332" stroke="#fff" stroke-opacity="0.12" stroke-width="1"/>
+  <line x1="405" y1="92" x2="405" y2="332" stroke="#fff" stroke-opacity="0.12" stroke-width="1"/>
+  <line x1="497" y1="92" x2="497" y2="332" stroke="#fff" stroke-opacity="0.12" stroke-width="1"/>
+
+  <text x="56" y="116" font-size="10" fill="#fff" fill-opacity="0.6">Candidate A</text>
+  <rect x="248" y="106" width="44" height="6" rx="3" fill="#fff" fill-opacity="0.30"/>
+  <circle cx="345" cy="109" r="3" fill="#fff" fill-opacity="0.34"/><circle cx="357" cy="109" r="3" fill="#fff" fill-opacity="0.34"/><circle cx="369" cy="109" r="3" fill="#fff" fill-opacity="0.18"/>
+  <rect x="426" y="106" width="48" height="6" rx="3" fill="#fff" fill-opacity="0.28"/>
+  <circle cx="538" cy="109" r="4" fill="#fff" fill-opacity="0.34"/>
+  <line x1="32" y1="128" x2="608" y2="128" stroke="#fff" stroke-opacity="0.12" stroke-width="1"/>
+
+  <text x="56" y="156" font-size="10" fill="#fff" fill-opacity="0.32">Candidate B</text>
+  <rect x="248" y="146" width="30" height="6" rx="3" fill="#fff" fill-opacity="0.16"/>
+  <circle cx="345" cy="149" r="3" fill="#fff" fill-opacity="0.16"/><circle cx="357" cy="149" r="3" fill="#fff" fill-opacity="0.16"/><circle cx="369" cy="149" r="3" fill="#fff" fill-opacity="0.16"/>
+  <rect x="426" y="146" width="34" height="6" rx="3" fill="#fff" fill-opacity="0.16"/>
+  <circle cx="538" cy="149" r="4" fill="#fff" fill-opacity="0.16"/>
+  <line x1="52" y1="150" x2="476" y2="150" stroke="#fff" stroke-opacity="0.30" stroke-width="1" stroke-linecap="round"/>
+  <rect x="512" y="143" width="58" height="15" rx="5" fill="none" stroke="#fff" stroke-opacity="0.30" stroke-width="1"/>
+  <text x="541" y="153" font-size="8" fill="#fff" fill-opacity="0.45" text-anchor="middle" letter-spacing="0.5">Paused</text>
+  <line x1="32" y1="168" x2="608" y2="168" stroke="#fff" stroke-opacity="0.12" stroke-width="1"/>
+
+  <rect x="32" y="174" width="576" height="36" rx="6" fill="#fff" fill-opacity="0.06" stroke="#fff" stroke-opacity="0.9" stroke-width="1.5"/>
+  <text x="56" y="196" font-size="10" fill="#fff" fill-opacity="1">Candidate C</text>
+  <rect x="248" y="189" width="50" height="6" rx="3" fill="#fff" fill-opacity="0.40"/>
+  <circle cx="345" cy="192" r="3" fill="#fff"/><circle cx="357" cy="192" r="3" fill="#fff"/><circle cx="369" cy="192" r="3" fill="#fff"/>
+  <rect x="426" y="189" width="58" height="6" rx="3" fill="#fff" fill-opacity="0.40"/>
+  <circle cx="538" cy="192" r="4" fill="#fff"/>
+  <rect x="512" y="186" width="58" height="15" rx="5" fill="#fff"/>
+  <text x="541" y="196" font-size="8" fill="#0a0a0a" text-anchor="middle" letter-spacing="0.5">Target</text>
+  <line x1="32" y1="226" x2="608" y2="226" stroke="#fff" stroke-opacity="0.12" stroke-width="1"/>
+
+  <text x="56" y="252" font-size="10" fill="#fff" fill-opacity="0.6">Candidate D</text>
+  <rect x="248" y="242" width="40" height="6" rx="3" fill="#fff" fill-opacity="0.28"/>
+  <circle cx="345" cy="245" r="3" fill="#fff" fill-opacity="0.34"/><circle cx="357" cy="245" r="3" fill="#fff" fill-opacity="0.18"/><circle cx="369" cy="245" r="3" fill="#fff" fill-opacity="0.18"/>
+  <rect x="426" y="242" width="40" height="6" rx="3" fill="#fff" fill-opacity="0.24"/>
+  <circle cx="538" cy="245" r="4" fill="#fff" fill-opacity="0.18"/>
+  <line x1="32" y1="264" x2="608" y2="264" stroke="#fff" stroke-opacity="0.12" stroke-width="1"/>
+
+  <text x="56" y="294" font-size="10" fill="#fff" fill-opacity="0.6">EU blister packager</text>
+  <rect x="248" y="284" width="36" height="6" rx="3" fill="#fff" fill-opacity="0.22"/>
+  <circle cx="345" cy="287" r="3" fill="#fff" fill-opacity="0.34"/><circle cx="357" cy="287" r="3" fill="#fff" fill-opacity="0.18"/><circle cx="369" cy="287" r="3" fill="#fff" fill-opacity="0.18"/>
+  <rect x="426" y="284" width="30" height="6" rx="3" fill="#fff" fill-opacity="0.20"/>
+  <circle cx="538" cy="287" r="4" fill="#fff" fill-opacity="0.40"/>
+  <rect x="505" y="297" width="65" height="15" rx="5" fill="none" stroke="#fff" stroke-opacity="0.30" stroke-width="1" stroke-dasharray="3 2"/>
+  <text x="537" y="307" font-size="8" fill="#fff" fill-opacity="0.45" text-anchor="middle" letter-spacing="0.5">Added late</text>
+
+  <line x1="32" y1="332" x2="608" y2="332" stroke="#fff" stroke-opacity="0.22" stroke-width="1.5" stroke-linecap="round"/>
+
+  <text x="32" y="372" font-size="9" fill="#fff" fill-opacity="0.45">Candidates scored on price, terms and engagement; one paused, one targeted</text>
+</svg>

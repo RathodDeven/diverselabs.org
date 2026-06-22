@@ -1,0 +1,83 @@
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Linear readiness flow of identifier and compliance steps from labeler code through NDC, GS1 prefix, GTIN, DSCSA serialization and aggregation, online coding, with a parallel QP audit and QP certification branch for EU/UK, ending at QP-certified release.">
+  <defs>
+    <pattern id="dots" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="13" cy="13" r="1" fill="#fff" fill-opacity="0.05"/>
+    </pattern>
+    <radialGradient id="vig" cx="50%" cy="38%" r="66%">
+      <stop offset="0%" stop-color="#fff" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#fff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect x="0" y="0" width="640" height="400" fill="#0a0a0a"/>
+  <rect x="0" y="0" width="640" height="400" fill="url(#dots)"/>
+  <rect x="0" y="0" width="640" height="400" fill="url(#vig)"/>
+
+  <text x="32" y="34" font-family="'JetBrains Mono',monospace" font-size="10" fill="#fff" fill-opacity="0.5" letter-spacing="1.5">PACK-LABEL · NDC &amp; SERIALIZATION</text>
+  <text x="612" y="34" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.32">03 / 03</text>
+
+  <line x1="32" y1="46" x2="608" y2="46" stroke="#fff" stroke-opacity="0.14" stroke-width="1"/>
+
+  <text x="32" y="78" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.5" letter-spacing="1">US · IDENTIFIER TRACK</text>
+
+  <line x1="148" y1="118" x2="184" y2="118" stroke="#fff" stroke-opacity="0.2" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="268" y1="118" x2="304" y2="118" stroke="#fff" stroke-opacity="0.2" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="388" y1="118" x2="424" y2="118" stroke="#fff" stroke-opacity="0.2" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="508" y1="118" x2="544" y2="118" stroke="#fff" stroke-opacity="0.2" stroke-width="1.5" stroke-linecap="round"/>
+
+  <rect x="32" y="94" width="116" height="48" rx="6" fill="#fff" fill-opacity="0.18" stroke="#fff" stroke-opacity="0.16" stroke-width="1"/>
+  <text x="90" y="115" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="10" fill="#fff" fill-opacity="0.6">Labeler code</text>
+  <text x="90" y="130" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.45">assigned</text>
+
+  <rect x="184" y="88" width="84" height="60" rx="6" fill="#fff" fill-opacity="0.22" stroke="#fff" stroke-opacity="0.18" stroke-width="1"/>
+  <text x="226" y="108" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="11" fill="#fff" fill-opacity="0.62">NDC</text>
+  <text x="226" y="124" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.5">5-4-1</text>
+  <text x="226" y="137" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.5">5-3-2</text>
+
+  <rect x="304" y="94" width="84" height="48" rx="6" fill="#fff" fill-opacity="0.18" stroke="#fff" stroke-opacity="0.16" stroke-width="1"/>
+  <text x="346" y="115" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="10" fill="#fff" fill-opacity="0.6">GS1 prefix</text>
+  <text x="346" y="130" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.45">company</text>
+
+  <rect x="424" y="94" width="84" height="48" rx="6" fill="#fff" fill-opacity="0.18" stroke="#fff" stroke-opacity="0.16" stroke-width="1"/>
+  <text x="466" y="115" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="11" fill="#fff" fill-opacity="0.62">GTIN</text>
+  <text x="466" y="130" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.45">derived</text>
+
+  <rect x="544" y="94" width="64" height="48" rx="6" fill="#fff" fill-opacity="0.18" stroke="#fff" stroke-opacity="0.16" stroke-width="1"/>
+  <text x="576" y="113" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.6">Serial-</text>
+  <text x="576" y="124" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.6">ization</text>
+  <text x="576" y="135" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="7" fill="#fff" fill-opacity="0.45">DSCSA</text>
+
+  <path d="M576 142 L576 168 L226 168 L226 192" fill="none" stroke="#fff" stroke-opacity="0.2" stroke-width="1.5" stroke-linecap="round"/>
+
+  <line x1="316" y1="216" x2="352" y2="216" stroke="#fff" stroke-opacity="0.2" stroke-width="1.5" stroke-linecap="round"/>
+
+  <rect x="184" y="192" width="132" height="48" rx="6" fill="#fff" fill-opacity="0.18" stroke="#fff" stroke-opacity="0.16" stroke-width="1"/>
+  <text x="250" y="213" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.6">Aggregation</text>
+  <text x="250" y="228" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.45">hierarchy build</text>
+
+  <rect x="352" y="192" width="120" height="48" rx="6" fill="#fff" fill-opacity="0.18" stroke="#fff" stroke-opacity="0.16" stroke-width="1"/>
+  <text x="412" y="213" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.6">On-line coding</text>
+  <text x="412" y="228" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.45">print &amp; verify</text>
+
+  <text x="32" y="280" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.5" letter-spacing="1">EU/UK · CERTIFICATION BRANCH</text>
+
+  <path d="M472 216 L500 216 L500 296 L184 296 L184 308" fill="none" stroke="#fff" stroke-opacity="0.16" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="4 4"/>
+
+  <line x1="304" y1="328" x2="340" y2="328" stroke="#fff" stroke-opacity="0.2" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="460" y1="328" x2="496" y2="328" stroke="#fff" stroke-opacity="0.28" stroke-width="1.5" stroke-linecap="round"/>
+
+  <rect x="184" y="308" width="120" height="44" rx="6" fill="#fff" fill-opacity="0.18" stroke="#fff" stroke-opacity="0.16" stroke-width="1"/>
+  <text x="244" y="328" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.6">QP audit</text>
+  <text x="244" y="342" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.45">EU/UK</text>
+
+  <rect x="340" y="308" width="120" height="44" rx="6" fill="#fff" fill-opacity="0.18" stroke="#fff" stroke-opacity="0.16" stroke-width="1"/>
+  <text x="400" y="328" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.6">QP certification</text>
+  <text x="400" y="342" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.45">at DP</text>
+
+  <rect x="496" y="304" width="112" height="52" rx="10" fill="#fff" fill-opacity="0.92" stroke="#fff" stroke-opacity="0.9" stroke-width="1.5"/>
+  <text x="552" y="326" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="10" fill="#0a0a0a" font-weight="bold">Certified</text>
+  <text x="552" y="340" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#0a0a0a">release</text>
+
+  <line x1="32" y1="360" x2="608" y2="360" stroke="#fff" stroke-opacity="0.12" stroke-width="1"/>
+  <text x="32" y="372" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.45">Identifier and compliance steps from labeler code to QP-certified release</text>
+</svg>

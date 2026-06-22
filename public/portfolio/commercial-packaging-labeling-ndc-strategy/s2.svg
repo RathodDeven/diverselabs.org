@@ -1,0 +1,120 @@
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="US versus EU network strategy flow map: a top US lane runs drug product through bottle, pack, label, NDC and serialize to the US market via a single integrated CMO; a bottom EU and UK lane shows Model 1 shipping finished product to an EU 3PL with outsourced QP release, and Model 2 shipping bulk drug product to an EU CMO that bottles, packs, labels and QP-releases for EU and UK.">
+  <defs>
+    <pattern id="dots" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="13" cy="13" r="1" fill="#fff" fill-opacity="0.05"/>
+    </pattern>
+    <radialGradient id="vig" cx="50%" cy="38%" r="66%">
+      <stop offset="0%" stop-color="#fff" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#fff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect x="0" y="0" width="640" height="400" fill="#0a0a0a"/>
+  <rect x="0" y="0" width="640" height="400" fill="url(#dots)"/>
+  <rect x="0" y="0" width="640" height="400" fill="url(#vig)"/>
+
+  <text x="32" y="34" font-family="'JetBrains Mono',monospace" font-size="10" fill="#fff" fill-opacity="0.5" letter-spacing="1.5">PACK-LABEL · US vs EU NETWORK</text>
+  <text x="612" y="34" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.32">02 / 03</text>
+
+  <line x1="28" y1="46" x2="612" y2="46" stroke="#fff" stroke-opacity="0.14" stroke-width="1"/>
+
+  <rect x="28" y="60" width="584" height="128" rx="10" fill="#fff" fill-opacity="0" stroke="#fff" stroke-opacity="0.14" stroke-width="1"/>
+  <text x="44" y="80" font-family="'JetBrains Mono',monospace" font-size="11" fill="#fff" fill-opacity="0.6" letter-spacing="1">US</text>
+  <text x="44" y="94" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.45">single integrated CMO</text>
+
+  
+  <g font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff">
+    <rect x="70" y="112" width="76" height="46" rx="6" fill="#fff" fill-opacity="0.18" stroke="#fff" stroke-opacity="0.2" stroke-width="1"/>
+    <text x="108" y="133" text-anchor="middle" fill-opacity="0.6">Drug</text>
+    <text x="108" y="144" text-anchor="middle" fill-opacity="0.6">product</text>
+
+    <rect x="166" y="112" width="62" height="46" rx="6" fill="#fff" fill-opacity="0.18" stroke="#fff" stroke-opacity="0.2" stroke-width="1"/>
+    <text x="197" y="139" text-anchor="middle" fill-opacity="0.6">Bottle</text>
+
+    <rect x="248" y="112" width="62" height="46" rx="6" fill="#fff" fill-opacity="0.18" stroke="#fff" stroke-opacity="0.2" stroke-width="1"/>
+    <text x="279" y="139" text-anchor="middle" fill-opacity="0.6">Pack</text>
+
+    <rect x="330" y="112" width="62" height="46" rx="6" fill="#fff" fill-opacity="0.18" stroke="#fff" stroke-opacity="0.2" stroke-width="1"/>
+    <text x="361" y="139" text-anchor="middle" fill-opacity="0.6">Label</text>
+
+    <rect x="412" y="112" width="84" height="46" rx="6" fill="#fff" fill-opacity="0.18" stroke="#fff" stroke-opacity="0.2" stroke-width="1"/>
+    <text x="454" y="133" text-anchor="middle" fill-opacity="0.6">NDC +</text>
+    <text x="454" y="144" text-anchor="middle" fill-opacity="0.6">serialize</text>
+  </g>
+
+  <rect x="516" y="108" width="80" height="54" rx="7" fill="#fff" fill-opacity="0.4" stroke="#fff" stroke-opacity="0.95" stroke-width="1.5"/>
+  <text x="556" y="131" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="1">US</text>
+  <text x="556" y="143" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="1">market</text>
+
+  <g stroke="#fff" stroke-opacity="0.45" stroke-width="1.5" stroke-linecap="round" fill="none">
+    <path d="M146 135 L164 135"/>
+    <path d="M228 135 L246 135"/>
+    <path d="M310 135 L328 135"/>
+    <path d="M392 135 L410 135"/>
+    <path d="M496 135 L514 135"/>
+  </g>
+  <g fill="#fff" fill-opacity="0.45">
+    <path d="M164 135 l-6 -3 v6 z"/>
+    <path d="M246 135 l-6 -3 v6 z"/>
+    <path d="M328 135 l-6 -3 v6 z"/>
+    <path d="M410 135 l-6 -3 v6 z"/>
+    <path d="M514 135 l-6 -3 v6 z"/>
+  </g>
+
+  <rect x="28" y="200" width="584" height="156" rx="10" fill="#fff" fill-opacity="0" stroke="#fff" stroke-opacity="0.14" stroke-width="1"/>
+  <text x="44" y="220" font-family="'JetBrains Mono',monospace" font-size="11" fill="#fff" fill-opacity="0.6" letter-spacing="1">EU</text>
+  <text x="44" y="234" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.45">two candidate models</text>
+
+  <rect x="540" y="208" width="56" height="20" rx="5" fill="#fff" fill-opacity="0.12" stroke="#fff" stroke-opacity="0.22" stroke-width="1"/>
+  <text x="568" y="221" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.55">UK covered</text>
+
+  <line x1="44" y1="288" x2="596" y2="288" stroke="#fff" stroke-opacity="0.12" stroke-width="1" stroke-dasharray="2 4"/>
+
+  <text x="44" y="262" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.5">Model 1</text>
+  <g font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff">
+    <rect x="118" y="244" width="92" height="36" rx="6" fill="#fff" fill-opacity="0.18" stroke="#fff" stroke-opacity="0.2" stroke-width="1"/>
+    <text x="164" y="260" text-anchor="middle" fill-opacity="0.6">Finished</text>
+    <text x="164" y="271" text-anchor="middle" fill-opacity="0.6">product</text>
+
+    <rect x="262" y="244" width="92" height="36" rx="6" fill="#fff" fill-opacity="0.18" stroke="#fff" stroke-opacity="0.2" stroke-width="1"/>
+    <text x="308" y="265" text-anchor="middle" fill-opacity="0.6">QP release</text>
+
+    <rect x="406" y="244" width="96" height="36" rx="6" fill="#fff" fill-opacity="0.22" stroke="#fff" stroke-opacity="0.22" stroke-width="1"/>
+    <text x="454" y="260" text-anchor="middle" fill-opacity="0.6">EU 3PL</text>
+    <text x="454" y="271" text-anchor="middle" fill-opacity="0.6">distribution</text>
+  </g>
+  <text x="308" y="280" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="7" fill="#fff" fill-opacity="0.42">outsourced</text>
+  <g stroke="#fff" stroke-opacity="0.45" stroke-width="1.5" stroke-linecap="round" fill="none">
+    <path d="M210 262 L260 262"/>
+    <path d="M354 262 L404 262"/>
+  </g>
+  <g fill="#fff" fill-opacity="0.45">
+    <path d="M260 262 l-6 -3 v6 z"/>
+    <path d="M404 262 l-6 -3 v6 z"/>
+  </g>
+
+  <text x="44" y="322" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.5">Model 2</text>
+  <g font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff">
+    <rect x="118" y="304" width="92" height="36" rx="6" fill="#fff" fill-opacity="0.18" stroke="#fff" stroke-opacity="0.2" stroke-width="1"/>
+    <text x="164" y="320" text-anchor="middle" fill-opacity="0.6">Bulk DP</text>
+    <text x="164" y="331" text-anchor="middle" fill-opacity="0.6">shipment</text>
+
+    <rect x="262" y="304" width="92" height="36" rx="6" fill="#fff" fill-opacity="0.18" stroke="#fff" stroke-opacity="0.2" stroke-width="1"/>
+    <text x="308" y="320" text-anchor="middle" fill-opacity="0.6">EU CMO</text>
+    <text x="308" y="331" text-anchor="middle" fill-opacity="0.6">bottle/pack/label</text>
+
+    <rect x="406" y="304" width="96" height="36" rx="6" fill="#fff" fill-opacity="0.22" stroke="#fff" stroke-opacity="0.22" stroke-width="1"/>
+    <text x="454" y="320" text-anchor="middle" fill-opacity="0.6">QP release</text>
+    <text x="454" y="331" text-anchor="middle" fill-opacity="0.6">EU + UK</text>
+  </g>
+  <g stroke="#fff" stroke-opacity="0.45" stroke-width="1.5" stroke-linecap="round" fill="none">
+    <path d="M210 322 L260 322"/>
+    <path d="M354 322 L404 322"/>
+  </g>
+  <g fill="#fff" fill-opacity="0.45">
+    <path d="M260 322 l-6 -3 v6 z"/>
+    <path d="M404 322 l-6 -3 v6 z"/>
+  </g>
+
+  <text x="32" y="372" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.45">Where bottling, pack/label, QP release and distribution occur by region</text>
+</svg>
