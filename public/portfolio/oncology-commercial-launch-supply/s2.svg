@@ -1,0 +1,25 @@
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Base, upside and downside demand scenarios with an obsolescence flag">
+  <defs><pattern id="on2" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#fff" fill-opacity="0.05"/></pattern>
+  <radialGradient id="on2v" cx="50%" cy="40%" r="66%"><stop offset="0%" stop-color="#fff" stop-opacity="0.06"/><stop offset="100%" stop-color="#fff" stop-opacity="0"/></radialGradient></defs>
+  <rect width="640" height="400" fill="#0a0a0a"/><rect width="640" height="400" fill="url(#on2)"/><rect width="640" height="400" fill="url(#on2v)"/>
+  <text x="80" y="56" font-family="'JetBrains Mono',monospace" font-size="10" fill="#fff" fill-opacity="0.5">DEMAND SCENARIOS · OBSOLESCENCE</text>
+  <path d="M80 310 H560 M80 310 V80" stroke="#fff" stroke-opacity="0.45" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <g stroke="#fff" stroke-opacity="0.08" stroke-width="1"><path d="M80 250 H560"/><path d="M80 190 H560"/><path d="M80 130 H560"/></g>
+  <!-- scenario band -->
+  <path d="M100 295 C 250 250, 360 130, 540 80 L 540 175 C 360 230, 250 285, 100 300 Z" fill="#fff" fill-opacity="0.06"/>
+  <!-- upside (dashed) -->
+  <path d="M100 295 C 250 240, 360 120, 540 80" stroke="#fff" stroke-opacity="0.45" stroke-width="2" stroke-dasharray="6 6" fill="none" stroke-linecap="round"/>
+  <!-- base (solid) -->
+  <path d="M100 300 C 250 262, 360 175, 540 120" stroke="#fff" stroke-opacity="0.95" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <!-- downside (dashed) -->
+  <path d="M100 303 C 250 288, 360 220, 540 175" stroke="#fff" stroke-opacity="0.45" stroke-width="2" stroke-dasharray="6 6" fill="none" stroke-linecap="round"/>
+  <g fill="#fff" font-family="'JetBrains Mono',monospace" font-size="8" text-anchor="start">
+    <text x="544" y="82" fill-opacity="0.55">upside</text><text x="544" y="124" fill-opacity="0.9">base</text><text x="544" y="178" fill-opacity="0.55">downside</text>
+  </g>
+  <!-- obsolescence flag: a batch dropping off before launch ramp -->
+  <g>
+    <rect x="150" y="255" width="26" height="40" rx="3" fill="#fff" fill-opacity="0.14" stroke="#fff" stroke-opacity="0.5" stroke-dasharray="4 3"/>
+    <path d="M163 300 l-6 14 12 0 z" fill="#fff" fill-opacity="0.6"/>
+  </g>
+  <text x="163" y="334" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.5" text-anchor="middle">obsolescence</text>
+</svg>

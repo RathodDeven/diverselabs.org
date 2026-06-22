@@ -1,0 +1,21 @@
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="3PL and pack-and-label supplier scorecard with the selected provider highlighted">
+  <defs><pattern id="on3" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#fff" fill-opacity="0.05"/></pattern>
+  <radialGradient id="on3v" cx="50%" cy="38%" r="66%"><stop offset="0%" stop-color="#fff" stop-opacity="0.06"/><stop offset="100%" stop-color="#fff" stop-opacity="0"/></radialGradient></defs>
+  <rect width="640" height="400" fill="#0a0a0a"/><rect width="640" height="400" fill="url(#on3)"/><rect width="640" height="400" fill="url(#on3v)"/>
+  <text x="80" y="52" font-family="'JetBrains Mono',monospace" font-size="10" fill="#fff" fill-opacity="0.5">3PL · PACK &amp; LABEL SELECTION</text>
+  <!-- 3 candidate columns, middle selected -->
+  <rect x="244" y="78" width="150" height="262" rx="10" fill="#fff" fill-opacity="0.10" stroke="#fff" stroke-opacity="0.9" stroke-width="2.5"/>
+  <g font-family="'JetBrains Mono',monospace" font-size="10" fill="#fff" fill-opacity="0.5" text-anchor="middle">
+    <text x="148" y="70">VENDOR A</text><text x="319" y="70">VENDOR B</text><text x="490" y="70">VENDOR C</text>
+  </g>
+  <g font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.5">
+    <text x="20" y="106">ALLOCATION</text><text x="20" y="144">3-YR TCO</text><text x="20" y="182">CAPACITY</text><text x="20" y="220">QUALITY</text><text x="20" y="258">DSCSA</text><text x="20" y="296">FIT</text>
+  </g>
+  <g stroke-linecap="round" stroke-width="7">
+    <g stroke="#fff" stroke-opacity="0.3"><path d="M92 102 H180"/><path d="M92 140 H168"/><path d="M92 178 H200"/><path d="M92 216 H160"/><path d="M92 254 H188"/><path d="M92 292 H150"/></g>
+    <g stroke="#fff" stroke-opacity="0.9"><path d="M262 102 H372"/><path d="M262 140 H360"/><path d="M262 178 H378"/><path d="M262 216 H356"/><path d="M262 254 H374"/><path d="M262 292 H368"/></g>
+    <g stroke="#fff" stroke-opacity="0.3"><path d="M432 102 H520"/><path d="M432 140 H540"/><path d="M432 178 H500"/><path d="M432 216 H536"/><path d="M432 254 H512"/><path d="M432 292 H548"/></g>
+  </g>
+  <circle cx="319" cy="320" r="14" fill="#fff"/>
+  <path d="M312 320 l5 5 9 -10" stroke="#0a0a0a" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

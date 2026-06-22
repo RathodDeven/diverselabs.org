@@ -711,7 +711,8 @@ const stageSet = (slug: string, labels: [string, string, string]): PortfolioStag
 export const portfolioStages: Record<string, PortfolioStage[]> = {
   'gene-therapy-launch-readiness': stageSet('gene-therapy-launch-readiness',
     ['Risk & gap assessment', 'Demand–capacity & S&OP', 'Person-in-plant playbook']),
-  'oncology-commercial-launch-supply': [], // awaiting source material
+  'oncology-commercial-launch-supply': stageSet('oncology-commercial-launch-supply',
+    ['Launch supply plan', 'Demand scenarios & obsolescence', '3PL & pack-label selection']),
   'rnd-quality-operating-model': stageSet('rnd-quality-operating-model',
     ['Oversight assessment', 'Maturity model & heatmap', 'Future-state operating model']),
   'external-manufacturing-network-resilience': stageSet('external-manufacturing-network-resilience',

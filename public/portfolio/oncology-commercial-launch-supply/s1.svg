@@ -1,0 +1,29 @@
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Launch supply plan: production bars, closing inventory, safety stock and months-on-hand across quarters">
+  <defs><pattern id="on1" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#fff" fill-opacity="0.05"/></pattern>
+  <radialGradient id="on1v" cx="50%" cy="38%" r="68%"><stop offset="0%" stop-color="#fff" stop-opacity="0.06"/><stop offset="100%" stop-color="#fff" stop-opacity="0"/></radialGradient></defs>
+  <rect width="640" height="400" fill="#0a0a0a"/><rect width="640" height="400" fill="url(#on1)"/><rect width="640" height="400" fill="url(#on1v)"/>
+  <text x="80" y="56" font-family="'JetBrains Mono',monospace" font-size="10" fill="#fff" fill-opacity="0.5">BASE CASE · PRODUCTION PLAN</text>
+  <!-- axes -->
+  <path d="M80 300 H560 M80 300 V84" stroke="#fff" stroke-opacity="0.45" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <g stroke="#fff" stroke-opacity="0.08" stroke-width="1"><path d="M80 250 H560"/><path d="M80 200 H560"/><path d="M80 150 H560"/><path d="M80 100 H560"/></g>
+  <!-- production bars -->
+  <g fill="#fff" fill-opacity="0.28">
+    <rect x="92" y="294" width="22" height="6" rx="2"/><rect x="132" y="294" width="22" height="6" rx="2"/><rect x="172" y="286" width="22" height="14" rx="2"/><rect x="212" y="240" width="22" height="60" rx="2"/><rect x="252" y="236" width="22" height="64" rx="2"/><rect x="292" y="234" width="22" height="66" rx="2"/><rect x="332" y="204" width="22" height="96" rx="2"/><rect x="372" y="208" width="22" height="92" rx="2"/><rect x="412" y="202" width="22" height="98" rx="2"/><rect x="452" y="172" width="22" height="128" rx="2"/><rect x="492" y="204" width="22" height="96" rx="2"/>
+  </g>
+  <!-- safety stock -->
+  <path d="M92 262 H514" stroke="#fff" stroke-opacity="0.45" stroke-width="2"/>
+  <text x="518" y="266" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.4">safety</text>
+  <!-- closing inventory line -->
+  <path d="M103 290 C 170 280, 200 150, 223 130 C 260 170, 300 230, 343 222 C 400 200, 440 150, 503 168" stroke="#fff" stroke-opacity="0.92" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- MOH dashed -->
+  <path d="M103 270 C 180 250, 220 250, 280 240 C 360 226, 430 232, 503 236" stroke="#fff" stroke-opacity="0.4" stroke-width="1.8" stroke-dasharray="5 5" fill="none"/>
+  <!-- milestones -->
+  <g fill="#fff"><path d="M223 96 l8 -8 8 8 -8 8 z" transform="translate(-8,0)"/><path d="M303 96 l8 -8 8 8 -8 8 z" transform="translate(-8,0)"/></g>
+  <g font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.55" text-anchor="middle"><text x="223" y="80">NDA</text><text x="303" y="80">LAUNCH</text></g>
+  <!-- legend -->
+  <g font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.5">
+    <rect x="92" y="320" width="12" height="9" rx="2" fill="#fff" fill-opacity="0.28"/><text x="110" y="328">production</text>
+    <line x1="186" y1="324" x2="206" y2="324" stroke="#fff" stroke-opacity="0.9" stroke-width="2"/><text x="212" y="328">inventory</text>
+    <line x1="286" y1="324" x2="306" y2="324" stroke="#fff" stroke-opacity="0.4" stroke-width="2" stroke-dasharray="4 3"/><text x="312" y="328">months-on-hand</text>
+  </g>
+</svg>
