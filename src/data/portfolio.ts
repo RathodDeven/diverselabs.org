@@ -695,9 +695,41 @@ for (const d of portfolioCaseStudies) d.timeframe = TIMEFRAMES[d.slug];
 for (const d of portfolioCaseStudies) {
   const e = ENRICHED[d.slug];
   if (!e) continue;
-  if (e.dek) d.dek = e.dek;
-  if (e.timeframe) d.timeframe = e.timeframe;
+  if (e.dek) { d.dek = e.dek; d.description = e.dek; }
+  // only override the timeframe when the enriched value carries a real year
+  // (some came back as "Early 2020s"/""); otherwise keep the mapped range.
+  if (e.timeframe && /\d{4}/.test(e.timeframe)) d.timeframe = e.timeframe;
+  if (e.heroStat) d.heroStat = e.heroStat;
+  if (e.faq && e.faq.length) d.faq = e.faq;
   if (e.blocks && e.blocks.length) d.blocks = e.blocks;
+}
+
+// "Keep reading" — link each case study to two others.
+const _pub = portfolioCaseStudies.filter((d) => !d.draft);
+_pub.forEach((d, i) => {
+  d.related = [_pub[(i + 1) % _pub.length], _pub[(i + 2) % _pub.length]].map((r) => ({
+    href: `/portfolio/priyam-haryani/${r.slug}`,
+    label: r.crumb ?? r.title,
+    eyebrow: r.eyebrow,
+  }));
+});
+
+// Final sweep: keep generic software-product names out of the metadata fields
+// (title/desc/keywords/tags) too, matching the anonymized body.
+const sanitize = (s: string): string => (s || '')
+  .replace(/power ?bi/gi, 'low-code BI')
+  .replace(/power automate/gi, 'workflow automation')
+  .replace(/sharepoint/gi, 'a shared document store')
+  .replace(/salesforce/gi, 'the CRM')
+  .replace(/gainsight/gi, 'customer-success tooling')
+  .replace(/smartsheet|outsystems/gi, 'a low-code platform');
+for (const d of portfolioCaseStudies) {
+  d.title = sanitize(d.title);
+  if (d.seoTitle) d.seoTitle = sanitize(d.seoTitle);
+  d.dek = sanitize(d.dek);
+  d.description = sanitize(d.description);
+  d.keywords = sanitize(d.keywords);
+  d.tags = d.tags.map(sanitize);
 }
 
 const localClients = Object.values(localClientMods)[0]?.REVIEW_CLIENTS;
