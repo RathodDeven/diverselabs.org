@@ -1,4 +1,5 @@
 import type { Doc } from './content';
+import { ENRICHED } from './portfolio.content';
 
 /**
  * Priyam Haryani — independent advisory portfolio (HIDDEN page).
@@ -688,6 +689,16 @@ const TIMEFRAMES: Record<string, string> = {
   'pricing-trade-analytics-bi': '2022–2023',
 };
 for (const d of portfolioCaseStudies) d.timeframe = TIMEFRAMES[d.slug];
+
+// Apply enriched, anonymized content mined from the full-text source (deeper
+// narrative + accurate timeframe). Overrides the initial dek/blocks/timeframe.
+for (const d of portfolioCaseStudies) {
+  const e = ENRICHED[d.slug];
+  if (!e) continue;
+  if (e.dek) d.dek = e.dek;
+  if (e.timeframe) d.timeframe = e.timeframe;
+  if (e.blocks && e.blocks.length) d.blocks = e.blocks;
+}
 
 const localClients = Object.values(localClientMods)[0]?.REVIEW_CLIENTS;
 if (localClients) {
