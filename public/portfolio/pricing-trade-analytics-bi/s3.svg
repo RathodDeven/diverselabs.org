@@ -1,0 +1,96 @@
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Assumptions and training manual: a ticked list of documented assumptions beside a depth-stacked set of per-project manual chapters, with the top chapter emphasized">
+  <defs>
+    <pattern id="g" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#fff" fill-opacity="0.05"/></pattern>
+    <radialGradient id="gv" cx="50%" cy="38%" r="66%"><stop offset="0%" stop-color="#fff" stop-opacity="0.06"/><stop offset="100%" stop-color="#fff" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="640" height="400" fill="#0a0a0a"/>
+  <rect width="640" height="400" fill="url(#g)"/>
+  <rect width="640" height="400" fill="url(#gv)"/>
+
+  <text x="32" y="34" font-family="'JetBrains Mono',monospace" font-size="10" fill="#fff" fill-opacity="0.5">ASSUMPTIONS &amp; TRAINING MANUAL</text>
+  <text x="608" y="34" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.32">03 / 03</text>
+
+  <text x="32" y="74" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.5" letter-spacing="0.5">DOCUMENTED ASSUMPTIONS</text>
+  <line x1="32" y1="82" x2="300" y2="82" stroke="#fff" stroke-opacity="0.16" stroke-width="1"/>
+
+  
+  <g font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.55">
+    
+    <rect x="36" y="98" width="264" height="26" rx="5" fill="#fff" fill-opacity="0.04" stroke="#fff" stroke-opacity="0.12" stroke-width="1"/>
+    <rect x="46" y="105" width="12" height="12" rx="3" fill="#fff" fill-opacity="0.16" stroke="#fff" stroke-opacity="0.3" stroke-width="1"/>
+    <path d="M49 111 l2.4 2.6 l4.2 -5" fill="none" stroke="#fff" stroke-opacity="0.7" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="68" y="115">Assumption 1</text>
+    <line x1="160" y1="111" x2="290" y2="111" stroke="#fff" stroke-opacity="0.1" stroke-width="6" stroke-linecap="round"/>
+
+    <rect x="36" y="130" width="264" height="26" rx="5" fill="#fff" fill-opacity="0.04" stroke="#fff" stroke-opacity="0.12" stroke-width="1"/>
+    <rect x="46" y="137" width="12" height="12" rx="3" fill="#fff" fill-opacity="0.16" stroke="#fff" stroke-opacity="0.3" stroke-width="1"/>
+    <path d="M49 143 l2.4 2.6 l4.2 -5" fill="none" stroke="#fff" stroke-opacity="0.7" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="68" y="147">Assumption 2</text>
+    <line x1="160" y1="143" x2="276" y2="143" stroke="#fff" stroke-opacity="0.1" stroke-width="6" stroke-linecap="round"/>
+
+    <rect x="36" y="162" width="264" height="26" rx="5" fill="#fff" fill-opacity="0.04" stroke="#fff" stroke-opacity="0.12" stroke-width="1"/>
+    <rect x="46" y="169" width="12" height="12" rx="3" fill="#fff" fill-opacity="0.16" stroke="#fff" stroke-opacity="0.3" stroke-width="1"/>
+    <path d="M49 175 l2.4 2.6 l4.2 -5" fill="none" stroke="#fff" stroke-opacity="0.7" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="68" y="179">Assumption 3</text>
+    <line x1="160" y1="175" x2="288" y2="175" stroke="#fff" stroke-opacity="0.1" stroke-width="6" stroke-linecap="round"/>
+
+    <rect x="36" y="194" width="264" height="26" rx="5" fill="#fff" fill-opacity="0.04" stroke="#fff" stroke-opacity="0.12" stroke-width="1"/>
+    <rect x="46" y="201" width="12" height="12" rx="3" fill="#fff" fill-opacity="0.16" stroke="#fff" stroke-opacity="0.3" stroke-width="1"/>
+    <path d="M49 207 l2.4 2.6 l4.2 -5" fill="none" stroke="#fff" stroke-opacity="0.7" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="68" y="211">Assumption 4</text>
+    <line x1="160" y1="207" x2="270" y2="207" stroke="#fff" stroke-opacity="0.1" stroke-width="6" stroke-linecap="round"/>
+
+    <rect x="36" y="226" width="264" height="26" rx="5" fill="#fff" fill-opacity="0.04" stroke="#fff" stroke-opacity="0.12" stroke-width="1"/>
+    <rect x="46" y="233" width="12" height="12" rx="3" fill="#fff" fill-opacity="0.16" stroke="#fff" stroke-opacity="0.3" stroke-width="1"/>
+    <path d="M49 239 l2.4 2.6 l4.2 -5" fill="none" stroke="#fff" stroke-opacity="0.7" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="68" y="243">Assumption 5</text>
+    <line x1="160" y1="239" x2="284" y2="239" stroke="#fff" stroke-opacity="0.1" stroke-width="6" stroke-linecap="round"/>
+
+    <rect x="36" y="258" width="264" height="26" rx="5" fill="#fff" fill-opacity="0.04" stroke="#fff" stroke-opacity="0.12" stroke-width="1"/>
+    <rect x="46" y="265" width="12" height="12" rx="3" fill="#fff" fill-opacity="0.16" stroke="#fff" stroke-opacity="0.3" stroke-width="1"/>
+    <path d="M49 271 l2.4 2.6 l4.2 -5" fill="none" stroke="#fff" stroke-opacity="0.7" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="68" y="275">Assumption 6</text>
+    <line x1="160" y1="271" x2="278" y2="271" stroke="#fff" stroke-opacity="0.1" stroke-width="6" stroke-linecap="round"/>
+
+    <rect x="36" y="290" width="264" height="26" rx="5" fill="#fff" fill-opacity="0.04" stroke="#fff" stroke-opacity="0.12" stroke-width="1"/>
+    <rect x="46" y="297" width="12" height="12" rx="3" fill="#fff" fill-opacity="0.16" stroke="#fff" stroke-opacity="0.3" stroke-width="1"/>
+    <path d="M49 303 l2.4 2.6 l4.2 -5" fill="none" stroke="#fff" stroke-opacity="0.7" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="68" y="307">Assumption 7</text>
+    <line x1="160" y1="303" x2="266" y2="303" stroke="#fff" stroke-opacity="0.1" stroke-width="6" stroke-linecap="round"/>
+  </g>
+
+  <line x1="330" y1="92" x2="330" y2="318" stroke="#fff" stroke-opacity="0.12" stroke-width="1"/>
+
+  <text x="356" y="74" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.5" letter-spacing="0.5">SELF-SERVE MANUAL · BY PROJECT</text>
+  <line x1="356" y1="82" x2="600" y2="82" stroke="#fff" stroke-opacity="0.16" stroke-width="1"/>
+
+  
+  <g>
+    <rect x="430" y="120" width="170" height="40" rx="8" fill="#fff" fill-opacity="0.05" stroke="#fff" stroke-opacity="0.13" stroke-width="1"/>
+    <text x="442" y="138" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.4">Chapter · Project 4</text>
+    <line x1="442" y1="148" x2="540" y2="148" stroke="#fff" stroke-opacity="0.1" stroke-width="4" stroke-linecap="round"/>
+  </g>
+  
+  <g>
+    <rect x="416" y="146" width="170" height="44" rx="8" fill="#fff" fill-opacity="0.07" stroke="#fff" stroke-opacity="0.15" stroke-width="1"/>
+    <text x="428" y="165" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.46">Chapter · Project 3</text>
+    <line x1="428" y1="176" x2="540" y2="176" stroke="#fff" stroke-opacity="0.11" stroke-width="4" stroke-linecap="round"/>
+  </g>
+  
+  <g>
+    <rect x="402" y="174" width="170" height="48" rx="8" fill="#fff" fill-opacity="0.09" stroke="#fff" stroke-opacity="0.18" stroke-width="1"/>
+    <text x="414" y="194" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.52">Chapter · Project 2</text>
+    <line x1="414" y1="206" x2="540" y2="206" stroke="#fff" stroke-opacity="0.12" stroke-width="4" stroke-linecap="round"/>
+  </g>
+
+  <g>
+    <rect x="388" y="206" width="178" height="72" rx="9" fill="#fff" fill-opacity="0.97"/>
+    <text x="402" y="228" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#0a0a0a" font-weight="bold">Chapter · Project 1</text>
+    <line x1="402" y1="240" x2="552" y2="240" stroke="#0a0a0a" stroke-opacity="0.22" stroke-width="3" stroke-linecap="round"/>
+    <line x1="402" y1="252" x2="552" y2="252" stroke="#0a0a0a" stroke-opacity="0.16" stroke-width="3" stroke-linecap="round"/>
+    <line x1="402" y1="264" x2="500" y2="264" stroke="#0a0a0a" stroke-opacity="0.16" stroke-width="3" stroke-linecap="round"/>
+    <text x="552" y="269" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="7.5" fill="#0a0a0a" fill-opacity="0.5">MANUAL</text>
+  </g>
+
+  <text x="32" y="372" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.45">Documented assumptions and a project-by-project self-serve training manual</text>
+</svg>

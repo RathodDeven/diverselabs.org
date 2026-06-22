@@ -1,0 +1,22 @@
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A dashboard with three tiles: a line, bars and a gauge">
+  <defs>
+    <pattern id="g9" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#ffffff" fill-opacity="0.05"/></pattern>
+    <radialGradient id="v9" cx="50%" cy="40%" r="66%"><stop offset="0%" stop-color="#ffffff" stop-opacity="0.06"/><stop offset="100%" stop-color="#ffffff" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="640" height="400" fill="#0a0a0a"/><rect width="640" height="400" fill="url(#g9)"/><rect width="640" height="400" fill="url(#v9)"/>
+  <!-- top wide tile: participants line -->
+  <rect x="80" y="80" width="480" height="120" rx="10" fill="#ffffff" fill-opacity="0.04" stroke="#ffffff" stroke-opacity="0.25" stroke-width="1.5"/>
+  <path d="M104 170 L 160 140 L 210 152 L 270 116 L 330 128 L 400 100 L 470 110 L 536 92" stroke="#ffffff" stroke-opacity="0.9" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <g fill="#ffffff" fill-opacity="0.4" font-family="'JetBrains Mono',monospace" font-size="11"><text x="100" y="104">PARTICIPANTS</text></g>
+  <!-- bottom-left tile: inventory bars -->
+  <rect x="80" y="216" width="230" height="104" rx="10" fill="#ffffff" fill-opacity="0.04" stroke="#ffffff" stroke-opacity="0.25" stroke-width="1.5"/>
+  <g fill="#ffffff" fill-opacity="0.7">
+    <rect x="104" y="270" width="24" height="32" rx="3"/><rect x="140" y="252" width="24" height="50" rx="3"/><rect x="176" y="260" width="24" height="42" rx="3"/><rect x="212" y="240" width="24" height="62" rx="3"/><rect x="248" y="266" width="24" height="36" rx="3"/>
+  </g>
+  <g fill="#ffffff" fill-opacity="0.4" font-family="'JetBrains Mono',monospace" font-size="11"><text x="100" y="240">INVENTORY</text></g>
+  <!-- bottom-right tile: resupply gauge -->
+  <rect x="330" y="216" width="230" height="104" rx="10" fill="#ffffff" fill-opacity="0.04" stroke="#ffffff" stroke-opacity="0.25" stroke-width="1.5"/>
+  <path d="M390 300 A 55 55 0 0 1 500 300" stroke="#ffffff" stroke-opacity="0.2" stroke-width="9" fill="none" stroke-linecap="round"/>
+  <path d="M390 300 A 55 55 0 0 1 482 262" stroke="#ffffff" stroke-opacity="0.9" stroke-width="9" fill="none" stroke-linecap="round"/>
+  <g fill="#ffffff" fill-opacity="0.4" font-family="'JetBrains Mono',monospace" font-size="11"><text x="350" y="240">RESUPPLY</text></g>
+</svg>

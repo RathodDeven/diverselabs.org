@@ -67,6 +67,8 @@ export interface Doc {
   cta?: { title: string; sub: string };
   /** schema.org @type for the page-level Article/Service/HowTo node */
   schemaType?: 'Article' | 'HowTo' | 'Service';
+  /** Human-readable engagement timeframe, e.g. "2023–2025" or "Oct–Dec 2024" */
+  timeframe?: string;
   datePublished: string; // ISO date
   dateModified?: string;
   author?: string;

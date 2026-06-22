@@ -1,0 +1,80 @@
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Data migration pipeline: four source systems flow through extract, transform, then a highlighted validation quality gate, into load and a target data model">
+  <defs>
+    <pattern id="g" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#fff" fill-opacity="0.05"/></pattern>
+    <radialGradient id="gv" cx="50%" cy="38%" r="66%"><stop offset="0%" stop-color="#fff" stop-opacity="0.06"/><stop offset="100%" stop-color="#fff" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="640" height="400" fill="#0a0a0a"/><rect width="640" height="400" fill="url(#g)"/><rect width="640" height="400" fill="url(#gv)"/>
+
+  <text x="32" y="34" font-family="'JetBrains Mono',monospace" font-size="10" fill="#fff" fill-opacity="0.5">DATA MIGRATION · SOURCE TO TARGET</text>
+  <text x="608" y="34" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.32">02 / 03</text>
+
+  <line x1="32" y1="92" x2="608" y2="92" stroke="#fff" stroke-opacity="0.1" stroke-width="1"/>
+  <text x="32" y="86" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.45">SOURCES</text>
+  <text x="216" y="86" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.45">STAGING</text>
+  <text x="430" y="86" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.45">GATE · LOAD</text>
+  <text x="608" y="86" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.45">TARGET</text>
+
+  <g fill="none" stroke="#fff" stroke-opacity="0.22" stroke-width="1.25" stroke-linecap="round">
+    <path d="M120 140 C150 140 150 215 178 215"/>
+    <path d="M120 188 C150 188 150 215 178 215"/>
+    <path d="M120 236 C150 236 150 215 178 215"/>
+    <path d="M120 284 C150 284 150 215 178 215"/>
+  </g>
+  
+  <g fill="none" stroke="#fff" stroke-opacity="0.28" stroke-width="1.5" stroke-linecap="round">
+    <path d="M244 215 L286 215"/>
+    <path d="M352 215 L394 215"/>
+  </g>
+  
+  <g fill="none" stroke="#fff" stroke-opacity="0.28" stroke-width="1.5" stroke-linecap="round">
+    <path d="M452 215 L494 215"/>
+    <path d="M510 188 C540 188 540 188 548 188"/>
+  </g>
+  <path d="M452 215 L538 215" fill="none" stroke="#fff" stroke-opacity="0.28" stroke-width="1.5" stroke-linecap="round"/>
+  
+  <path d="M423 245 C423 282 423 282 423 300" fill="none" stroke="#fff" stroke-opacity="0.18" stroke-width="1.25" stroke-linecap="round" stroke-dasharray="2 4"/>
+  <text x="430" y="312" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.4">reject / requeue</text>
+
+  <g fill="#fff" fill-opacity="0.3">
+    <path d="M286 215 l-8 -4 v8 z"/>
+    <path d="M394 215 l-8 -4 v8 z"/>
+    <path d="M548 215 l-8 -4 v8 z"/>
+  </g>
+
+  <g font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#fff" fill-opacity="0.6">
+    <rect x="44" y="124" width="76" height="32" rx="6" fill="#fff" fill-opacity="0.18" stroke="#fff" stroke-opacity="0.18"/>
+    <text x="82" y="143.5" text-anchor="middle" fill-opacity="0.62">Source A</text>
+    <rect x="44" y="172" width="76" height="32" rx="6" fill="#fff" fill-opacity="0.18" stroke="#fff" stroke-opacity="0.18"/>
+    <text x="82" y="191.5" text-anchor="middle" fill-opacity="0.62">Source B</text>
+    <rect x="44" y="220" width="76" height="32" rx="6" fill="#fff" fill-opacity="0.18" stroke="#fff" stroke-opacity="0.18"/>
+    <text x="82" y="239.5" text-anchor="middle" fill-opacity="0.62">Source C</text>
+    <rect x="44" y="268" width="76" height="32" rx="6" fill="#fff" fill-opacity="0.18" stroke="#fff" stroke-opacity="0.18"/>
+    <text x="82" y="287.5" text-anchor="middle" fill-opacity="0.62">Source D</text>
+  </g>
+
+  <rect x="178" y="191" width="66" height="48" rx="8" fill="#fff" fill-opacity="0.2" stroke="#fff" stroke-opacity="0.2"/>
+  <text x="211" y="219" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="10" fill="#fff" fill-opacity="0.62">Extract</text>
+
+  <rect x="286" y="191" width="66" height="48" rx="8" fill="#fff" fill-opacity="0.24" stroke="#fff" stroke-opacity="0.2"/>
+  <text x="319" y="219" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="10" fill="#fff" fill-opacity="0.62">Transform</text>
+
+  <path d="M423 175 L463 215 L423 255 L383 215 Z" fill="#fff"/>
+  <text x="423" y="211" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="10" font-weight="bold" fill="#0a0a0a">Validate</text>
+  <path d="M414 217 l5 6 l11 -13" fill="none" stroke="#0a0a0a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="494" y="191" width="62" height="48" rx="8" fill="#fff" fill-opacity="0.24" stroke="#fff" stroke-opacity="0.2"/>
+  <text x="525" y="219" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="10" fill="#fff" fill-opacity="0.62">Load</text>
+
+  <g>
+    <path d="M548 156 h44 v118 a22 9 0 0 1 -44 0 z" fill="#fff" fill-opacity="0.2" stroke="#fff" stroke-opacity="0.22" stroke-width="1.25"/>
+    <ellipse cx="570" cy="156" rx="22" ry="9" fill="#fff" fill-opacity="0.26" stroke="#fff" stroke-opacity="0.22" stroke-width="1.25"/>
+    <line x1="548" y1="190" x2="592" y2="190" stroke="#fff" stroke-opacity="0.16" stroke-width="1"/>
+    <line x1="548" y1="222" x2="592" y2="222" stroke="#fff" stroke-opacity="0.16" stroke-width="1"/>
+  </g>
+  <text x="570" y="296" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#fff" fill-opacity="0.6">Data Model</text>
+
+  <path d="M36 344 L48 356 L36 368 L24 356 Z" fill="#fff" transform="translate(8 0)"/>
+  <text x="58" y="359" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.5">quality gate — pass before load</text>
+
+  <text x="608" y="372" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.45">Source-to-target migration pipeline with a validation quality gate</text>
+</svg>

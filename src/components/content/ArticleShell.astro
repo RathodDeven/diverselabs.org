@@ -9,8 +9,12 @@ import CTAButton from '../CTAButton.astro';
 interface Props {
   doc: Doc;
   crumbs: { name: string; href: string }[];
+  /** Optional decorative cover/illustration rendered under the hero */
+  cover?: string;
+  /** Optional per-stage diagrams rendered as a "How it progressed" gallery */
+  stages?: { label: string; src: string }[];
 }
-const { doc, crumbs } = Astro.props as Props;
+const { doc, crumbs, cover, stages } = Astro.props as Props;
 ---
 
 <article class="doc">
@@ -33,6 +37,7 @@ const { doc, crumbs } = Astro.props as Props;
             {doc.client}
           </span>
         )}
+        {doc.timeframe && <span class="doc-when mono-num">{doc.timeframe}</span>}
         <div class="doc-tags">
           {doc.tags.map((t) => <span class="chip">{t}</span>)}
         </div>
@@ -44,11 +49,31 @@ const { doc, crumbs } = Astro.props as Props;
           <span class="doc-herostat-lab">{doc.heroStat.label}</span>
         </div>
       )}
+
+      {cover && (
+        <div class="doc-cover" data-reveal data-reveal-delay="0.5">
+          <img src={cover} alt="" loading="lazy" width="640" height="400" />
+        </div>
+      )}
     </div>
   </header>
 
   <div class="container container-narrow">
     <ContentBlocks blocks={doc.blocks} />
+
+    {stages && stages.length > 0 && (
+      <section class="db db-stages" data-reveal>
+        <h2>How it progressed</h2>
+        <div class="stage-track" data-reveal-group>
+          {stages.map((s, i) => (
+            <figure class="stage-fig">
+              <div class="stage-img"><img src={s.src} alt={s.label} loading="lazy" width="640" height="400" /></div>
+              <figcaption><span class="mono-num">{String(i + 1).padStart(2, '0')}</span> {s.label}</figcaption>
+            </figure>
+          ))}
+        </div>
+      </section>
+    )}
 
     {doc.faq && doc.faq.length > 0 && (
       <section class="db db-faq" data-reveal>
@@ -81,3 +106,47 @@ const { doc, crumbs } = Astro.props as Props;
     </section>
   </div>
 </article>
+
+<style>
+  .doc-when {
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--faint);
+    align-self: center;
+  }
+  .doc-cover {
+    margin-top: clamp(2rem, 4vw, 3rem);
+    border: 1px solid var(--line);
+    border-radius: 1rem;
+    overflow: hidden;
+    background: #0a0a0a;
+  }
+  .doc-cover img { display: block; width: 100%; height: auto; }
+
+  .db-stages h2 { margin-bottom: 1.5rem; }
+  .stage-track { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
+  @media (min-width: 720px) { .stage-track { grid-template-columns: repeat(3, 1fr); } }
+  .stage-fig { margin: 0; }
+  .stage-img {
+    border: 1px solid var(--line);
+    border-radius: 0.8rem;
+    overflow: hidden;
+    background: #0a0a0a;
+    transition: border-color 0.35s ease;
+  }
+  .stage-fig:hover .stage-img { border-color: rgba(255, 255, 255, 0.22); }
+  .stage-img img { display: block; width: 100%; height: auto; }
+  .stage-fig figcaption {
+    margin-top: 0.7rem;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .stage-fig figcaption .mono-num { color: var(--faint); }
+</style>

@@ -16,5 +16,10 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
 
-  integrations: [sitemap()],
+  integrations: [
+    sitemap({
+      // Keep the hidden advisory portfolio out of the sitemap.
+      filter: (page) => !page.includes('/portfolio/priyam-haryani'),
+    }),
+  ],
 });

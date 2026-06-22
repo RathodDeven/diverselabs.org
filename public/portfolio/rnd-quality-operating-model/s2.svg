@@ -1,0 +1,85 @@
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Current-state assessment matrix: numbered probe questions scored on what works versus opportunities, split across two functions in banded theme rows">
+  <defs>
+    <pattern id="g" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#fff" fill-opacity="0.05"/></pattern>
+    <radialGradient id="gv" cx="50%" cy="38%" r="66%"><stop offset="0%" stop-color="#fff" stop-opacity="0.06"/><stop offset="100%" stop-color="#fff" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="640" height="400" fill="#0a0a0a"/><rect width="640" height="400" fill="url(#g)"/><rect width="640" height="400" fill="url(#gv)"/>
+
+  <text x="32" y="34" font-family="'JetBrains Mono',monospace" font-size="10" fill="#fff" fill-opacity="0.5">CURRENT-STATE ASSESSMENT MATRIX</text>
+  <text x="608" y="34" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.32">02 / 03</text>
+
+  <text x="46" y="58" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.5">QUESTION</text>
+  <text x="246" y="58" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.5">WHAT WORKS</text>
+  <text x="446" y="58" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.5">OPPORTUNITIES</text>
+
+  <line x1="236" y1="64" x2="236" y2="362" stroke="#fff" stroke-opacity="0.14" stroke-width="1"/>
+  <line x1="436" y1="64" x2="436" y2="362" stroke="#fff" stroke-opacity="0.14" stroke-width="1"/>
+  <line x1="40" y1="64" x2="612" y2="64" stroke="#fff" stroke-opacity="0.18" stroke-width="1"/>
+
+  <text x="44" y="80" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.6" letter-spacing="0.5">EMBEDDED QUALITY</text>
+  <line x1="40" y1="86" x2="612" y2="86" stroke="#fff" stroke-opacity="0.1" stroke-width="1"/>
+
+  <rect x="40" y="90" width="572" height="58" rx="6" fill="#fff" fill-opacity="0.04"/>
+  <text x="48" y="106" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.45" transform="rotate(-90 48 106)" text-anchor="middle">ROLES</text>
+
+  <text x="60" y="106" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.45">01</text>
+  <text x="76" y="106" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.55">Accountabilities</text>
+  <text x="76" y="118" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.4">defined?</text>
+  <rect x="246" y="98" width="180" height="18" rx="4" fill="#fff" fill-opacity="0.26"/>
+  <rect x="446" y="98" width="120" height="18" rx="4" fill="#fff" fill-opacity="0.2"/>
+
+  <text x="60" y="138" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.45">02</text>
+  <text x="76" y="138" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.55">Decision rights</text>
+  <rect x="246" y="130" width="120" height="14" rx="4" fill="#fff" fill-opacity="0.22"/>
+  <rect x="446" y="130" width="160" height="14" rx="4" fill="#fff" fill-opacity="0.24"/>
+
+  <rect x="40" y="152" width="572" height="58" rx="6" fill="#fff" fill-opacity="0.06"/>
+  <text x="48" y="181" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.45" transform="rotate(-90 48 181)" text-anchor="middle">WAYS OF WORKING</text>
+
+  <text x="60" y="168" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.45">03</text>
+  <text x="76" y="168" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.55">Handoffs clear?</text>
+  <rect x="246" y="160" width="150" height="14" rx="4" fill="#fff" fill-opacity="0.24"/>
+  <rect x="446" y="160" width="100" height="14" rx="4" fill="#fff" fill-opacity="0.18"/>
+
+  <text x="60" y="196" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.45">04</text>
+  <text x="76" y="196" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.55">Escalation path</text>
+  <rect x="246" y="188" width="90" height="14" rx="4" fill="#fff" fill-opacity="0.2"/>
+  <rect x="446" y="186" width="166" height="18" rx="5" fill="#fff" fill-opacity="0.95"/>
+  <text x="454" y="198" font-family="'JetBrains Mono',monospace" font-size="9" fill="#0a0a0a" fill-opacity="1">PRIORITY GAP</text>
+
+  <text x="44" y="234" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.6" letter-spacing="0.5">CENTRAL QUALITY</text>
+  <line x1="40" y1="240" x2="612" y2="240" stroke="#fff" stroke-opacity="0.1" stroke-width="1"/>
+
+  <rect x="40" y="244" width="572" height="50" rx="6" fill="#fff" fill-opacity="0.04"/>
+  <text x="48" y="269" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.45" transform="rotate(-90 48 269)" text-anchor="middle">ROLES</text>
+
+  <text x="60" y="262" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.45">05</text>
+  <text x="76" y="262" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.55">Mandate scope</text>
+  <rect x="246" y="254" width="170" height="14" rx="4" fill="#fff" fill-opacity="0.28"/>
+  <rect x="446" y="254" width="110" height="14" rx="4" fill="#fff" fill-opacity="0.2"/>
+
+  <text x="60" y="282" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.45">06</text>
+  <text x="76" y="282" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.55">Standards owned?</text>
+  <rect x="246" y="274" width="140" height="14" rx="4" fill="#fff" fill-opacity="0.24"/>
+  <rect x="446" y="274" width="130" height="14" rx="4" fill="#fff" fill-opacity="0.22"/>
+
+  <rect x="40" y="298" width="572" height="50" rx="6" fill="#fff" fill-opacity="0.06"/>
+  <text x="48" y="323" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.45" transform="rotate(-90 48 323)" text-anchor="middle">WAYS OF WORKING</text>
+
+  <text x="60" y="316" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.45">07</text>
+  <text x="76" y="316" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.55">Governance rhythm</text>
+  <rect x="246" y="308" width="160" height="14" rx="4" fill="#fff" fill-opacity="0.26"/>
+  <rect x="446" y="308" width="100" height="14" rx="4" fill="#fff" fill-opacity="0.18"/>
+
+  <text x="60" y="336" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.45">08</text>
+  <text x="76" y="336" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.55">Metrics in use?</text>
+  <rect x="246" y="328" width="110" height="14" rx="4" fill="#fff" fill-opacity="0.2"/>
+  <rect x="446" y="328" width="150" height="14" rx="4" fill="#fff" fill-opacity="0.24"/>
+
+  <rect x="40" y="356" width="12" height="8" rx="2" fill="#fff" fill-opacity="0.24"/>
+  <text x="58" y="363" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.45">assessed bar = relative strength of evidence</text>
+  <rect x="320" y="356" width="12" height="8" rx="2" fill="#fff" fill-opacity="0.95"/>
+  <text x="338" y="363" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.45">priority gap to address in target model</text>
+
+  <text x="32" y="372" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.45">Current-state assessment matrix scoring each function on what works versus gaps</text>
+</svg>

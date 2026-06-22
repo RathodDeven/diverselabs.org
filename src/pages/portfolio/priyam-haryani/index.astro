@@ -1,0 +1,620 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import CTAButton from '../../../components/CTAButton.astro';
+import { portfolioCaseStudies, coverFor, portfolioStages } from '../../../data/portfolio';
+
+const BASE = '/portfolio/priyam-haryani';
+const cases = portfolioCaseStudies.filter((d) => !d.draft);
+
+// The real, anonymized stage charts — showcased as a cross-fading reel.
+// Each carries its case-study link + timeframe so the HUD can deep-link.
+const reel = Object.entries(portfolioStages).flatMap(([slug, stages]) => {
+  const d = cases.find((c) => c.slug === slug);
+  return stages.map((s) => ({ ...s, href: `${BASE}/${slug}`, when: d?.timeframe ?? '' }));
+});
+
+// Year-wise segregation — group engagements by the latest year in their timeframe.
+const yearOf = (tf?: string) => {
+  const ys = (tf ?? '').match(/\d{4}/g)?.map(Number) ?? [];
+  return ys.length ? Math.max(...ys) : 0;
+};
+const casesByYear = [...new Set(cases.map((d) => yearOf(d.timeframe)))]
+  .sort((a, b) => b - a)
+  .map((year) => ({ year, items: cases.filter((d) => yearOf(d.timeframe) === year) }));
+
+const lens = [
+  { title: 'Incentives', desc: 'Model stakeholders as rational actors responding to the structures they face.' },
+  { title: 'Coordination', desc: 'Find where handoffs fail, where communication breaks, and where duplication hides.' },
+  { title: 'Governance', desc: 'Redesign decision rights, escalation paths and oversight structures.' },
+  { title: 'Information flow', desc: 'Map how data and insight move — and where they get blocked or distorted.' },
+];
+---
+
+<BaseLayout
+  title="Priyam Haryani — Independent Advisor, Pharma & Biotech Operations"
+  description="Economist and management consultant working on the operational, quality and regulatory problems pharma and biotech companies would rather not have. Selected engagements, anonymized."
+  noindex={true}
+  standalone={true}
+>
+  <!-- Particle → graph scene (scroll-driven), behind content -->
+  <canvas id="pf-scene" aria-hidden="true"></canvas>
+
+  <!-- Selected-charts HUD — fixed, persists through scroll -->
+  <aside class="pf-hud is-min" id="pf-hud" aria-label="Selected charts">
+    <div class="pf-hud-bar">
+      <span class="pf-hud-dot" aria-hidden="true"></span>
+      <span class="pf-hud-title">Selected charts</span>
+      <button class="pf-hud-toggle" id="pf-hud-toggle" type="button" aria-label="Expand selected charts">+</button>
+    </div>
+    <div class="pf-hud-body">
+      <a class="pf-hud-stage" id="pf-hud-link" href={reel[0]?.href} aria-label="Open this case study">
+        {reel.map((c, i) => (
+          <img
+            class:list={['pf-reel-img', { 'is-active': i === 0 }]}
+            src={c.src}
+            alt={c.label}
+            data-label={c.label}
+            data-href={c.href}
+            data-when={c.when}
+            loading={i === 0 ? 'eager' : 'lazy'}
+            width="640"
+            height="400"
+          />
+        ))}
+        <span class="pf-hud-open" aria-hidden="true">Open ↗</span>
+      </a>
+      <div class="pf-hud-cap">
+        <span class="mono-num" id="pf-reel-idx">01</span>
+        <span class="pf-hud-label" id="pf-reel-label">{reel[0]?.label}</span>
+        <span class="pf-hud-when mono-num" id="pf-reel-when">{reel[0]?.when}</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Chaos → Order scroll read-out — fixed, fills as you scroll into structure -->
+  <div class="pf-status" aria-hidden="true">
+    <span class="pf-status-dot"></span>
+    <span class="pf-status-label" id="pf-status-label">CHAOS</span>
+    <span class="pf-status-sep">/</span>
+    <span class="pf-status-sub" id="pf-status-sub">unstructured</span>
+    <span class="pf-status-bar"><i id="pf-status-fill"></i></span>
+  </div>
+
+  <!-- ── Hero ───────────────────────────────────────────────────────── -->
+  <section class="pf-hero">
+    <div class="container pf-z">
+      <div class="pf-byline" data-reveal>
+        <img
+          class="pf-avatar"
+          src="/people/priyam-haryani.webp"
+          alt="Priyam Haryani"
+          width="96"
+          height="96"
+          loading="eager"
+          decoding="async"
+        />
+        <span class="label no-rule">Independent Advisory</span>
+      </div>
+      <h1 class="display-hero pf-title" data-reveal data-reveal-delay="0.1">Priyam Haryani</h1>
+      <p class="pf-lede" data-reveal data-reveal-delay="0.2">
+        Economist and management consultant. I work on the operational, quality and
+        regulatory problems pharma and biotech companies would rather not have.
+      </p>
+      <div class="pf-cta-row" data-reveal data-reveal-delay="0.3">
+        <CTAButton href="https://cal.com/diverselabs/30min">Book a call</CTAButton>
+        <a href="#work" class="btn btn-secondary">View selected work</a>
+      </div>
+
+    </div>
+    <div class="pf-scroll-cue pf-z" aria-hidden="true">
+      <span>Scroll</span>
+      <span class="pf-scroll-line"></span>
+    </div>
+  </section>
+
+  <!-- ── Approach / lens ────────────────────────────────────────────── -->
+  <section class="page-section-tight pf-z">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <h2>Understanding why systems fail.</h2>
+        <span class="head-side">The lens</span>
+      </div>
+      <p class="pf-approach-intro" data-reveal>
+        Most organizational failures are not capability problems. They are failures of
+        incentives, coordination, governance design and information flow. That is the
+        lens I bring to every engagement — direct, and through consulting firms.
+      </p>
+      <div class="pf-lens" data-reveal-group>
+        {lens.map((l) => (
+          <div class="pf-lens-card">
+            <h3>{l.title}</h3>
+            <p>{l.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Selected work ──────────────────────────────────────────────── -->
+  <section id="work" class="page-section pf-z">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <h2>Engagements, anonymized.</h2>
+        <span class="head-side">{String(cases.length).padStart(2, '0')} case studies</span>
+      </div>
+      <p class="pf-approach-intro" data-reveal>
+        Representative work across pharma and biotech operations — supply chain, launch
+        readiness, quality, analytics and applied AI. Client identities are anonymized;
+        the problems and the work are real.
+      </p>
+
+      {casesByYear.map(({ year, items }) => (
+        <div class="pf-year">
+          <div class="pf-year-head" data-reveal>
+            <span class="pf-year-num">{year}</span>
+            <span class="pf-year-rule"></span>
+            <span class="pf-year-count">{items.length} {items.length === 1 ? 'engagement' : 'engagements'}</span>
+          </div>
+          <div class="pf-grid" data-reveal-group>
+            {items.map((doc) => (
+              <a class="pf-card" href={`${BASE}/${doc.slug}`}>
+                <div class="pf-card-media">
+                  <img src={coverFor(doc.slug)} alt="" loading="lazy" width="640" height="400" />
+                </div>
+                <div class="pf-card-body">
+                  {doc.client && (
+                    <div class="pf-card-client"><span>Client</span>{doc.client}</div>
+                  )}
+                  <div class="pf-card-top">
+                    <span class="label no-rule">{doc.eyebrow}</span>
+                    <span class="pf-card-idx mono-num">{doc.timeframe}</span>
+                  </div>
+                  <h3 class="pf-card-title">{doc.title}</h3>
+                  <p class="pf-card-dek">{doc.dek}</p>
+                  <div class="pf-card-foot">
+                    <div class="pf-card-tags">
+                      {doc.tags.slice(0, 3).map((t) => <span class="chip">{t}</span>)}
+                    </div>
+                    <span class="pf-card-arrow" aria-hidden="true">→</span>
+                  </div>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- ── Closing CTA ────────────────────────────────────────────────── -->
+  <section class="page-section-tight pf-z">
+    <div class="container container-narrow">
+      <div class="doc-cta" data-reveal>
+        <h2>A problem worth solving?</h2>
+        <p>Operational, quality or regulatory — if it's the kind of thing teams would rather not have, let's talk.</p>
+        <CTAButton href="https://cal.com/diverselabs/30min">Book a Discovery Call</CTAButton>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Particle scene canvas — above the shader (-1), below content (.pf-z = 1) */
+  #pf-scene {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+  }
+  .pf-z { position: relative; z-index: 1; }
+
+  .pf-hero {
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    padding-top: 7rem;
+    padding-bottom: 4rem;
+  }
+  .pf-hero .container { position: relative; z-index: 1; }
+  .pf-title { margin: 1.4rem 0 0; }
+  .pf-lede {
+    margin-top: 1.6rem;
+    max-width: 40rem;
+    font-size: clamp(1.05rem, 1.7vw, 1.3rem);
+    color: var(--muted);
+    line-height: 1.6;
+  }
+  .pf-cta-row {
+    margin-top: 2.2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    align-items: center;
+  }
+
+  /* Chaos → Order status read-out — fixed, persists through scroll */
+  .pf-status {
+    position: fixed;
+    right: clamp(0.75rem, 2vw, 1.25rem);
+    bottom: clamp(0.75rem, 2vw, 1.25rem);
+    z-index: 70;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    padding: 0.55rem 0.95rem;
+    border: 1px solid var(--line);
+    border-radius: 0.7rem;
+    background: rgba(12, 12, 12, 0.72);
+    backdrop-filter: blur(14px) saturate(1.3);
+    -webkit-backdrop-filter: blur(14px) saturate(1.3);
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    width: fit-content;
+  }
+  @media (max-width: 600px) { .pf-status { font-size: 0.56rem; padding: 0.45rem 0.7rem; } }
+  .pf-status-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+    animation: pfPulse 1.8s ease-in-out infinite;
+    flex-shrink: 0;
+  }
+  @keyframes pfPulse {
+    0%, 100% { opacity: 0.35; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.5); }
+  }
+  .pf-status-label { color: var(--ink); font-weight: 500; }
+  .pf-status-sep { color: var(--faint); }
+  .pf-status-sub { color: var(--faint); min-width: 8ch; }
+  .pf-status-bar {
+    position: relative;
+    width: 64px;
+    height: 4px;
+    border-radius: 2px;
+    background: rgba(255, 255, 255, 0.12);
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .pf-status-bar i {
+    display: block;
+    height: 100%;
+    width: 0%;
+    background: rgba(255, 255, 255, 0.85);
+    transition: width 0.2s linear;
+  }
+  /* midpoint waypoint tick */
+  .pf-status-bar::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: rgba(255, 255, 255, 0.5);
+  }
+
+  .pf-scroll-cue {
+    position: absolute;
+    bottom: 1.8rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--faint);
+  }
+  .pf-scroll-line {
+    width: 1px;
+    height: 2.6rem;
+    background: rgba(255, 255, 255, 0.14);
+  }
+
+  .pf-approach-intro {
+    max-width: 52ch;
+    color: var(--muted);
+    margin-bottom: clamp(2rem, 4vw, 3rem);
+    font-size: 1.02rem;
+  }
+
+  /* Hero avatar byline */
+  .pf-byline { display: flex; align-items: center; gap: 0.85rem; margin-bottom: 0.3rem; }
+  .pf-avatar {
+    width: 3.1rem;
+    height: 3.1rem;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: top;
+    border: 1px solid var(--line);
+    filter: grayscale(1) contrast(1.04);
+    transition: filter 0.5s ease, border-color 0.4s ease;
+    flex-shrink: 0;
+  }
+  .pf-byline:hover .pf-avatar { filter: grayscale(0); border-color: rgba(255, 255, 255, 0.28); }
+
+  /* Selected-charts HUD — fixed, game-style, persists through scroll */
+  .pf-hud {
+    position: fixed;
+    left: clamp(0.75rem, 2vw, 1.25rem);
+    bottom: clamp(0.75rem, 2vw, 1.25rem);
+    z-index: 70;
+    width: clamp(184px, 22vw, 248px);
+    border: 1px solid var(--line);
+    border-radius: 0.85rem;
+    background: rgba(12, 12, 12, 0.72);
+    backdrop-filter: blur(14px) saturate(1.3);
+    -webkit-backdrop-filter: blur(14px) saturate(1.3);
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    overflow: hidden;
+  }
+  .pf-hud-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.45rem 0.65rem;
+    border-bottom: 1px solid var(--line);
+  }
+  .pf-hud-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: #fff; box-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+    animation: pfPulse 1.8s ease-in-out infinite; flex-shrink: 0;
+  }
+  .pf-hud-title {
+    font-family: var(--font-mono);
+    font-size: 0.56rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);
+  }
+  .pf-hud-toggle {
+    margin-left: auto;
+    width: 20px; height: 20px;
+    display: inline-flex; align-items: center; justify-content: center;
+    border: 1px solid var(--line); border-radius: 6px;
+    background: rgba(255, 255, 255, 0.04); color: var(--muted);
+    font-size: 0.95rem; line-height: 1; cursor: pointer;
+    transition: color 0.2s ease, background-color 0.2s ease;
+  }
+  .pf-hud-toggle:hover { color: var(--ink); background: rgba(255, 255, 255, 0.1); }
+  .pf-hud-stage { display: block; position: relative; aspect-ratio: 16 / 10; background: #0a0a0a; cursor: pointer; }
+  .pf-hud-open {
+    position: absolute;
+    right: 6px;
+    bottom: 6px;
+    z-index: 3;
+    font-family: var(--font-mono);
+    font-size: 0.5rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #0a0a0a;
+    background: rgba(255, 255, 255, 0.92);
+    padding: 2px 6px;
+    border-radius: 5px;
+    opacity: 0;
+    transform: translateY(4px);
+    transition: opacity 0.25s ease, transform 0.3s var(--ease-out);
+  }
+  .pf-hud-stage:hover .pf-hud-open { opacity: 1; transform: translateY(0); }
+  .pf-hud-stage .pf-reel-img {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    object-fit: contain; opacity: 0; transition: opacity 0.6s var(--ease-out);
+  }
+  .pf-hud-stage .pf-reel-img.is-active { opacity: 1; }
+  .pf-hud-cap {
+    display: flex; align-items: center; gap: 0.5rem;
+    padding: 0.45rem 0.65rem;
+    font-family: var(--font-mono); font-size: 0.58rem;
+    letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted);
+  }
+  .pf-hud-cap .mono-num { color: var(--faint); flex-shrink: 0; }
+  .pf-hud-label { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .pf-hud-when { margin-left: auto; color: var(--faint); flex-shrink: 0; }
+  .pf-hud.is-min .pf-hud-body { display: none; }
+  .pf-hud.is-min .pf-hud-bar { border-bottom: none; }
+  @media (max-width: 600px) { .pf-hud { width: 158px; } }
+
+  .pf-lens {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    border-radius: 1rem;
+    overflow: hidden;
+  }
+  @media (min-width: 880px) { .pf-lens { grid-template-columns: repeat(4, 1fr); } }
+  .pf-lens-card { background: var(--panel); padding: clamp(1.4rem, 2.4vw, 2rem); }
+  .pf-lens-card h3 { font-size: 1.05rem; margin-bottom: 0.55rem; }
+  .pf-lens-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.6; }
+
+  /* Year-wise segregation */
+  .pf-year { margin-bottom: clamp(2.5rem, 5vw, 4rem); }
+  .pf-year:last-child { margin-bottom: 0; }
+  .pf-year-head {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: clamp(1.25rem, 2.5vw, 1.75rem);
+  }
+  .pf-year-num {
+    font-family: var(--font-display);
+    font-size: clamp(1.7rem, 4vw, 2.6rem);
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    line-height: 1;
+  }
+  .pf-year-rule { flex: 1; height: 1px; background: var(--line); align-self: center; }
+  .pf-year-count {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--faint);
+    white-space: nowrap;
+  }
+
+  /* Case-study grid */
+  .pf-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: clamp(1rem, 2vw, 1.5rem);
+  }
+  @media (min-width: 720px) { .pf-grid { grid-template-columns: 1fr 1fr; } }
+
+  .pf-card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--line);
+    border-radius: 1.1rem;
+    background: var(--panel);
+    overflow: hidden;
+    transition: border-color 250ms var(--ease-out), transform 400ms var(--ease-out);
+  }
+  .pf-card:hover { border-color: rgba(255, 255, 255, 0.2); transform: translateY(-4px); }
+  .pf-card-media {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background: #0a0a0a;
+    border-bottom: 1px solid var(--line);
+  }
+  .pf-card-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 500ms var(--ease-out);
+  }
+  .pf-card:hover .pf-card-media img { transform: scale(1.04); }
+  .pf-card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    padding: clamp(1.3rem, 2.2vw, 1.7rem);
+    flex: 1;
+  }
+  .pf-card-client {
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+  .pf-card-client span {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--faint);
+  }
+  .pf-card-top { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+  .pf-card-idx { font-size: 0.72rem; color: var(--faint); }
+  .pf-card-title {
+    font-size: clamp(1.15rem, 1.9vw, 1.4rem);
+    line-height: 1.25;
+    color: var(--ink);
+  }
+  .pf-card-dek { font-size: 0.92rem; color: var(--muted); line-height: 1.6; flex: 1; }
+  .pf-card-foot { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-top: 0.2rem; }
+  .pf-card-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .pf-card-arrow {
+    flex-shrink: 0;
+    color: var(--ink);
+    transition: transform 300ms var(--ease-out);
+  }
+  .pf-card:hover .pf-card-arrow { transform: translateX(4px); }
+
+  @media (max-width: 760px) { .pf-scroll-cue { display: none; } }
+</style>
+
+<script>
+  import { initPortfolioScene } from '../../../scripts/portfolio-scene';
+
+  let cleanup: (() => void) | undefined;
+
+  function start() {
+    const canvas = document.getElementById('pf-scene') as HTMLCanvasElement | null;
+    if (!canvas || cleanup) return; // not on this page, or already running
+    const isMobile = window.innerWidth < 768;
+    const lowPower = navigator.hardwareConcurrency ? navigator.hardwareConcurrency <= 4 : false;
+    cleanup = initPortfolioScene(canvas, {
+      reducedQuality: isMobile || lowPower,
+      onState: (s) => {
+        const label = document.getElementById('pf-status-label');
+        const sub = document.getElementById('pf-status-sub');
+        const fill = document.getElementById('pf-status-fill');
+        const p = s.progress;
+        const [lbl, sb] = p > 0.66 ? ['ORDER', 'structured']
+          : p > 0.33 ? ['FORMING', 'emerging']
+          : ['CHAOS', 'unstructured'];
+        if (label) label.textContent = lbl;
+        if (sub) sub.textContent = sb;
+        if (fill) fill.style.width = Math.round(p * 100) + '%';
+      },
+    });
+  }
+
+  function stop() {
+    if (cleanup) { cleanup(); cleanup = undefined; }
+  }
+
+  start();
+  document.addEventListener('astro:page-load', start);
+  document.addEventListener('astro:before-swap', stop);
+</script>
+
+<script>
+  // Cross-fade the "Selected charts" reel through the real stage SVGs.
+  let reelTimer: ReturnType<typeof setInterval> | undefined;
+  function initReel() {
+    const imgs = Array.from(document.querySelectorAll<HTMLImageElement>('.pf-reel-img'));
+    if (imgs.length < 2) return;
+    const idxEl = document.getElementById('pf-reel-idx');
+    const labelEl = document.getElementById('pf-reel-label');
+    const whenEl = document.getElementById('pf-reel-when');
+    const linkEl = document.getElementById('pf-hud-link') as HTMLAnchorElement | null;
+    let i = imgs.findIndex((im) => im.classList.contains('is-active'));
+    if (i < 0) i = 0;
+    const show = (n: number) => {
+      imgs.forEach((im, k) => im.classList.toggle('is-active', k === n));
+      if (idxEl) idxEl.textContent = String(n + 1).padStart(2, '0');
+      if (labelEl) labelEl.textContent = imgs[n].dataset.label || '';
+      if (whenEl) whenEl.textContent = imgs[n].dataset.when || '';
+      if (linkEl && imgs[n].dataset.href) linkEl.setAttribute('href', imgs[n].dataset.href as string);
+    };
+    if (reelTimer) clearInterval(reelTimer);
+    reelTimer = setInterval(() => { i = (i + 1) % imgs.length; show(i); }, 2800);
+  }
+  function stopReel() { if (reelTimer) { clearInterval(reelTimer); reelTimer = undefined; } }
+  function bindHudToggle() {
+    const hud = document.getElementById('pf-hud');
+    const btn = document.getElementById('pf-hud-toggle');
+    if (!hud || !btn || btn.dataset.bound) return;
+    btn.dataset.bound = 'true';
+    btn.addEventListener('click', () => {
+      const min = hud.classList.toggle('is-min');
+      btn.textContent = min ? '+' : '–';
+      btn.setAttribute('aria-label', min ? 'Expand selected charts' : 'Minimize selected charts');
+    });
+  }
+  function initHud() { initReel(); bindHudToggle(); }
+  initHud();
+  document.addEventListener('astro:page-load', initHud);
+  document.addEventListener('astro:before-swap', stopReel);
+</script>

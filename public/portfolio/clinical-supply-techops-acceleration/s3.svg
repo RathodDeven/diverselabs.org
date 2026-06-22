@@ -1,0 +1,100 @@
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Future-state operating model: current versus future state compared across five operating dimensions, with a path-forward action strip emphasizing the future-state row">
+  <defs>
+    <pattern id="g" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#fff" fill-opacity="0.05"/></pattern>
+    <radialGradient id="gv" cx="50%" cy="38%" r="66%"><stop offset="0%" stop-color="#fff" stop-opacity="0.06"/><stop offset="100%" stop-color="#fff" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="640" height="400" fill="#0a0a0a"/>
+  <rect width="640" height="400" fill="url(#g)"/>
+  <rect width="640" height="400" fill="url(#gv)"/>
+
+  <text x="32" y="34" font-family="'JetBrains Mono',monospace" font-size="10" fill="#fff" fill-opacity="0.5">OPERATING MODEL · CURRENT vs FUTURE</text>
+  <text x="608" y="34" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.32">03 / 03</text>
+
+  <g font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.6" text-anchor="middle">
+    <text x="159" y="74">EFFICIENCY</text>
+    <text x="253" y="74">TRANSPARENCY</text>
+    <text x="347" y="74">COST</text>
+    <text x="441" y="74">CROSS-FUNCTIONAL</text>
+    <text x="535" y="74">SCALABILITY</text>
+  </g>
+  <line x1="112" y1="82" x2="582" y2="82" stroke="#fff" stroke-opacity="0.18" stroke-width="1"/>
+
+  <g stroke="#fff" stroke-opacity="0.1" stroke-width="1">
+    <line x1="206" y1="86" x2="206" y2="262"/>
+    <line x1="300" y1="86" x2="300" y2="262"/>
+    <line x1="394" y1="86" x2="394" y2="262"/>
+    <line x1="488" y1="86" x2="488" y2="262"/>
+  </g>
+
+  <g font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.5" text-anchor="end">
+    <text x="104" y="125">CURRENT</text>
+    <text x="104" y="135">STATE</text>
+    <text x="104" y="215">FUTURE</text>
+    <text x="104" y="225">STATE</text>
+  </g>
+
+  <g font-family="'JetBrains Mono',monospace" font-size="7.5" fill="#fff" fill-opacity="0.5" text-anchor="middle">
+    <rect x="116" y="92" width="86" height="76" rx="6" fill="#fff" fill-opacity="0.06" stroke="#fff" stroke-opacity="0.14" stroke-width="1"/>
+    <text x="159" y="124">Manual</text><text x="159" y="135">handoffs,</text><text x="159" y="146">rework loops</text>
+
+    <rect x="210" y="92" width="86" height="76" rx="6" fill="#fff" fill-opacity="0.06" stroke="#fff" stroke-opacity="0.14" stroke-width="1"/>
+    <text x="253" y="124">Siloed data,</text><text x="253" y="135">limited</text><text x="253" y="146">visibility</text>
+
+    <rect x="304" y="92" width="86" height="76" rx="6" fill="#fff" fill-opacity="0.06" stroke="#fff" stroke-opacity="0.14" stroke-width="1"/>
+    <text x="347" y="124">High fixed</text><text x="347" y="135">spend, low</text><text x="347" y="146">leverage</text>
+
+    <rect x="398" y="92" width="86" height="76" rx="6" fill="#fff" fill-opacity="0.06" stroke="#fff" stroke-opacity="0.14" stroke-width="1"/>
+    <text x="441" y="124">Functional</text><text x="441" y="135">teams work</text><text x="441" y="146">apart</text>
+
+    <rect x="492" y="92" width="86" height="76" rx="6" fill="#fff" fill-opacity="0.06" stroke="#fff" stroke-opacity="0.14" stroke-width="1"/>
+    <text x="535" y="124">Capacity</text><text x="535" y="135">capped by</text><text x="535" y="146">process</text>
+  </g>
+
+  <g stroke="#fff" stroke-opacity="0.3" stroke-width="1.2" fill="none" stroke-linecap="round">
+    <path d="M159 172 L159 182"/><path d="M155 178 L159 183 L163 178"/>
+    <path d="M253 172 L253 182"/><path d="M249 178 L253 183 L257 178"/>
+    <path d="M347 172 L347 182"/><path d="M343 178 L347 183 L351 178"/>
+    <path d="M441 172 L441 182"/><path d="M437 178 L441 183 L445 178"/>
+    <path d="M535 172 L535 182"/><path d="M531 178 L535 183 L539 178"/>
+  </g>
+
+  <rect x="112" y="184" width="470" height="78" rx="8" fill="none" stroke="#fff" stroke-opacity="0.9" stroke-width="1.5"/>
+  <g font-family="'JetBrains Mono',monospace" font-size="7.5" fill="#fff" fill-opacity="0.95" text-anchor="middle">
+    <rect x="116" y="188" width="86" height="70" rx="6" fill="#fff" fill-opacity="0.16" stroke="#fff" stroke-opacity="0.4" stroke-width="1"/>
+    <text x="159" y="216">Automated</text><text x="159" y="227">flow,</text><text x="159" y="238">single pass</text>
+
+    <rect x="210" y="188" width="86" height="70" rx="6" fill="#fff" fill-opacity="0.16" stroke="#fff" stroke-opacity="0.4" stroke-width="1"/>
+    <text x="253" y="216">Shared</text><text x="253" y="227">real-time</text><text x="253" y="238">signals</text>
+
+    <rect x="304" y="188" width="86" height="70" rx="6" fill="#fff" fill-opacity="0.16" stroke="#fff" stroke-opacity="0.4" stroke-width="1"/>
+    <text x="347" y="216">Variable,</text><text x="347" y="227">demand-led</text><text x="347" y="238">cost</text>
+
+    <rect x="398" y="188" width="86" height="70" rx="6" fill="#fff" fill-opacity="0.16" stroke="#fff" stroke-opacity="0.4" stroke-width="1"/>
+    <text x="441" y="216">Integrated</text><text x="441" y="227">pods, shared</text><text x="441" y="238">goals</text>
+
+    <rect x="492" y="188" width="86" height="70" rx="6" fill="#fff" fill-opacity="0.16" stroke="#fff" stroke-opacity="0.4" stroke-width="1"/>
+    <text x="535" y="216">Elastic,</text><text x="535" y="227">modular</text><text x="535" y="238">platform</text>
+  </g>
+
+  <text x="32" y="292" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.5">PATH FORWARD</text>
+  <g font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.55" text-anchor="middle">
+    <rect x="32" y="300" width="120" height="34" rx="6" fill="#fff" fill-opacity="0.07" stroke="#fff" stroke-opacity="0.16" stroke-width="1"/>
+    <text x="92" y="315">01 · Standardize</text><text x="92" y="326">core process</text>
+
+    <rect x="166" y="300" width="120" height="34" rx="6" fill="#fff" fill-opacity="0.07" stroke="#fff" stroke-opacity="0.16" stroke-width="1"/>
+    <text x="226" y="315">02 · Connect</text><text x="226" y="326">data layer</text>
+
+    <rect x="300" y="300" width="120" height="34" rx="6" fill="#fff" fill-opacity="0.07" stroke="#fff" stroke-opacity="0.16" stroke-width="1"/>
+    <text x="360" y="315">03 · Stand up</text><text x="360" y="326">integrated pods</text>
+
+    <rect x="434" y="300" width="148" height="34" rx="6" fill="#fff" fill-opacity="0.07" stroke="#fff" stroke-opacity="0.16" stroke-width="1"/>
+    <text x="508" y="315">04 · Scale on</text><text x="508" y="326">modular platform</text>
+  </g>
+  <g stroke="#fff" stroke-opacity="0.22" stroke-width="1" stroke-linecap="round">
+    <line x1="152" y1="317" x2="166" y2="317"/>
+    <line x1="286" y1="317" x2="300" y2="317"/>
+    <line x1="420" y1="317" x2="434" y2="317"/>
+  </g>
+
+  <text x="32" y="372" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.45">Current-vs-future operating model across efficiency, transparency, cost and scalability</text>
+</svg>

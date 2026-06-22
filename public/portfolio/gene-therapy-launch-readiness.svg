@@ -1,0 +1,33 @@
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Scattered points resolving into an upward trend">
+  <defs>
+    <pattern id="g1" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="1" fill="#ffffff" fill-opacity="0.05"/>
+    </pattern>
+    <radialGradient id="v1" cx="62%" cy="42%" r="62%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="640" height="400" fill="#0a0a0a"/>
+  <rect width="640" height="400" fill="url(#g1)"/>
+  <rect width="640" height="400" fill="url(#v1)"/>
+  <!-- axes -->
+  <path d="M120 300 H540 M120 300 V90" stroke="#ffffff" stroke-opacity="0.5" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <!-- chaotic points (left) -->
+  <g fill="#ffffff" fill-opacity="0.35">
+    <circle cx="150" cy="160" r="3"/><circle cx="172" cy="230" r="3"/><circle cx="138" cy="205" r="3"/>
+    <circle cx="195" cy="135" r="3"/><circle cx="210" cy="255" r="3"/><circle cx="166" cy="118" r="3"/>
+  </g>
+  <!-- organized points along trend (right) -->
+  <g fill="#ffffff">
+    <circle cx="240" cy="265" r="3.5"/><circle cx="285" cy="250" r="3.5"/><circle cx="330" cy="220" r="3.5"/>
+    <circle cx="375" cy="178" r="3.5"/><circle cx="420" cy="150" r="3.5"/><circle cx="470" cy="128" r="3.5"/>
+    <circle cx="515" cy="116" r="3.5"/>
+  </g>
+  <!-- trend line -->
+  <path d="M235 270 C 320 235, 360 175, 520 112" stroke="#ffffff" stroke-opacity="0.9" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <!-- ticks -->
+  <g stroke="#ffffff" stroke-opacity="0.25" stroke-width="1.5">
+    <path d="M120 260 H540"/><path d="M120 200 H540"/><path d="M120 140 H540"/>
+  </g>
+</svg>

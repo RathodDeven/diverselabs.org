@@ -1,0 +1,106 @@
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Weighted 3PL scorecard: assessment areas scored by priority against two candidates, with the higher-total candidate column highlighted as the winner">
+  <defs>
+    <pattern id="g" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#fff" fill-opacity="0.05"/></pattern>
+    <radialGradient id="gv" cx="50%" cy="38%" r="66%"><stop offset="0%" stop-color="#fff" stop-opacity="0.06"/><stop offset="100%" stop-color="#fff" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="640" height="400" fill="#0a0a0a"/>
+  <rect width="640" height="400" fill="url(#g)"/>
+  <rect width="640" height="400" fill="url(#gv)"/>
+
+  <text x="32" y="34" font-family="'JetBrains Mono',monospace" font-size="10" fill="#fff" fill-opacity="0.5">3PL BENCHMARK · WEIGHTED SCORECARD</text>
+  <text x="608" y="34" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.32">02 / 03</text>
+
+  
+  <rect x="418" y="64" width="88" height="282" rx="8" fill="#fff" fill-opacity="0.07" stroke="#fff" stroke-opacity="0.9" stroke-width="1.5"/>
+
+  <text x="40" y="84" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.5">ASSESSMENT AREA</text>
+  <text x="290" y="84" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.5">PRIORITY</text>
+  <text x="372" y="84" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.5">MAX</text>
+  <text x="462" y="84" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#fff" fill-opacity="0.95">3PL A</text>
+  <text x="558" y="84" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.5">3PL B</text>
+
+  <line x1="40" y1="92" x2="604" y2="92" stroke="#fff" stroke-opacity="0.2" stroke-width="1"/>
+
+  
+  <text x="40" y="120" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#fff" fill-opacity="0.6">Warehouse</text>
+  
+  <circle cx="278" cy="116" r="3" fill="#fff" fill-opacity="0.45"/><circle cx="290" cy="116" r="3" fill="#fff" fill-opacity="0.45"/><circle cx="302" cy="116" r="3" fill="#fff" fill-opacity="0.45"/>
+  
+  <rect x="344" y="112" width="56" height="8" rx="4" fill="#fff" fill-opacity="0.16"/>
+  
+  <rect x="426" y="112" width="56" height="8" rx="4" fill="#fff" fill-opacity="0.14"/>
+  <rect x="426" y="112" width="48" height="8" rx="4" fill="#fff" fill-opacity="0.6"/>
+  
+  <rect x="522" y="112" width="56" height="8" rx="4" fill="#fff" fill-opacity="0.12"/>
+  <rect x="522" y="112" width="38" height="8" rx="4" fill="#fff" fill-opacity="0.3"/>
+
+  <text x="40" y="156" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#fff" fill-opacity="0.6">Inventory</text>
+  <circle cx="278" cy="152" r="3" fill="#fff" fill-opacity="0.45"/><circle cx="290" cy="152" r="3" fill="#fff" fill-opacity="0.45"/><circle cx="302" cy="152" r="3" fill="#fff" fill-opacity="0.18"/>
+  <rect x="344" y="148" width="56" height="8" rx="4" fill="#fff" fill-opacity="0.16"/>
+  <rect x="426" y="148" width="56" height="8" rx="4" fill="#fff" fill-opacity="0.14"/>
+  <rect x="426" y="148" width="40" height="8" rx="4" fill="#fff" fill-opacity="0.6"/>
+  <rect x="522" y="148" width="56" height="8" rx="4" fill="#fff" fill-opacity="0.12"/>
+  <rect x="522" y="148" width="44" height="8" rx="4" fill="#fff" fill-opacity="0.3"/>
+
+  <text x="40" y="192" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#fff" fill-opacity="0.6">Order-to-Cash</text>
+  <circle cx="278" cy="188" r="3" fill="#fff" fill-opacity="0.45"/><circle cx="290" cy="188" r="3" fill="#fff" fill-opacity="0.45"/><circle cx="302" cy="188" r="3" fill="#fff" fill-opacity="0.45"/>
+  <rect x="344" y="184" width="56" height="8" rx="4" fill="#fff" fill-opacity="0.16"/>
+  <rect x="426" y="184" width="56" height="8" rx="4" fill="#fff" fill-opacity="0.14"/>
+  <rect x="426" y="184" width="52" height="8" rx="4" fill="#fff" fill-opacity="0.6"/>
+  <rect x="522" y="184" width="56" height="8" rx="4" fill="#fff" fill-opacity="0.12"/>
+  <rect x="522" y="184" width="42" height="8" rx="4" fill="#fff" fill-opacity="0.3"/>
+
+  <text x="40" y="228" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#fff" fill-opacity="0.6">Service</text>
+  <circle cx="278" cy="224" r="3" fill="#fff" fill-opacity="0.45"/><circle cx="290" cy="224" r="3" fill="#fff" fill-opacity="0.18"/><circle cx="302" cy="224" r="3" fill="#fff" fill-opacity="0.18"/>
+  <rect x="344" y="220" width="56" height="8" rx="4" fill="#fff" fill-opacity="0.16"/>
+  <rect x="426" y="220" width="56" height="8" rx="4" fill="#fff" fill-opacity="0.14"/>
+  <rect x="426" y="220" width="36" height="8" rx="4" fill="#fff" fill-opacity="0.6"/>
+  <rect x="522" y="220" width="56" height="8" rx="4" fill="#fff" fill-opacity="0.12"/>
+  <rect x="522" y="220" width="48" height="8" rx="4" fill="#fff" fill-opacity="0.3"/>
+
+  <text x="40" y="264" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#fff" fill-opacity="0.6">IT &amp; Reporting</text>
+  <circle cx="278" cy="260" r="3" fill="#fff" fill-opacity="0.45"/><circle cx="290" cy="260" r="3" fill="#fff" fill-opacity="0.45"/><circle cx="302" cy="260" r="3" fill="#fff" fill-opacity="0.18"/>
+  <rect x="344" y="256" width="56" height="8" rx="4" fill="#fff" fill-opacity="0.16"/>
+  <rect x="426" y="256" width="56" height="8" rx="4" fill="#fff" fill-opacity="0.14"/>
+  <rect x="426" y="256" width="44" height="8" rx="4" fill="#fff" fill-opacity="0.6"/>
+  <rect x="522" y="256" width="56" height="8" rx="4" fill="#fff" fill-opacity="0.12"/>
+  <rect x="522" y="256" width="40" height="8" rx="4" fill="#fff" fill-opacity="0.3"/>
+
+  <text x="40" y="300" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#fff" fill-opacity="0.6">Compliance</text>
+  <circle cx="278" cy="296" r="3" fill="#fff" fill-opacity="0.45"/><circle cx="290" cy="296" r="3" fill="#fff" fill-opacity="0.45"/><circle cx="302" cy="296" r="3" fill="#fff" fill-opacity="0.45"/>
+  <rect x="344" y="292" width="56" height="8" rx="4" fill="#fff" fill-opacity="0.16"/>
+  <rect x="426" y="292" width="56" height="8" rx="4" fill="#fff" fill-opacity="0.14"/>
+  <rect x="426" y="292" width="50" height="8" rx="4" fill="#fff" fill-opacity="0.6"/>
+  <rect x="522" y="292" width="56" height="8" rx="4" fill="#fff" fill-opacity="0.12"/>
+  <rect x="522" y="292" width="46" height="8" rx="4" fill="#fff" fill-opacity="0.3"/>
+
+  <line x1="40" y1="318" x2="604" y2="318" stroke="#fff" stroke-opacity="0.22" stroke-width="1"/>
+
+  <text x="40" y="340" font-family="'JetBrains Mono',monospace" font-size="10.5" fill="#fff" fill-opacity="0.85" font-weight="bold">TOTAL</text>
+  
+  <rect x="344" y="332" width="56" height="9" rx="4.5" fill="#fff" fill-opacity="0.2"/>
+  
+  <rect x="426" y="332" width="56" height="9" rx="4.5" fill="#fff" fill-opacity="0.16"/>
+  <rect x="426" y="332" width="51" height="9" rx="4.5" fill="#fff" fill-opacity="1"/>
+  
+  <rect x="522" y="332" width="56" height="9" rx="4.5" fill="#fff" fill-opacity="0.14"/>
+  <rect x="522" y="332" width="42" height="9" rx="4.5" fill="#fff" fill-opacity="0.38"/>
+
+  <rect x="438" y="56" width="56" height="0" /> 
+  <g>
+    <rect x="447" y="48" width="30" height="13" rx="6.5" fill="#fff"/>
+    <path d="M455 54.6 l3 3 l5.5 -6" fill="none" stroke="#0a0a0a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="468" y="57.6" font-family="'JetBrains Mono',monospace" font-size="7.5" fill="#0a0a0a" font-weight="bold">WIN</text>
+  </g>
+
+  <g>
+    <circle cx="44" cy="356" r="3" fill="#fff" fill-opacity="0.45"/>
+    <text x="52" y="359" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.45">priority weight</text>
+    <rect x="158" y="353" width="22" height="6" rx="3" fill="#fff" fill-opacity="0.16"/>
+    <text x="186" y="359" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.45">max</text>
+    <rect x="216" y="353" width="22" height="6" rx="3" fill="#fff" fill-opacity="0.6"/>
+    <text x="244" y="359" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.45">score</text>
+  </g>
+
+  <text x="40" y="372" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.45">Weighted scorecard ranks 3PL finalists — higher-total candidate highlighted</text>
+</svg>

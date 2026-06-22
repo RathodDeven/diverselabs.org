@@ -1,0 +1,24 @@
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Good-better-best pricing tiers beside a cohort grid">
+  <defs>
+    <pattern id="g10" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#ffffff" fill-opacity="0.05"/></pattern>
+    <radialGradient id="v10" cx="50%" cy="40%" r="66%"><stop offset="0%" stop-color="#ffffff" stop-opacity="0.06"/><stop offset="100%" stop-color="#ffffff" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="640" height="400" fill="#0a0a0a"/><rect width="640" height="400" fill="url(#g10)"/><rect width="640" height="400" fill="url(#v10)"/>
+  <!-- GBB tiers -->
+  <g>
+    <rect x="80" y="216" width="74" height="100" rx="8" fill="#ffffff" fill-opacity="0.10" stroke="#ffffff" stroke-opacity="0.4" stroke-width="2"/>
+    <rect x="166" y="170" width="74" height="146" rx="8" fill="#ffffff" fill-opacity="0.16" stroke="#ffffff" stroke-opacity="0.6" stroke-width="2"/>
+    <rect x="252" y="120" width="74" height="196" rx="8" fill="#ffffff" fill-opacity="0.24" stroke="#ffffff" stroke-opacity="0.9" stroke-width="2.5"/>
+  </g>
+  <g fill="#ffffff" fill-opacity="0.55" font-family="'JetBrains Mono',monospace" font-size="13" text-anchor="middle">
+    <text x="117" y="300">G</text><text x="203" y="300">B</text><text x="289" y="300">B+</text>
+  </g>
+  <!-- cohort grid (retention dots) -->
+  <g fill="#ffffff">
+    <g fill-opacity="0.85"><circle cx="392" cy="150" r="6"/><circle cx="430" cy="150" r="6"/><circle cx="468" cy="150" r="6"/><circle cx="506" cy="150" r="6"/><circle cx="544" cy="150" r="6"/></g>
+    <g fill-opacity="0.6"><circle cx="392" cy="190" r="6"/><circle cx="430" cy="190" r="6"/><circle cx="468" cy="190" r="6"/><circle cx="506" cy="190" r="6"/></g>
+    <g fill-opacity="0.4"><circle cx="392" cy="230" r="6"/><circle cx="430" cy="230" r="6"/><circle cx="468" cy="230" r="6"/></g>
+    <g fill-opacity="0.25"><circle cx="392" cy="270" r="6"/><circle cx="430" cy="270" r="6"/></g>
+  </g>
+  <g fill="#ffffff" fill-opacity="0.4" font-family="'JetBrains Mono',monospace" font-size="11"><text x="392" y="128">COHORTS</text></g>
+</svg>

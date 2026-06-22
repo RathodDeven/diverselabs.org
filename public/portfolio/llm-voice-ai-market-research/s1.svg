@@ -1,0 +1,62 @@
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Comparative market-sizing table across four industry verticals, showing region, base-year value, projected value bar, and CAGR percent, with Vertical 2 emphasized as the fastest-growing segment">
+  <defs>
+    <pattern id="g" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#fff" fill-opacity="0.05"/></pattern>
+    <radialGradient id="gv" cx="50%" cy="38%" r="66%"><stop offset="0%" stop-color="#fff" stop-opacity="0.06"/><stop offset="100%" stop-color="#fff" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="640" height="400" fill="#0a0a0a"/>
+  <rect width="640" height="400" fill="url(#g)"/>
+  <rect width="640" height="400" fill="url(#gv)"/>
+
+  <text x="32" y="34" font-family="'JetBrains Mono',monospace" font-size="10" fill="#fff" fill-opacity="0.5">MARKET SIZING · BY VERTICAL</text>
+  <text x="608" y="34" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.32">01 / 03</text>
+
+  <line x1="32" y1="92" x2="608" y2="92" stroke="#fff" stroke-opacity="0.2" stroke-width="1.5"/>
+
+  <text x="36" y="84" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.5">VERTICAL</text>
+  <text x="190" y="84" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.5">REGION</text>
+  <text x="296" y="84" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.5">BASE</text>
+  <text x="316" y="84" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.5">PROJECTED</text>
+  <text x="600" y="84" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.5">CAGR %</text>
+
+  <rect x="32" y="100" width="576" height="52" rx="6" fill="#fff" fill-opacity="0.04"/>
+  <text x="44" y="130" font-family="'JetBrains Mono',monospace" font-size="10" fill="#fff" fill-opacity="0.6">Vertical 1</text>
+  <text x="190" y="130" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.45">Global</text>
+  <text x="296" y="130" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.45">1.0x</text>
+  <rect x="316" y="120" width="92" height="12" rx="4" fill="#fff" fill-opacity="0.24"/>
+  <rect x="316" y="120" width="40" height="12" rx="4" fill="#fff" fill-opacity="0.14"/>
+  <text x="520" y="130" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.45">2.3x</text>
+  <text x="600" y="130" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.5">~11%</text>
+
+  <rect x="32" y="156" width="576" height="52" rx="6" fill="#fff" fill-opacity="0.10" stroke="#fff" stroke-opacity="0.85" stroke-width="1.5"/>
+  <text x="44" y="186" font-family="'JetBrains Mono',monospace" font-size="10" fill="#fff" fill-opacity="1">Vertical 2</text>
+  <text x="190" y="186" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.62">Region A</text>
+  <text x="296" y="186" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.62">1.0x</text>
+  <rect x="316" y="176" width="180" height="12" rx="4" fill="#fff" fill-opacity="0.9"/>
+  <text x="520" y="186" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.85">5.6x</text>
+  <text x="600" y="186" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#fff" fill-opacity="1">~29%</text>
+
+  <rect x="32" y="212" width="576" height="52" rx="6" fill="#fff" fill-opacity="0.04"/>
+  <text x="44" y="242" font-family="'JetBrains Mono',monospace" font-size="10" fill="#fff" fill-opacity="0.6">Vertical 3</text>
+  <text x="190" y="242" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.45">Global</text>
+  <text x="296" y="242" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.45">1.0x</text>
+  <rect x="316" y="232" width="124" height="12" rx="4" fill="#fff" fill-opacity="0.24"/>
+  <rect x="316" y="232" width="40" height="12" rx="4" fill="#fff" fill-opacity="0.14"/>
+  <text x="520" y="242" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.45">3.4x</text>
+  <text x="600" y="242" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.5">~18%</text>
+
+  <rect x="32" y="268" width="576" height="52" rx="6" fill="#fff" fill-opacity="0.04"/>
+  <text x="44" y="298" font-family="'JetBrains Mono',monospace" font-size="10" fill="#fff" fill-opacity="0.6">Vertical 4</text>
+  <text x="190" y="298" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.45">Region A</text>
+  <text x="296" y="298" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.45">1.0x</text>
+  <rect x="316" y="288" width="68" height="12" rx="4" fill="#fff" fill-opacity="0.24"/>
+  <rect x="316" y="288" width="40" height="12" rx="4" fill="#fff" fill-opacity="0.14"/>
+  <text x="520" y="298" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.45">1.7x</text>
+  <text x="600" y="298" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.5">~7%</text>
+
+  <rect x="316" y="334" width="20" height="9" rx="3" fill="#fff" fill-opacity="0.14"/>
+  <text x="342" y="342" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.45">Base</text>
+  <rect x="392" y="334" width="20" height="9" rx="3" fill="#fff" fill-opacity="0.24"/>
+  <text x="418" y="342" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.45">Projected</text>
+
+  <text x="32" y="372" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.45">Comparative table: market size and CAGR across industry verticals by region</text>
+</svg>
