@@ -14,7 +14,7 @@ export interface EnrichedContent {
 export const ENRICHED: Record<string, EnrichedContent> = {
   "gene-therapy-launch-readiness": {
     "timeframe": "2022-2025",
-    "dek": "How a first-of-its-kind gene-therapy launch-readiness assessment grew into a person-in-plant operating model and an enterprise materials-internalization playbook for a cell-and-gene company.",
+    "dek": "How a first-of-its-kind gene-therapy launch-readiness assessment built the demand-capacity model, labelling-and-kitting operation and CDMO operating model behind a cell-and-gene company's first commercial launch.",
     "heroStat": {
       "value": "4-area",
       "label": "Supply-chain readiness framework spanning CDMO management, labelling and kitting, order and logistics, and end-to-end planning"

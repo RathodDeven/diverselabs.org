@@ -1,0 +1,62 @@
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Architecture map of a seven-chapter supply-chain NPI playbook. Introduction and References act as bookends with core chapters Stakeholders, Readiness Timelines and Scenarios in the middle, and a continuous-improvement feedback loop running from Scenarios back up to the Readiness Timelines chapter.">
+  <defs>
+    <pattern id="dots" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="13" cy="13" r="1" fill="#fff" fill-opacity="0.05"/>
+    </pattern>
+    <radialGradient id="vig" cx="50%" cy="38%" r="66%">
+      <stop offset="0%" stop-color="#fff" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#fff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect x="0" y="0" width="640" height="400" fill="#0a0a0a"/>
+  <rect x="0" y="0" width="640" height="400" fill="url(#dots)"/>
+  <rect x="0" y="0" width="640" height="400" fill="url(#vig)"/>
+
+  <text x="32" y="34" font-family="'JetBrains Mono',monospace" font-size="10" fill="#fff" fill-opacity="0.5" letter-spacing="1.5">NPI PLAYBOOK · ARCHITECTURE</text>
+  <text x="612" y="34" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.32">01 / 03</text>
+
+  <line x1="32" y1="46" x2="608" y2="46" stroke="#fff" stroke-opacity="0.14" stroke-width="1"/>
+
+  <line x1="160" y1="86" x2="160" y2="330" stroke="#fff" stroke-opacity="0.14" stroke-width="1"/>
+
+  <rect x="72" y="64" width="176" height="40" rx="8" fill="#fff" fill-opacity="0.18" stroke="#fff" stroke-opacity="0.2" stroke-width="1"/>
+  <text x="160" y="83" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="10" fill="#fff" fill-opacity="0.6">Ch.1 Introduction</text>
+  <text x="160" y="96" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="7.5" fill="#fff" fill-opacity="0.45">BOOKEND · OPEN</text>
+
+  <rect x="72" y="118" width="176" height="40" rx="8" fill="#fff" fill-opacity="0.18" stroke="#fff" stroke-opacity="0.2" stroke-width="1"/>
+  <text x="160" y="142" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="10" fill="#fff" fill-opacity="0.6">Ch.2 Lessons Learned</text>
+
+  <rect x="72" y="172" width="176" height="40" rx="8" fill="#fff" fill-opacity="0.3" stroke="#fff" stroke-opacity="0.22" stroke-width="1.5"/>
+  <text x="160" y="190" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="10" fill="#fff" fill-opacity="0.62">Ch.3 Stakeholders</text>
+  <text x="160" y="203" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="7.5" fill="#fff" fill-opacity="0.45">CORE</text>
+
+  <rect x="72" y="226" width="176" height="40" rx="8" fill="#fff" fill-opacity="0.3" stroke="#fff" stroke-opacity="0.22" stroke-width="1.5"/>
+  <text x="160" y="244" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="10" fill="#fff" fill-opacity="0.62">Ch.4-5 Readiness Timelines</text>
+  <text x="160" y="257" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="7.5" fill="#fff" fill-opacity="0.45">CORE</text>
+
+  <rect x="72" y="280" width="176" height="40" rx="8" fill="#fff" fill-opacity="0.3" stroke="#fff" stroke-opacity="0.22" stroke-width="1.5"/>
+  <text x="160" y="298" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="10" fill="#fff" fill-opacity="0.62">Ch.6 Scenarios</text>
+  <text x="160" y="311" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="7.5" fill="#fff" fill-opacity="0.45">CORE</text>
+
+  <rect x="72" y="334" width="176" height="40" rx="8" fill="#fff" fill-opacity="0.18" stroke="#fff" stroke-opacity="0.2" stroke-width="1"/>
+  <text x="160" y="358" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="10" fill="#fff" fill-opacity="0.6">Ch.7 References</text>
+
+  <path d="M 248 300 C 360 300 360 246 268 246" fill="none" stroke="#fff" stroke-opacity="1" stroke-width="2" stroke-linecap="round"/>
+  <path d="M 280 240 L 264 246 L 281 252" fill="none" stroke="#fff" stroke-opacity="1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="372" y="252" width="208" height="64" rx="10" fill="#fff" stroke="#fff" stroke-width="1.5"/>
+  <text x="476" y="278" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="11" fill="#0a0a0a" font-weight="bold">Continuous Improvement</text>
+  <text x="476" y="296" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#0a0a0a" fill-opacity="0.7">FEEDBACK LOOP · SCENARIOS → TIMELINES</text>
+
+  <line x1="368" y1="284" x2="356" y2="284" stroke="#fff" stroke-opacity="0.85" stroke-width="1.5" stroke-linecap="round"/>
+
+  <text x="372" y="112" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.45">BOOKENDS</text>
+  <rect x="372" y="122" width="208" height="1.2" fill="#fff" fill-opacity="0.16"/>
+  <text x="372" y="146" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.5">Introduction · References</text>
+  <text x="372" y="172" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.45">CORE CHAPTERS</text>
+  <rect x="372" y="182" width="208" height="1.2" fill="#fff" fill-opacity="0.16"/>
+  <text x="372" y="206" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.5">Stakeholders · Timelines · Scenarios</text>
+
+  <text x="32" y="372" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.45">Seven-chapter playbook with a continuous-improvement feedback loop</text>
+</svg>
