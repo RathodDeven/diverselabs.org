@@ -1,5 +1,16 @@
 import type { Doc } from './content';
 import { ENRICHED } from './portfolio.content';
+import hiddenJson from './portfolio.hidden.json';
+
+/**
+ * LIVE visibility control. Slugs listed here are committed and therefore
+ * EXCLUDED from the deployed (static) build — the index drops them and their
+ * detail pages aren't generated. Locally (`astro dev`) they still render, marked
+ * "Hidden from live", with a Hide/Unhide button that rewrites this file via a
+ * dev-only middleware (see astro.config.mjs). Push to apply on live.
+ */
+export const HIDDEN: string[] = ((hiddenJson as { hidden?: string[] })?.hidden ?? []);
+export const isHidden = (slug: string): boolean => HIDDEN.includes(slug);
 
 /**
  * Priyam Haryani — independent advisory portfolio (HIDDEN page).

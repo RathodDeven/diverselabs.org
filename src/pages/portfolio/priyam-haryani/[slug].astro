@@ -1,17 +1,20 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import ArticleShell from '../../../components/content/ArticleShell.astro';
-import { portfolioCaseStudies, portfolioStages } from '../../../data/portfolio';
+import { portfolioCaseStudies, portfolioStages, isHidden } from '../../../data/portfolio';
 
 const BASE = '/portfolio/priyam-haryani';
 
 export function getStaticPaths() {
+  // Locally (dev) keep every page reachable so hidden ones can be reviewed and
+  // unhidden; in the production build, hidden case studies are not generated.
   return portfolioCaseStudies
-    .filter((d) => !d.draft)
+    .filter((d) => !d.draft && (import.meta.env.DEV || !isHidden(d.slug)))
     .map((doc) => ({ params: { slug: doc.slug }, props: { doc } }));
 }
 
 const { doc } = Astro.props;
+const hidden = isHidden(doc.slug);
 const stages = portfolioStages[doc.slug];
 const crumbs = [
   { name: 'Portfolio', href: BASE },
@@ -32,4 +35,64 @@ const crumbs = [
     cover={stages ? undefined : `/portfolio/${doc.slug}.svg`}
     stages={stages}
   />
+
+  {import.meta.env.DEV && (
+    <button class:list={['pf-hide-fab', { 'is-hidden': hidden }]} type="button" data-slug={doc.slug}>
+      {hidden ? '● Hidden from live — click to unhide' : '○ Hide this from live'}
+    </button>
+  )}
 </BaseLayout>
+
+<style>
+  .pf-hide-fab {
+    position: fixed;
+    left: 50%;
+    bottom: clamp(0.75rem, 2vw, 1.25rem);
+    transform: translateX(-50%);
+    z-index: 80;
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.55rem 0.95rem;
+    border: 1px solid var(--line);
+    border-radius: 0.7rem;
+    background: rgba(12, 12, 12, 0.82);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    color: var(--muted);
+    cursor: pointer;
+    transition: color 0.2s ease, border-color 0.2s ease;
+  }
+  .pf-hide-fab:hover { color: var(--ink); border-color: rgba(255, 255, 255, 0.28); }
+  .pf-hide-fab.is-hidden { color: #ffd9d9; border-color: rgba(255, 120, 120, 0.5); }
+  .pf-hide-fab[disabled] { opacity: 0.5; cursor: default; }
+</style>
+
+<script>
+  if (import.meta.env.DEV) {
+    const bind = () => {
+      const b = document.querySelector('.pf-hide-fab') as HTMLButtonElement | null;
+      if (!b || b.dataset.bound) return;
+      b.dataset.bound = 'true';
+      b.addEventListener('click', async () => {
+        b.disabled = true;
+        const prev = b.textContent;
+        b.textContent = '…';
+        try {
+          await fetch('/__pf-hide', {
+            method: 'POST',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify({ slug: b.dataset.slug }),
+          });
+          location.reload();
+        } catch {
+          b.disabled = false;
+          b.textContent = prev;
+        }
+      });
+    };
+    bind();
+    document.addEventListener('astro:page-load', bind);
+  }
+</script>

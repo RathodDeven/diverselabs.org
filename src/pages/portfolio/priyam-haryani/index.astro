@@ -1,15 +1,21 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import CTAButton from '../../../components/CTAButton.astro';
-import { portfolioCaseStudies, coverFor, portfolioStages } from '../../../data/portfolio';
+import { portfolioCaseStudies, coverFor, portfolioStages, isHidden } from '../../../data/portfolio';
 
 const BASE = '/portfolio/priyam-haryani';
-const cases = portfolioCaseStudies.filter((d) => !d.draft);
+// Locally (dev) show every engagement, including ones hidden from live (marked,
+// with an unhide button). In the production build, hidden engagements drop off.
+const cases = portfolioCaseStudies.filter(
+  (d) => !d.draft && (import.meta.env.DEV || !isHidden(d.slug)),
+);
 
 // The real, anonymized stage charts — showcased as a cross-fading reel.
 // Each carries its case-study link + timeframe so the HUD can deep-link.
+// Skip charts for engagements not in the current listing (e.g. hidden on live).
 const reel = Object.entries(portfolioStages).flatMap(([slug, stages]) => {
   const d = cases.find((c) => c.slug === slug);
+  if (!d) return [];
   return stages.map((s) => ({ ...s, href: `${BASE}/${slug}`, when: d?.timeframe ?? '' }));
 });
 
@@ -157,28 +163,38 @@ const lens = [
           </div>
           <div class="pf-grid" data-reveal-group>
             {items.map((doc) => (
-              <a class="pf-card" href={`${BASE}/${doc.slug}`}>
-                <div class="pf-card-media">
-                  <img src={coverFor(doc.slug)} alt="" loading="lazy" width="640" height="400" />
-                </div>
-                <div class="pf-card-body">
-                  {doc.client && (
-                    <div class="pf-card-client"><span>Client</span>{doc.client}</div>
-                  )}
-                  <div class="pf-card-top">
-                    <span class="label no-rule">{doc.eyebrow}</span>
-                    <span class="pf-card-idx mono-num">{doc.timeframe}</span>
+              <div class:list={['pf-card-wrap', { 'is-hidden': import.meta.env.DEV && isHidden(doc.slug) }]}>
+                <a class="pf-card" href={`${BASE}/${doc.slug}`}>
+                  <div class="pf-card-media">
+                    <img src={coverFor(doc.slug)} alt="" loading="lazy" width="640" height="400" />
                   </div>
-                  <h3 class="pf-card-title">{doc.title}</h3>
-                  <p class="pf-card-dek">{doc.dek}</p>
-                  <div class="pf-card-foot">
-                    <div class="pf-card-tags">
-                      {doc.tags.slice(0, 3).map((t) => <span class="chip">{t}</span>)}
+                  <div class="pf-card-body">
+                    {doc.client && (
+                      <div class="pf-card-client"><span>Client</span>{doc.client}</div>
+                    )}
+                    <div class="pf-card-top">
+                      <span class="label no-rule">{doc.eyebrow}</span>
+                      <span class="pf-card-idx mono-num">{doc.timeframe}</span>
                     </div>
-                    <span class="pf-card-arrow" aria-hidden="true">→</span>
+                    <h3 class="pf-card-title">{doc.title}</h3>
+                    <p class="pf-card-dek">{doc.dek}</p>
+                    <div class="pf-card-foot">
+                      <div class="pf-card-tags">
+                        {doc.tags.slice(0, 3).map((t) => <span class="chip">{t}</span>)}
+                      </div>
+                      <span class="pf-card-arrow" aria-hidden="true">→</span>
+                    </div>
                   </div>
-                </div>
-              </a>
+                </a>
+                {import.meta.env.DEV && (
+                  <>
+                    {isHidden(doc.slug) && <span class="pf-hidden-badge">Hidden from live</span>}
+                    <button class="pf-hide-btn" type="button" data-slug={doc.slug}>
+                      {isHidden(doc.slug) ? 'Unhide' : 'Hide from live'}
+                    </button>
+                  </>
+                )}
+              </div>
             ))}
           </div>
         </div>
@@ -473,6 +489,48 @@ const lens = [
   }
   @media (min-width: 720px) { .pf-grid { grid-template-columns: 1fr 1fr; } }
 
+  /* Dev-only hide/unhide controls (stripped from the production build) */
+  .pf-card-wrap { position: relative; display: flex; }
+  .pf-card-wrap .pf-card { flex: 1; }
+  .pf-card-wrap.is-hidden .pf-card { opacity: 0.42; filter: grayscale(0.6); }
+  .pf-card-wrap.is-hidden { outline: 1px dashed rgba(255, 120, 120, 0.5); outline-offset: 3px; border-radius: 1.1rem; }
+  .pf-hide-btn {
+    position: absolute;
+    top: 0.6rem;
+    right: 0.6rem;
+    z-index: 4;
+    font-family: var(--font-mono);
+    font-size: 0.56rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.32rem 0.55rem;
+    border: 1px solid var(--line);
+    border-radius: 0.5rem;
+    background: rgba(10, 10, 10, 0.82);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: var(--muted);
+    cursor: pointer;
+    transition: color 0.2s ease, border-color 0.2s ease;
+  }
+  .pf-hide-btn:hover { color: var(--ink); border-color: rgba(255, 255, 255, 0.3); }
+  .pf-hide-btn[disabled] { opacity: 0.5; cursor: default; }
+  .pf-hidden-badge {
+    position: absolute;
+    top: 0.6rem;
+    left: 0.6rem;
+    z-index: 4;
+    font-family: var(--font-mono);
+    font-size: 0.54rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.5rem;
+    border-radius: 0.5rem;
+    background: rgba(120, 20, 20, 0.55);
+    border: 1px solid rgba(255, 120, 120, 0.45);
+    color: #ffd9d9;
+  }
+
   .pf-card {
     display: flex;
     flex-direction: column;
@@ -617,4 +675,36 @@ const lens = [
   initHud();
   document.addEventListener('astro:page-load', initHud);
   document.addEventListener('astro:before-swap', stopReel);
+</script>
+
+<script>
+  // Dev-only: Hide/Unhide a case study from the live build. Stripped from production.
+  if (import.meta.env.DEV) {
+    const bindHide = () => {
+      document.querySelectorAll<HTMLButtonElement>('.pf-hide-btn').forEach((b) => {
+        if (b.dataset.bound) return;
+        b.dataset.bound = 'true';
+        b.addEventListener('click', async (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          b.disabled = true;
+          const prev = b.textContent;
+          b.textContent = '…';
+          try {
+            await fetch('/__pf-hide', {
+              method: 'POST',
+              headers: { 'content-type': 'application/json' },
+              body: JSON.stringify({ slug: b.dataset.slug }),
+            });
+            location.reload();
+          } catch {
+            b.disabled = false;
+            b.textContent = prev;
+          }
+        });
+      });
+    };
+    bindHide();
+    document.addEventListener('astro:page-load', bindHide);
+  }
 </script>
