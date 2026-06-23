@@ -517,8 +517,16 @@ body.menu-open .menu-foot { opacity: 1; transform: none; }
 }
 @media (min-width: 1000px) {
   .hero-layout {
-    grid-template-columns: minmax(0, 1.08fr) minmax(0, 1fr);
-    gap: clamp(2.5rem, 4vw, 4rem);
+    /* Copy stays in a compact column aligned with the page; the showreel takes
+       the rest and bleeds toward the right viewport edge so it reads big on
+       wide screens. .hero { overflow: clip } keeps this from adding scroll. */
+    grid-template-columns: minmax(320px, 420px) minmax(0, 1fr);
+    gap: clamp(1.5rem, 2.5vw, 2.75rem);
+    margin-right: min(0px, calc(50% - 50vw + 2rem));
+  }
+  .hero-showreel-frame {
+    max-width: 54rem;     /* cap so it doesn't get too tall on ultrawide */
+    margin-left: auto;    /* hug the right edge once capped */
   }
 }
 .hero-copy {
@@ -529,13 +537,14 @@ body.menu-open .menu-foot { opacity: 1; transform: none; }
 }
 /* Headline sized to live inside its column without wrapping awkwardly */
 .hero-copy .display-hero {
-  font-size: clamp(2.6rem, 5.2vw, 4.7rem);
+  font-size: clamp(2.4rem, 4.4vw, 4rem);
   line-height: 0.98;
 }
 .hero-copy .hero-sub { max-width: 36rem; }
 .hero-cta-row {
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   gap: 0.75rem;
   align-items: stretch;
 }
