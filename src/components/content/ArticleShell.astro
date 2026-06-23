@@ -13,8 +13,44 @@ interface Props {
   cover?: string;
   /** Optional per-stage diagrams rendered as a "How it progressed" gallery */
   stages?: { label: string; src: string }[];
+  /** Override the closing CTA (label + href). Defaults to the cal.com booking link. */
+  ctaLabel?: string;
+  ctaHref?: string;
 }
-const { doc, crumbs, cover, stages } = Astro.props as Props;
+const { doc, crumbs, cover, stages, ctaLabel, ctaHref } = Astro.props as Props;
+const finalCtaHref = ctaHref ?? 'https://cal.com/diverselabs/30min';
+const finalCtaLabel = ctaLabel ?? 'Book a Discovery Call';
+
+// ── At-a-glance: auto-derive 3 scannable bullets from the existing blocks ──
+// Goal: a 7-second reader gets the gist without scrolling into long prose.
+// Picks the first available source in priority order: a metrics strip (counts
+// from the source), a callouts panel (titles), a steps panel (titles), a stack
+// (group labels), a split (after-state points). Always exactly 3 items.
+function deriveScanPoints(blocks: typeof doc.blocks): { kicker: string; text: string }[] {
+  const m = blocks.find((b) => b.kind === 'metrics') as Extract<typeof blocks[number], { kind: 'metrics' }> | undefined;
+  if (m && m.items.length) return m.items.slice(0, 3).map((it) => ({ kicker: it.value, text: it.label }));
+  const c = blocks.find((b) => b.kind === 'callouts') as Extract<typeof blocks[number], { kind: 'callouts' }> | undefined;
+  if (c && c.items.length) return c.items.slice(0, 3).map((it) => ({ kicker: '·', text: it.title }));
+  const sp = blocks.find((b) => b.kind === 'steps') as Extract<typeof blocks[number], { kind: 'steps' }> | undefined;
+  if (sp && sp.items.length) return sp.items.slice(0, 3).map((it, i) => ({ kicker: String(i + 1).padStart(2, '0'), text: it.title }));
+  const st = blocks.find((b) => b.kind === 'stack') as Extract<typeof blocks[number], { kind: 'stack' }> | undefined;
+  if (st && st.groups.length) return st.groups.slice(0, 3).map((g, i) => ({ kicker: String(i + 1).padStart(2, '0'), text: g.label }));
+  const sl = blocks.find((b) => b.kind === 'split') as Extract<typeof blocks[number], { kind: 'split' }> | undefined;
+  if (sl && sl.after?.points?.length) return sl.after.points.slice(0, 3).map((p) => ({ kicker: '→', text: p.replace(/<[^>]+>/g, '') }));
+  return [];
+}
+const scan = deriveScanPoints(doc.blocks);
+const hasStages = stages && stages.length > 0;
+const hasFaq = doc.faq && doc.faq.length > 0;
+const hasRelated = doc.related && doc.related.length > 0;
+// Approx read-time from total prose length (rough but useful signal).
+const wordCount = doc.blocks.reduce((n, b) => {
+  if (b.kind === 'prose') return n + b.body.split(/\s+/).length;
+  if (b.kind === 'callouts') return n + b.items.reduce((m, it) => m + it.body.split(/\s+/).length, 0);
+  if (b.kind === 'steps') return n + b.items.reduce((m, it) => m + it.body.split(/\s+/).length, 0);
+  return n;
+}, 0);
+const readMin = Math.max(2, Math.round(wordCount / 220));
 ---
 
 <article class="doc">
@@ -59,10 +95,35 @@ const { doc, crumbs, cover, stages } = Astro.props as Props;
   </header>
 
   <div class="container container-narrow">
+    <!-- ── At a glance ── for the 7-second reader ─────────────────────── -->
+    {scan.length > 0 && (
+      <section class="doc-scan" data-reveal>
+        <div class="doc-scan-head">
+          <span class="doc-scan-eyebrow">At a glance</span>
+          <span class="doc-scan-time mono-num">{readMin} min read · {doc.blocks.length} sections{hasStages ? ` · ${stages!.length} diagrams` : ''}</span>
+        </div>
+        <ul class="doc-scan-list">
+          {scan.map((p) => (
+            <li class="doc-scan-item">
+              <span class="doc-scan-kicker">{p.kicker}</span>
+              <span class="doc-scan-text">{p.text}</span>
+            </li>
+          ))}
+        </ul>
+        <nav class="doc-scan-jump" aria-label="Jump to section">
+          <span class="doc-scan-jump-label">Jump to</span>
+          {hasStages && <a href="#how-it-progressed">Stages</a>}
+          {hasFaq && <a href="#faq">FAQ</a>}
+          {hasRelated && <a href="#related">Related</a>}
+          <a href="#cta">Contact</a>
+        </nav>
+      </section>
+    )}
+
     <ContentBlocks blocks={doc.blocks} />
 
     {stages && stages.length > 0 && (
-      <section class="db db-stages" data-reveal>
+      <section class="db db-stages" data-reveal id="how-it-progressed">
         <h2>How it progressed</h2>
         <div class="stage-track" data-reveal-group>
           {stages.map((s, i) => (
@@ -76,14 +137,14 @@ const { doc, crumbs, cover, stages } = Astro.props as Props;
     )}
 
     {doc.faq && doc.faq.length > 0 && (
-      <section class="db db-faq" data-reveal>
+      <section class="db db-faq" data-reveal id="faq">
         <h2>Frequently asked</h2>
         <Faq items={doc.faq} />
       </section>
     )}
 
     {doc.related && doc.related.length > 0 && (
-      <section class="db db-related" data-reveal>
+      <section class="db db-related" data-reveal id="related">
         <h2>Keep reading</h2>
         <div class="related-grid" data-reveal-group>
           {doc.related.map((r) => (
@@ -97,17 +158,108 @@ const { doc, crumbs, cover, stages } = Astro.props as Props;
       </section>
     )}
 
-    <section class="db db-cta" data-reveal>
+    <section class="db db-cta" data-reveal id="cta">
       <div class="doc-cta">
         <h2>{doc.cta?.title ?? 'Want this for your team?'}</h2>
         <p>{doc.cta?.sub ?? "Tell us the workflow. We'll show you what to automate first — and what it's worth."}</p>
-        <CTAButton href="https://cal.com/diverselabs/30min">Book a Discovery Call</CTAButton>
+        <CTAButton href={finalCtaHref}>{finalCtaLabel}</CTAButton>
       </div>
     </section>
   </div>
 </article>
 
 <style>
+  /* ── At a glance (front-loaded scan panel for the 7-second reader) ── */
+  .doc-scan {
+    margin: clamp(1.5rem, 3vw, 2.25rem) 0 clamp(1.75rem, 3.5vw, 2.5rem);
+    border: 1px solid var(--line);
+    border-radius: 1rem;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0));
+    padding: clamp(1.1rem, 2vw, 1.5rem) clamp(1.2rem, 2.2vw, 1.7rem);
+  }
+  .doc-scan-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.9rem;
+    padding-bottom: 0.7rem;
+    border-bottom: 1px solid var(--line);
+  }
+  .doc-scan-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+  .doc-scan-time {
+    font-family: var(--font-mono);
+    font-size: 0.64rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--faint);
+  }
+  .doc-scan-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.7rem;
+  }
+  @media (min-width: 720px) {
+    .doc-scan-list { grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+  }
+  .doc-scan-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    padding: 0.65rem 0.7rem;
+    border-left: 2px solid rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, 0.025);
+    border-radius: 0 0.45rem 0.45rem 0;
+  }
+  .doc-scan-kicker {
+    font-family: var(--font-mono);
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1.1;
+  }
+  .doc-scan-text {
+    font-size: 0.86rem;
+    color: var(--muted);
+    line-height: 1.45;
+  }
+  .doc-scan-jump {
+    margin-top: 1rem;
+    padding-top: 0.85rem;
+    border-top: 1px solid var(--line);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.65rem 1.1rem;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .doc-scan-jump-label { color: var(--faint); }
+  .doc-scan-jump a {
+    color: var(--muted);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: color 0.2s ease, border-color 0.2s ease;
+  }
+  .doc-scan-jump a:hover {
+    color: var(--ink);
+    border-bottom-color: rgba(255, 255, 255, 0.4);
+  }
+  /* smooth scroll for in-page anchors */
+  html { scroll-behavior: smooth; }
+  [id] { scroll-margin-top: 1.5rem; }
+
   .doc-when {
     font-size: 0.72rem;
     letter-spacing: 0.08em;

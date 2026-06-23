@@ -15,6 +15,8 @@ export function getStaticPaths() {
 
 const { doc } = Astro.props;
 const hidden = isHidden(doc.slug);
+const EMAIL = 'haryanipriyam@gmail.com';
+const mailto = `mailto:${EMAIL}?subject=${encodeURIComponent('Hello — ' + doc.title)}`;
 const stages = portfolioStages[doc.slug];
 const crumbs = [
   { name: 'Portfolio', href: BASE },
@@ -26,6 +28,7 @@ const crumbs = [
   title={`${doc.seoTitle ?? doc.title} — Priyam Haryani`}
   description={doc.description}
   keywords={doc.keywords}
+  image={`/portfolio/og/${doc.slug}.png`}
   noindex={true}
   standalone={true}
 >
@@ -34,6 +37,8 @@ const crumbs = [
     crumbs={crumbs}
     cover={stages ? undefined : `/portfolio/${doc.slug}.svg`}
     stages={stages}
+    ctaLabel={`Email Priyam · ${EMAIL}`}
+    ctaHref={mailto}
   />
 
   {import.meta.env.DEV && (
