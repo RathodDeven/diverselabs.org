@@ -1,6 +1,7 @@
 import type { Doc } from './content';
 import { ENRICHED } from './portfolio.content';
 import hiddenJson from './portfolio.hidden.json';
+import localBlockData from './portfolio.local.json';
 
 /**
  * LIVE visibility control. Slugs listed here are committed and therefore
@@ -807,6 +808,50 @@ const localClients = Object.values(localClientMods)[0]?.REVIEW_CLIENTS;
 if (localClients) {
   for (const d of portfolioCaseStudies) {
     if (localClients[d.slug]) d.client = localClients[d.slug];
+  }
+}
+
+/* ──────────────────────────────────────────────────────────────────────────
+   Per-SECTION local controls (committed in portfolio.local.json):
+     { "<slug>": { "hiddenBlocks": [int...], "edits": { "<blockIndex>": { "<field.path>": value } } } }
+   - edits override individual block fields (inline editing on local).
+   - hiddenBlocks drop a block from the LIVE build; on dev they stay (marked).
+   Toggled/edited via the Hide button + contenteditable on the local dev site
+   (see astro.config.mjs dev middleware). Push to apply on live.
+   ────────────────────────────────────────────────────────────────────────── */
+const LOCAL = localBlockData as Record<
+  string,
+  { hiddenBlocks?: number[]; edits?: Record<string, Record<string, unknown>> }
+>;
+function setPath(obj: Record<string, unknown>, pathStr: string, value: unknown): void {
+  const parts = pathStr.split('.');
+  let o: any = obj;
+  for (let k = 0; k < parts.length - 1; k++) {
+    const key = parts[k];
+    if (o[key] == null) o[key] = /^\d+$/.test(parts[k + 1]) ? [] : {};
+    o = o[key];
+  }
+  o[parts[parts.length - 1]] = value;
+}
+for (const d of portfolioCaseStudies) {
+  const loc = LOCAL[d.slug];
+  if (!loc) continue;
+  if (loc.edits) {
+    d.blocks = d.blocks.map((b, i) => {
+      const patch = loc.edits![String(i)];
+      if (!patch) return b;
+      const clone = JSON.parse(JSON.stringify(b));
+      for (const [p, v] of Object.entries(patch)) setPath(clone, p, v);
+      return clone;
+    });
+  }
+  if (loc.hiddenBlocks && loc.hiddenBlocks.length) {
+    const hide = new Set(loc.hiddenBlocks);
+    if (import.meta.env.DEV) {
+      d.blocks = d.blocks.map((b, i) => (hide.has(i) ? ({ ...b, __hidden: true } as typeof b) : b));
+    } else {
+      d.blocks = d.blocks.filter((_, i) => !hide.has(i));
+    }
   }
 }
 
