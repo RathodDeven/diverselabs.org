@@ -178,15 +178,15 @@ export const ENRICHED: Record<string, EnrichedContent> = {
             "sub": "Stage, run and close out patient kitting (kits banded by vial count) in a separate suite"
           },
           {
-            "label": "Cold-chain delivery",
-            "sub": "Cryo-box prepared, transport scheduled, proof-of-delivery confirmed to the site of care"
+            "label": "QA release & disposition",
+            "sub": "Each order is dispositioned through the QA-release model, then released and shipped to the site of care"
           }
         ]
       },
       {
         "kind": "prose",
         "heading": "From assessment to operating tools: the demand-capacity model and S&OP",
-        "body": "The centerpiece of the build was a <strong>demand-capacity model</strong> that translated a combined clinical-plus-commercial forecast into the number of finishing suites, crews and QA-release hours required month by month. It encoded the constraints that actually drove the answer: vial-yield throughput stepping up over time, the fixed pool of QA-release hours split dynamically between labelling and kitting, and the crew rule that one crew runs two suites.\n\nThe model went through multiple iterations as forecasts firmed up, and it showed starkly how demand growth drove suite requirements, from a single suite in the early quarters toward the full four-suite, two-crew configuration as kitting volumes scaled. Around it we stood up an integrated <strong>sales-and-operations-planning</strong> process, meeting structure, participants and cadence, plus a design hand-off calendar and a dynamic planning dashboard."
+        "body": "The centerpiece of the build was a <strong>demand-capacity model</strong> that translated a combined clinical-plus-commercial forecast into the number of finishing suites, crews and QA-release hours required month by month. It encoded the constraints that actually drove the answer: vial-yield throughput stepping up over time, the fixed pool of QA-release hours split dynamically between labelling and kitting, and the crew rule that one crew runs two suites.\n\nThe model went through multiple iterations as forecasts firmed up, and it showed starkly how demand growth drove suite requirements, from a single suite in the early quarters toward the full four-suite, two-crew configuration as kitting volumes scaled. Around it we stood up an integrated <strong>sales-and-operations-planning</strong> process, meeting structure, participants and cadence, plus a design hand-off calendar and a dynamic planning dashboard. We also built a <strong>QA-release model</strong> that sized and sequenced the quality-release capacity feeding labelling and kitting, since QA-release hours were a binding constraint on finishing throughput."
       },
       {
         "kind": "prose",
