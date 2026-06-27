@@ -2686,7 +2686,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
       {
         "kind": "prose",
         "heading": "The engagement",
-        "body": "A consumer-packaged-goods (CPG) team responsible for <strong>pricing and trade analytics</strong> needed a governed, repeatable analytics environment built on a <strong>low-code BI platform</strong>. The work spanned several distinct analytical projects, each modeled and surfaced through filterable dashboards.\n\nThe brief was twofold. First, build a <strong>multi-project business-intelligence solution</strong>: connect the raw data, model it, and present it through dashboards with filters and charts. Second, and weighted equally, hand the solution over in a state the client's own team could <strong>maintain and extend without the consultant</strong>, including loading each new year of data and adding new projects."
+        "body": "A consumer-packaged-goods (CPG) team responsible for <strong>pricing and trade analytics</strong> needed a governed, repeatable analytics environment built on a <strong>BI platform</strong>. The work spanned several distinct analytical projects, each modeled and surfaced through filterable dashboards.\n\nThe brief was twofold. First, build a <strong>multi-project business-intelligence solution</strong>: connect the raw data, model it, and present it through dashboards with filters and charts. Second, and weighted equally, hand the solution over in a state the client's own team could <strong>maintain and extend without the consultant</strong>, including loading each new year of data and adding new projects."
       },
       {
         "kind": "prose",
