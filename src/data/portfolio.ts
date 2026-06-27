@@ -725,6 +725,120 @@ export const portfolioCaseStudies: Doc[] = [
     author: AUTHOR,
     blocks: [{"kind":"prose","heading":"The situation","body":"An <strong>oncology biotech preparing its first oral-product launch</strong> was bringing a once-daily capsule therapy to market. The launch SKU was committed to a bottle presentation, but the planned line-extension strengths were intended to migrate to a <strong>thermoformed blister</strong> presentation to support per-dose unit-of-use and align with regional unit-dose preferences.\n\nThe firm engaged us to answer a tightly bounded operations question: could a <strong>commercial blister presentation be designed, qualified, and operationalized</strong>, technically robust, compliant, and launch-ready, on an aggressive timeline, including a primary stability batch manufactured on the intended commercial configuration before the year-end manufacturing window closed?\n\nThis was deliberately scoped to the <strong>blister format itself</strong>, configuration, materials, tooling, trials, stability, and packaging validation. Vendor RFP selection, market codes, and EU release routes were run as separate workstreams."},{"kind":"steps","title":"Project objective: blister commercialization readiness","items":[{"title":"Freeze the configuration","body":"Finalize cavity count, card layout, child-resistant / tamper-evident (CR/TE) needs, and barrier requirements for the commercial presentation."},{"title":"Lock the materials","body":"Select and lock forming film and lidding film based on the product's moisture sensitivity and target shelf-life."},{"title":"Tooling and capacity","body":"Utilize existing blister capacity where possible; define, source, and install the required change-part tooling against the chosen format."},{"title":"Trials to set parameters","body":"Plan mechanical and engineering trials to establish viable, repeatable forming, sealing, and feed parameters."},{"title":"Primary stability batch","body":"Plan to manufacture and place a primary stability batch (PSB) on the intended commercial blister configuration to start the stability clock."},{"title":"Validation plan","body":"Define the packaging validation plan (PQ/PPQ) and integrate it with the overall process-validation strategy for full commercial readiness."}]},{"kind":"split","title":"Why blister, not just bottle","before":{"label":"Bottle (launch SKU)","points":["Single high-count fill, simple high-throughput line","Lower per-unit packaging cost at the count used","Launch bottle already on its own stability program","Adherence relies on patient self-counting","Less granular unit-of-use control"]},"after":{"label":"Blister (line-extension presentation)","points":["Engineered forming/lidding barrier tuned to shelf-life","Per-dose unit-of-use down to the individual cavity","Card layouts map to weekly/biweekly capsule strips","Requires tooling, films, trials, and its own stability","Aligns with regional unit-dose packaging preferences"]}},{"kind":"compare","title":"Configuration decision: two card layouts evaluated","caption":"Both options carry the same capsule count per carton; the trade is cavity geometry, tooling, and patient-facing layout. Industry rationale for unit-dose layouts (e.g. supporting adherence) is general and was not a stated project objective.","head":["Attribute","Config A, 2 x 14","Config B, 4 x 7"],"rows":[["Cards per carton","2 cards","4 cards"],["Cavities per card","14","7"],["Capsules per carton","28","28"],["Strip logic","Two-week strips","Single-week strips"],["Tooling footprint","Fewer, larger format","More, smaller format"],["CR/TE approach","Card-level CR peel/push","Card-level CR peel/push"]],"highlight":2},{"kind":"callouts","title":"Benchmarking the format: comparator and biosimilar presentations","items":[{"title":"Reference class","body":"The blister-versus-bottle choice was benchmarked against how <strong>comparator and biosimilar oral-oncology products</strong> present, bottle versus blister, unit-of-use versus loose count, and child-resistant / tamper-evident features."},{"title":"What the benchmark informed","body":"Comparator and biosimilar presentations strengthened the case for adding a <strong>unit-of-use blister</strong> for later line-extension strengths alongside the launch bottle."},{"title":"The compliance bar","body":"Reference packaging set the barrier, labeling and child-resistance expectations the commercial blister configuration had to meet or exceed."}]},{"kind":"stack","title":"Blister configuration and materials spec","groups":[{"label":"Format","items":["Thermoformed blister card","Cavity count and layout per chosen configuration (2x14 / 4x7)","Capsule presentation (oral hard-capsule product)","Carton as secondary pack"]},{"label":"Materials","items":["Forming film selected and locked to product","Lidding film selected and locked to product","Barrier matched to moisture sensitivity and shelf-life","Supplier qualification and draft material specs"]},{"label":"Compliance features","items":["Child-resistant (CR) requirement","Tamper-evident (TE) requirement","Barrier requirements defined up front","Specs drafted ahead of trials"]}]},{"kind":"flow","title":"How the work was sequenced","caption":"A linear plan from material lock to material on stability, run against a fixed year-end-to-mid-Feb window straddling the holiday shutdowns.","steps":[{"label":"Select forming & lidding films","sub":"Lock materials to product and shelf-life"},{"label":"Qualify suppliers & draft specs","sub":"Material specs ahead of trials"},{"label":"Tooling & equipment PO","sub":"Use existing capacity; place tooling order, expedite"},{"label":"Develop pack test methods","sub":"Seal integrity, leak, MVTR, mechanical"},{"label":"Delivery, install, IQ/OQ","sub":"Qualify equipment and change parts"},{"label":"Mechanical trials","sub":"Placebo / blank blisters to set parameters"},{"label":"Engineering batches","sub":"Actual or surrogate drug product"},{"label":"Primary stability batch","sub":"Commercial blister configuration, ~mid-Feb"},{"label":"Place material on stability","sub":"Start the stability clock"}]},{"kind":"callouts","title":"Pack test methods defined for qualification","items":[{"title":"Seal integrity","body":"Confirm the forming-to-lidding seal is continuous and within parameters across the card, the primary defense for a moisture-sensitive product."},{"title":"Leak testing","body":"Detect channel leaks or pinholes in formed cavities that would compromise the barrier and shelf-life."},{"title":"MVTR","body":"Moisture vapor transmission rate of the formed pack, to verify the barrier meets the product's stability requirement."},{"title":"Mechanical tests","body":"Push-through / peel force and card robustness to confirm CR/TE function and patient usability without product damage."}]},{"kind":"metrics","title":"By the numbers","items":[{"value":"2","label":"Blister card configurations evaluated (2x14 and 4x7)"},{"value":"2","label":"Films to select and lock (forming + lidding)"},{"value":"4","label":"Pack test method families (seal, leak, MVTR, mechanical)"},{"value":"~12","label":"Working weeks in the planned PSB blister timeline"},{"value":"1","label":"Primary stability batch planned on the commercial configuration"},{"value":"2","label":"CR/TE compliance features designed in (child-resistant, tamper-evident)"}]},{"kind":"prose","heading":"Sequencing under a hard window","body":"The timeline was built backward from a <strong>mid-February PSB manufacturing target</strong> across roughly twelve numbered working weeks that, with two embedded holiday shutdown weeks (Thanksgiving and Christmas/New Year), spanned about thirteen calendar weeks. Two constraints drove the critical path: <strong>long-lead tooling and blister material</strong> had to be ordered and expedited while the quote and statement of work were still routing for approval, and <strong>IQ/OQ on the equipment and change parts</strong> had to complete before mechanical and engineering trials could begin.\n\nThe plan staged the work so that <strong>material selection and supplier qualification</strong> ran first and in parallel with method development, mechanical trials on placebo/blank blisters would de-risk the process parameters, and engineering batches with actual or surrogate drug product would confirm them before committing the primary stability batch on the true commercial configuration."},{"kind":"steps","title":"Deliverables and planned activities","items":[{"title":"Frozen blister configuration","body":"A design freeze on cavity count, card layout, CR/TE, and barrier requirements for the commercial presentation."},{"title":"Locked material specs","body":"Selected forming and lidding films with qualified suppliers and drafted material specifications."},{"title":"Process qualification plan","body":"Tooling installed against existing capacity, with equipment IQ/OQ and parameter-setting via mechanical and engineering trials defined as planned activities on the timeline."},{"title":"Primary stability batch (planned)","body":"A plan to manufacture a PSB on the intended commercial blister configuration and place it on stability at the mid-February target."},{"title":"Pack test method set","body":"Defined methods for seal integrity, leak, MVTR, and mechanical testing."},{"title":"Packaging validation plan","body":"A PQ/PPQ plan integrated with the overall process-validation strategy, with the activities and timing for full commercial readiness."}]},{"kind":"note","body":"This anonymized research case study is reconstructed from planning-stage materials; it describes the intended approach and timeline, not verified post-execution results. All names, products, sites, vendors, and figures have been removed or generalized. It illustrates an operations advisory approach to blister commercialization for an oral solid-dose oncology product and does not identify any client, asset, or vendor."}],
   },
+  /* ───────────────────── N · Materials (BOM) internalization ───────────────────── */
+  {
+    slug: 'materials-internalization-playbook',
+    collection: 'work',
+    type: 'case-study',
+    title: 'Materials (BOM) internalization: a make-vs-buy playbook for a cell-and-gene launch',
+    crumb: 'Materials internalization',
+    seoTitle: 'Drug-Substance Materials (BOM) Internalization — Make-vs-Buy Case Study',
+    description: "Whether to internalize drug-substance bill-of-materials oversight from a CDMO: a roughly five-week make-vs-buy assessment across storage, planning, sourcing and quality, scenario by scenario.",
+    keywords: 'materials internalization, bill of materials, BOM oversight, make vs buy, CDMO procurement fee, raw material QC, ERP LIMS',
+    eyebrow: 'Cell & gene therapy · Materials / BOM internalization',
+    dek: "Whether to internalize drug-substance bill-of-materials oversight from a CDMO: a roughly five-week make-vs-buy assessment across storage, planning, sourcing and quality, scenario by scenario.",
+    tags: ['Make vs buy', 'BOM / materials', 'CDMO', 'Cost modeling'],
+    heroStat: { value: '4-scenario', label: 'make-vs-buy assessment of drug-substance BOM oversight, from fully outsourced to a client-owned warehouse' },
+    datePublished: '2024-06-01',
+    author: AUTHOR,
+    blocks: [
+      {
+        "kind": "prose",
+        "heading": "The work grew: a materials-internalization playbook",
+        "body": "The launch-readiness work earned a second, enterprise mandate. The client was paying its drug-substance CDMO a materials-management <strong>procurement fee</strong>, a markup on pass-through raw-material and consumable costs, to fund a materials organization of <strong>100+ FTEs</strong> whose fully-loaded annual cost the CDMO put at roughly <strong>$20M</strong>. With a commercial bill of materials in the low millions per batch and volumes projected to scale, the question was whether to internalize oversight of the drug-substance BOM.\n\nWe ran a tight (~5-week) strategic assessment: baseline the current BOM, storage, freight and insurance economics; model future-state OpEx, CapEx and savings across scenarios from fully outsourced to a client-owned warehouse; and map the staffing, ERP/inventory, LIMS and quality-system capabilities each scenario would require, plus the trigger points and sequencing to build them, with sensitivity across volume bands. The output was a go / no-go assessment with costs, timing, FTE needs and savings."
+      },
+      {
+        "kind": "metrics",
+        "title": "The materials-internalization assessment by the numbers",
+        "items": [
+          {
+            "value": "low $M",
+            "label": "Commercial bill-of-materials cost per batch (drug substance plus drug product)"
+          },
+          {
+            "value": "310 SKUs",
+            "label": "Distinct materials across the full BOM, spanning cell-bank, upstream, downstream and fill-finish"
+          },
+          {
+            "value": "~60%+",
+            "label": "Share of total BOM cost concentrated in the top five materials"
+          },
+          {
+            "value": "100+ FTE",
+            "label": "CDMO materials-management organization the procurement fee covers"
+          },
+          {
+            "value": "~5 weeks",
+            "label": "Window for the go / no-go internalization assessment"
+          },
+          {
+            "value": "flat fee",
+            "label": "Percentage markup on pass-through costs renegotiated to a fixed annual fee"
+          }
+        ]
+      },
+      {
+        "kind": "compare",
+        "title": "BOM oversight: scenarios evaluated",
+        "caption": "Each scenario weighed against current capabilities, key gaps, cost, savings and the systems and quality build required.",
+        "head": [
+          "Scenario",
+          "Storage",
+          "Planning & sourcing",
+          "Quality / testing"
+        ],
+        "rows": [
+          [
+            "As-is with CDMO",
+            "CDMO / 3PL",
+            "CDMO",
+            "CDMO"
+          ],
+          [
+            "Keep storage with CDMO; client manages planning & suppliers",
+            "CDMO",
+            "Client",
+            "CDMO"
+          ],
+          [
+            "Third-party storage; client manages planning & suppliers",
+            "New 3PL",
+            "Client",
+            "CDMO / contract lab"
+          ],
+          [
+            "Client-owned warehouse, fully internalized",
+            "Client",
+            "Client",
+            "Client QC for raw materials"
+          ]
+        ],
+        "highlight": 3
+      },
+      {
+        "kind": "callouts",
+        "title": "What the materials deep-dive recommended",
+        "items": [
+          {
+            "title": "Aggregate demand to win on price",
+            "body": "For single-source reagents, the client could secure direct pricing and tiered agreements by aggregating demand across CDMOs and process types, and locked a multi-year fixed price on one of its two costliest single-source reagents."
+          },
+          {
+            "title": "Govern the BOM as a living asset",
+            "body": "A standing BOM taskforce was set up to control change approval and the annual cost adjustment, after analysis exposed quantity and material discrepancies across successive BOM versions."
+          },
+          {
+            "title": "Sequence the capability build to volume",
+            "body": "Internalization is not all-or-nothing: ERP/inventory, additional LIMS modules, supplier management, raw-material QC and safety-stock rules can be staged against volume trigger points rather than built all at once."
+          },
+          {
+            "title": "Mind the hand-off risk",
+            "body": "The biggest execution risk in any transition is roles and responsibilities, clear RACI between client, warehouse, testing labs and the CDMO is what keeps materials from being dropped on the floor."
+          }
+        ]
+      }
+    ],
+  },
 ];
 
 /* ──────────────────────────────────────────────────────────────────────────
@@ -742,6 +856,7 @@ const localClientMods = import.meta.glob('./portfolio.clients.local.ts', { eager
 /* Engagement timeframes (from the captured project dates). */
 const TIMEFRAMES: Record<string, string> = {
   'gene-therapy-launch-readiness': '2023–2025',
+  'materials-internalization-playbook': '2024',
   'new-product-introduction-playbook': '2024–2025',
   'oncology-commercial-launch-supply': '2024–2026',
   'commercial-packaging-labeling-ndc-strategy': '2025',
