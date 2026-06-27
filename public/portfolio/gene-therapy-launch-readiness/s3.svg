@@ -69,7 +69,7 @@
   <g font-family="'JetBrains Mono',monospace">
     <rect x="304" y="230" width="272" height="104" rx="8" fill="#fff" fill-opacity="0" stroke="#fff" stroke-opacity="0.12" stroke-width="1"/>
     <text x="320" y="252" font-size="9" fill="#fff" fill-opacity="0.5" letter-spacing="0.5">FINISHING SUITES</text>
-    <text x="320" y="266" font-size="8.5" fill="#fff" fill-opacity="0.45">4 suites — 2 equipped with vision systems</text>
+    <text x="320" y="266" font-size="8.5" fill="#fff" fill-opacity="0.45">4 suites, 2 equipped with vision systems</text>
 
     <g>
       <rect x="320" y="282" width="52" height="40" rx="5" fill="#fff" fill-opacity="0.18" stroke="#fff" stroke-opacity="0.16" stroke-width="1"/>
@@ -86,13 +86,13 @@
     <g>
       <rect x="440" y="282" width="52" height="40" rx="5" fill="#fff" fill-opacity="0.10" stroke="#fff" stroke-opacity="0.14" stroke-width="1"/>
       <text x="466" y="299" text-anchor="middle" font-size="8" fill="#fff" fill-opacity="0.5">S-03</text>
-      <text x="466" y="312" text-anchor="middle" font-size="7" fill="#fff" fill-opacity="0.3">—</text>
+      <text x="466" y="312" text-anchor="middle" font-size="7" fill="#fff" fill-opacity="0.3">, </text>
       <circle cx="448" cy="290" r="2.4" fill="none" stroke="#fff" stroke-opacity="0.3" stroke-width="1"/>
     </g>
     <g>
       <rect x="500" y="282" width="52" height="40" rx="5" fill="#fff" fill-opacity="0.10" stroke="#fff" stroke-opacity="0.14" stroke-width="1"/>
       <text x="526" y="299" text-anchor="middle" font-size="8" fill="#fff" fill-opacity="0.5">S-04</text>
-      <text x="526" y="312" text-anchor="middle" font-size="7" fill="#fff" fill-opacity="0.3">—</text>
+      <text x="526" y="312" text-anchor="middle" font-size="7" fill="#fff" fill-opacity="0.3">, </text>
       <circle cx="508" cy="290" r="2.4" fill="none" stroke="#fff" stroke-opacity="0.3" stroke-width="1"/>
     </g>
   </g>

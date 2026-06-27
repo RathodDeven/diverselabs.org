@@ -102,5 +102,5 @@
     <text x="244" y="359" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.45">score</text>
   </g>
 
-  <text x="40" y="372" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.45">Weighted scorecard ranks 3PL finalists — higher-total candidate highlighted</text>
+  <text x="40" y="372" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.45">Weighted scorecard ranks 3PL finalists, higher-total candidate highlighted</text>
 </svg>

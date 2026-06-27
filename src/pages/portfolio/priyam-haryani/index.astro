@@ -11,7 +11,7 @@ const cases = portfolioCaseStudies.filter(
   (d) => !d.draft && (import.meta.env.DEV || !isHidden(d.slug)),
 );
 
-// Year-wise segregation — group engagements by the latest year in their timeframe.
+// Year-wise segregation, group engagements by the latest year in their timeframe.
 const yearOf = (tf?: string) => {
   const ys = (tf ?? '').match(/\d{4}/g)?.map(Number) ?? [];
   return ys.length ? Math.max(...ys) : 0;
@@ -24,12 +24,12 @@ const lens = [
   { title: 'Incentives', desc: 'Model stakeholders as rational actors responding to the structures they face.' },
   { title: 'Coordination', desc: 'Find where handoffs fail, where communication breaks, and where duplication hides.' },
   { title: 'Governance', desc: 'Redesign decision rights, escalation paths and oversight structures.' },
-  { title: 'Information flow', desc: 'Map how data and insight move — and where they get blocked or distorted.' },
+  { title: 'Information flow', desc: 'Map how data and insight move, and where they get blocked or distorted.' },
 ];
 ---
 
 <BaseLayout
-  title="Priyam Haryani — Independent Advisor, Pharma & Biotech Operations"
+  title="Priyam Haryani, Independent Advisor, Pharma & Biotech Operations"
   description="Economist and management consultant working on the operational, quality and regulatory problems pharma and biotech companies would rather not have. Selected engagements, anonymized."
   image="/portfolio/og/_portfolio.png"
   noindex={true}
@@ -59,7 +59,7 @@ const lens = [
         regulatory problems pharma and biotech companies would rather not have.
       </p>
       <div class="pf-cta-row" data-reveal data-reveal-delay="0.3">
-        <CTAButton href={`mailto:${EMAIL}?subject=${encodeURIComponent('Hello — your portfolio')}`}>Email Priyam</CTAButton>
+        <CTAButton href={`mailto:${EMAIL}?subject=${encodeURIComponent('Hello, your portfolio')}`}>Email Priyam</CTAButton>
         <a href="#work" class="btn btn-secondary">View selected work</a>
       </div>
 
@@ -80,7 +80,7 @@ const lens = [
       <p class="pf-approach-intro" data-reveal>
         Most organizational failures are not capability problems. They are failures of
         incentives, coordination, governance design and information flow. That is the
-        lens I bring to every engagement — direct, and through consulting firms.
+        lens I bring to every engagement, direct, and through consulting firms.
       </p>
       <div class="pf-lens" data-reveal-group>
         {lens.map((l) => (
@@ -101,7 +101,7 @@ const lens = [
         <span class="head-side">{String(cases.length).padStart(2, '0')} case studies</span>
       </div>
       <p class="pf-approach-intro" data-reveal>
-        Representative work across pharma and biotech operations — supply chain, launch
+        Representative work across pharma and biotech operations, supply chain, launch
         readiness, quality, analytics and applied AI. Client identities are anonymized;
         the problems and the work are real.
       </p>
@@ -159,15 +159,15 @@ const lens = [
     <div class="container container-narrow">
       <div class="doc-cta" data-reveal>
         <h2>A problem worth solving?</h2>
-        <p>Operational, quality or regulatory — if it's the kind of thing teams would rather not have, let's talk.</p>
-        <CTAButton href={`mailto:${EMAIL}?subject=${encodeURIComponent('Hello — your portfolio')}`}>Email Priyam · {EMAIL}</CTAButton>
+        <p>Operational, quality or regulatory, if it's the kind of thing teams would rather not have, let's talk.</p>
+        <CTAButton href={`mailto:${EMAIL}?subject=${encodeURIComponent('Hello, your portfolio')}`}>Email Priyam · {EMAIL}</CTAButton>
       </div>
     </div>
   </section>
 </BaseLayout>
 
 <style>
-  /* Particle scene canvas — above the shader (-1), below content (.pf-z = 1) */
+  /* Particle scene canvas, above the shader (-1), below content (.pf-z = 1) */
   #pf-scene {
     position: fixed;
     inset: 0;

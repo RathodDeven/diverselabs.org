@@ -76,7 +76,7 @@
 
   <rect x="32" y="340" width="576" height="22" rx="6" fill="#fff" fill-opacity="0.08" stroke="#fff" stroke-opacity="0.20" stroke-width="1" stroke-dasharray="3 3"/>
   <text x="44" y="354" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.6" letter-spacing="0.4">KEY SUMMARY</text>
-  <text x="148" y="354" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.4">per respondent — capture verbatim takeaways</text>
+  <text x="148" y="354" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.4">per respondent, capture verbatim takeaways</text>
   <line x1="430" y1="356" x2="596" y2="356" stroke="#fff" stroke-opacity="0.16" stroke-width="1"/>
 
   <text x="32" y="372" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.45">Structured VoC interview guide grouping probing questions by theme section</text>

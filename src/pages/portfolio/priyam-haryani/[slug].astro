@@ -16,7 +16,7 @@ export function getStaticPaths() {
 const { doc } = Astro.props;
 const hidden = isHidden(doc.slug);
 const EMAIL = 'haryanipriyam@gmail.com';
-const mailto = `mailto:${EMAIL}?subject=${encodeURIComponent('Hello — ' + doc.title)}`;
+const mailto = `mailto:${EMAIL}?subject=${encodeURIComponent('Hello, ' + doc.title)}`;
 const stages = portfolioStages[doc.slug];
 const crumbs = [
   { name: 'Portfolio', href: BASE },
@@ -25,7 +25,7 @@ const crumbs = [
 ---
 
 <BaseLayout
-  title={`${doc.seoTitle ?? doc.title} — Priyam Haryani`}
+  title={`${doc.seoTitle ?? doc.title}, Priyam Haryani`}
   description={doc.description}
   keywords={doc.keywords}
   image={`/portfolio/og/${doc.slug}.png`}
@@ -43,7 +43,7 @@ const crumbs = [
 
   {import.meta.env.DEV && (
     <button class:list={['pf-hide-fab', { 'is-hidden': hidden }]} type="button" data-slug={doc.slug}>
-      {hidden ? '● Hidden from live — click to unhide' : '○ Hide this from live'}
+      {hidden ? '● Hidden from live, click to unhide' : '○ Hide this from live'}
     </button>
   )}
 </BaseLayout>

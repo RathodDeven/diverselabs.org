@@ -96,5 +96,5 @@
   <rect x="436" y="312" width="9" height="9" rx="2" fill="#fff" fill-opacity="0.4"/>
   <text x="458" y="320" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.45">capability theme</text>
 
-  <text x="32" y="372" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.45">AI enablement roadmap — use cases sequenced across near / mid / long-term horizons</text>
+  <text x="32" y="372" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.45">AI enablement roadmap, use cases sequenced across near / mid / long-term horizons</text>
 </svg>
