@@ -30,7 +30,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
       },
       {
         "q": "What makes a gene-therapy commercial supply chain different from a conventional biologic?",
-        "a": "Patient-specific traceability, kit-level serialization, cold-chain and walk-in-freezer constraints, and tight coupling between clinical and commercial demand that share the same finishing infrastructure. Labelling-and-kitting capacity, vision-system availability by suite, and QA-release hours all become hard constraints rather than back-office details. It demands a demand-capacity model, integrated clinical-commercial S&OP, and a person-in-plant presence at the CDMO to own the order-to-delivery flow."
+        "a": "Patient-specific traceability, kit-level serialization, cold-chain and walk-in-freezer constraints, and tight coupling between clinical and commercial demand that share the same finishing infrastructure. Labelling-and-kitting capacity, vision-system availability by suite, and QA-release hours all become hard constraints rather than back-office details. It demands a demand-capacity model and integrated clinical-commercial S&OP."
       }
     ],
     "blocks": [
@@ -61,8 +61,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
             "label": "CDMO management",
             "items": [
               "Relationship management and CMO governance",
-              "Communication methods",
-              "Person-in-plant (PIP)"
+              "Communication methods"
             ]
           },
           {
@@ -187,12 +186,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
       {
         "kind": "prose",
         "heading": "From assessment to operating tools: the demand-capacity model and S&OP",
-        "body": "The centerpiece of the build was a <strong>demand-capacity model</strong> that translated a combined clinical-plus-commercial forecast into the number of finishing suites, crews and QA-release hours required month by month. It encoded the constraints that actually drove the answer: vial-yield throughput stepping up over time, the fixed pool of QA-release hours split dynamically between labelling and kitting, and the crew rule that one crew runs two suites.\n\nThe model went through multiple iterations as forecasts firmed up, and it showed starkly how demand growth drove suite requirements, from a single suite in the early quarters toward the full four-suite, two-crew configuration as kitting volumes scaled. Around it we stood up an integrated <strong>sales-and-operations-planning</strong> process, meeting structure, participants and cadence, plus a design hand-off calendar, a dynamic planning dashboard, and a batch dashboard purpose-built for the person-in-plant."
-      },
-      {
-        "kind": "prose",
-        "heading": "The person-in-plant operating playbook",
-        "body": "Because finishing sat inside a CDMO, the client needed eyes and authority on the floor. We helped define the <strong>person-in-plant (PIP)</strong> role and the operating playbook around it: the governance and RACI that made the PIP responsible for on-the-ground coordination, the batch dashboard giving real-time visibility into orders moving through labelling, kitting and close-out, and the communication methods linking the CDMO floor back to the client's supply-chain, quality and order teams.\n\nA formal RACI matrix pinned down accountability across the client's commercial, clinical, supply-chain and quality functions and the external CDMO, distribution and cold-chain partners, so that in a patient-specific, made-to-order flow, nothing fell between the seams."
+        "body": "The centerpiece of the build was a <strong>demand-capacity model</strong> that translated a combined clinical-plus-commercial forecast into the number of finishing suites, crews and QA-release hours required month by month. It encoded the constraints that actually drove the answer: vial-yield throughput stepping up over time, the fixed pool of QA-release hours split dynamically between labelling and kitting, and the crew rule that one crew runs two suites.\n\nThe model went through multiple iterations as forecasts firmed up, and it showed starkly how demand growth drove suite requirements, from a single suite in the early quarters toward the full four-suite, two-crew configuration as kitting volumes scaled. Around it we stood up an integrated <strong>sales-and-operations-planning</strong> process, meeting structure, participants and cadence, plus a design hand-off calendar and a dynamic planning dashboard."
       },
       {
         "kind": "prose",

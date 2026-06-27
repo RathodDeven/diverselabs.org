@@ -61,8 +61,7 @@ export const portfolioCaseStudies: Doc[] = [
           { label: 'Executive updates', sub: 'Methodology, gaps, solution catalogue' },
           { label: 'Demand–capacity model', sub: 'Forecast + capacity, S&OP design' },
           { label: 'CDMO joint planning', sub: 'Capacity analysis, process review' },
-          { label: 'Person-in-plant playbook', sub: '9-chapter operating playbook + dashboard' },
-          { label: 'Enterprise launch model', sub: 'New-product-introduction playbook' },
+          { label: 'Labelling & kitting', sub: 'Suite, vision-system and flow design' },
         ],
         caption: 'A one-off launch assessment matured into ongoing supply-chain capability building across future products.',
       },
@@ -72,8 +71,7 @@ export const portfolioCaseStudies: Doc[] = [
         items: [
           { title: 'Evaluation framework', body: 'A gap framework and readiness checklist that turned a fuzzy launch question into a prioritized, scored program.' },
           { title: 'Demand–capacity model', body: 'Demand forecast and capacity modeling feeding a new S&OP process and a design hand-off calendar.' },
-          { title: 'Operating playbook', body: 'A multi-chapter person-in-plant playbook covering plant operations, exceptions, governance, metrics, systems and lifecycle management, linked to a live dashboard.' },
-          { title: 'Institutionalized launch', body: 'A new-product-introduction playbook so launch preparedness carried from the first product to the next.' },
+          { title: 'Labelling & kitting operation', body: 'A finishing-suite and vision-system flow design for patient-specific labelling and kitting, linked to a live batch dashboard.' },
         ],
       },
       {
@@ -82,7 +80,7 @@ export const portfolioCaseStudies: Doc[] = [
         groups: [
           { label: 'Assessment', items: ['Risk & gap assessment', 'Readiness checklist', 'Solution catalogue'] },
           { label: 'Planning', items: ['Demand–capacity model', 'S&OP process', 'Hand-off calendar', 'KPIs / RACIs'] },
-          { label: 'Operate', items: ['Person-in-plant playbook', 'Operations dashboards', 'NPI launch playbook'] },
+          { label: 'Operate', items: ['Labelling & kitting flow', 'Operations dashboards', 'Batch tracking'] },
         ],
       },
     ],
