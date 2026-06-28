@@ -950,7 +950,7 @@ const CONTRIBUTIONS: Record<string, string> = {
   'qms-governance-dashboards':
     'I built the governance dashboard solution on a low-code platform, the repeatable board layout instantiated per module and the cross-module roll-up, and wrote the training manuals so the quality team could run and extend it themselves.',
   'cmc-portfolio-prioritization':
-    'I built the portfolio prioritization and the per-person capacity-and-loading model at the centre of this engagement, and produced the workshop decks the leadership team aligned around.',
+    'I produced the capacity-and-loading view at the heart of this work, the per-person FTE and budget graphs, plus the workshop decks the leadership team aligned around and the post-workshop stakeholder and vendor mapping.',
   'pricing-trade-analytics-bi':
     'I built the multi-project BI analytics from the data model up: the retention and repeat-versus-new-buyer views, the sales-performance dashboards, and the reconciliation checks, plus the self-serve training manual so the team could extend it without me.',
 };
