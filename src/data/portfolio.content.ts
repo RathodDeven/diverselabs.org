@@ -13,7 +13,7 @@ export interface EnrichedContent {
 
 export const ENRICHED: Record<string, EnrichedContent> = {
   "gene-therapy-launch-readiness": {
-    "timeframe": "2022-2025",
+    "timeframe": "2023–2025",
     "dek": "How a first-of-its-kind gene-therapy launch-readiness assessment built the demand-capacity model, labelling-and-kitting operation and CDMO operating model behind a cell-and-gene company's first commercial launch.",
     "heroStat": {
       "value": "4-area",
@@ -455,7 +455,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
     ]
   },
   "rnd-quality-operating-model": {
-    "timeframe": "2024-2025",
+    "timeframe": "Nov–Dec 2024",
     "dek": "How a global pharma untangled overlapping quality ownership after a reorganization, a central-vs-embedded operating model, an activity-level ownership map, and a professionalized process-owner network.",
     "heroStat": {
       "value": "~8 functions",
@@ -498,7 +498,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
         "items": [
           {
             "title": "Information gathering and stakeholder engagement",
-            "body": "A structured interview program across embedded-quality functions, central R&D Quality, and non-quality functional experts, with separate purpose-built interview guides for each audience."
+            "body": "A structured interview program across embedded-quality functions, central R&D Quality, and non-quality functional experts, with separate purpose-built interview guides for each audience. Inputs were distilled into per-role experience summaries and a set of verbatim quotes and count slides that evidenced where views converged."
           },
           {
             "title": "Current-state analysis",
@@ -506,7 +506,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
           },
           {
             "title": "Maturity model and gap analysis",
-            "body": "Building a bespoke R&D Quality maturity model and assessing the current operating model against it to surface specific weaknesses and overlaps."
+            "body": "Building a bespoke R&D Quality maturity model and assessing the current operating model against it as a matrix and heatmap to surface specific weaknesses and overlaps."
           },
           {
             "title": "Future-state design",
@@ -521,7 +521,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
       {
         "kind": "prose",
         "heading": "The analytical core: a Decision / Advisor / Informed ownership map",
-        "body": "The centerpiece deliverable was a heat-map that took every quality-owned activity and decomposed it into discrete <strong>process steps</strong>, then assigned ownership across the relevant roles, the central process owner, the quality business partner, the embedded quality group, and the functional subject-matter expert for the process under scrutiny. Each cell was coded <strong>Decision, Advisor, or Informed</strong>, color-coded live in workshops using stickies, to force explicit agreement on who decides versus who is merely consulted or notified.\n\nThe activity inventory was deliberately deep. Audit ran across planning (risk assessment, annual plan, execution plan), conduct, and response and corrective action. Inspection management split sponsor and site inspections each into readiness, preparation, conduct, and closure. Deviations covered intake, triage, investigation, and review and approval; corrective action covered plan, tracking, and effectiveness-check closure. Procedural-document management spanned change identification, review, training needs, approval, and implementation. Further chapters covered escalation of significant events, quality risk management, training ownership and content, quality reviews, and vendor quality management. The single mechanism, one decision-owner per step, was applied consistently across all of them."
+        "body": "The centerpiece deliverable was a heat-map that took every quality-owned activity and decomposed it into discrete <strong>process steps</strong>, then assigned ownership across the relevant roles, the central process owner, the quality business partner, the embedded quality group, and the functional subject-matter expert for the process under scrutiny. Each cell was coded <strong>Decision, Advisor, or Informed</strong>, color-coded live in a connect workshop using stickies, alongside the agreed guiding principles and scoring criteria, to force explicit agreement on who decides versus who is merely consulted or notified.\n\nThe activity inventory was deliberately deep. Audit ran across planning (risk assessment, annual plan, execution plan), conduct, and response and corrective action. Inspection management split sponsor and site inspections each into readiness, preparation, conduct, and closure. Deviations covered intake, triage, investigation, and review and approval; corrective action covered plan, tracking, and effectiveness-check closure. Procedural-document management spanned change identification, review, training needs, approval, and implementation. Further chapters covered escalation of significant events, quality risk management, training ownership and content, quality reviews, and vendor quality management. The single mechanism, one decision-owner per step, was applied consistently across all of them."
       },
       {
         "kind": "split",
@@ -683,7 +683,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
     ]
   },
   "external-manufacturing-network-resilience": {
-    "timeframe": "Early 2020s",
+    "timeframe": "Mar–Apr 2023",
     "dek": "How a commercial-stage specialty pharma de-risked a single-source topical drug-product network: a CMO sourcing matrix, alternate-site qualification, a node-by-node risk register, and a board-level inventory and shelf-life readout.",
     "heroStat": {
       "value": "End-to-end",
@@ -714,7 +714,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
           },
           {
             "label": "Stress-test continuity",
-            "sub": "Codify supply-failure triggers, forecast discipline and a ranked risk register"
+            "sub": "Score each node on a weighted risk heat map, including a geographic-concentration dimension, and rank the exposures into a prioritized mitigation plan"
           },
           {
             "label": "Read out to the board",
@@ -899,7 +899,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
           },
           {
             "title": "Single-source drug substance",
-            "body": "Concentrated active-ingredient supply in one region. Mitigation, qualify a second site to spread geographic and supplier risk."
+            "body": "Concentrated active-ingredient supply in one region, scored as a distinct geographic-concentration dimension on the risk heat map. Mitigation, qualify a second site to spread geographic and supplier risk."
           },
           {
             "title": "Partner instability",
@@ -933,7 +933,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
           },
           {
             "title": "Tech Ops board readout",
-            "body": "An executive deck covering network design, inventory scenarios, scrap exposure and shelf-life optimization, and the two decisions leadership signed off on: a deliberate production slow-down and a shelf-life extension that together pulled finished-goods coverage back into its target band."
+            "body": "An executive deck, iterated through many versions and produced in both static and dynamic forms, covering network design, inventory scenarios, scrap exposure and shelf-life optimization, and the two decisions leadership signed off on: a deliberate production slow-down and a shelf-life extension that together pulled finished-goods coverage back into its target band."
           }
         ]
       }
@@ -984,7 +984,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
         "steps": [
           {
             "label": "Kickoff & framework",
-            "sub": "Stakeholders aligned and a standardized VoC framework set across the end-to-end CDMO lifecycle"
+            "sub": "Stakeholders aligned and a standardized VoC framework and structured interview questionnaire set across the end-to-end CDMO lifecycle"
           },
           {
             "label": "Internal & external interviews",
@@ -1007,7 +1007,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
       {
         "kind": "prose",
         "heading": "The method",
-        "body": "Every session was run by two to three dedicated interviewers to create a safe, unbiased environment for candid feedback, with won, lost, and internal perspectives interviewed separately so internal assumptions could be tested against external reality.\n\nParticipants scored the CDMO across <strong>nine core operational dimensions on a 1-5 scale</strong>, bid and proposal process, project management, technical development, manufacturing and capacity, quality system and phase-fit, timeline credibility, cost and commercial terms, flexibility, and assurance of supply. Critically, every numerical score was followed by open-ended probing to capture the <strong>\"why\" behind the number</strong>: the exact anecdotes, dealbreakers, and market shifts. Won and lost opportunities were then contrasted on the same framework to isolate the precise thresholds at which clients stayed loyal or walked away."
+        "body": "Every session was run by two to three dedicated interviewers to create a safe, unbiased environment for candid feedback, with won, lost, and internal perspectives interviewed separately so internal assumptions could be tested against external reality.\n\nParticipants scored the CDMO across <strong>nine core operational dimensions on a 1-5 scale</strong>, bid and proposal process, project management, technical development, manufacturing and capacity, quality system and phase-fit, timeline credibility, cost and commercial terms, flexibility, and assurance of supply. Run from a structured interview questionnaire, every numerical score was followed by open-ended probing to capture the <strong>\"why\" behind the number</strong>: the exact anecdotes, dealbreakers, and market shifts. Won and lost opportunities were then contrasted on the same framework to isolate the precise thresholds at which clients stayed loyal or walked away."
       },
       {
         "kind": "metrics",
@@ -1129,7 +1129,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
     "faq": [
       {
         "q": "How do you keep a Voice-of-Customer program candid when you're interviewing a client's own customers and staff?",
-        "a": "Sessions are run by dedicated independent interviewers, two to three per session, on a strict confidentiality footing, with an explicit sponsor message that honesty, not flattery, is the goal. Numerical scores on a fixed framework establish a baseline, and open-ended probing captures the real anecdotes and dealbreakers behind each score. Won, lost, and internal perspectives are interviewed separately so internal assumptions can be tested against external reality."
+        "a": "Sessions are run by dedicated independent interviewers, two to three per session, on a strict confidentiality footing, with an explicit sponsor message that honesty, not flattery, is the goal. Numerical scores on a fixed, questionnaire-driven framework establish a baseline, and open-ended probing captures the real anecdotes and dealbreakers behind each score. Won, lost, and internal perspectives are interviewed separately so internal assumptions can be tested against external reality."
       },
       {
         "q": "We're a premium Western CDMO losing early-phase work to low-cost competitors. Is the answer just to cut price?",
@@ -1631,7 +1631,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
     ]
   },
   "cmc-portfolio-prioritization": {
-    "timeframe": "2024-2025",
+    "timeframe": "2024–2025",
     "dek": "How a clinical-stage biotech turned an informal CMC staffing scramble into a prioritized, named-resource allocation model with per-person and per-program capacity views.",
     "heroStat": {
       "value": "Multi-asset",
@@ -2519,7 +2519,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
     ]
   },
   "qms-governance-dashboards": {
-    "timeframe": "2023",
+    "timeframe": "2022–2023",
     "dek": "How a large global pharma replaced fragmented quality oversight with one repeatable governance board across every QMS module, a cross-module board, and a low-code dashboard built for audit-ready decisions.",
     "heroStat": {
       "value": "One board template",
@@ -2534,7 +2534,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
       {
         "kind": "prose",
         "heading": "The work",
-        "body": "We began with a <strong>Tool Requirement Document</strong> that defined the solution before any build: the module set, the structure of each governance board, the escalation flows between modules, the reporting and meeting outputs, and the backup and maintenance model. That requirements baseline did double duty, it drove the dashboard build and framed a parallel <strong>low-code platform capability assessment</strong>.\n\nFrom there we designed a single, repeatable board template and instantiated it for <strong>every mQMS module</strong>, plus one <strong>cross-module board</strong> that rolls the modules up. Each board is a working meeting surface: a chair opens it live, walks the agenda, captures status and actions inside the tool, and prints the result as the meeting-minutes record. Because every module uses the identical section layout, a reviewer who learns one board can run any of them."
+        "body": "We began with a <strong>Tool Requirement Document</strong> that defined the solution before any build: the module set, the structure of each governance board, the escalation flows between modules, the reporting and meeting outputs, and the backup and maintenance model. That requirements baseline drove the dashboard build directly: it defined what each governance board and the cross-module roll-up had to do before any screen was assembled on the platform.\n\nFrom there we designed a single, repeatable board template and instantiated it for <strong>every mQMS module</strong>, plus one <strong>cross-module board</strong> that rolls the modules up. Each board is a working meeting surface: a chair opens it live, walks the agenda, captures status and actions inside the tool, and prints the result as the meeting-minutes record. Because every module uses the identical section layout, a reviewer who learns one board can run any of them."
       },
       {
         "kind": "stack",
@@ -2612,8 +2612,8 @@ export const ENRICHED: Record<string, EnrichedContent> = {
       },
       {
         "kind": "prose",
-        "heading": "The platform capability assessment",
-        "body": "The dashboard solution was delivered on a <strong>low-code BI and collaboration platform</strong> the quality team could own and edit, boards, cadence, and sections are configurable without engineering. In parallel, and against the same requirements baseline, we ran a <strong>low-code platform capability assessment</strong>: we evaluated a separate <strong>enterprise low-code application platform</strong> for the heavier, workflow-driven capabilities the QMS roadmap might later require. The result gave the client an evidence-based view of what each tool class can and cannot do before committing further investment."
+        "heading": "The build platform and team enablement",
+        "body": "The dashboard solution was built on an <strong>enterprise low-code application platform</strong>, with the screens and logic assembled directly in the tool and a <strong>low-code data and collaboration tool</strong> integrated on the backend to hold the underlying records. The design goal throughout was an artifact the quality team could own and edit: boards, cadence, and sections are configurable without engineering, so reviewers maintain the governance layer themselves."
       },
       {
         "kind": "split",
@@ -2655,7 +2655,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
           },
           {
             "title": "Low-code capability assessment",
-            "body": "An evaluation of an enterprise low-code application platform against the requirements, informing future QMS tooling decisions."
+            "body": "Platform enablement for the quality team, structured training across the low-code platform's logic, screen building, data modeling, and reusable components, so they could maintain and extend the boards in-house."
           }
         ]
       }
@@ -2676,7 +2676,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
     ]
   },
   "pricing-trade-analytics-bi": {
-    "timeframe": "Multi-project engagement",
+    "timeframe": "2022–2023",
     "dek": "How a CPG pricing and trade-analytics team got a multi-project BI solution, a documented data model, dashboards, and a project-by-project manual for self-serve upkeep.",
     "heroStat": {
       "value": "Multi-project",
@@ -2686,7 +2686,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
       {
         "kind": "prose",
         "heading": "The engagement",
-        "body": "A consumer-packaged-goods (CPG) team responsible for <strong>pricing and trade analytics</strong> needed a governed, repeatable analytics environment built on a <strong>BI platform</strong>. The work spanned several distinct analytical projects, each modeled and surfaced through filterable dashboards.\n\nThe brief was twofold. First, build a <strong>multi-project business-intelligence solution</strong>: connect the raw data, model it, and present it through dashboards with filters and charts. Second, and weighted equally, hand the solution over in a state the client's own team could <strong>maintain and extend without the consultant</strong>, including loading each new year of data and adding new projects."
+        "body": "A consumer-packaged-goods (CPG) team responsible for <strong>pricing and trade analytics</strong> needed a governed, repeatable analytics environment built on a <strong>BI platform</strong>. The work spanned several distinct analytical projects, each modeled and surfaced through filterable dashboards covering pricing and sales analytics: retention rate, single-time versus repeat-versus-new buyers, sales performance, and a price-volume-mix (PVM) waterfall.\n\nThe brief was twofold. First, build a <strong>multi-project business-intelligence solution</strong>: connect the raw data, model it, and present it through dashboards with filters and charts. Second, and weighted equally, hand the solution over in a state the client's own team could <strong>maintain and extend without the consultant</strong>, including loading each new year of data and adding new projects."
       },
       {
         "kind": "prose",
@@ -2696,7 +2696,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
       {
         "kind": "flow",
         "title": "How each project was built",
-        "caption": "A repeatable pattern, from raw files to a governed dashboard.",
+        "caption": "A repeatable pattern, from raw files to governed, reconciliation-checked dashboards.",
         "steps": [
           {
             "label": "Ingest raw sources",
@@ -2719,7 +2719,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
             "sub": "Calculated columns on the combined table, reused across dashboards"
           },
           {
-            "label": "Surface dashboards",
+            "label": "Surface and reconcile dashboards",
             "sub": "Filters and charts on top of the model, opening on a cover and consolidated assumptions view"
           }
         ]
@@ -2749,7 +2749,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
             "items": [
               "Cover tab",
               "Consolidated Definitions and Assumptions tab",
-              "Filtered, charted analysis dashboards"
+              "Filtered, charted analysis dashboards: retention rate, single-time vs repeat-vs-new buyers, sales performance, and price-volume-mix (PVM) waterfall"
             ]
           }
         ]
