@@ -591,8 +591,8 @@ export const ENRICHED: Record<string, EnrichedContent> = {
             "label": "Labeled phase bands in the process-owner network plan, through long-term resource planning"
           },
           {
-            "value": "13",
-            "label": "Process-owner interviews completed in the first wave, against a provisional schedule of roughly 18"
+            "value": "First wave",
+            "label": "Process-owner interviews completed in the opening assessment"
           },
           {
             "value": "3",
@@ -826,7 +826,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
           },
           {
             "title": "Protecting the asset",
-            "body": "Supply terms were structured to protect the molecule commercially while still permitting qualification of backup manufacturing capacity, a balance that was actively negotiated rather than assumed."
+            "body": "Supply terms were structured to protect the molecule commercially while still permitting qualification of backup manufacturing capacity, a balance the deck summarized from the program's existing supply terms."
           }
         ]
       },
@@ -857,7 +857,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
       {
         "kind": "prose",
         "heading": "Inventory & shelf-life optimization, the board readout",
-        "body": "The resilience story only holds if there is enough product in the channel to ride out a disruption. The Tech Ops readout modeled <strong>three demand scenarios</strong> and the resulting scrap exposure of inventory sitting at its stop-sell date, from a modest baseline to a far larger downside running into tens of thousands of units of potential write-off, driven by launch-buildup lots manufactured roughly a year earlier.\n\nTwo levers reshaped the curve. First, <strong>doubling the registered shelf-life</strong> pushed the stop-sell date out and gave supply chain real flexibility, since stop-sell timing runs a full year ahead of true expiry. Second, <strong>actively modulating production</strong>, confirming near-term slots, then deliberately slowing manufacturing, pulled finished-goods inventory back toward the target months-of-coverage band. The readout framed the trade-off plainly: months of coverage against scrap-write-off exposure, with coverage held inside a defined target range."
+        "body": "The resilience story only holds if there is enough product in the channel to ride out a disruption. The Tech Ops readout modeled scrap exposure across a range of demand scenarios of inventory sitting at its stop-sell date, from a modest baseline to a substantially larger downside of potential write-off, driven by launch-buildup lots manufactured roughly a year earlier.\n\nTwo levers reshaped the curve. First, <strong>extending the registered shelf-life</strong> pushed the stop-sell date out and gave supply chain real flexibility, since stop-sell timing runs a full year ahead of true expiry. Second, <strong>actively modulating production</strong>, confirming near-term slots, then deliberately slowing manufacturing, pulled finished-goods inventory back toward the target months-of-coverage band. The readout framed the trade-off plainly: months of coverage against scrap-write-off exposure, with coverage held inside a defined target range."
       },
       {
         "kind": "metrics",
@@ -876,11 +876,11 @@ export const ENRICHED: Record<string, EnrichedContent> = {
             "label": "drug-substance sources mapped, primary plus an alternate site in qualification"
           },
           {
-            "value": "2x",
+            "value": "Extended",
             "label": "registered shelf-life extension that pushed out stop-sell and freed flexibility"
           },
           {
-            "value": "3",
+            "value": "Multiple",
             "label": "demand scenarios modeled for inventory coverage and scrap exposure"
           },
           {
@@ -1669,7 +1669,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
       {
         "kind": "prose",
         "heading": "Anchoring on priorities first",
-        "body": "The work began with a <strong>prioritization workshop</strong> with CMC leadership. Rather than starting from headcount, the team started from intent: each program was assigned an explicit objective so that allocation could follow strategy, not the other way round.\n\nThe lead program was framed around <strong>achieving regulatory submission readiness</strong>, authoring the relevant CMC quality module, running process-validation campaigns at contract manufacturers, optimizing dose strength, characterization work, and clinical and validation runs. The earlier-stage programs were framed around <strong>advancing the pipeline</strong>: one needed drug-product tech transfer, establishment and clinical runs at a manufacturing partner, and selection of cell-bank, drug-substance and drug-product partners; the earliest-stage asset was scoped around candidate-nomination work. With objectives fixed first, the allocation that followed could be defended as a strategy choice rather than a staffing accident."
+        "body": "The work began with a <strong>prioritization workshop</strong> with CMC leadership. Rather than starting from headcount, the team started from intent: each program was assigned an explicit objective so that allocation could follow strategy, not the other way round.\n\nThe lead program was framed around <strong>achieving regulatory submission readiness</strong>, with the matrix allocating named resources against the program's own activities: the relevant CMC quality module, process-validation campaigns at contract manufacturers, optimizing dose strength, characterization work, and clinical and validation runs. The earlier-stage programs were framed around <strong>advancing the pipeline</strong>: one needed drug-product development and manufacturing-partner selection across drug-substance and drug-product partners; the earliest-stage asset was scoped around candidate-nomination work. With objectives fixed first, the allocation that followed could be defended as a strategy choice rather than a staffing accident."
       },
       {
         "kind": "stack",
@@ -1704,7 +1704,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
       {
         "kind": "prose",
         "heading": "Normalizing a mixed bench to one honest scale",
-        "body": "The hard part of any resource model is making heterogeneous people comparable. The bench mixed full-time scientists with fractional and shared resources, functional-service-provider staff and a part-period co-op among them, who do not map cleanly onto a full week.\n\nThe model put everyone on the same footing: every commitment expressed as a <strong>percentage of a 40-hour week</strong>, with each person's lines summing toward a 100% baseline. Fractional resources were entered at their true availability rather than rounded up, so a half-time contributor never read as a full head. That single normalization is what made the roll-ups trustworthy, a Grand Total only means something if a 100% line represents the same thing for every name in the column."
+        "body": "The hard part of any resource model is making heterogeneous people comparable. The bench mixed full-time scientists with fractional and shared resources, who do not all map cleanly onto a full week.\n\nThe model put everyone on the same footing: every commitment expressed as a <strong>percentage of a 40-hour week</strong>, with each person's lines summing toward a 100% baseline. Fractional resources were entered at their true availability rather than rounded up, so a half-time contributor never read as a full head. That single normalization is what made the roll-ups trustworthy, a Grand Total only means something if a 100% line represents the same thing for every name in the column."
       },
       {
         "kind": "metrics",
@@ -2534,7 +2534,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
       {
         "kind": "prose",
         "heading": "The work",
-        "body": "We began with a <strong>Tool Requirement Document</strong> that defined the solution before any build: the module set, the structure of each governance board, the escalation flows between modules, the reporting and meeting outputs, and the backup and maintenance model. That requirements baseline drove the dashboard build directly: it defined what each governance board and the cross-module roll-up had to do before any screen was assembled on the platform.\n\nFrom there we designed a single, repeatable board template and instantiated it for <strong>every mQMS module</strong>, plus one <strong>cross-module board</strong> that rolls the modules up. Each board is a working meeting surface: a chair opens it live, walks the agenda, captures status and actions inside the tool, and prints the result as the meeting-minutes record. Because every module uses the identical section layout, a reviewer who learns one board can run any of them."
+        "body": "We began by capturing client requirements that defined the solution before any build: the module set, the structure of each governance board, the escalation flows between modules, the reporting and meeting outputs, and the backup and maintenance model. That requirements baseline drove the dashboard build directly: it defined what each governance board and the cross-module roll-up had to do before any screen was assembled on the platform.\n\nFrom there we designed a single, repeatable board template and instantiated it for <strong>every mQMS module</strong>, plus one <strong>cross-module board</strong> that rolls the modules up. Each board is a working meeting surface: a chair opens it live, walks the agenda, captures status and actions inside the tool, and prints the result as the meeting-minutes record. Because every module uses the identical section layout, a reviewer who learns one board can run any of them."
       },
       {
         "kind": "stack",
@@ -2646,15 +2646,15 @@ export const ENRICHED: Record<string, EnrichedContent> = {
             "body": "Module-wise governance boards for every mQMS module plus a cross-module board, on a low-code platform, each carrying the full section layout from module health to architecture."
           },
           {
-            "title": "Tool Requirement Document",
-            "body": "Requirements baseline covering modules, governance boards, escalation flows, reporting, and backup and maintenance, the document that drove both the build and the platform evaluation."
+            "title": "Requirements baseline",
+            "body": "Requirements baseline covering modules, governance boards, escalation flows, reporting, and backup and maintenance, the requirements that drove the dashboard build."
           },
           {
             "title": "Training guides",
             "body": "A navigation guide and a module-by-module guide covering every section, the live meeting flow, minutes printing, and backup requests."
           },
           {
-            "title": "Low-code capability assessment",
+            "title": "Platform enablement",
             "body": "Platform enablement for the quality team, structured training across the low-code platform's logic, screen building, data modeling, and reusable components, so they could maintain and extend the boards in-house."
           }
         ]
@@ -2781,7 +2781,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
         "title": "The solution by the numbers",
         "items": [
           {
-            "value": "3 years",
+            "value": "Multiple years",
             "label": "Raw yearly data files dynamically combined into the flagship project's working sales table"
           },
           {
