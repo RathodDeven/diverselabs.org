@@ -66,6 +66,13 @@ const readMin = Math.max(2, Math.round(wordCount / 220));
         <span class="doc-type mono-num">{TYPE_LABELS[doc.type] ?? 'Article'}</span>
       </div>
 
+      {doc.directlyDelivered && (
+        <div class="doc-delivered" data-reveal data-reveal-delay="0.1">
+          <span class="doc-delivered-mark" aria-hidden="true">✓</span>
+          Directly delivered by me
+        </div>
+      )}
+
       <h1 class="doc-title" data-split>{doc.title}</h1>
       <p class="doc-dek" data-reveal data-reveal-delay="0.2">{doc.dek}</p>
 
@@ -120,6 +127,16 @@ const readMin = Math.max(2, Math.round(wordCount / 220));
           {hasRelated && <a href="#related">Related</a>}
           <a href="#cta">Contact</a>
         </nav>
+      </section>
+    )}
+
+    {doc.contribution && (
+      <section class="doc-contrib" data-reveal id="my-contribution">
+        <div class="doc-contrib-head">
+          <span class="doc-contrib-mark" aria-hidden="true">✓</span>
+          <span class="doc-contrib-eyebrow">My direct contribution</span>
+        </div>
+        <p class="doc-contrib-body" set:html={doc.contribution} />
       </section>
     )}
 
@@ -282,6 +299,62 @@ const readMin = Math.max(2, Math.round(wordCount / 220));
     background: rgba(120, 170, 255, 0.9);
     box-shadow: 0 0 8px rgba(120, 170, 255, 0.7);
   }
+
+  /* ── "Directly delivered by me" badge + contribution panel ── */
+  .doc-delivered {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0.9rem 0 0.1rem;
+    padding: 0.38rem 0.85rem 0.38rem 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    border-radius: 2rem;
+    background: rgba(255, 255, 255, 0.06);
+    font-family: var(--font-mono);
+    font-size: 0.64rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+  .doc-delivered-mark,
+  .doc-contrib-mark {
+    display: inline-grid;
+    place-items: center;
+    border-radius: 50%;
+    background: #fff;
+    color: #0a0a0a;
+    line-height: 1;
+  }
+  .doc-delivered-mark { width: 16px; height: 16px; font-size: 0.58rem; }
+  .doc-contrib {
+    margin: 0 0 clamp(1.75rem, 3.5vw, 2.5rem);
+    border: 1px solid var(--line);
+    border-left: 2px solid rgba(255, 255, 255, 0.55);
+    border-radius: 0.9rem;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0));
+    padding: clamp(1.1rem, 2vw, 1.5rem) clamp(1.2rem, 2.2vw, 1.7rem);
+  }
+  .doc-contrib-head {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    margin-bottom: 0.65rem;
+  }
+  .doc-contrib-mark { width: 18px; height: 18px; font-size: 0.66rem; }
+  .doc-contrib-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+  .doc-contrib-body {
+    margin: 0;
+    font-size: 1.02rem;
+    line-height: 1.6;
+    color: var(--muted);
+  }
+  .doc-contrib-body :global(strong) { color: var(--ink); font-weight: 600; }
 
   /* ── At a glance (front-loaded scan panel for the 7-second reader) ── */
   .doc-scan {

@@ -923,6 +923,46 @@ if (localClients) {
 }
 
 /* ──────────────────────────────────────────────────────────────────────────
+   "Directly delivered by me" — engagements Priyam personally produced,
+   backed by timesheet hours. Anonymized first-person scope only: NO client
+   names, NO hours, NO anonymized-away tool brands, NO em dashes. Slugs not
+   listed here are left unmarked (insufficient personal-delivery hours).
+   ────────────────────────────────────────────────────────────────────────── */
+const CONTRIBUTIONS: Record<string, string> = {
+  'gene-therapy-launch-readiness':
+    'I did the hands-on supply-chain work behind this readiness assessment: the activity maps, the demand and capacity forecast, the clinical supply plan, and the QA release model the team stood up. The framework and the gap analysis were mine to produce, not just review.',
+  'new-product-introduction-playbook':
+    'I authored the NPI playbook itself, building it from the company’s own launch history into the chapter structure, the backward-counting stage-gate timeline, and the activity checklists. It was mine to write and structure end to end.',
+  'materials-internalization-playbook':
+    'I ran the make-versus-buy assessment hands-on: baselining the materials economics, modelling the scenarios from fully outsourced to a client-owned warehouse, and mapping the capabilities each would need. The go / no-go recommendation was mine to build.',
+  'oncology-commercial-launch-supply':
+    'I owned the commercial launch playbook on this engagement, building the launch supply plan, the demand scenarios, and the readiness structure the team worked from.',
+  'commercial-packaging-labeling-ndc-strategy':
+    'I owned the manufacturing-network side of this work. I built the packaging architecture, the NDC structure, and the distribution model the network design was anchored to, so the rest of the plan had a concrete physical network to map against.',
+  'oral-oncology-blister-commercialization':
+    'I worked the packaging-format question hands-on: the configuration and materials analysis, the comparator benchmark, and the validation-and-stability plan that mapped the blister presentation to a commercial timeline.',
+  'cdmo-voice-of-customer-ai-roadmap':
+    'I ran the Voice-of-Customer interviews myself and built the quality material behind the diagnosis. I scored the engagements, captured the why behind each score, and turned the won-versus-lost contrast into the operating-model findings.',
+  'rnd-quality-operating-model':
+    'I built the maturity model matrix itself, the six-parameter by five-level scoring grid the leadership team scored against. I also wrote the functional-expert interview summaries that calibrated each score, so the baseline reflected what people actually said rather than assumptions.',
+  'external-manufacturing-network-resilience':
+    'I built the risk heat map tool that scored the network, the impact-versus-vulnerability scoring template behind it, and iterated the decks the technical-operations team took to the board.',
+  'qms-governance-dashboards':
+    'I built the governance dashboard solution on a low-code platform, the repeatable board layout instantiated per module and the cross-module roll-up, and wrote the training manuals so the quality team could run and extend it themselves.',
+  'cmc-portfolio-prioritization':
+    'I built the portfolio prioritization and the per-person capacity-and-loading model at the centre of this engagement, and produced the workshop decks the leadership team aligned around.',
+  'pricing-trade-analytics-bi':
+    'I built the multi-project BI analytics from the data model up: the retention and repeat-versus-new-buyer views, the sales-performance dashboards, and the reconciliation checks, plus the self-serve training manual so the team could extend it without me.',
+};
+for (const d of portfolioCaseStudies) {
+  const c = CONTRIBUTIONS[d.slug];
+  if (c) {
+    d.directlyDelivered = true;
+    d.contribution = c;
+  }
+}
+
+/* ──────────────────────────────────────────────────────────────────────────
    Per-SECTION local controls (committed in portfolio.local.json):
      { "<slug>": { "hiddenBlocks": [int...], "edits": { "<blockIndex>": { "<field.path>": value } } } }
    - edits override individual block fields (inline editing on local).
