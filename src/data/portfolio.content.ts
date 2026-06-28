@@ -968,7 +968,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
       },
       {
         "kind": "quote",
-        "text": "The point of hiring us is so people will be honest and not just be nice to everybody. We want the truth, so the company can fix what's happening and win the business it should be winning.",
+        "text": "We didn't bring in an outside team for reassurance. We want the honest truth about why we're losing deals, so we can fix what's wrong and win back the work we should be winning.",
         "by": "Program sponsor",
         "role": "Engagement kickoff, to interview participants"
       },
