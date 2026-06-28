@@ -107,7 +107,14 @@ const websiteSchema = {
     <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow'} />
     <meta name="author" content="Diverse Labs" />
 
-    <script is:inline>document.documentElement.classList.add('js');</script>
+    <script is:inline>
+      document.documentElement.classList.add('js');
+      // Failsafe: if the motion script hasn't initialized within 2s (slow/failed
+      // load), force the reveal-hidden content visible so the page is never blank.
+      setTimeout(function () {
+        if (!window.__motionReady) document.documentElement.classList.add('motion-failsafe');
+      }, 2000);
+    </script>
 
     <!-- Open Graph -->
     <meta property="og:title" content={actualTitle} />
