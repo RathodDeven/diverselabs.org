@@ -93,5 +93,5 @@
     <text x="420" y="357" fill="#fff" fill-opacity="0.5">Workstream 4</text>
   </g>
 
-  <text x="32" y="372" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.45">Capacity vs demand over time — ceiling line, over-loaded periods flagged</text>
+  <text x="32" y="372" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.45">Capacity vs demand over time, ceiling line, over-loaded periods flagged</text>
 </svg>

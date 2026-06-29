@@ -24,6 +24,7 @@ const desktop = () => window.innerWidth >= 900;
 declare global {
   interface Window {
     __lenis?: Lenis;
+    __motionReady?: boolean;
   }
 }
 
@@ -475,6 +476,7 @@ function pageEnter() {
    Init / teardown
    ──────────────────────────────────────────────────────────── */
 function initMotion(replayEnter = true) {
+  window.__motionReady = true;
   cleanupFns.forEach((fn) => fn());
   cleanupFns = [];
   ScrollTrigger.getAll().forEach((t) => t.kill());

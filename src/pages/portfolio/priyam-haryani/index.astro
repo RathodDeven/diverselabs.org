@@ -11,7 +11,7 @@ const cases = portfolioCaseStudies.filter(
   (d) => !d.draft && (import.meta.env.DEV || !isHidden(d.slug)),
 );
 
-// Year-wise segregation — group engagements by the latest year in their timeframe.
+// Year-wise segregation, group engagements by the latest year in their timeframe.
 const yearOf = (tf?: string) => {
   const ys = (tf ?? '').match(/\d{4}/g)?.map(Number) ?? [];
   return ys.length ? Math.max(...ys) : 0;
@@ -20,17 +20,23 @@ const casesByYear = [...new Set(cases.map((d) => yearOf(d.timeframe)))]
   .sort((a, b) => b - a)
   .map((year) => ({ year, items: cases.filter((d) => yearOf(d.timeframe) === year) }));
 
+// Honest at-a-glance stats, computed from committed data so they never drift.
+const allYears = cases.flatMap((d) => (d.timeframe ?? '').match(/\d{4}/g)?.map(Number) ?? []);
+const spanMin = allYears.length ? Math.min(...allYears) : 0;
+const spanMax = allYears.length ? Math.max(...allYears) : 0;
+const deliveredCount = cases.filter((d) => d.directlyDelivered).length;
+
 const lens = [
   { title: 'Incentives', desc: 'Model stakeholders as rational actors responding to the structures they face.' },
   { title: 'Coordination', desc: 'Find where handoffs fail, where communication breaks, and where duplication hides.' },
   { title: 'Governance', desc: 'Redesign decision rights, escalation paths and oversight structures.' },
-  { title: 'Information flow', desc: 'Map how data and insight move — and where they get blocked or distorted.' },
+  { title: 'Information flow', desc: 'Map how data and insight move, and where they get blocked or distorted.' },
 ];
 ---
 
 <BaseLayout
-  title="Priyam Haryani — Independent Advisor, Pharma & Biotech Operations"
-  description="Economist and management consultant working on the operational, quality and regulatory problems pharma and biotech companies would rather not have. Selected engagements, anonymized."
+  title="Priyam Haryani, Independent Advisor, Pharma & Biotech Operations"
+  description="Operations consultant to pharma and biotech. I partner with consulting firms and in-house teams as embedded senior delivery, owning the models, playbooks and analytics their engagements run on, from clinical-stage biotechs to the world's largest pharma. Selected engagements, anonymized."
   image="/portfolio/og/_portfolio.png"
   noindex={true}
   standalone={true}
@@ -55,13 +61,21 @@ const lens = [
       </div>
       <h1 class="display-hero pf-title" data-reveal data-reveal-delay="0.1">Priyam Haryani</h1>
       <p class="pf-lede" data-reveal data-reveal-delay="0.2">
-        Economist and management consultant. I work on the operational, quality and
-        regulatory problems pharma and biotech companies would rather not have.
+        Operations consultant to pharma and biotech. I partner with consulting firms
+        and in-house teams as embedded senior delivery, owning the models, playbooks,
+        analytics and launch plans their engagements run on, hands-on, from
+        clinical-stage biotechs to the world's largest pharma.
       </p>
       <div class="pf-cta-row" data-reveal data-reveal-delay="0.3">
-        <CTAButton href={`mailto:${EMAIL}?subject=${encodeURIComponent('Hello — your portfolio')}`}>Email Priyam</CTAButton>
+        <CTAButton href={`mailto:${EMAIL}?subject=${encodeURIComponent('Hello, your portfolio')}`}>Email Priyam</CTAButton>
         <a href="#work" class="btn btn-secondary">View selected work</a>
       </div>
+
+      <dl class="pf-stats" data-reveal data-reveal-delay="0.4">
+        <div class="pf-stat"><dt>{cases.length}</dt><dd>engagements</dd></div>
+        <div class="pf-stat"><dt class="mono-num">{spanMin}–{spanMax}</dt><dd>active</dd></div>
+        <div class="pf-stat"><dt>{deliveredCount}</dt><dd>delivered hands-on</dd></div>
+      </dl>
 
     </div>
     <div class="pf-scroll-cue pf-z" aria-hidden="true">
@@ -80,7 +94,7 @@ const lens = [
       <p class="pf-approach-intro" data-reveal>
         Most organizational failures are not capability problems. They are failures of
         incentives, coordination, governance design and information flow. That is the
-        lens I bring to every engagement — direct, and through consulting firms.
+        lens I bring to every engagement, direct, and through consulting firms.
       </p>
       <div class="pf-lens" data-reveal-group>
         {lens.map((l) => (
@@ -101,9 +115,9 @@ const lens = [
         <span class="head-side">{String(cases.length).padStart(2, '0')} case studies</span>
       </div>
       <p class="pf-approach-intro" data-reveal>
-        Representative work across pharma and biotech operations — supply chain, launch
-        readiness, quality, analytics and applied AI. Client identities are anonymized;
-        the problems and the work are real.
+        Representative work across pharma and biotech operations: supply chain and launch
+        readiness, CMC, packaging and labeling, quality systems, and BI analytics. Client
+        identities are anonymized; the problems and the work are real.
       </p>
 
       {casesByYear.map(({ year, items }) => (
@@ -128,6 +142,9 @@ const lens = [
                       <span class="label no-rule">{doc.eyebrow}</span>
                       <span class="pf-card-idx mono-num">{doc.timeframe}</span>
                     </div>
+                    {doc.directlyDelivered && (
+                      <span class="pf-card-delivered">✓ Delivered hands-on</span>
+                    )}
                     <h3 class="pf-card-title">{doc.title}</h3>
                     <p class="pf-card-dek">{doc.dek}</p>
                     <div class="pf-card-foot">
@@ -159,15 +176,15 @@ const lens = [
     <div class="container container-narrow">
       <div class="doc-cta" data-reveal>
         <h2>A problem worth solving?</h2>
-        <p>Operational, quality or regulatory — if it's the kind of thing teams would rather not have, let's talk.</p>
-        <CTAButton href={`mailto:${EMAIL}?subject=${encodeURIComponent('Hello — your portfolio')}`}>Email Priyam · {EMAIL}</CTAButton>
+        <p>Operational, quality or regulatory, if it's the kind of thing teams would rather not have, let's talk.</p>
+        <CTAButton href={`mailto:${EMAIL}?subject=${encodeURIComponent('Hello, your portfolio')}`}>Email Priyam · {EMAIL}</CTAButton>
       </div>
     </div>
   </section>
 </BaseLayout>
 
 <style>
-  /* Particle scene canvas — above the shader (-1), below content (.pf-z = 1) */
+  /* Particle scene canvas, above the shader (-1), below content (.pf-z = 1) */
   #pf-scene {
     position: fixed;
     inset: 0;
@@ -202,6 +219,33 @@ const lens = [
     flex-wrap: wrap;
     gap: 0.8rem;
     align-items: center;
+  }
+
+  /* Honest stat band (computed from committed data) */
+  .pf-stats {
+    margin-top: clamp(2rem, 4vw, 2.6rem);
+    display: flex;
+    flex-wrap: wrap;
+    gap: clamp(1.6rem, 4vw, 3rem);
+    border-top: 1px solid var(--line);
+    padding-top: 1.4rem;
+    max-width: 40rem;
+  }
+  .pf-stat dt {
+    font-family: var(--font-display);
+    font-size: clamp(1.6rem, 3vw, 2.1rem);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    line-height: 1;
+  }
+  .pf-stat dd {
+    margin: 0.45rem 0 0;
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--faint);
   }
 
   .pf-scroll-cue {
@@ -390,6 +434,18 @@ const lens = [
   }
   .pf-card-top { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
   .pf-card-idx { font-size: 0.72rem; color: var(--faint); }
+  .pf-card-delivered {
+    align-self: flex-start;
+    margin-top: -0.3rem;
+    font-family: var(--font-mono);
+    font-size: 0.56rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 2rem;
+    padding: 0.22rem 0.6rem;
+  }
   .pf-card-title {
     font-size: clamp(1.15rem, 1.9vw, 1.4rem);
     line-height: 1.25;

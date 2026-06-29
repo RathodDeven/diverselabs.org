@@ -1,100 +1,92 @@
-<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AI enablement roadmap: use-case cards sequenced across Now, Next, and Later horizons with value-effort tags, capability themes, and dependency markers">
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Phased leadership operating-model roadmap: recommendations sequenced across Phase 1 quick wins, Phase 2 strategic initiatives, and Phase 3 structural fixes, with impact tags and dependency flow">
   <defs>
     <pattern id="g" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#fff" fill-opacity="0.05"/></pattern>
     <radialGradient id="gv" cx="50%" cy="38%" r="66%"><stop offset="0%" stop-color="#fff" stop-opacity="0.06"/><stop offset="100%" stop-color="#fff" stop-opacity="0"/></radialGradient>
   </defs>
   <rect width="640" height="400" fill="#0a0a0a"/><rect width="640" height="400" fill="url(#g)"/><rect width="640" height="400" fill="url(#gv)"/>
 
-  <text x="32" y="34" font-family="'JetBrains Mono',monospace" font-size="10" fill="#fff" fill-opacity="0.5">AI ENABLEMENT · USE-CASE ROADMAP</text>
+  <text x="32" y="34" font-family="'JetBrains Mono',monospace" font-size="10" fill="#fff" fill-opacity="0.5">OPERATING MODEL · PHASED LEADERSHIP ROADMAP</text>
   <text x="608" y="34" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.32">03 / 03</text>
 
   <line x1="32" y1="60" x2="600" y2="60" stroke="#fff" stroke-opacity="0.16" stroke-width="1"/>
   <path d="M600 60 l-6 -3 v6 z" fill="#fff" fill-opacity="0.22"/>
   <text x="600" y="52" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.4">TIME HORIZON</text>
 
-  
   <rect x="32" y="70" width="184" height="270" rx="8" fill="#fff" fill-opacity="0.04" stroke="#fff" stroke-opacity="0.12" stroke-width="1"/>
-  <text x="44" y="90" font-family="'JetBrains Mono',monospace" font-size="11" fill="#fff" fill-opacity="0.6" letter-spacing="1">NOW</text>
-  <text x="44" y="102" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.38">0–2 quarters</text>
+  <text x="44" y="90" font-family="'JetBrains Mono',monospace" font-size="11" fill="#fff" fill-opacity="0.6" letter-spacing="1">PHASE 1 · QUICK WINS</text>
+  <text x="44" y="102" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.38">0–3 months</text>
 
   <rect x="228" y="70" width="184" height="270" rx="8" fill="#fff" fill-opacity="0.04" stroke="#fff" stroke-opacity="0.12" stroke-width="1"/>
-  <text x="240" y="90" font-family="'JetBrains Mono',monospace" font-size="11" fill="#fff" fill-opacity="0.6" letter-spacing="1">NEXT</text>
-  <text x="240" y="102" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.38">2–5 quarters</text>
+  <text x="240" y="90" font-family="'JetBrains Mono',monospace" font-size="11" fill="#fff" fill-opacity="0.6" letter-spacing="1">PHASE 2 · STRATEGIC</text>
+  <text x="240" y="102" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.38">3–6 months</text>
 
   <rect x="424" y="70" width="184" height="270" rx="8" fill="#fff" fill-opacity="0.04" stroke="#fff" stroke-opacity="0.12" stroke-width="1"/>
-  <text x="436" y="90" font-family="'JetBrains Mono',monospace" font-size="11" fill="#fff" fill-opacity="0.6" letter-spacing="1">LATER</text>
-  <text x="436" y="102" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.38">5+ quarters</text>
+  <text x="436" y="90" font-family="'JetBrains Mono',monospace" font-size="11" fill="#fff" fill-opacity="0.6" letter-spacing="1">PHASE 3 · STRUCTURAL</text>
+  <text x="436" y="102" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.38">6–12 months</text>
 
-  
+  <path d="M204 146 C 216 146, 216 154, 240 154" fill="none" stroke="#fff" stroke-opacity="0.2" stroke-width="1" stroke-dasharray="3 3"/>
+  <path d="M400 154 C 412 154, 412 158, 436 158" fill="none" stroke="#fff" stroke-opacity="0.2" stroke-width="1" stroke-dasharray="3 3"/>
 
-  <path d="M124 168 C 196 168, 196 152, 268 152" fill="none" stroke="#fff" stroke-opacity="0.2" stroke-width="1" stroke-dasharray="3 3"/>
-  <path d="M124 244 C 196 244, 196 232, 268 232" fill="none" stroke="#fff" stroke-opacity="0.2" stroke-width="1" stroke-dasharray="3 3"/>
-  <path d="M320 152 C 392 152, 392 156, 464 156" fill="none" stroke="#fff" stroke-opacity="0.2" stroke-width="1" stroke-dasharray="3 3"/>
-  <path d="M320 232 C 392 232, 392 240, 464 240" fill="none" stroke="#fff" stroke-opacity="0.2" stroke-width="1" stroke-dasharray="3 3"/>
-
-  
   <rect x="44" y="116" width="160" height="60" rx="7" fill="#fff" fill-opacity="0.95"/>
   <rect x="52" y="124" width="9" height="9" rx="2" fill="#0a0a0a" fill-opacity="0.85"/>
-  <text x="66" y="132" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#0a0a0a" fill-opacity="0.55">THEME · INSIGHTS</text>
-  <text x="52" y="150" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#0a0a0a">Feedback Triage</text>
-  <text x="52" y="162" font-family="'JetBrains Mono',monospace" font-size="8" fill="#0a0a0a" fill-opacity="0.6">Auto-tagging of VoC</text>
-  <rect x="52" y="166" width="58" height="0" /> 
+  <text x="66" y="132" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#0a0a0a" fill-opacity="0.55">BD · PROPOSALS</text>
+  <text x="52" y="150" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#0a0a0a">Proposal fast-lane</text>
+  <text x="52" y="162" font-family="'JetBrains Mono',monospace" font-size="8" fill="#0a0a0a" fill-opacity="0.6">Templates + review SLA</text>
   <text x="196" y="170" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="7.5" fill="#0a0a0a" fill-opacity="0.7">QUICK WIN</text>
 
   <rect x="44" y="192" width="160" height="60" rx="7" fill="#fff" fill-opacity="0.22" stroke="#fff" stroke-opacity="0.18"/>
   <rect x="52" y="200" width="9" height="9" rx="2" fill="#fff" fill-opacity="0.5"/>
-  <text x="66" y="208" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.45">THEME · QUALITY</text>
-  <text x="52" y="226" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#fff" fill-opacity="0.78">Knowledge Search</text>
-  <text x="52" y="238" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.5">SOP retrieval assist</text>
+  <text x="66" y="208" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.45">BD · EARLY PHASE</text>
+  <text x="52" y="226" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#fff" fill-opacity="0.78">BD empowerment</text>
+  <text x="52" y="238" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.5">Fast-track early quotes</text>
   <text x="196" y="246" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="7.5" fill="#fff" fill-opacity="0.55">QUICK WIN</text>
 
   <rect x="44" y="268" width="160" height="60" rx="7" fill="#fff" fill-opacity="0.16" stroke="#fff" stroke-opacity="0.16"/>
   <rect x="52" y="276" width="9" height="9" rx="2" fill="#fff" fill-opacity="0.4"/>
-  <text x="66" y="284" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.4">THEME · OPS</text>
-  <text x="52" y="302" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#fff" fill-opacity="0.7">Report Drafting</text>
-  <text x="52" y="314" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.48">Summary generation</text>
-  <text x="196" y="322" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="7.5" fill="#fff" fill-opacity="0.5">FOUNDATIONAL</text>
+  <text x="66" y="284" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.4">BD · PITCH</text>
+  <text x="52" y="302" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#fff" fill-opacity="0.7">Win-story library</text>
+  <text x="52" y="314" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.48">Codify into the pitch</text>
+  <text x="196" y="322" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="7.5" fill="#fff" fill-opacity="0.5">LOW LIFT</text>
 
-  
   <rect x="240" y="124" width="160" height="60" rx="7" fill="#fff" fill-opacity="0.2" stroke="#fff" stroke-opacity="0.18"/>
   <rect x="248" y="132" width="9" height="9" rx="2" fill="#fff" fill-opacity="0.5"/>
-  <text x="262" y="140" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.45">THEME · INSIGHTS</text>
-  <text x="248" y="158" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#fff" fill-opacity="0.78">Trend Detection</text>
-  <text x="248" y="170" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.5">Cross-account signals</text>
-  <text x="392" y="178" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="7.5" fill="#fff" fill-opacity="0.55">FOUNDATIONAL</text>
+  <text x="262" y="140" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.45">PRICING</text>
+  <text x="248" y="158" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#fff" fill-opacity="0.78">Tiered pricing</text>
+  <text x="248" y="170" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.5">Phase-fit, value-based</text>
+  <text x="392" y="178" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="7.5" fill="#fff" fill-opacity="0.55">HIGH IMPACT</text>
 
   <rect x="240" y="204" width="160" height="60" rx="7" fill="#fff" fill-opacity="0.16" stroke="#fff" stroke-opacity="0.16"/>
   <rect x="248" y="212" width="9" height="9" rx="2" fill="#fff" fill-opacity="0.4"/>
-  <text x="262" y="220" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.4">THEME · QUALITY</text>
-  <text x="248" y="238" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#fff" fill-opacity="0.7">Deviation Assist</text>
-  <text x="248" y="250" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.48">Root-cause prompts</text>
-  <text x="392" y="258" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="7.5" fill="#fff" fill-opacity="0.5">STRATEGIC BET</text>
+  <text x="262" y="220" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.4">CAPACITY</text>
+  <text x="248" y="238" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#fff" fill-opacity="0.7">Bottleneck relief</text>
+  <text x="248" y="250" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.48">Unblock constrained steps</text>
+  <text x="392" y="258" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="7.5" fill="#fff" fill-opacity="0.5">STRATEGIC</text>
 
   <rect x="240" y="284" width="160" height="48" rx="7" fill="#fff" fill-opacity="0.13" stroke="#fff" stroke-opacity="0.15"/>
   <rect x="248" y="292" width="9" height="9" rx="2" fill="#fff" fill-opacity="0.38"/>
-  <text x="262" y="300" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.4">THEME · OPS</text>
-  <text x="248" y="318" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#fff" fill-opacity="0.66">Demand Signals</text>
-  <text x="392" y="296" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="7.5" fill="#fff" fill-opacity="0.46">FOUNDATIONAL</text>
+  <text x="262" y="300" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.4">CAPABILITY</text>
+  <text x="248" y="318" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#fff" fill-opacity="0.66">Specialty investment</text>
+  <text x="392" y="296" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="7.5" fill="#fff" fill-opacity="0.46">STRATEGIC</text>
 
-  
   <rect x="436" y="128" width="160" height="56" rx="7" fill="#fff" fill-opacity="0.13" stroke="#fff" stroke-opacity="0.15"/>
   <rect x="444" y="136" width="9" height="9" rx="2" fill="#fff" fill-opacity="0.4"/>
-  <text x="458" y="144" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.4">THEME · INSIGHTS</text>
-  <text x="444" y="162" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#fff" fill-opacity="0.66">Predictive VoC</text>
-  <text x="444" y="174" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.46">Churn-risk modelling</text>
-  <text x="588" y="174" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="7.5" fill="#fff" fill-opacity="0.48">STRATEGIC BET</text>
+  <text x="458" y="144" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.4">LEGAL · CONTRACTING</text>
+  <text x="444" y="162" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#fff" fill-opacity="0.66">Contracting redesign</text>
+  <text x="444" y="174" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.46">Pre-negotiated templates</text>
+  <text x="588" y="174" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="7.5" fill="#fff" fill-opacity="0.48">STRUCTURAL</text>
 
   <rect x="436" y="212" width="160" height="56" rx="7" fill="#fff" fill-opacity="0.11" stroke="#fff" stroke-opacity="0.14"/>
   <rect x="444" y="220" width="9" height="9" rx="2" fill="#fff" fill-opacity="0.36"/>
-  <text x="458" y="228" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.38">THEME · OPS</text>
-  <text x="444" y="246" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#fff" fill-opacity="0.62">Autonomous Routing</text>
-  <text x="444" y="258" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.44">Closed-loop response</text>
-  <text x="588" y="258" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="7.5" fill="#fff" fill-opacity="0.46">STRATEGIC BET</text>
+  <text x="458" y="228" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.38">SECONDARY SITE</text>
+  <text x="444" y="246" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#fff" fill-opacity="0.62">Credibility rebuild</text>
+  <text x="444" y="258" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.44">Independent audit</text>
+  <text x="588" y="258" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="7.5" fill="#fff" fill-opacity="0.46">STRUCTURAL</text>
 
-  <line x1="436" y1="300" x2="452" y2="300" stroke="#fff" stroke-opacity="0.2" stroke-width="1" stroke-dasharray="3 3"/>
-  <text x="458" y="303" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.45">dependency / enabler</text>
-  <rect x="436" y="312" width="9" height="9" rx="2" fill="#fff" fill-opacity="0.4"/>
-  <text x="458" y="320" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.45">capability theme</text>
+  <rect x="436" y="284" width="160" height="48" rx="7" fill="#fff" fill-opacity="0.1" stroke="#fff" stroke-opacity="0.14"/>
+  <rect x="444" y="292" width="9" height="9" rx="2" fill="#fff" fill-opacity="0.34"/>
+  <text x="458" y="300" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.38">COST</text>
+  <text x="444" y="318" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#fff" fill-opacity="0.6">Close the cost gap</text>
+  <text x="588" y="296" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="7.5" fill="#fff" fill-opacity="0.44">STRUCTURAL</text>
 
-  <text x="32" y="372" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.45">AI enablement roadmap — use cases sequenced across near / mid / long-term horizons</text>
+  <text x="32" y="372" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.45">Phased leadership roadmap, recommendations sequenced from quick wins to structural fixes</text>
 </svg>

@@ -58,9 +58,9 @@
 
   <text x="380" y="108" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.45">IN SCOPE</text>
   <circle cx="384" cy="123" r="2" fill="#fff" fill-opacity="0.5"/>
-  <text x="394" y="126" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.58">Workstream 1 — Planning</text>
+  <text x="394" y="126" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.58">Workstream 1, Planning</text>
   <circle cx="384" cy="139" r="2" fill="#fff" fill-opacity="0.5"/>
-  <text x="394" y="142" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.58">Workstream 2 — Quality</text>
+  <text x="394" y="142" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.58">Workstream 2, Quality</text>
 
   <text x="380" y="164" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.45">OUT OF SCOPE</text>
   <path d="M381 177 l6 6 M387 177 l-6 6" stroke="#fff" stroke-opacity="0.4" stroke-width="1.2" stroke-linecap="round"/>

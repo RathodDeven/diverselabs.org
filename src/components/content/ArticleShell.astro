@@ -16,8 +16,11 @@ interface Props {
   /** Override the closing CTA (label + href). Defaults to the cal.com booking link. */
   ctaLabel?: string;
   ctaHref?: string;
+  /** Enable the local (dev-only) per-section hide + inline editor for this doc. */
+  editable?: boolean;
 }
-const { doc, crumbs, cover, stages, ctaLabel, ctaHref } = Astro.props as Props;
+const { doc, crumbs, cover, stages, ctaLabel, ctaHref, editable } = Astro.props as Props;
+const EDIT = import.meta.env.DEV && !!editable;
 const finalCtaHref = ctaHref ?? 'https://cal.com/diverselabs/30min';
 const finalCtaLabel = ctaLabel ?? 'Book a Discovery Call';
 
@@ -62,6 +65,13 @@ const readMin = Math.max(2, Math.round(wordCount / 220));
         <span class="label no-rule">{doc.eyebrow}</span>
         <span class="doc-type mono-num">{TYPE_LABELS[doc.type] ?? 'Article'}</span>
       </div>
+
+      {doc.directlyDelivered && (
+        <div class="doc-delivered" data-reveal data-reveal-delay="0.1">
+          <span class="doc-delivered-mark" aria-hidden="true">✓</span>
+          Directly delivered
+        </div>
+      )}
 
       <h1 class="doc-title" data-split>{doc.title}</h1>
       <p class="doc-dek" data-reveal data-reveal-delay="0.2">{doc.dek}</p>
@@ -120,7 +130,17 @@ const readMin = Math.max(2, Math.round(wordCount / 220));
       </section>
     )}
 
-    <ContentBlocks blocks={doc.blocks} />
+    {doc.contribution && (
+      <section class="doc-contrib" data-reveal id="my-contribution">
+        <div class="doc-contrib-head">
+          <span class="doc-contrib-mark" aria-hidden="true">✓</span>
+          <span class="doc-contrib-eyebrow">Direct contribution</span>
+        </div>
+        <p class="doc-contrib-body" set:html={doc.contribution} />
+      </section>
+    )}
+
+    <ContentBlocks blocks={doc.blocks} slug={EDIT ? doc.slug : ''} />
 
     {stages && stages.length > 0 && (
       <section class="db db-stages" data-reveal id="how-it-progressed">
@@ -161,14 +181,181 @@ const readMin = Math.max(2, Math.round(wordCount / 220));
     <section class="db db-cta" data-reveal id="cta">
       <div class="doc-cta">
         <h2>{doc.cta?.title ?? 'Want this for your team?'}</h2>
-        <p>{doc.cta?.sub ?? "Tell us the workflow. We'll show you what to automate first — and what it's worth."}</p>
+        <p>{doc.cta?.sub ?? "Tell us the workflow. We'll show you what to automate first, and what it's worth."}</p>
         <CTAButton href={finalCtaHref}>{finalCtaLabel}</CTAButton>
       </div>
     </section>
   </div>
 </article>
 
+{EDIT && (
+  <div class="pf-edit-hint" aria-hidden="true">
+    <span class="pf-edit-dot"></span>
+    Local edit mode · click text to edit · hover a section to hide
+  </div>
+)}
+
+{EDIT && (
+  <script>
+    // Local editor (dev only). Persists section hide + inline text edits to
+    // src/data/portfolio.local.json via the /__pf-local dev middleware. Stripped
+    // from production (gated by import.meta.env.DEV at the markup + here).
+    if (import.meta.env.DEV) {
+      const post = (payload: Record<string, unknown>) =>
+        fetch('/__pf-local', {
+          method: 'POST',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+
+      const bind = () => {
+        const root = document.querySelector<HTMLElement>('.doc-blocks');
+        if (!root || root.dataset.editorBound) return;
+        root.dataset.editorBound = 'true';
+        const slug = root.getAttribute('data-slug') || '';
+
+        // Section hide / unhide
+        root.querySelectorAll<HTMLButtonElement>('.sec-hide').forEach((btn) => {
+          btn.addEventListener('click', async (e) => {
+            e.preventDefault();
+            const sec = btn.closest<HTMLElement>('.db');
+            if (!sec) return;
+            const index = Number(sec.getAttribute('data-bi'));
+            const willHide = !sec.classList.contains('is-section-hidden');
+            sec.classList.toggle('is-section-hidden', willHide);
+            btn.textContent = willHide ? 'Unhide section' : 'Hide section';
+            const tools = sec.querySelector('.sec-tools');
+            let badge = sec.querySelector('.sec-badge');
+            if (willHide && !badge && tools) {
+              badge = document.createElement('span');
+              badge.className = 'sec-badge';
+              badge.textContent = 'Hidden from live';
+              tools.prepend(badge);
+            } else if (!willHide && badge) {
+              badge.remove();
+            }
+            await post({ slug, index, op: 'hide' });
+          });
+        });
+
+        // Inline text edits
+        root.querySelectorAll<HTMLElement>('[data-e]').forEach((el) => {
+          const isHtml = el.hasAttribute('data-html');
+          if (!isHtml) {
+            el.addEventListener('keydown', (e) => {
+              if (e.key === 'Enter') { e.preventDefault(); el.blur(); }
+            });
+          }
+          el.addEventListener('focus', () => {
+            el.dataset.orig = isHtml ? el.innerHTML : (el.innerText || '');
+          });
+          el.addEventListener('blur', async () => {
+            const value = (isHtml ? el.innerHTML : (el.innerText || '')).trim();
+            if (value === (el.dataset.orig || '').trim()) return; // unchanged
+            const sec = el.closest<HTMLElement>('.db');
+            if (!sec) return;
+            const index = Number(sec.getAttribute('data-bi'));
+            const path = el.getAttribute('data-e');
+            try {
+              await post({ slug, index, op: 'edit', path, value });
+              el.classList.add('e-saved');
+              setTimeout(() => el.classList.remove('e-saved'), 900);
+            } catch {
+              el.classList.add('e-error');
+            }
+          });
+        });
+      };
+      bind();
+      document.addEventListener('astro:page-load', bind);
+    }
+  </script>
+)}
+
 <style>
+  .pf-edit-hint {
+    position: fixed;
+    top: clamp(0.6rem, 2vw, 1rem);
+    right: clamp(0.6rem, 2vw, 1rem);
+    z-index: 80;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.58rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.45rem 0.7rem;
+    border: 1px solid rgba(120, 170, 255, 0.4);
+    border-radius: 0.6rem;
+    background: rgba(12, 12, 12, 0.82);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: var(--muted);
+    pointer-events: none;
+  }
+  .pf-edit-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: rgba(120, 170, 255, 0.9);
+    box-shadow: 0 0 8px rgba(120, 170, 255, 0.7);
+  }
+
+  /* ── "Directly delivered by me" badge + contribution panel ── */
+  .doc-delivered {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0.9rem 0 0.1rem;
+    padding: 0.38rem 0.85rem 0.38rem 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    border-radius: 2rem;
+    background: rgba(255, 255, 255, 0.06);
+    font-family: var(--font-mono);
+    font-size: 0.64rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+  .doc-delivered-mark,
+  .doc-contrib-mark {
+    display: inline-grid;
+    place-items: center;
+    border-radius: 50%;
+    background: #fff;
+    color: #0a0a0a;
+    line-height: 1;
+  }
+  .doc-delivered-mark { width: 16px; height: 16px; font-size: 0.58rem; }
+  .doc-contrib {
+    margin: 0 0 clamp(1.75rem, 3.5vw, 2.5rem);
+    border: 1px solid var(--line);
+    border-left: 2px solid rgba(255, 255, 255, 0.55);
+    border-radius: 0.9rem;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0));
+    padding: clamp(1.1rem, 2vw, 1.5rem) clamp(1.2rem, 2.2vw, 1.7rem);
+  }
+  .doc-contrib-head {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    margin-bottom: 0.65rem;
+  }
+  .doc-contrib-mark { width: 18px; height: 18px; font-size: 0.66rem; }
+  .doc-contrib-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+  .doc-contrib-body {
+    margin: 0;
+    font-size: 1.02rem;
+    line-height: 1.6;
+    color: var(--muted);
+  }
+  .doc-contrib-body :global(strong) { color: var(--ink); font-weight: 600; }
+
   /* ── At a glance (front-loaded scan panel for the 7-second reader) ── */
   .doc-scan {
     margin: clamp(1.5rem, 3vw, 2.25rem) 0 clamp(1.75rem, 3.5vw, 2.5rem);

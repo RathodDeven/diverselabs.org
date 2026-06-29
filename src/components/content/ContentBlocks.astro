@@ -3,188 +3,256 @@ import type { Block } from '../../data/content';
 
 interface Props {
   blocks: Block[];
+  /** Case-study slug, needed so the local editor can address each block. */
+  slug?: string;
 }
-const { blocks } = Astro.props as Props;
+const { blocks, slug = '' } = Astro.props as Props;
 
 const paras = (body: string) => body.split(/\n\n+/).map((p) => p.trim()).filter(Boolean);
+
+// LOCAL EDIT MODE (dev only). `ed(path)` returns the contenteditable attributes
+// that make a text node editable and addressable; in production it returns {}
+// so nothing ships. `html` = the field stores rich HTML (prose/note body).
+// Editor is on only in dev AND when a slug is provided (portfolio pages only —
+// the public /work pages render ContentBlocks without a slug, so no editor ships).
+const EDIT = import.meta.env.DEV && !!slug;
+const ed = (path: string, html = false): Record<string, string> =>
+  EDIT ? { contenteditable: 'true', 'data-e': path, ...(html ? { 'data-html': '' } : {}) } : {};
+const hasBlocksHtml = (s: string) => /<p[ >]/i.test(s);
 ---
 
-<div class="doc-blocks">
-  {blocks.map((b) => {
-    if (b.kind === 'prose') {
-      return (
-        <section class="db db-prose" data-reveal>
-          {b.heading && <h2>{b.heading}</h2>}
-          {paras(b.body).map((p) => <p set:html={p} />)}
-        </section>
-      );
-    }
+<div class="doc-blocks" data-slug={slug}>
+  {blocks.map((b, i) => {
+    const hidden = EDIT && (b as unknown as { __hidden?: boolean }).__hidden === true;
 
-    if (b.kind === 'flow') {
-      return (
-        <section class="db db-flow" data-reveal>
-          {b.title && <h2>{b.title}</h2>}
+    let inner: unknown = null;
+
+    if (b.kind === 'prose') {
+      inner = (
+        <>
+          {b.heading && <h2 {...ed('heading')}>{b.heading}</h2>}
+          {hasBlocksHtml(b.body) ? (
+            <div class="prose-body" {...ed('body', true)} set:html={b.body} />
+          ) : (
+            <div class="prose-body" {...ed('body', true)}>
+              {paras(b.body).map((p) => <p set:html={p} />)}
+            </div>
+          )}
+        </>
+      );
+    } else if (b.kind === 'flow') {
+      inner = (
+        <>
+          {b.title && <h2 {...ed('title')}>{b.title}</h2>}
           <ol class="flowchart" role="list">
-            {b.steps.map((s, i) => (
+            {b.steps.map((s, si) => (
               <li class="flow-node">
-                <span class="flow-idx mono-num">{String(i + 1).padStart(2, '0')}</span>
-                <span class="flow-label">{s.label}</span>
-                {s.sub && <span class="flow-sub">{s.sub}</span>}
-                {i < b.steps.length - 1 && <span class="flow-arrow" aria-hidden="true">→</span>}
+                <span class="flow-idx mono-num">{String(si + 1).padStart(2, '0')}</span>
+                <span class="flow-label" {...ed(`steps.${si}.label`)}>{s.label}</span>
+                {s.sub && <span class="flow-sub" {...ed(`steps.${si}.sub`)}>{s.sub}</span>}
+                {si < b.steps.length - 1 && <span class="flow-arrow" aria-hidden="true">→</span>}
               </li>
             ))}
           </ol>
-          {b.caption && <p class="db-cap">{b.caption}</p>}
-        </section>
+          {b.caption && <p class="db-cap" {...ed('caption')}>{b.caption}</p>}
+        </>
       );
-    }
-
-    if (b.kind === 'steps') {
-      return (
-        <section class="db db-steps" data-reveal>
-          {b.title && <h2>{b.title}</h2>}
+    } else if (b.kind === 'steps') {
+      inner = (
+        <>
+          {b.title && <h2 {...ed('title')}>{b.title}</h2>}
           <ol class="steplist" role="list">
-            {b.items.map((s, i) => (
+            {b.items.map((s, si) => (
               <li class="step-item">
-                <span class="step-n mono-num">{String(i + 1).padStart(2, '0')}</span>
+                <span class="step-n mono-num">{String(si + 1).padStart(2, '0')}</span>
                 <div class="step-body">
-                  <h3>{s.title}</h3>
-                  <p>{s.body}</p>
+                  <h3 {...ed(`items.${si}.title`)}>{s.title}</h3>
+                  <p {...ed(`items.${si}.body`)}>{s.body}</p>
                 </div>
               </li>
             ))}
           </ol>
-          {b.caption && <p class="db-cap">{b.caption}</p>}
-        </section>
+          {b.caption && <p class="db-cap" {...ed('caption')}>{b.caption}</p>}
+        </>
       );
-    }
-
-    if (b.kind === 'metrics') {
-      return (
-        <section class="db db-metrics" data-reveal>
-          {b.title && <h2>{b.title}</h2>}
+    } else if (b.kind === 'metrics') {
+      inner = (
+        <>
+          {b.title && <h2 {...ed('title')}>{b.title}</h2>}
           <div class="metric-row" data-reveal-group>
-            {b.items.map((m) => (
+            {b.items.map((m, mi) => (
               <div class="metric">
-                <div class="metric-val">{m.value}</div>
-                <div class="metric-lab">{m.label}</div>
+                <div class="metric-val" {...ed(`items.${mi}.value`)}>{m.value}</div>
+                <div class="metric-lab" {...ed(`items.${mi}.label`)}>{m.label}</div>
               </div>
             ))}
           </div>
-        </section>
+        </>
       );
-    }
-
-    if (b.kind === 'compare') {
-      return (
-        <section class="db db-compare" data-reveal>
-          {b.title && <h2>{b.title}</h2>}
+    } else if (b.kind === 'compare') {
+      inner = (
+        <>
+          {b.title && <h2 {...ed('title')}>{b.title}</h2>}
           <div class="cmp-wrap">
             <table class="cmp">
               <thead>
                 <tr>
-                  {b.head.map((h, i) => (
-                    <th class:list={[{ 'cmp-hl': i === b.highlight }]}>{h}</th>
+                  {b.head.map((h, hi) => (
+                    <th class:list={[{ 'cmp-hl': hi === b.highlight }]} {...ed(`head.${hi}`)}>{h}</th>
                   ))}
                 </tr>
               </thead>
               <tbody>
-                {b.rows.map((row) => (
+                {b.rows.map((row, ri) => (
                   <tr>
-                    {row.map((cell, i) => (
-                      <td class:list={[{ 'cmp-row-lead': i === 0, 'cmp-hl': i === b.highlight }]}>{cell}</td>
+                    {row.map((cell, ci) => (
+                      <td class:list={[{ 'cmp-row-lead': ci === 0, 'cmp-hl': ci === b.highlight }]} {...ed(`rows.${ri}.${ci}`)}>{cell}</td>
                     ))}
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
-          {b.caption && <p class="db-cap">{b.caption}</p>}
-        </section>
+          {b.caption && <p class="db-cap" {...ed('caption')}>{b.caption}</p>}
+        </>
       );
-    }
-
-    if (b.kind === 'split') {
-      return (
-        <section class="db db-split" data-reveal>
-          {b.title && <h2>{b.title}</h2>}
+    } else if (b.kind === 'split') {
+      inner = (
+        <>
+          {b.title && <h2 {...ed('title')}>{b.title}</h2>}
           <div class="split-grid">
             <div class="split-card split-before">
-              <span class="split-tag">{b.before.label}</span>
+              <span class="split-tag" {...ed('before.label')}>{b.before.label}</span>
               <ul role="list">
-                {b.before.points.map((p) => <li>{p}</li>)}
+                {b.before.points.map((p, pi) => <li {...ed(`before.points.${pi}`)}>{p}</li>)}
               </ul>
             </div>
             <span class="split-arrow" aria-hidden="true">→</span>
             <div class="split-card split-after">
-              <span class="split-tag">{b.after.label}</span>
+              <span class="split-tag" {...ed('after.label')}>{b.after.label}</span>
               <ul role="list">
-                {b.after.points.map((p) => <li>{p}</li>)}
+                {b.after.points.map((p, pi) => <li {...ed(`after.points.${pi}`)}>{p}</li>)}
               </ul>
             </div>
           </div>
-        </section>
+        </>
       );
-    }
-
-    if (b.kind === 'stack') {
-      return (
-        <section class="db db-stack" data-reveal>
-          {b.title && <h2>{b.title}</h2>}
+    } else if (b.kind === 'stack') {
+      inner = (
+        <>
+          {b.title && <h2 {...ed('title')}>{b.title}</h2>}
           <div class="stack-groups">
-            {b.groups.map((g) => (
+            {b.groups.map((g, gi) => (
               <div class="stack-group">
-                <span class="stack-glabel">{g.label}</span>
+                <span class="stack-glabel" {...ed(`groups.${gi}.label`)}>{g.label}</span>
                 <div class="stack-chips">
-                  {g.items.map((it) => <span class="chip">{it}</span>)}
+                  {g.items.map((it, ii) => <span class="chip" {...ed(`groups.${gi}.items.${ii}`)}>{it}</span>)}
                 </div>
               </div>
             ))}
           </div>
-        </section>
+        </>
       );
-    }
-
-    if (b.kind === 'callouts') {
-      return (
-        <section class="db db-callouts" data-reveal>
-          {b.title && <h2>{b.title}</h2>}
+    } else if (b.kind === 'callouts') {
+      inner = (
+        <>
+          {b.title && <h2 {...ed('title')}>{b.title}</h2>}
           <div class="callout-grid" data-reveal-group>
-            {b.items.map((c) => (
+            {b.items.map((c, ci) => (
               <div class="callout">
-                <h3>{c.title}</h3>
-                <p>{c.body}</p>
+                <h3 {...ed(`items.${ci}.title`)}>{c.title}</h3>
+                <p {...ed(`items.${ci}.body`)}>{c.body}</p>
               </div>
             ))}
           </div>
-        </section>
+        </>
       );
-    }
-
-    if (b.kind === 'quote') {
-      return (
-        <section class="db db-quote" data-reveal>
+    } else if (b.kind === 'quote') {
+      inner = (
+        <>
           <blockquote>
-            <span class="dq-mark" aria-hidden="true">“</span>{b.text}
+            <span class="dq-mark" aria-hidden="true">“</span><span {...ed('text')}>{b.text}</span>
           </blockquote>
           {(b.by || b.role) && (
             <figcaption>
-              {b.by && <strong>{b.by}</strong>}
-              {b.role && <span>{b.role}</span>}
+              {b.by && <strong {...ed('by')}>{b.by}</strong>}
+              {b.role && <span {...ed('role')}>{b.role}</span>}
             </figcaption>
           )}
-        </section>
+        </>
       );
+    } else if (b.kind === 'note') {
+      inner = <div class="note-body" {...ed('body', true)} set:html={b.body} />;
+    } else {
+      return null;
     }
 
-    if (b.kind === 'note') {
-      return (
-        <section class="db db-note" data-reveal>
-          <p set:html={b.body} />
-        </section>
-      );
-    }
-
-    return null;
+    const cls = ['db', `db-${b.kind}`, ...(hidden ? ['is-section-hidden'] : [])];
+    return (
+      <section class:list={cls} data-reveal data-bi={i}>
+        {EDIT && (
+          <div class="sec-tools" contenteditable="false">
+            {hidden && <span class="sec-badge">Hidden from live</span>}
+            <button class="sec-hide" type="button">{hidden ? 'Unhide section' : 'Hide section'}</button>
+          </div>
+        )}
+        {inner}
+      </section>
+    );
   })}
 </div>
+
+<style>
+  /* ── Local edit mode (dev only; classes never appear in production) ── */
+  .doc-blocks .db { position: relative; }
+  .sec-tools {
+    position: absolute;
+    top: -0.5rem;
+    right: 0;
+    z-index: 5;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    opacity: 0;
+    transition: opacity 0.18s ease;
+  }
+  .db:hover > .sec-tools,
+  .db.is-section-hidden > .sec-tools { opacity: 1; }
+  .sec-hide {
+    font-family: var(--font-mono);
+    font-size: 0.56rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.55rem;
+    border: 1px solid var(--line);
+    border-radius: 0.5rem;
+    background: rgba(10, 10, 10, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: var(--muted);
+    cursor: pointer;
+  }
+  .sec-hide:hover { color: var(--ink); border-color: rgba(255, 255, 255, 0.3); }
+  .sec-badge {
+    font-family: var(--font-mono);
+    font-size: 0.52rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.28rem 0.5rem;
+    border-radius: 0.5rem;
+    background: rgba(120, 20, 20, 0.55);
+    border: 1px solid rgba(255, 120, 120, 0.45);
+    color: #ffd9d9;
+  }
+  .db.is-section-hidden { opacity: 0.4; outline: 1px dashed rgba(255, 120, 120, 0.45); outline-offset: 8px; }
+
+  /* editable text affordance */
+  [data-e] {
+    border-radius: 3px;
+    transition: background-color 0.15s ease, box-shadow 0.15s ease;
+  }
+  [data-e]:hover { background: rgba(255, 255, 255, 0.05); box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.06); cursor: text; }
+  [data-e]:focus { outline: none; background: rgba(255, 255, 255, 0.07); box-shadow: 0 0 0 2px rgba(120, 170, 255, 0.5); }
+  [data-e].e-saved { box-shadow: 0 0 0 2px rgba(120, 255, 170, 0.6); }
+  [data-e].e-error { box-shadow: 0 0 0 2px rgba(255, 120, 120, 0.7); }
+</style>

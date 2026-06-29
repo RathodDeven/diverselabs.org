@@ -74,7 +74,7 @@
   <text x="570" y="296" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#fff" fill-opacity="0.6">Data Model</text>
 
   <path d="M36 344 L48 356 L36 368 L24 356 Z" fill="#fff" transform="translate(8 0)"/>
-  <text x="58" y="359" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.5">quality gate — pass before load</text>
+  <text x="58" y="359" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#fff" fill-opacity="0.5">quality gate, pass before load</text>
 
   <text x="608" y="372" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.45">Source-to-target migration pipeline with a validation quality gate</text>
 </svg>

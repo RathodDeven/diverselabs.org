@@ -1,4 +1,4 @@
-// AUTO-GENERATED — deeply enriched, ANONYMIZED case-study content from the full-text
+// AUTO-GENERATED, deeply enriched, ANONYMIZED case-study content from the full-text
 // source via a multi-pass workflow (author -> adversarial audit -> finalize). No client/
 // product/person/vendor names. Applied as overrides in portfolio.ts.
 import type { Block } from './content';
@@ -13,7 +13,7 @@ export interface EnrichedContent {
 
 export const ENRICHED: Record<string, EnrichedContent> = {
   "gene-therapy-launch-readiness": {
-    "timeframe": "2022-2025",
+    "timeframe": "2023–2025",
     "dek": "How a first-of-its-kind gene-therapy launch-readiness assessment built the demand-capacity model, labelling-and-kitting operation and CDMO operating model behind a cell-and-gene company's first commercial launch.",
     "heroStat": {
       "value": "4-area",
@@ -21,28 +21,28 @@ export const ENRICHED: Record<string, EnrichedContent> = {
     },
     "faq": [
       {
-        "q": "We're approaching a first commercial launch from a clinical CDMO base. How early should launch-readiness work start?",
+        "q": "When a first commercial launch is approaching from a clinical CDMO base, how early should launch-readiness work start?",
         "a": "For a first-of-its-kind product, start well before the approval decision and treat the assessment as phase-appropriate. In this engagement the work was framed explicitly so that not every gap had to be closed before approval; the priority was to surface the real crunches, risks and stage-appropriate fixes through a structured core-process review rather than to over-engineer. A focused 8-week diagnostic gives you a prioritized gap list scored by impact and ease, a demand-capacity view that ties forecast to suites and crews, and a governance and dashboard design the launch team can stand up incrementally as approval firms up."
       },
       {
-        "q": "Should we internalize bill-of-materials and raw-material oversight from our CDMO, or leave it outsourced?",
-        "a": "It is a quantified decision driven by volume and capability thresholds, not a philosophy. We baseline the current economics (BOM cost per batch, the highest-cost materials, storage, freight, insurance and the CDMO's procurement fee), then model future-state OpEx, CapEx and savings across scenarios from fully outsourced to a client-owned warehouse. The go / no-go turns on concrete triggers: the batch-volume band at which in-house storage and QC pay back, and whether the client can stand up the ERP/inventory, additional LIMS modules, supplier management and raw-material QC each scenario requires. We map those trigger points and the sequence to build against them, deliverable in roughly five weeks."
+        "q": "Should bill-of-materials and raw-material oversight be internalized from the CDMO, or left outsourced?",
+        "a": "It is a quantified decision driven by volume and capability thresholds, not a philosophy. The work baselines the current economics (BOM cost per batch, the highest-cost materials, storage, freight, insurance and the CDMO's procurement fee), then models future-state OpEx, CapEx and savings across scenarios from fully outsourced to a client-owned warehouse. The go / no-go turns on concrete triggers: the batch-volume band at which in-house storage and QC pay back, and whether the client can stand up the ERP/inventory, additional LIMS modules, supplier management and raw-material QC each scenario requires. Those trigger points and the build sequence are mapped, deliverable in roughly five weeks."
       },
       {
         "q": "What makes a gene-therapy commercial supply chain different from a conventional biologic?",
-        "a": "Patient-specific traceability, kit-level serialization, cold-chain and walk-in-freezer constraints, and tight coupling between clinical and commercial demand that share the same finishing infrastructure. Labelling-and-kitting capacity, vision-system availability by suite, and QA-release hours all become hard constraints rather than back-office details. It demands a demand-capacity model, integrated clinical-commercial S&OP, and a person-in-plant presence at the CDMO to own the order-to-delivery flow."
+        "a": "Patient-specific traceability, kit-level serialization, cold-chain and walk-in-freezer constraints, and tight coupling between clinical and commercial demand that share the same finishing infrastructure. Labelling-and-kitting capacity, vision-system availability by suite, and QA-release hours all become hard constraints rather than back-office details. It demands a demand-capacity model and integrated clinical-commercial S&OP."
       }
     ],
     "blocks": [
       {
         "kind": "prose",
         "heading": "The situation",
-        "body": "A commercial-stage cell-and-gene-therapy company was preparing the launch of its lead product — an exceptionally high-volume single-use bioprocess and the most critical launch in its pipeline, where a high-visibility, market-moving approval decision was the dominant near-term driver of company value.\n\nThis was the company's <strong>first gene-therapy commercial launch</strong>, with supply-chain, resourcing, traceability and oversight requirements unlike anything it had run before. Commercial finished-goods packaging — vial labelling and patient kitting — sat at a fill-finish CDMO; drug-substance manufacturing sat at a separate CDMO; and demand was split across clinical and commercial streams that shared the same constrained finishing suites. Leadership needed an honest, phase-appropriate read on whether the supply chain was ready to launch — and a plan to close the gaps."
+        "body": "A roughly $2B commercial-stage cell-and-gene-therapy company was preparing the launch of its lead product, an exceptionally high-volume single-use bioprocess and the most critical launch in its pipeline, where a high-visibility, market-moving approval decision was the dominant near-term driver of company value.\n\nThis was the company's <strong>first gene-therapy commercial launch</strong>, with supply-chain, resourcing, traceability and oversight requirements unlike anything it had run before. Commercial finished-goods packaging, vial labelling and patient kitting, sat at a fill-finish CDMO; drug-substance manufacturing sat at a separate CDMO; and demand was split across clinical and commercial streams that shared the same constrained finishing suites. Leadership needed an honest, phase-appropriate read on whether the supply chain was ready to launch, and a plan to close the gaps."
       },
       {
         "kind": "prose",
         "heading": "The mandate",
-        "body": "We were engaged to run a focused launch-readiness assessment of the commercial supply chain. The brief was deliberately pragmatic: identify the immediate crunches through focused interviews, stay agile and iterate on solutions without over-engineering, and keep every recommendation <strong>fit-for-purpose and stage-appropriate</strong> given the uncertainty of approval.\n\nThe work was framed so as not to critique prior launch-readiness efforts — given approval uncertainty, it was never expected that every gap would be closed before approval. The job was to see clearly, prioritize, and design the operating model the launch would need."
+        "body": "The engagement ran a focused launch-readiness assessment of the commercial supply chain. The brief was deliberately pragmatic: identify the immediate crunches through focused interviews, stay agile and iterate on solutions without over-engineering, and keep every recommendation <strong>fit-for-purpose and stage-appropriate</strong> given the uncertainty of approval.\n\nThe work was framed so as not to critique prior launch-readiness efforts, given approval uncertainty, it was never expected that every gap would be closed before approval. The job was to see clearly, prioritize, and design the operating model the launch would need."
       },
       {
         "kind": "stack",
@@ -61,8 +61,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
             "label": "CDMO management",
             "items": [
               "Relationship management and CMO governance",
-              "Communication methods",
-              "Person-in-plant (PIP)"
+              "Communication methods"
             ]
           },
           {
@@ -85,7 +84,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
       },
       {
         "kind": "steps",
-        "title": "How we ran the 8-week assessment",
+        "title": "How the 8-week assessment ran",
         "items": [
           {
             "title": "Risk & gap assessment",
@@ -97,7 +96,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
           },
           {
             "title": "Scenario evaluation",
-            "body": "Modeled labelling-and-kitting flow scenarios — automated vs. manual, flow-through vs. label-to-inventory and kit-to-inventory — and tested each against forecast demand by suite."
+            "body": "Modeled labelling-and-kitting flow scenarios, automated vs. manual, flow-through vs. label-to-inventory and kit-to-inventory, and tested each against forecast demand by suite."
           },
           {
             "title": "Resource, governance & partnership review",
@@ -123,7 +122,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
           },
           {
             "value": "4 suites",
-            "label": "Finishing suites modeled — only two equipped with vision systems for cold-chain pack-out"
+            "label": "Finishing suites modeled, only two equipped with vision systems for cold-chain pack-out"
           },
           {
             "value": "4 scenarios",
@@ -137,11 +136,11 @@ export const ENRICHED: Record<string, EnrichedContent> = {
         "items": [
           {
             "title": "Capacity was constrained by people, not bricks",
-            "body": "The facility's theoretical batches-per-week capacity was not being reached because of crew constraints — one crew runs two suites, so full staffing (two crews) is needed to run all four."
+            "body": "The facility's theoretical batches-per-week capacity was not being reached because of crew constraints, one crew runs two suites, so full staffing (two crews) is needed to run all four."
           },
           {
             "title": "Vision systems were unevenly distributed",
-            "body": "Only certain suites had vision systems, and only two of four suites could perform finished-goods pack-out in the walk-in freezer — a hard ceiling on automated kitting."
+            "body": "Only certain suites had vision systems, and only two of four suites could perform finished-goods pack-out in the walk-in freezer, a hard ceiling on automated kitting."
           },
           {
             "title": "Demand was outrunning the old capacity model",
@@ -155,7 +154,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
       },
       {
         "kind": "flow",
-        "title": "The order-to-delivery flow we mapped and instrumented",
+        "title": "The order-to-delivery flow, mapped and instrumented",
         "caption": "Patient-specific gene-therapy product moving from order capture through CDMO finishing to the site of care.",
         "steps": [
           {
@@ -179,116 +178,16 @@ export const ENRICHED: Record<string, EnrichedContent> = {
             "sub": "Stage, run and close out patient kitting (kits banded by vial count) in a separate suite"
           },
           {
-            "label": "Cold-chain delivery",
-            "sub": "Cryo-box prepared, transport scheduled, proof-of-delivery confirmed to the site of care"
+            "label": "QA release & disposition",
+            "sub": "Each order is dispositioned through the QA-release model, then released and shipped to the site of care"
           }
         ]
       },
       {
         "kind": "prose",
         "heading": "From assessment to operating tools: the demand-capacity model and S&OP",
-        "body": "The centerpiece of the build was a <strong>demand-capacity model</strong> that translated a combined clinical-plus-commercial forecast into the number of finishing suites, crews and QA-release hours required month by month. It encoded the constraints that actually drove the answer: vial-yield throughput stepping up over time, the fixed pool of QA-release hours split dynamically between labelling and kitting, and the crew rule that one crew runs two suites.\n\nThe model went through multiple iterations as forecasts firmed up, and it showed starkly how demand growth drove suite requirements — from a single suite in the early quarters toward the full four-suite, two-crew configuration as kitting volumes scaled. Around it we stood up an integrated <strong>sales-and-operations-planning</strong> process — meeting structure, participants and cadence — plus a design hand-off calendar, a dynamic planning dashboard, and a batch dashboard purpose-built for the person-in-plant."
+        "body": "The centerpiece of the build was a <strong>demand-capacity model</strong> that translated a combined clinical-plus-commercial forecast into the number of finishing suites, crews and QA-release hours required month by month. It encoded the constraints that actually drove the answer: vial-yield throughput stepping up over time, the fixed pool of QA-release hours split dynamically between labelling and kitting, and the crew rule that one crew runs two suites.\n\nThe model went through multiple iterations as forecasts firmed up, and it showed starkly how demand growth drove suite requirements, from a single suite in the early quarters toward the full four-suite, two-crew configuration as kitting volumes scaled. Around it sat an integrated <strong>sales-and-operations-planning</strong> process, meeting structure, participants and cadence, plus a design hand-off calendar and a dynamic planning dashboard, and a <strong>QA-release model</strong> that sized and sequenced the quality-release capacity feeding labelling and kitting, since QA-release hours were a binding constraint on finishing throughput."
       },
-      {
-        "kind": "prose",
-        "heading": "The person-in-plant operating playbook",
-        "body": "Because finishing sat inside a CDMO, the client needed eyes and authority on the floor. We helped define the <strong>person-in-plant (PIP)</strong> role and the operating playbook around it: the governance and RACI that made the PIP responsible for on-the-ground coordination, the batch dashboard giving real-time visibility into orders moving through labelling, kitting and close-out, and the communication methods linking the CDMO floor back to the client's supply-chain, quality and order teams.\n\nA formal RACI matrix pinned down accountability across the client's commercial, clinical, supply-chain and quality functions and the external CDMO, distribution and cold-chain partners — so that in a patient-specific, made-to-order flow, nothing fell between the seams."
-      },
-      {
-        "kind": "prose",
-        "heading": "The work grew: a materials-internalization playbook",
-        "body": "The launch-readiness work earned a second, enterprise mandate. The client was paying its drug-substance CDMO a materials-management <strong>procurement fee</strong> — a markup on pass-through raw-material and consumable costs — to fund a materials organization of <strong>100+ FTEs</strong> whose fully-loaded annual cost the CDMO put at roughly <strong>$20M</strong>. With a commercial bill of materials in the low millions per batch and volumes projected to scale, the question was whether to internalize oversight of the drug-substance BOM.\n\nWe ran a tight (~5-week) strategic assessment: baseline the current BOM, storage, freight and insurance economics; model future-state OpEx, CapEx and savings across scenarios from fully outsourced to a client-owned warehouse; and map the staffing, ERP/inventory, LIMS and quality-system capabilities each scenario would require — plus the trigger points and sequencing to build them, with sensitivity across volume bands. The output was a go / no-go assessment with costs, timing, FTE needs and savings."
-      },
-      {
-        "kind": "metrics",
-        "title": "The materials-internalization assessment by the numbers",
-        "items": [
-          {
-            "value": "low $M",
-            "label": "Commercial bill-of-materials cost per batch (drug substance plus drug product)"
-          },
-          {
-            "value": "310 SKUs",
-            "label": "Distinct materials across the full BOM, spanning cell-bank, upstream, downstream and fill-finish"
-          },
-          {
-            "value": "~60%+",
-            "label": "Share of total BOM cost concentrated in the top five materials"
-          },
-          {
-            "value": "100+ FTE",
-            "label": "CDMO materials-management organization the procurement fee covers"
-          },
-          {
-            "value": "~5 weeks",
-            "label": "Window for the go / no-go internalization assessment"
-          },
-          {
-            "value": "flat fee",
-            "label": "Percentage markup on pass-through costs renegotiated to a fixed annual fee"
-          }
-        ]
-      },
-      {
-        "kind": "compare",
-        "title": "BOM oversight: scenarios evaluated",
-        "caption": "Each scenario weighed against current capabilities, key gaps, cost, savings and the systems and quality build required.",
-        "head": [
-          "Scenario",
-          "Storage",
-          "Planning & sourcing",
-          "Quality / testing"
-        ],
-        "rows": [
-          [
-            "As-is with CDMO",
-            "CDMO / 3PL",
-            "CDMO",
-            "CDMO"
-          ],
-          [
-            "Keep storage with CDMO; client manages planning & suppliers",
-            "CDMO",
-            "Client",
-            "CDMO"
-          ],
-          [
-            "Third-party storage; client manages planning & suppliers",
-            "New 3PL",
-            "Client",
-            "CDMO / contract lab"
-          ],
-          [
-            "Client-owned warehouse, fully internalized",
-            "Client",
-            "Client",
-            "Client QC for raw materials"
-          ]
-        ],
-        "highlight": 3
-      },
-      {
-        "kind": "callouts",
-        "title": "What the materials deep-dive recommended",
-        "items": [
-          {
-            "title": "Aggregate demand to win on price",
-            "body": "For single-source reagents, the client could secure direct pricing and tiered agreements by aggregating demand across CDMOs and process types — and locked a multi-year fixed price on one of its two costliest single-source reagents."
-          },
-          {
-            "title": "Govern the BOM as a living asset",
-            "body": "A standing BOM taskforce was set up to control change approval and the annual cost adjustment, after analysis exposed quantity and material discrepancies across successive BOM versions."
-          },
-          {
-            "title": "Sequence the capability build to volume",
-            "body": "Internalization is not all-or-nothing: ERP/inventory, additional LIMS modules, supplier management, raw-material QC and safety-stock rules can be staged against volume trigger points rather than built all at once."
-          },
-          {
-            "title": "Mind the hand-off risk",
-            "body": "The biggest execution risk in any transition is roles and responsibilities — clear RACI between client, warehouse, testing labs and the CDMO is what keeps materials from being dropped on the floor."
-          }
-        ]
-      }
     ]
   },
   "oncology-commercial-launch-supply": {
@@ -296,23 +195,23 @@ export const ENRICHED: Record<string, EnrichedContent> = {
     "dek": "How a pre-approval oncology biopharma built launch supply readiness for its first commercial product: demand scenarios, batch and inventory planning, and 3PL plus pack-and-label supplier selection.",
     "heroStat": {
       "value": "<48 hr",
-      "label": "Target time to ship commercial product after regulatory approval — with a sub-24-hour stretch goal — built from a standing cross-functional supply-readiness program with no commercial infrastructure to start from"
+      "label": "Target time to ship commercial product after regulatory approval, with a sub-24-hour stretch goal, built from a standing cross-functional supply-readiness program with no commercial infrastructure to start from"
     },
     "blocks": [
       {
         "kind": "prose",
         "heading": "The situation",
-        "body": "A clinical-stage oncology biopharma was approaching its first-ever regulatory filing and commercial launch for a once-daily oral targeted therapy in a rare solid-tumor indication. The asset had been acquired into the portfolio, and the company had no commercial supply infrastructure: no enterprise planning system, no commercial third-party logistics (3PL) provider, no commercial pack-and-label network, no serialization capability, and a fragmented set of legacy demand forecasts inherited from the prior owner.\n\nThe launch profile was deceptively simple but operationally demanding — a <strong>single launch SKU</strong>, a low-count cold-chain bottle requiring refrigerated (2-8 degree C) storage and shipping. Behind it sat a planned family of line-extension strengths in later years, to be offered in either bottle or blister presentations, with the original launch SKU phased out as they arrived. The mandate: stand up everything required to ship commercial product within 48 hours of approval, across both US and EU markets, while the asset was still in its registrational trial."
+        "body": "A pre-revenue, clinical-stage oncology biopharma was approaching its first-ever regulatory filing and commercial launch for a once-daily oral targeted therapy in a rare solid-tumor indication. The asset had been acquired into the portfolio, and the company had no commercial supply infrastructure: no enterprise planning system, no commercial third-party logistics (3PL) provider, no commercial pack-and-label network, no serialization capability, and a fragmented set of legacy demand forecasts inherited from the prior owner.\n\nThe launch profile was deceptively simple but operationally demanding, a <strong>single launch SKU</strong>, a low-count cold-chain bottle requiring refrigerated (2-8 degree C) storage and shipping. Behind it sat a planned family of line-extension strengths in later years, to be offered in either bottle or blister presentations, with the original launch SKU phased out as they arrived. The mandate: stand up everything required to ship commercial product within 48 hours of approval, across both US and EU markets, while the asset was still in its registrational trial."
       },
       {
         "kind": "prose",
         "heading": "Why it was hard",
-        "body": "Launch timing was bounded by clinical readout and regulatory review, not by the company's own schedule — so every supply decision had to be made <strong>at risk, ahead of approval</strong>, against forecasts with wide uncertainty. Two inherited forecast models disagreed materially: one consistently under-forecast first-year demand, the other over-forecast it.\n\nLayered on top were structural constraints that small biopharmas rarely confront all at once: a globally distributed contract manufacturing network spanning synthetic raw materials and API, drug product, and finished packaging across multiple countries; the need for EU/UK qualified-person (QP) release on top of US requirements; cold-chain transport for the majority of shipments; full serialization under US drug-supply-chain security rules; and a brand-new ERP build that had to go live before launch. Every commitment was effectively irreversible, made months early and at the company's own risk, against a regulatory clock the company did not control — and every one of them sat on the critical path."
+        "body": "Launch timing was bounded by clinical readout and regulatory review, not by the company's own schedule, so every supply decision had to be made <strong>at risk, ahead of approval</strong>, against forecasts with wide uncertainty. Two inherited forecast models disagreed materially: one consistently under-forecast first-year demand, the other over-forecast it.\n\nLayered on top were structural constraints that small biopharmas rarely confront all at once: a globally distributed contract manufacturing network spanning synthetic raw materials and API, drug product, and finished packaging across multiple countries; the need for EU/UK qualified-person (QP) release on top of US requirements; cold-chain transport for the majority of shipments; full serialization under US drug-supply-chain security rules; and a brand-new ERP build that had to go live before launch. Every commitment was effectively irreversible, made months early and at the company's own risk, against a regulatory clock the company did not control, and every one of them sat on the critical path."
       },
       {
         "kind": "prose",
         "heading": "The headline call: the inherited forecasts were under-calling Year 1",
-        "body": "The most consequential analytical finding came out of reconciling the two legacy models. Rebuilding demand from patient-based first principles — dosing mix across strengths, duration of therapy by line of therapy, and conversion into capsules and then into discrete batches — and benchmarking the first year against a comparable recently launched therapy in the same indication, we concluded that <strong>both inherited models were materially under-forecasting first-year demand</strong>. The early patient ramp of the competitor implied a launch volume well above what either model assumed.\n\nThe recommendation was to <strong>raise the Year-1 minimum batch commitment by several multiples</strong> over the one-to-two batches the legacy models implied, to protect against a launch stockout while still containing obsolescence on a SKU slated for phase-out. Turning two conflicting, unowned forecasts into a single defensible planning forecast was a deliverable in its own right."
+        "body": "The most consequential analytical finding came out of reconciling the two legacy models. Rebuilding demand from patient-based first principles, dosing mix across strengths, duration of therapy by line of therapy, and conversion into capsules and then into discrete batches, and benchmarking the first year against a comparable recently launched therapy in the same indication, we concluded that <strong>both inherited models were materially under-forecasting first-year demand</strong>. The early patient ramp of the competitor implied a launch volume well above what either model assumed.\n\nThe recommendation was to <strong>raise the Year-1 minimum batch commitment by several multiples</strong> over the one-to-two batches the legacy models implied, to protect against a launch stockout while still containing obsolescence on a SKU slated for phase-out. Turning two conflicting, unowned forecasts into a single defensible planning forecast was a deliverable in its own right."
       },
       {
         "kind": "flow",
@@ -352,7 +251,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
       {
         "kind": "prose",
         "heading": "Demand scenarios and the batch question",
-        "body": "The core planning question was not revenue — it was <strong>how many batches to commit, and when</strong>, given a fixed commercial batch size in the hundreds of thousands of capsules and long manufacturing lead times across a multi-country network. We rebuilt the demand picture from patient-based first principles: a dosing mix across the planned strengths, a weighted-average capsule-per-patient-per-day rate, and duration-of-therapy assumptions that differed by line of therapy (first line modeled longer than second line).\n\nThat patient model was run across <strong>base, upside and downside cases</strong>, then converted into capsules and into discrete batch counts year by year through the end of the decade. The result was a defensible minimum batch commitment plus inventory and months-on-hand targets sized to avoid a launch stockout without over-building a SKU on its way to phase-out."
+        "body": "The core planning question was not revenue, it was <strong>how many batches to commit, and when</strong>, given a fixed commercial batch size in the hundreds of thousands of capsules and long manufacturing lead times across a multi-country network. We rebuilt the demand picture from patient-based first principles: a dosing mix across the planned strengths, a weighted-average capsule-per-patient-per-day rate, and duration-of-therapy assumptions that differed by line of therapy (first line modeled longer than second line).\n\nThat patient model was run across <strong>base, upside and downside cases</strong>, then converted into capsules and into discrete batch counts year by year through the end of the decade. The result was a defensible minimum batch commitment plus inventory and months-on-hand targets sized to avoid a launch stockout without over-building a SKU on its way to phase-out."
       },
       {
         "kind": "metrics",
@@ -364,7 +263,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
           },
           {
             "value": "3",
-            "label": "Demand scenarios modeled — base, upside, downside — across the planning horizon"
+            "label": "Demand scenarios modeled, base, upside, downside, across the planning horizon"
           },
           {
             "value": "Patient-based",
@@ -422,11 +321,11 @@ export const ENRICHED: Record<string, EnrichedContent> = {
         "items": [
           {
             "title": "One CMO, bottle plus blister",
-            "body": "Consolidate US bottling, packaging and labeling — and the future blister line extensions — with a single CMO to simplify oversight and protect the rapid-launch timeline."
+            "body": "Consolidate US bottling, packaging and labeling, and the future blister line extensions, with a single CMO to simplify oversight and protect the rapid-launch timeline."
           },
           {
             "title": "EU served from the US, with QP release outsourced",
-            "body": "Bottle, pack and label in the US and ship finished product to a selected EU 3PL for distribution, with EU/UK qualified-person release outsourced in-region — unless the chosen US CMO had an EU site able to bottle and QP-release locally."
+            "body": "Bottle, pack and label in the US and ship finished product to a selected EU 3PL for distribution, with EU/UK qualified-person release outsourced in-region, unless the chosen US CMO had an EU site able to bottle and QP-release locally."
           },
           {
             "title": "Blisters as a fast-follow",
@@ -440,7 +339,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
       },
       {
         "kind": "steps",
-        "title": "3PL selection — a structured, auditable down-select",
+        "title": "3PL selection, a structured, auditable down-select",
         "items": [
           {
             "title": "Define must-haves",
@@ -456,7 +355,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
           },
           {
             "title": "Visit sites before committing",
-            "body": "On-site visits were treated as decisive rather than confirmatory — one established provider was eliminated after an unfavorable site visit despite strong paper credentials."
+            "body": "On-site visits were treated as decisive rather than confirmatory, one established provider was eliminated after an unfavorable site visit despite strong paper credentials."
           },
           {
             "title": "Cost it over a 3-year horizon",
@@ -533,7 +432,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
       {
         "kind": "prose",
         "heading": "The launch-execution playbook",
-        "body": "The final piece was turning readiness into a repeatable launch maneuver. Because the company committed to shipping within 48 hours of approval, we designed an <strong>at-risk batch strategy</strong>: a small first launch batch produced ahead of approval, plus a larger contingency batch held in case label changes were required at approval. The plan mapped every step of the critical path — label printing and shipping, packaging-line production, and batch review — and had to find <strong>several hours of compression</strong> across those steps to bring the run inside the corporate 48-hour goal and toward a sub-24-hour stretch goal, backed by an all-hands launch-support model.\n\nUnderpinning all of it was a standing Commercial Supply Readiness forum with a dashboard-driven format: each function reported progress, next-90-day actions, and red/yellow risks, so leadership could see the whole launch on one timeline and make the at-risk commitments with eyes open."
+        "body": "The final piece was turning readiness into a repeatable launch maneuver. Because the company committed to shipping within 48 hours of approval, we designed an <strong>at-risk batch strategy</strong>: a small first launch batch produced ahead of approval, plus a larger contingency batch held in case label changes were required at approval. The plan mapped every step of the critical path, label printing and shipping, packaging-line production, and batch review, and had to find <strong>several hours of compression</strong> across those steps to bring the run inside the corporate 48-hour goal and toward a sub-24-hour stretch goal, backed by an all-hands launch-support model.\n\nUnderpinning all of it was a standing Commercial Supply Readiness forum with a dashboard-driven format: each function reported progress, next-90-day actions, and red/yellow risks, so leadership could see the whole launch on one timeline and make the at-risk commitments with eyes open."
       },
       {
         "kind": "note",
@@ -543,11 +442,11 @@ export const ENRICHED: Record<string, EnrichedContent> = {
     "faq": [
       {
         "q": "When should a pre-approval biopharma start commercial supply and 3PL selection?",
-        "a": "Well before approval — ideally while the registrational trial is still reading out. Commercial 3PL onboarding, pack-and-label CMO selection, serialization, and ERP go-live each carry multi-month lead times and sit on the critical path, so a sub-48-hour launch is only achievable if those decisions and at-risk commitments are made in advance against scenario-based demand."
+        "a": "Well before approval, ideally while the registrational trial is still reading out. Commercial 3PL onboarding, pack-and-label CMO selection, serialization, and ERP go-live each carry multi-month lead times and sit on the critical path, so a sub-48-hour launch is only achievable if those decisions and at-risk commitments are made in advance against scenario-based demand."
       },
       {
         "q": "How do you plan launch volumes when the demand forecast is so uncertain?",
-        "a": "By planning in batches, not dollars. We model patient-based base, upside and downside scenarios, convert them to capsule requirements and then to discrete batch counts given a fixed batch size and known lead times, and benchmark the first year against comparable recent launches. In this case that benchmarking showed the inherited models were under-calling Year 1, so we recommended raising the minimum first-year batch commitment to protect against stockout while limiting obsolescence — especially important when a launch SKU is slated to be phased out as line extensions arrive."
+        "a": "By planning in batches, not dollars. We model patient-based base, upside and downside scenarios, convert them to capsule requirements and then to discrete batch counts given a fixed batch size and known lead times, and benchmark the first year against comparable recent launches. In this case that benchmarking showed the inherited models were under-calling Year 1, so we recommended raising the minimum first-year batch commitment to protect against stockout while limiting obsolescence, especially important when a launch SKU is slated to be phased out as line extensions arrive."
       },
       {
         "q": "What makes 3PL and packaging selection different for a cold-chain oncology launch?",
@@ -556,8 +455,8 @@ export const ENRICHED: Record<string, EnrichedContent> = {
     ]
   },
   "rnd-quality-operating-model": {
-    "timeframe": "2024-2025",
-    "dek": "How a global pharma untangled overlapping quality ownership after a reorganization — a central-vs-embedded operating model, an activity-level ownership map, and a professionalized process-owner network.",
+    "timeframe": "Nov–Dec 2024",
+    "dek": "How a global pharma untangled overlapping quality ownership after a reorganization, a central-vs-embedded operating model, an activity-level ownership map, and a professionalized process-owner network.",
     "heroStat": {
       "value": "~8 functions",
       "label": "Development functions brought under one tailorable quality operating model, roughly half with their own embedded quality teams and half without"
@@ -566,12 +465,12 @@ export const ENRICHED: Record<string, EnrichedContent> = {
       {
         "kind": "prose",
         "heading": "The situation: a quality function caught between two operating logics",
-        "body": "A large global pharmaceutical company engaged the firm to redesign the operating model for its R&D Quality organization following a major reorganization. Historically, R&D Quality had been a <strong>compliance-focused function</strong> — its priority was conducting audits and facilitating regulatory inspections. Less weight was placed on the strategic role a modern quality organization plays in advising the business and stewarding the Quality Management System (QMS), such as procedural-document and training administration.\n\nIn that vacuum, individual Development functions had grown their own <strong>embedded quality groups and central process teams</strong> to meet local needs. The reorganization strengthened and expanded the central quality business-partner role to reach all Development functions — but it created a structural collision. There was no clear line for where central R&D Quality ended and the embedded teams began."
+        "body": "A roughly $30B global pharmaceutical company engaged the firm to redesign the operating model for its R&D Quality organization following a major reorganization. Historically, R&D Quality had been a <strong>compliance-focused function</strong>, prioritizing audits and regulatory inspections. Less weight was placed on the strategic role a modern quality organization plays in advising the business and stewarding the Quality Management System (QMS), such as procedural-document and training administration.\n\nIn that vacuum, individual Development functions had grown their own <strong>embedded quality groups and central process teams</strong> to meet local needs. The reorganization strengthened and expanded the central quality business-partner role to reach all Development functions, but it created a structural collision. There was no clear line for where central R&D Quality ended and the embedded teams began."
       },
       {
         "kind": "prose",
         "heading": "The problem, stated plainly",
-        "body": "The diagnosis was a lack of clarity on the role played by central R&D Quality alongside the embedded process teams. The consequences were concrete: <strong>duplication of effort, potential misplacement of resources, and the absence of a coordinated, holistic approach</strong> to quality oversight of GxP business operations.\n\nBoth sides shared a genuine commitment to quality and each held a distinct remit — but capability, activity, and resource overlaps were real and unmanaged. An informal review roughly a year earlier had confirmed relative roles in support of quality processes, but its outputs were never formalized; the need for a proper redesign had only ever surfaced through informal mentions. The leading risk flagged at kickoff was getting the embedded teams aligned on the very basis and objectives of the work — to be mitigated by socializing a charter and securing Development leadership support."
+        "body": "The diagnosis: unclear roles for central R&D Quality alongside the embedded process teams. The consequences were concrete: <strong>duplication of effort, potential misplacement of resources, and the absence of a coordinated, holistic approach</strong> to quality oversight of GxP business operations.\n\nBoth sides shared a genuine commitment to quality and each held a distinct remit, but capability, activity, and resource overlaps were real and unmanaged. An informal review roughly a year earlier had confirmed relative roles in support of quality processes, but its outputs were never formalized; the need for a proper redesign had only ever surfaced through informal mentions. The leading risk flagged at kickoff was getting the embedded teams aligned on the very basis and objectives of the work, to be mitigated by socializing a charter and securing Development leadership support."
       },
       {
         "kind": "flow",
@@ -591,7 +490,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
       {
         "kind": "prose",
         "heading": "The organizing idea: separate strategic oversight from execution",
-        "body": "The design centered on a two-tier quality model, tailorable to each functional area's needs. The <strong>central tier (second-line quality)</strong> — R&D Quality — provides strategic advice and facilitates engagement with the QMS. The <strong>embedded tier (first-line quality)</strong> — quality groups sitting inside the functions — owns functional process execution: quality control, supplier monitoring, and continuous improvement.\n\nCritically, the model was not one-size-fits-all. The Development landscape split into functions that already had embedded quality teams and functions that did not — roughly half and half across about eight functional areas — each requiring a different calibration of the same underlying model."
+        "body": "The design centered on a two-tier quality model, tailorable to each functional area's needs. The <strong>central tier (second-line quality)</strong>, R&D Quality, provides strategic advice and facilitates engagement with the QMS. The <strong>embedded tier (first-line quality)</strong>, quality groups sitting inside the functions, owns functional process execution: quality control, supplier monitoring, and continuous improvement.\n\nCritically, the model was not one-size-fits-all. The Development landscape split into functions that already had embedded quality teams and functions that did not, roughly half and half across about eight functional areas, each requiring a different calibration of the same underlying model."
       },
       {
         "kind": "steps",
@@ -599,15 +498,15 @@ export const ENRICHED: Record<string, EnrichedContent> = {
         "items": [
           {
             "title": "Information gathering and stakeholder engagement",
-            "body": "A structured interview program across embedded-quality functions, central R&D Quality, and non-quality functional experts, with separate purpose-built interview guides for each audience."
+            "body": "A structured interview program across embedded-quality functions, central R&D Quality, and non-quality functional experts, with separate purpose-built interview guides for each audience. Inputs were distilled into per-role experience summaries and a set of verbatim quotes and count slides that evidenced where views converged."
           },
           {
             "title": "Current-state analysis",
-            "body": "Synthesizing interview input by role to map how quality processes actually ran — workflows, hand-off points, and where the same activity was being owned in two places at once."
+            "body": "Synthesizing interview input by role to map how quality processes actually ran, workflows, hand-off points, and where the same activity was being owned in two places at once."
           },
           {
             "title": "Maturity model and gap analysis",
-            "body": "Building a bespoke R&D Quality maturity model and assessing the current operating model against it to surface specific weaknesses and overlaps."
+            "body": "Building a bespoke R&D Quality maturity model and assessing the current operating model against it as a matrix and heatmap to surface specific weaknesses and overlaps."
           },
           {
             "title": "Future-state design",
@@ -622,7 +521,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
       {
         "kind": "prose",
         "heading": "The analytical core: a Decision / Advisor / Informed ownership map",
-        "body": "The centerpiece deliverable was a heat-map that took every quality-owned activity and decomposed it into discrete <strong>process steps</strong>, then assigned ownership across the relevant roles — the central process owner, the quality business partner, the embedded quality group, and the functional subject-matter expert for the process under scrutiny. Each cell was coded <strong>Decision, Advisor, or Informed</strong> — color-coded live in workshops using stickies — to force explicit agreement on who decides versus who is merely consulted or notified.\n\nThe activity inventory was deliberately deep. Audit ran across planning (risk assessment, annual plan, execution plan), conduct, and response and corrective action. Inspection management split sponsor and site inspections each into readiness, preparation, conduct, and closure. Deviations covered intake, triage, investigation, and review and approval; corrective action covered plan, tracking, and effectiveness-check closure. Procedural-document management spanned change identification, review, training needs, approval, and implementation. Further chapters covered escalation of significant events, quality risk management, training ownership and content, quality reviews, and vendor quality management. The single mechanism — one decision-owner per step — was applied consistently across all of them."
+        "body": "The centerpiece deliverable was a heat-map that took every quality-owned activity and decomposed it into discrete <strong>process steps</strong>, then assigned ownership across the relevant roles, the central process owner, the quality business partner, the embedded quality group, and the functional subject-matter expert for the process under scrutiny. Each cell was coded <strong>Decision, Advisor, or Informed</strong>, color-coded live in a connect workshop using stickies, alongside the agreed guiding principles and scoring criteria, to force explicit agreement on who decides versus who is merely consulted or notified.\n\nThe activity inventory was deliberately deep. Audit ran across planning (risk assessment, annual plan, execution plan), conduct, and response and corrective action. Inspection management split sponsor and site inspections each into readiness, preparation, conduct, and closure. Deviations covered intake, triage, investigation, and review and approval; corrective action covered plan, tracking, and effectiveness-check closure. Procedural-document management spanned change identification, review, training needs, approval, and implementation. Further chapters covered escalation of significant events, quality risk management, training ownership and content, quality reviews, and vendor quality management. The single mechanism, one decision-owner per step, was applied consistently across all of them."
       },
       {
         "kind": "split",
@@ -651,7 +550,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
       {
         "kind": "prose",
         "heading": "Track B: installing the process-owner network",
-        "body": "In parallel, the firm worked to professionalize the R&D Quality <strong>process-owner network</strong> — the people accountable end-to-end for a given quality process. Interviews surfaced a consistent picture: a good baseline understanding of the role's importance, but a need to reinforce it; confusion around empowerment and how processes should actually be managed; and uneven experience, since several participants were relatively new to the role.\n\nThe recurring asks were practical: align on expectations (what to achieve by when), create structured time for owners to exchange interdependencies and challenges as a group, and clarify what was mandatory versus nice-to-have in the supporting tooling and portal. A process-owner 'academy' and possible immersion program were floated to accelerate consistency. The network spanned named owners across audit, inspection management, deviation and corrective action, escalation, quality risk management, procedural documents, training, quality reviews, and vendor quality management."
+        "body": "In parallel, the firm worked to professionalize the R&D Quality <strong>process-owner network</strong>, the people accountable end-to-end for a given quality process. Interviews surfaced a consistent picture: a good baseline understanding of the role's importance, but a need to reinforce it; confusion around empowerment and how processes should actually be managed; and uneven experience, since several participants were relatively new to the role.\n\nThe recurring asks were practical: align on expectations (what to achieve by when), create structured time for owners to exchange interdependencies and challenges as a group, and clarify what was mandatory versus nice-to-have in the supporting tooling and portal. A process-owner 'academy' and possible immersion program were floated to accelerate consistency. The network spanned named owners across audit, inspection management, deviation and corrective action, escalation, quality risk management, procedural documents, training, quality reviews, and vendor quality management."
       },
       {
         "kind": "callouts",
@@ -659,7 +558,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
         "items": [
           {
             "title": "Single escalation point",
-            "body": "Vendor quality oversight defined as the single point of contact for vendor quality events, process inefficiencies, inspections, and quality-to-quality items — one clear door for everything vendor-related."
+            "body": "Vendor quality oversight defined as the single point of contact for vendor quality events, process inefficiencies, inspections, and quality-to-quality items, one clear door for everything vendor-related."
           },
           {
             "title": "Owns the external record",
@@ -692,8 +591,8 @@ export const ENRICHED: Record<string, EnrichedContent> = {
             "label": "Labeled phase bands in the process-owner network plan, through long-term resource planning"
           },
           {
-            "value": "13",
-            "label": "Process-owner interviews completed in the first wave, against a provisional schedule of roughly 18"
+            "value": "First wave",
+            "label": "Process-owner interviews completed in the opening assessment"
           },
           {
             "value": "3",
@@ -761,7 +660,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
       {
         "kind": "prose",
         "heading": "Where the engagement landed",
-        "body": "The work was structured to run from current-state assessment through to implementation planning and long-term resourcing — not to a post-implementation outcome. Its value sat in the design itself: a single tailorable operating model replacing an ad-hoc patchwork, an activity-by-activity ownership map that forced one agreed decision-owner per process step where there had previously been none, formalized role descriptions and governance, and a professionalized process-owner network operating to shared standards. The deliverable set closed with a long-term resource model to sustain it — leaving the client with an executable plan rather than a one-off diagnosis."
+        "body": "The work ran from current-state assessment through implementation planning and long-term resourcing, not to a post-implementation outcome. Its value sat in the design itself: a single tailorable operating model replacing an ad-hoc patchwork, an activity-by-activity ownership map that forced one agreed decision-owner per process step where there had previously been none, formalized role descriptions and governance, and a professionalized process-owner network operating to shared standards. The deliverable set closed with a long-term resource model to sustain it, leaving the client with an executable plan rather than a one-off diagnosis."
       },
       {
         "kind": "note",
@@ -775,16 +674,16 @@ export const ENRICHED: Record<string, EnrichedContent> = {
       },
       {
         "q": "How do you handle overlap between central quality and embedded functional teams?",
-        "a": "We decompose every quality-owned activity into discrete process steps and assign ownership across the central process owner, the quality business partner, the embedded group, and the functional subject-matter expert — forcing explicit agreement on who decides versus who is merely consulted. A maturity model and current-state interviews ground the design in how work actually runs today, not the org chart."
+        "a": "Every quality-owned activity is split into process steps, with ownership assigned across the central process owner, the quality business partner, the embedded group, and the functional subject-matter expert, forcing explicit agreement on who decides versus who is merely consulted. A maturity model and current-state interviews ground the design in how work actually runs today, not the org chart."
       },
       {
         "q": "Why stand up a formal process-owner network alongside the model redesign?",
-        "a": "A redesigned model only holds if named owners are accountable end-to-end for each process and operate to shared standards. We install the network with a charter, role descriptions, training, success metrics, and structured forums so owners can resolve interdependencies — then plan the long-term resourcing to sustain it."
+        "a": "A redesigned model only holds if named owners are accountable end-to-end for each process and operate to shared standards. The network gets a charter, role descriptions, training, success metrics, and structured forums so owners can resolve interdependencies, then plan the long-term resourcing to sustain it."
       }
     ]
   },
   "external-manufacturing-network-resilience": {
-    "timeframe": "Early 2020s",
+    "timeframe": "Mar–Apr 2023",
     "dek": "How a commercial-stage specialty pharma de-risked a single-source topical drug-product network: a CMO sourcing matrix, alternate-site qualification, a node-by-node risk register, and a board-level inventory and shelf-life readout.",
     "heroStat": {
       "value": "End-to-end",
@@ -794,7 +693,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
       {
         "kind": "prose",
         "heading": "The situation",
-        "body": "A commercial-stage specialty pharmaceutical company had launched its lead topical prescription product and was scaling supply behind a fast-ramping demand curve. The external manufacturing footprint that carried that launch was concentrated and, in places, single-threaded: <strong>one primary drug-product CMO</strong> performing the full fill-and-release workflow for the cream; a <strong>single primary drug-substance source</strong>; and a packaging-plus-distribution node handling labeling, serialization, storage and distribution.\n\nThat concentration had delivered the launch — the primary CMO had produced dozens of commercial drug-product lots across development, launch and continued supply — but it left the network exposed. The same partner had hit a failed tech transfer and an out-of-specification impurity result on an adjacent program, and had recently changed ownership. With Technical Operations preparing a board readout, leadership needed a clear-eyed view of where supply could break, what the alternates were, and how much inventory and shelf-life headroom stood between the company and a stock-out."
+        "body": "A roughly $400M commercial-stage specialty pharmaceutical company had launched its lead topical prescription product and was scaling supply behind a fast-ramping demand curve. The external manufacturing footprint that carried that launch was concentrated and, in places, single-threaded: <strong>one primary drug-product CMO</strong> performing the full fill-and-release workflow for the cream; a <strong>single primary drug-substance source</strong>; and a packaging-plus-distribution node handling labeling, serialization, storage and distribution.\n\nThat concentration had delivered the launch, the primary CMO had produced dozens of commercial drug-product lots across development, launch and continued supply, but it left the network exposed. The same partner had hit a failed tech transfer and an out-of-spec impurity result on an adjacent program, and had recently changed ownership. With Technical Operations preparing a board readout, leadership needed a clear view of where supply could break, what the alternates were, and the inventory and shelf-life headroom standing between the company and a stock-out."
       },
       {
         "kind": "flow",
@@ -803,7 +702,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
         "steps": [
           {
             "label": "Map the network",
-            "sub": "Document every node — drug substance, bulk and finished drug product, packaging and distribution — and flag single points of failure"
+            "sub": "Document every node, drug substance, bulk and finished drug product, packaging and distribution, and flag single points of failure"
           },
           {
             "label": "Scan the CMO market",
@@ -815,7 +714,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
           },
           {
             "label": "Stress-test continuity",
-            "sub": "Codify supply-failure triggers, forecast discipline and a ranked risk register"
+            "sub": "Score each node on a weighted risk heat map, including a geographic-concentration dimension, and rank the exposures into a prioritized mitigation plan"
           },
           {
             "label": "Read out to the board",
@@ -830,7 +729,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
           {
             "label": "Drug substance (API)",
             "items": [
-              "Primary drug-substance manufacturer — single-source at engagement start",
+              "Primary drug-substance manufacturer, single-source at engagement start",
               "Alternate drug-substance site identified and entering qualification",
               "Two-region sourcing pursued to reduce geographic concentration"
             ]
@@ -838,8 +737,8 @@ export const ENRICHED: Record<string, EnrichedContent> = {
           {
             "label": "Drug product (compound / fill / inspect / test)",
             "items": [
-              "Primary single-source cream CMO — proven across development, launch and supply",
-              "Alternate CMO on hold — recently private-equity-owned, mid-transformation",
+              "Primary single-source cream CMO, proven across development, launch and supply",
+              "Alternate CMO on hold, recently private-equity-owned, mid-transformation",
               "New alternate cream CMO at a repurposed former large-pharma facility"
             ]
           },
@@ -855,11 +754,11 @@ export const ENRICHED: Record<string, EnrichedContent> = {
       },
       {
         "kind": "compare",
-        "title": "CDMO sourcing matrix — how candidates were scored",
+        "title": "CDMO sourcing matrix, how candidates were scored",
         "caption": "Optimizing for: Rx topical cream, commercial scale, strong analytical, regulatory-inspected. Each candidate was priority-ranked from best fit to screen-out.",
         "head": [
           "Screening dimension",
-          "What we looked for",
+          "What the screen looked for",
           "Why it mattered"
         ],
         "rows": [
@@ -896,7 +795,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
         "title": "Why each drug-product CMO earned its place",
         "items": [
           {
-            "title": "Primary CMO — proven but concentrated",
+            "title": "Primary CMO, proven but concentrated",
             "body": "Delivered development, launch and ongoing commercial supply under close governance. Risk: milestone reliability and limited technical headroom, and a sister-program tech transfer that failed on impurity out-of-specs."
           },
           {
@@ -919,15 +818,15 @@ export const ENRICHED: Record<string, EnrichedContent> = {
           },
           {
             "title": "The right to dual-source",
-            "body": "The client retained the right to manufacture at an alternate facility at any time — not only after a declared failure — so a second source could be kept warm rather than theoretical."
+            "body": "The client retained the right to manufacture at an alternate facility at any time, not only after a declared failure, so a second source could be kept warm rather than theoretical."
           },
           {
             "title": "Forecast discipline",
-            "body": "A rolling multi-month forecast updated monthly, with the near-term window firm and binding against the longest component lead time — converting demand signals into committed, plannable supply."
+            "body": "A rolling multi-month forecast updated monthly, with the near-term window firm and binding against the longest component lead time, converting demand signals into committed, plannable supply."
           },
           {
             "title": "Protecting the asset",
-            "body": "Supply terms were structured to protect the molecule commercially while still permitting qualification of backup manufacturing capacity — a balance that was actively negotiated rather than assumed."
+            "body": "Supply terms were structured to protect the molecule commercially while still permitting qualification of backup manufacturing capacity, a balance the deck summarized from the program's existing supply terms."
           }
         ]
       },
@@ -957,8 +856,8 @@ export const ENRICHED: Record<string, EnrichedContent> = {
       },
       {
         "kind": "prose",
-        "heading": "Inventory & shelf-life optimization — the board readout",
-        "body": "The resilience story only holds if there is enough product in the channel to ride out a disruption. The Tech Ops readout modeled <strong>three demand scenarios</strong> and the resulting scrap exposure of inventory sitting at its stop-sell date — from a modest baseline to a far larger downside running into tens of thousands of units of potential write-off, driven by launch-buildup lots manufactured roughly a year earlier.\n\nTwo levers reshaped the curve. First, <strong>doubling the registered shelf-life</strong> pushed the stop-sell date out and gave supply chain real flexibility, since stop-sell timing runs a full year ahead of true expiry. Second, <strong>actively modulating production</strong> — confirming near-term slots, then deliberately slowing manufacturing — pulled finished-goods inventory back toward the target months-of-coverage band. The readout framed the trade-off plainly: months of coverage against scrap-write-off exposure, with coverage held inside a defined target range."
+        "heading": "Inventory & shelf-life optimization, the board readout",
+        "body": "The resilience story only holds with enough product in the channel to ride out a disruption. The Tech Ops readout modeled scrap exposure across a range of demand scenarios of inventory sitting at its stop-sell date, from a modest baseline to a substantially larger downside of potential write-off, driven by launch-buildup lots manufactured roughly a year earlier.\n\nTwo levers reshaped the curve. First, <strong>extending the registered shelf-life</strong> pushed the stop-sell date out and gave supply chain real flexibility, since stop-sell timing runs a full year ahead of true expiry. Second, <strong>actively modulating production</strong>, confirming near-term slots, then deliberately slowing manufacturing, pulled finished-goods inventory back toward the target months-of-coverage band. The readout framed the trade-off plainly: months of coverage against scrap-write-off exposure, coverage held inside a target range."
       },
       {
         "kind": "metrics",
@@ -974,14 +873,14 @@ export const ENRICHED: Record<string, EnrichedContent> = {
           },
           {
             "value": "2",
-            "label": "drug-substance sources mapped — primary plus an alternate site in qualification"
+            "label": "drug-substance sources mapped, primary plus an alternate site in qualification"
           },
           {
-            "value": "2x",
+            "value": "Extended",
             "label": "registered shelf-life extension that pushed out stop-sell and freed flexibility"
           },
           {
-            "value": "3",
+            "value": "Multiple",
             "label": "demand scenarios modeled for inventory coverage and scrap exposure"
           },
           {
@@ -992,33 +891,33 @@ export const ENRICHED: Record<string, EnrichedContent> = {
       },
       {
         "kind": "callouts",
-        "title": "The risk register — ranked exposures and mitigations",
+        "title": "The risk register, ranked exposures and mitigations",
         "items": [
           {
             "title": "Single-source drug product",
-            "body": "Highest-priority exposure: one commercial fill site for the lead product. Mitigation — qualify two alternate CMOs and keep one transfer-ready."
+            "body": "Highest-priority exposure: one commercial fill site for the lead product. Mitigation, qualify two alternate CMOs and keep one transfer-ready."
           },
           {
             "title": "Single-source drug substance",
-            "body": "Concentrated active-ingredient supply in one region. Mitigation — qualify a second site to spread geographic and supplier risk."
+            "body": "Concentrated active-ingredient supply in one region, scored as a distinct geographic-concentration dimension on the risk heat map. Mitigation, qualify a second site to spread geographic and supplier risk."
           },
           {
             "title": "Partner instability",
-            "body": "Ownership change and a failed adjacent tech transfer at the primary CMO. Mitigation — close governance, supply-failure tripwires and active second-sourcing."
+            "body": "Ownership change and a failed adjacent tech transfer at the primary CMO. Mitigation, close governance, supply-failure tripwires and active second-sourcing."
           },
           {
             "title": "Inventory & expiry",
-            "body": "Launch-buildup lots aging toward stop-sell. Mitigation — shelf-life extension and a production slow-down to manage scrap exposure."
+            "body": "Launch-buildup lots aging toward stop-sell. Mitigation, shelf-life extension and a production slow-down to manage scrap exposure."
           }
         ]
       },
       {
         "kind": "steps",
-        "title": "What we delivered",
+        "title": "What the engagement delivered",
         "items": [
           {
             "title": "Global manufacturing network map",
-            "body": "A single view of every node — drug substance, bulk and finished drug product, packaging, serialization and distribution — with current and future sites and all single points of failure flagged."
+            "body": "A single view of every node, drug substance, bulk and finished drug product, packaging, serialization and distribution, with current and future sites and all single points of failure flagged."
           },
           {
             "title": "CDMO sourcing matrix",
@@ -1034,7 +933,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
           },
           {
             "title": "Tech Ops board readout",
-            "body": "An executive deck covering network design, inventory scenarios, scrap exposure and shelf-life optimization — and the two decisions leadership signed off on: a deliberate production slow-down and a shelf-life extension that together pulled finished-goods coverage back into its target band."
+            "body": "An executive deck, iterated through many versions and produced in both static and dynamic forms, covering network design, inventory scenarios, scrap exposure and shelf-life optimization, and the two decisions leadership signed off on: a deliberate production slow-down and a shelf-life extension that together pulled finished-goods coverage back into its target band."
           }
         ]
       }
@@ -1042,21 +941,21 @@ export const ENRICHED: Record<string, EnrichedContent> = {
     "faq": [
       {
         "q": "How do you de-risk a single-source CMO without disrupting commercial supply?",
-        "a": "You keep the proven primary partner running under tight governance while qualifying alternates in parallel. That means a scored sourcing matrix to find genuinely capable second sources, a formal tech-transfer and site-qualification plan, and supply terms that let you dual-source at will — plus contractual supply-failure tripwires such as a fulfillment floor and repeat-delay triggers, so a backup can be kept warm rather than theoretical."
+        "a": "You keep the proven primary partner running under tight governance while qualifying alternates in parallel. That means a scored sourcing matrix to find genuinely capable second sources, a formal tech-transfer and site-qualification plan, and supply terms that let you dual-source at will, plus contractual supply-failure tripwires such as a fulfillment floor and repeat-delay triggers, so a backup can be kept warm rather than theoretical."
       },
       {
         "q": "What does a manufacturing-network risk register actually cover?",
-        "a": "Every node in the external network — drug substance, bulk and finished drug product, and packaging, serialization and distribution — ranked by likelihood and business impact. Typical high-priority exposures are single-source fill and single-source drug substance, partner-instability events such as ownership changes or failed transfers, and inventory aging toward its stop-sell date. Each ranked risk is paired with a concrete mitigation."
+        "a": "Every node in the external network, drug substance, bulk and finished drug product, and packaging, serialization and distribution, ranked by likelihood and business impact. Typical high-priority exposures are single-source fill and single-source drug substance, partner-instability events such as ownership changes or failed transfers, and inventory aging toward its stop-sell date. Each ranked risk is paired with a concrete mitigation."
       },
       {
         "q": "How does shelf-life extension help supply-chain resilience?",
-        "a": "Because stop-sell dates often sit a year ahead of true expiry, every month of added registered shelf-life is a month of additional saleable window and channel flexibility. Extending shelf-life — paired with deliberately modulating production — lets you hold finished-goods inventory in a target coverage band, reduce write-off exposure from launch-buildup lots, and absorb a manufacturing disruption without a stock-out."
+        "a": "Because stop-sell dates often sit a year ahead of true expiry, every month of added registered shelf-life is a month of additional saleable window and channel flexibility. Extending shelf-life, paired with deliberately modulating production, lets you hold finished-goods inventory in a target coverage band, reduce write-off exposure from launch-buildup lots, and absorb a manufacturing disruption without a stock-out."
       }
     ]
   },
   "cdmo-voice-of-customer-ai-roadmap": {
     "timeframe": "2025-2026",
-    "dek": "How a CEO-sponsored Voice-of-Customer program and quality-system assessment gave a premium Western API CDMO a fact-based diagnosis of why it was losing early-phase work, and a plan to fix it.",
+    "dek": "How a leadership-sponsored Voice-of-Customer program and quality-system assessment gave a premium Western API CDMO a fact-based diagnosis of why it was losing early-phase work, and a plan to fix it.",
     "heroStat": {
       "value": "~25%",
       "label": "The premium clients would tolerate before walking, isolated against a competitor price gap several times larger, by scoring 9 dimensions across the CDMO lifecycle"
@@ -1065,18 +964,18 @@ export const ENRICHED: Record<string, EnrichedContent> = {
       {
         "kind": "prose",
         "heading": "The situation",
-        "body": "A global, Western-headquartered small-molecule and active-pharmaceutical-ingredient contract development and manufacturing organization (CDMO) — long regarded as a <strong>gold-standard</strong> partner for complex chemistry — was watching order income soften. Its premium reputation was intact, but it was steadily losing early-phase (preclinical through Phase 2) work to faster, lower-cost Asian competitors.\n\nThe CEO sponsored a confidential business-optimization program with one blunt brief: <strong>understand today's market and customer dynamics, sharpen the offering, and compete on more than chemistry</strong>. The mandate was explicitly time-critical. It ran with our consulting team on a strict confidentiality footing, so clients and employees would speak candidly rather than diplomatically."
+        "body": "A global, Western-headquartered small-molecule and active-pharmaceutical-ingredient contract development and manufacturing organization (CDMO) of around $350M in annual sales, long regarded as a <strong>gold-standard</strong> partner for complex chemistry, was watching order income soften. Its premium reputation was intact, but it was steadily losing early-phase (preclinical through Phase 2) work to faster, lower-cost Asian competitors.\n\nThe business-optimization program ran with one blunt brief: <strong>To understand today's market and customer dynamics, sharpen the offering, and compete on more than chemistry</strong>. The mandate was explicitly time-critical. It ran on a strict confidentiality footing, so clients and employees would speak candidly rather than diplomatically."
       },
       {
         "kind": "quote",
-        "text": "The point of hiring us is so people will be honest and not just be nice to everybody. We want the truth — so the company can fix what's happening and win the business it should be winning.",
+        "text": "We didn't bring in an outside team for reassurance. We want the honest truth about why we're losing deals, so we can fix what's wrong and win back the work we should be winning.",
         "by": "Program sponsor",
         "role": "Engagement kickoff, to interview participants"
       },
       {
         "kind": "prose",
         "heading": "Why now: the competitive squeeze",
-        "body": "The diagnosis had to confront an uncomfortable reality. Internal teams and clients alike acknowledged the firm was quoting <strong>on the order of twice the price</strong> of top-tier Chinese and Indian competitors for early-phase work, on <strong>lead times that often ran roughly double</strong> those of more agile rivals.\n\nThe threat was no longer just labor arbitrage. Asian CDMOs were parallelizing aggressively — compressing development timelines by roughly half — sourcing raw materials domestically to skip customs delays, deploying \"free chemistry\" loss-leader models to lock in downstream commercial rights, and hiring Western-based sales and project leaders to erase the old cultural-friction advantage. Geopolitical pressure on boards to de-risk from China opened a door, but the onshoring premium frequently produced \"sticker shock\" that sent projects back offshore."
+        "body": "The diagnosis had to confront an uncomfortable reality. Internal teams and clients alike acknowledged the firm was quoting <strong>on the order of twice the price</strong> of top-tier Chinese and Indian competitors for early-phase work, on <strong>lead times that often ran roughly double</strong> those of more agile rivals.\n\nThe threat was no longer just labor arbitrage. Asian CDMOs were parallelizing aggressively, compressing development timelines by roughly half, sourcing raw materials domestically to skip customs delays, deploying \"free chemistry\" loss-leader models to lock in downstream commercial rights, and hiring Western-based sales and project leaders to erase the old cultural-friction advantage. Geopolitical pressure on boards to de-risk from China opened a door, but the onshoring premium frequently produced \"sticker shock\" that sent projects back offshore."
       },
       {
         "kind": "flow",
@@ -1085,7 +984,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
         "steps": [
           {
             "label": "Kickoff & framework",
-            "sub": "Stakeholders aligned and a standardized VoC framework set across the end-to-end CDMO lifecycle"
+            "sub": "Stakeholders aligned and a standardized VoC framework and structured interview questionnaire set across the end-to-end CDMO lifecycle"
           },
           {
             "label": "Internal & external interviews",
@@ -1108,7 +1007,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
       {
         "kind": "prose",
         "heading": "The method",
-        "body": "Every session was run by two to three dedicated interviewers to create a safe, unbiased environment for candid feedback, with won, lost, and internal perspectives interviewed separately so internal assumptions could be tested against external reality.\n\nParticipants scored the CDMO across <strong>nine core operational dimensions on a 1-5 scale</strong> — bid and proposal process, project management, technical development, manufacturing and capacity, quality system and phase-fit, timeline credibility, cost and commercial terms, flexibility, and assurance of supply. Critically, every numerical score was followed by open-ended probing to capture the <strong>\"why\" behind the number</strong>: the exact anecdotes, dealbreakers, and market shifts. Won and lost opportunities were then contrasted on the same framework to isolate the precise thresholds at which clients stayed loyal or walked away."
+        "body": "Every session was run by two to three dedicated interviewers to create a safe, unbiased environment for candid feedback, with won, lost, and internal perspectives interviewed separately so internal assumptions could be tested against external reality.\n\nParticipants scored the CDMO across <strong>nine core operational dimensions on a 1-5 scale</strong>, bid and proposal process, project management, technical development, manufacturing and capacity, quality system and phase-fit, timeline credibility, cost and commercial terms, flexibility, and assurance of supply. Run from a structured interview questionnaire, every numerical score was followed by open-ended probing to capture the <strong>\"why\" behind the number</strong>: the exact anecdotes, dealbreakers, and market shifts. Won and lost opportunities were then contrasted on the same framework to isolate the precise thresholds at which clients stayed loyal or walked away."
       },
       {
         "kind": "metrics",
@@ -1143,7 +1042,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
           "label": "Why clients stayed (won)",
           "points": [
             "Responsive proposals and proactive, \"service-mindset\" project management",
-            "Deep complex-chemistry credibility — viewed as the \"no-brainer\" choice",
+            "Deep complex-chemistry credibility, viewed as the \"no-brainer\" choice",
             "Trusted quality and IP security; clean audit track record",
             "Premium accepted where tech-transfer risk was high or know-how already existed",
             "Single projects organically expanded into add-on work without re-bidding"
@@ -1154,7 +1053,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
           "points": [
             "Headline price seen as several times higher than low-cost rivals",
             "Slow proposals and lead times that often ran roughly double the competition",
-            "Contracting bottlenecks — master-agreement negotiations dragging beyond a year",
+            "Contracting bottlenecks, master-agreement negotiations dragging beyond a year",
             "Secondary-site credibility gaps and capacity constraints blocking bids",
             "Perceived rigidity and \"one-size-fits-all\" commercial rigor on early-phase work"
           ]
@@ -1166,15 +1065,15 @@ export const ENRICHED: Record<string, EnrichedContent> = {
         "items": [
           {
             "title": "Clients paid for value, not for everything",
-            "body": "The losses were not a simple price story. Buyers tolerated a meaningful premium — on the order of a quarter above the market — when tech-transfer risk was high or the firm already held relevant know-how. Beyond that threshold, the premium was rejected outright, no matter how strong the quality reputation."
+            "body": "The losses were not a simple price story. Buyers tolerated a meaningful premium, on the order of a quarter above the market, when tech-transfer risk was high or the firm already held relevant know-how. Beyond that threshold, the premium was rejected outright, no matter how strong the quality reputation."
           },
           {
             "title": "Speed and process drove as many losses as price",
-            "body": "Slow proposal turnaround, lead times that ran roughly double rivals', and contracting that could drag beyond a year cost the firm qualified bids on their own — independent of headline price."
+            "body": "Slow proposal turnaround, lead times that ran roughly double rivals', and contracting that could drag beyond a year cost the firm qualified bids on their own, independent of headline price."
           },
           {
             "title": "Commercial rigor on early-phase work",
-            "body": "Full commercial-grade GMP standards were applied indiscriminately across all phases, on inflexible platforms with no fit-for-purpose configuration — driven by mindset, limited guidance, and training gaps."
+            "body": "Full commercial-grade GMP standards were applied indiscriminately across all phases, on inflexible platforms with no fit-for-purpose configuration, driven by mindset, limited guidance, and training gaps."
           },
           {
             "title": "Resource & alignment drag",
@@ -1186,28 +1085,28 @@ export const ENRICHED: Record<string, EnrichedContent> = {
           },
           {
             "title": "\"Add but never remove\" culture",
-            "body": "SOPs accumulated audit requirements without pushback, so process weight only ever grew — and quality-event cycles (changes, deviations, out-of-specifications) ran long enough to miss client clinical windows."
+            "body": "SOPs accumulated audit requirements without pushback, so process weight only ever grew, and quality-event cycles (changes, deviations, out-of-specifications) ran long enough to miss client clinical windows."
           },
           {
             "title": "Commercial friction at intake",
-            "body": "Bids loaded with non-essential tasks — full validation where a simple feasibility study would do — inflated cost and lead time, pricing the firm out at the intake stage."
+            "body": "Bids loaded with non-essential tasks, full validation where a simple feasibility study would do, inflated cost and lead time, pricing the firm out at the intake stage."
           }
         ]
       },
       {
         "kind": "steps",
-        "title": "What we recommended: a phased leadership roadmap",
+        "title": "The recommendation: a phased leadership roadmap",
         "items": [
           {
-            "title": "Phase 1 — Quick wins (0-3 months)",
+            "title": "Phase 1, Quick wins (0-3 months)",
             "body": "Restore early-phase competitiveness: standardize proposal templates and review cycles, empower business development to fast-track early-phase quotes via an internal \"fast lane\" piloted with a handful of priority clients, and codify won-project success stories into the pitch."
           },
           {
-            "title": "Phase 2 — Strategic initiatives (3-6 months)",
+            "title": "Phase 2, Strategic initiatives (3-6 months)",
             "body": "Build the infrastructure to grow and retain: introduce a tiered pricing model that differentiates early- from late-phase work and aligns price to perceived value and risk, relieve capacity bottlenecks, and invest in high-demand specialty capabilities."
           },
           {
-            "title": "Phase 3 — Structural fixes (6-12 months)",
+            "title": "Phase 3, Structural fixes (6-12 months)",
             "body": "Resolve systemic barriers: redesign legal and contracting workflows with pre-negotiated templates for repeat clients, rebuild secondary-site credibility through independent audit, and close the cost gap via hybrid delivery models and bundled offerings."
           }
         ]
@@ -1215,12 +1114,12 @@ export const ENRICHED: Record<string, EnrichedContent> = {
       {
         "kind": "prose",
         "heading": "The quality operating-model redesign",
-        "body": "Running alongside the VoC work, a quality-system assessment translated the diagnosis into a concrete future-state operating model — one built to streamline intake-to-delivery cycles, make the quality management system more agile, and cut the administrative burden on client-facing teams.\n\nThe core principle was <strong>phase-appropriate rigor</strong> rather than uniform commercial-grade control. Worked examples included risk-based handling of early-phase non-conformances — a deviation with a known root cause and no process impact would not trigger a full investigation — and a more proportionate footprint for quality and regulatory review on low-risk early-phase tasks. The aim was a market-credible, fit-for-purpose early-phase model that did not compromise the IP-security and quality reputation that wins late-phase work."
+        "body": "Running alongside the VoC work, a quality-system assessment translated the diagnosis into a concrete future-state operating model, one built to streamline intake-to-delivery cycles, make the quality management system more agile, and cut the administrative burden on client-facing teams.\n\nThe core principle was <strong>phase-appropriate rigor</strong> rather than uniform commercial-grade control. Worked examples included risk-based handling of early-phase non-conformances, a deviation with a known root cause and no process impact would not trigger a full investigation, and a more proportionate footprint for quality and regulatory review on low-risk early-phase tasks. The aim was a market-credible, fit-for-purpose early-phase model that did not compromise the IP-security and quality reputation that wins late-phase work."
       },
       {
         "kind": "prose",
         "heading": "Deliverables & outcome",
-        "body": "The engagement closed with a connected set of board-grade deliverables: a preliminary business-development workshop readout, a full executive readout, a quality-simplification readout, a comparative won-vs-lost SWOT, a prioritization heatmap of impact against ease of implementation, the future-state quality operating model, and a sequenced 6-12 month leadership action roadmap.\n\nFor the first time the leadership team had a <strong>fact-based, customer-validated diagnosis</strong> of exactly why qualified buyers were walking away — and a prioritized plan that protected the firm's premium positioning while removing the speed, pricing, and process friction that early-phase clients refused to tolerate."
+        "body": "The engagement closed with a connected set of board-grade deliverables: a preliminary business-development workshop readout, a full executive readout, a quality-simplification readout, a comparative won-vs-lost SWOT, a prioritization heatmap of impact against ease of implementation, the future-state quality operating model, and a sequenced 6-12 month leadership action roadmap.\n\nFor the first time the leadership team had a <strong>fact-based, customer-validated diagnosis</strong> of exactly why qualified buyers were walking away, and a prioritized plan that protected the firm's premium positioning while removing the speed, pricing, and process friction that early-phase clients refused to tolerate."
       },
       {
         "kind": "note",
@@ -1230,21 +1129,21 @@ export const ENRICHED: Record<string, EnrichedContent> = {
     "faq": [
       {
         "q": "How do you keep a Voice-of-Customer program candid when you're interviewing a client's own customers and staff?",
-        "a": "Sessions are run by dedicated independent interviewers — two to three per session — on a strict confidentiality footing, with an explicit sponsor message that honesty, not flattery, is the goal. Numerical scores on a fixed framework establish a baseline, and open-ended probing captures the real anecdotes and dealbreakers behind each score. Won, lost, and internal perspectives are interviewed separately so internal assumptions can be tested against external reality."
+        "a": "Sessions are run by dedicated independent interviewers, two to three per session, on a strict confidentiality footing, with an explicit sponsor message that honesty, not flattery, is the goal. Numerical scores on a fixed, questionnaire-driven framework establish a baseline, and open-ended probing captures the real anecdotes and dealbreakers behind each score. Won, lost, and internal perspectives are interviewed separately so internal assumptions can be tested against external reality."
       },
       {
-        "q": "We're a premium Western CDMO losing early-phase work to low-cost competitors. Is the answer just to cut price?",
-        "a": "Usually not. Here the evidence showed clients tolerated a meaningful premium — roughly a quarter above market — when tech-transfer risk was high or the firm already held relevant know-how; the losses were driven as much by slow proposals, long contracting, and applying commercial-grade rigor to early-phase work as by headline price. The plan combined tiered, phase-appropriate pricing with a leaner early-phase operating model, rather than a blanket discount that would erode the premium positioning clients still valued."
+        "q": "A premium Western CDMO is losing early-phase work to low-cost competitors. Is the answer just to cut price?",
+        "a": "Usually not. Here the evidence showed clients tolerated a meaningful premium, roughly a quarter above market, when tech-transfer risk was high or the firm already held relevant know-how; the losses were driven as much by slow proposals, long contracting, and applying commercial-grade rigor to early-phase work as by headline price. The plan combined tiered, phase-appropriate pricing with a leaner early-phase operating model, rather than a blanket discount that would erode the premium positioning clients still valued."
       },
       {
         "q": "Why interview lost opportunities separately from won and active clients?",
-        "a": "Because the contrast is where the diagnosis lives. Scoring won and lost engagements on the same nine-dimension framework isolates the precise thresholds at which a client stays or walks — for example, exactly how much premium is tolerable before price becomes a dealbreaker. Internal leadership is interviewed as a third segment so the firm's own assumptions can be measured against what external buyers actually say."
+        "a": "Because the contrast is where the diagnosis lives. Scoring won and lost engagements on the same nine-dimension framework isolates the precise thresholds at which a client stays or walks, for example, exactly how much premium is tolerable before price becomes a dealbreaker. Internal leadership is interviewed as a third segment so the firm's own assumptions can be measured against what external buyers actually say."
       }
     ]
   },
   "us-distribution-3pl-selection": {
     "timeframe": "2024-2026",
-    "dek": "How a rare-disease biopharma designed its U.S. distribution model and ran a structured specialty-3PL selection — RFI/RFP, a three-year cost model, a weighted scorecard, contract finalization and launch to go-live.",
+    "dek": "How a rare-disease biopharma designed its U.S. distribution model and ran a structured specialty-3PL selection, RFI/RFP, a three-year cost model, a weighted scorecard, contract finalization and launch to go-live.",
     "heroStat": {
       "value": "3-year TCO model",
       "label": "built per finalist and flowed against a common demand forecast, turning three specialty-3PL bids priced on a single line-item grid into one comparable total-cost-of-ownership view"
@@ -1261,15 +1160,15 @@ export const ENRICHED: Record<string, EnrichedContent> = {
         "caption": "The phases overlapped to compress the timeline: heavy lifting in 10–12 weeks, with 4–6 weeks of lighter support for stakeholder socialization and partner follow-ups.",
         "steps": [
           {
-            "label": "Phase 1 — Distribution model",
+            "label": "Phase 1, Distribution model",
             "sub": "Understand supply-chain requirements; benchmark comparable cold-chain indications; develop and workshop model scenarios; finalize the model and an implementation roadmap"
           },
           {
-            "label": "Phase 2 — 3PL/4PL selection",
+            "label": "Phase 2, 3PL/4PL selection",
             "sub": "Define requirements and criteria; build and issue the RFI/RFP; score responses; shortlist; negotiate terms with the selected partner"
           },
           {
-            "label": "Phase 3 — Onboarding & launch",
+            "label": "Phase 3, Onboarding & launch",
             "sub": "Contract finalization, operating guidelines and quality agreement, licensure, EDI/IT integration, operational readiness, go-live"
           }
         ]
@@ -1280,11 +1179,11 @@ export const ENRICHED: Record<string, EnrichedContent> = {
         "items": [
           {
             "title": "Benchmark comparable supply chains",
-            "body": "Compiled data on similar cold-chain, low-volume indications already distributed in the U.S. — handling and temperature-control needs, shelf life, and the regulatory requirements for importation, local release, and distribution."
+            "body": "Compiled data on similar cold-chain, low-volume indications already distributed in the U.S., handling and temperature-control needs, shelf life, and the regulatory requirements for importation, local release, and distribution."
           },
           {
             "title": "Map flows for every treatment scenario",
-            "body": "Built distribution-model scenarios covering planned, unscheduled, and emergency demand, with logistics flows, storage requirements, and routing for each — including rapid-response logistics for acute cases."
+            "body": "Built distribution-model scenarios covering planned, unscheduled, and emergency demand, with logistics flows, storage requirements, and routing for each, including rapid-response logistics for acute cases."
           },
           {
             "title": "Resolve the launch-vehicle question",
@@ -1310,7 +1209,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
           },
           {
             "title": "DSCSA & serialization",
-            "body": "Serialization monitoring and DSCSA-compliant data exchange — a real differentiator, as one finalist absorbed full serialization monitoring after inbound receipt while others forwarded data back to the manufacturer's own provider."
+            "body": "Serialization monitoring and DSCSA-compliant data exchange, a real differentiator, as one finalist absorbed full serialization monitoring after inbound receipt while others forwarded data back to the manufacturer's own provider."
           },
           {
             "title": "Returns & data integration",
@@ -1321,7 +1220,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
       {
         "kind": "compare",
         "title": "Three finalists, benchmarked head-to-head",
-        "caption": "Anonymized national specialty-3PL finalists, compared across infrastructure, scale, technology and launch fit. Tiers and bands describe each provider's platform — not this client's volumes.",
+        "caption": "Anonymized national specialty-3PL finalists, compared across infrastructure, scale, technology and launch fit. Tiers and bands describe each provider's platform, not this client's volumes.",
         "head": [
           "Dimension",
           "3PL A",
@@ -1368,7 +1267,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
         "items": [
           {
             "title": "RFI/RFP and a standardized pricing grid",
-            "body": "Issued comprehensive RFI/RFP documents and a line-item pricing grid covering implementation, customer support, order-to-cash, and distribution fees — so every bid was priced on identical, comparable terms (per-pallet receiving, per-pallet-per-month refrigerated storage, per-order pick/pack, freight, recall support, and more)."
+            "body": "Issued comprehensive RFI/RFP documents and a line-item pricing grid covering implementation, customer support, order-to-cash, and distribution fees, so every bid was priced on identical, comparable terms (per-pallet receiving, per-pallet-per-month refrigerated storage, per-order pick/pack, freight, recall support, and more)."
           },
           {
             "title": "Three-year total-cost model",
@@ -1376,7 +1275,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
           },
           {
             "title": "Weighted scorecard",
-            "body": "Scored finalists on quality and regulatory posture, infrastructure, technology and data integration, organizational and launch fit, and cost — combining the cost model with qualitative fit into a single recommendation framework."
+            "body": "Scored finalists on quality and regulatory posture, infrastructure, technology and data integration, organizational and launch fit, and cost, combining the cost model with qualitative fit into a single recommendation framework."
           }
         ]
       },
@@ -1395,7 +1294,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
           "label": "Why a three-year TCO view was decisive",
           "points": [
             "The model flowed every finalist's rates against one shared, ramping demand forecast across three years",
-            "That surfaced the true cost ranking once volume and activity mix were held constant — not the lowest sticker price",
+            "That surfaced the true cost ranking once volume and activity mix were held constant, not the lowest sticker price",
             "Cost was then weighed against quality, cold-chain, DSCSA and launch-fit scores, so the choice rested on total value"
           ]
         }
@@ -1426,7 +1325,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
         "kind": "split",
         "title": "Launch vehicle: Title Model, then transition",
         "before": {
-          "label": "At launch — Title Model",
+          "label": "At launch, Title Model",
           "points": [
             "3PL purchases and takes title to product, distributing on the client's behalf while state licenses are pending",
             "Inventory held between 7 and 14 days-on-hand, with a minimum dating floor",
@@ -1434,7 +1333,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
           ]
         },
         "after": {
-          "label": "Post-launch — Traditional 3PL",
+          "label": "Post-launch, Traditional 3PL",
           "points": [
             "Client completes its own state Board of Pharmacy licensure (home state plus required warehouse states)",
             "Client holds title; 3PL holds product on consignment and distributes as agent",
@@ -1452,7 +1351,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
           },
           {
             "title": "Onboarding kickoff",
-            "body": "Ran an on-site implementation kickoff — facility tour, contracts status, IT/EDI integration, order-to-cash, warehouse/logistics, and DSCSA — with a defined implementation team and call cadence."
+            "body": "Ran an on-site implementation kickoff, facility tour, contracts status, IT/EDI integration, order-to-cash, warehouse/logistics, and DSCSA, with a defined implementation team and call cadence."
           },
           {
             "title": "Licensure & EDI critical path",
@@ -1510,7 +1409,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
       },
       {
         "q": "How do you compare 3PL bids fairly when fee schedules differ?",
-        "a": "You standardize. We issue a single line-item pricing grid so every finalist quotes the same activities, then flow each one's unit rates against a common multi-year demand forecast to produce a three-year total cost of ownership. That cost model is combined with a weighted scorecard covering quality and regulatory posture, cold-chain and DSCSA capability, technology and data integration, and organizational fit — so the decision rests on total value, not headline rates."
+        "a": "You standardize. A single line-item pricing grid is issued so every finalist quotes the same activities, then flow each one's unit rates against a common multi-year demand forecast to produce a three-year total cost of ownership. That cost model is combined with a weighted scorecard covering quality and regulatory posture, cold-chain and DSCSA capability, technology and data integration, and organizational fit, so the decision rests on total value, not headline rates."
       }
     ]
   },
@@ -1525,7 +1424,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
       {
         "kind": "prose",
         "heading": "The situation",
-        "body": "Within roughly six months, a specialty oncology pharmaceutical company in-licensed and then acquired the development rights to a targeted oncology biologic from a biotech partner. Overnight it inherited a sprawling, partner-built clinical program: a portfolio of <strong>20+ active and planned studies</strong> spanning sponsor-led trials, partner-initiated legacy studies transferring across to the new sponsor, investigator-sponsored trials (ISTs), collaborator-run studies, and cooperative-group trials — some global, some single-country.\n\nThe technical-operations (TechOps) and clinical-supply organization had to take ownership of drug product, comparator, and standard-of-care (SOC) supply across all of these at once, against fixed clinical-development timelines for pivotal filings over the following two years. Demand signals arrived piecemeal from multiple functions, focused mostly on new studies; there was no consolidated view of global and country-specific demand and supply, no agreed ownership model, and limited visibility into which studies were genuinely critical. The risk was blunt: drug product, comparator, or SOC slipping onto the critical path and delaying patient dosing.\n\nThe firm engaged us to run an <strong>agile, sprint-based acceleration</strong> — triage the portfolio, map the critical path, fix accountability, and stand up a durable cost-and-supply operating model the internal team could own."
+        "body": "Within roughly six months, a roughly $4B specialty oncology pharmaceutical company in-licensed and then acquired the development rights to a targeted oncology biologic from a biotech partner. Overnight it inherited a sprawling, partner-built clinical program: a portfolio of <strong>20+ active and planned studies</strong> spanning sponsor-led trials, partner-initiated legacy studies transferring across to the new sponsor, investigator-sponsored trials (ISTs), collaborator-run studies, and cooperative-group trials, some global, some single-country.\n\nThe technical-operations (TechOps) and clinical-supply organization had to take ownership of drug product, comparator, and standard-of-care (SOC) supply across all of these at once, against fixed clinical-development timelines for pivotal filings over the following two years. Demand signals arrived piecemeal from multiple functions, focused mostly on new studies; there was no consolidated view of global and country-specific demand and supply, no agreed ownership model, and limited visibility into which studies were genuinely critical. The risk was blunt: drug product, comparator, or SOC slipping onto the critical path and delaying patient dosing.\n\nThe firm engaged us to run an <strong>agile, sprint-based acceleration</strong>, triage the portfolio, map the critical path, fix accountability, and stand up a durable cost-and-supply operating model the internal team could own."
       },
       {
         "kind": "flow",
@@ -1534,7 +1433,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
         "steps": [
           {
             "label": "Triage the portfolio",
-            "sub": "Rank every study — sponsor, collaboration, IST, coop — for TechOps focus against development timelines"
+            "sub": "Rank every study, sponsor, collaboration, IST, coop, for TechOps focus against development timelines"
           },
           {
             "label": "Surface risks & gaps",
@@ -1553,7 +1452,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
       {
         "kind": "prose",
         "heading": "How we worked: a structured workbook, not a six-month study",
-        "body": "The opening sprint compressed a full program assessment into three days by working virtually across US, European, and Asia-Pacific time zones in a continuous handoff. The team built a structured study workbook capturing, for every in-scope study, a consistent set of attributes tied to supply readiness: ownership and RACI, region and countries, priority and the rationale for it, supply site, first- and last-patient-dosed dates, comparator and SOC needs, supply status, sourcing strategy, quality/regulatory/label readiness, governance approval, and budget.\n\nFor the first time the program could be ranked objectively rather than by whoever shouted loudest. We then mapped the critical path for the lead pivotal study, built a program-wide risk register graded High / Medium / Low, and developed a RACI that exposed concrete ownership and responsibility gaps between the new sponsor and the transferring partner. As the picture cleared the scope itself sharpened, with the deliverable list growing from an initial 11 to 21 — 9 of them completed in the first sprint alone."
+        "body": "The opening sprint compressed a full program assessment into three days by working virtually across US, European, and Asia-Pacific time zones in a continuous handoff. The team built a structured study workbook capturing, for every in-scope study, a consistent set of attributes tied to supply readiness: ownership and RACI, region and countries, priority and the rationale for it, supply site, first- and last-patient-dosed dates, comparator and SOC needs, supply status, sourcing strategy, quality/regulatory/label readiness, governance approval, and budget.\n\nFor the first time the program could be ranked objectively rather than by whoever shouted loudest. We then mapped the critical path for the lead pivotal study, built a program-wide risk register graded High / Medium / Low, and developed a RACI that exposed concrete ownership and responsibility gaps between the new sponsor and the transferring partner. As the picture cleared the scope itself sharpened, with the deliverable list growing from an initial 11 to 21, 9 of them completed in the first sprint alone."
       },
       {
         "kind": "callouts",
@@ -1561,7 +1460,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
         "items": [
           {
             "title": "Unsigned prerequisites",
-            "body": "Agreements with collaborators, IST sites and vendors not yet executed — a hard blocker to initiating studies and the supply activities behind them."
+            "body": "Agreements with collaborators, IST sites and vendors not yet executed, a hard blocker to initiating studies and the supply activities behind them."
           },
           {
             "title": "Constrained drug-product supply",
@@ -1580,7 +1479,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
       {
         "kind": "prose",
         "heading": "The strategic pivot: cost first, then future state",
-        "body": "The triage produced a clear recommendation, which the sponsor confirmed: rather than attempting a full end-to-end redesign immediately, <strong>prioritize cost management first and let it feed into the end-to-end future-state design</strong>, using the same core team. This sequencing let the program bank tangible savings while the slower work of mapping and aligning a cross-functional future-state process proceeded in parallel.\n\nThe cost workstream was chartered with a tight scope — all sponsored, transferring, IST and collaboration studies, with cost optimization balancing speed and cost for active drug, comparator and SOC — and explicit out-of-scope guardrails: no protocol or biosimilar selection, no country or site selection, no companion diagnostics. Single points of contact were named at both operational and executive levels so every decision had an owner."
+        "body": "The triage produced a clear recommendation, which the sponsor confirmed: rather than attempting a full end-to-end redesign immediately, <strong>prioritize cost management first and let it feed into the end-to-end future-state design</strong>, using the same core team. This sequencing let the program bank tangible savings while the slower work of mapping and aligning a cross-functional future-state process proceeded in parallel.\n\nThe cost workstream was chartered with a tight scope, all sponsored, transferring, IST and collaboration studies, with cost optimization balancing speed and cost for active drug, comparator and SOC, and explicit out-of-scope guardrails: no protocol or biosimilar selection, no country or site selection, no companion diagnostics. Single points of contact were named at both operational and executive levels so every decision had an owner."
       },
       {
         "kind": "steps",
@@ -1588,7 +1487,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
         "items": [
           {
             "title": "Generate lessons learned from the in-flight study",
-            "body": "We mined the first sponsor-run study to confirm that, with no regulatory implication, maximizing the number of sites sourcing their own comparator, SOC, pre-meds and ancillaries unlocked savings — then codified this as reusable lessons learned."
+            "body": "We mined the first sponsor-run study to confirm that, with no regulatory implication, maximizing the number of sites sourcing their own comparator, SOC, pre-meds and ancillaries unlocked savings, then codified this as reusable lessons learned."
           },
           {
             "title": "Cascade learnings down the study pipeline",
@@ -1596,11 +1495,11 @@ export const ENRICHED: Record<string, EnrichedContent> = {
           },
           {
             "title": "Shift from central to site & central-pharmacy sourcing",
-            "body": "We moved the default away from blanket central sourcing toward local site sourcing and, where appropriate, a clinical-trial-Rx central-pharmacy reimbursement model — cutting management fees, waste and batch-expiry risk."
+            "body": "We moved the default away from blanket central sourcing toward local site sourcing and, where appropriate, a clinical-trial-Rx central-pharmacy reimbursement model, cutting management fees, waste and batch-expiry risk."
           },
           {
             "title": "Run a competitive RFP for the pivotal study",
-            "body": "We built RFP criteria — assurance of supply, regulatory coverage, overage and waste control, speed-to-go-live, cost transparency — and ran a head-to-head vendor evaluation for the accelerated pivotal study."
+            "body": "We built RFP criteria, assurance of supply, regulatory coverage, overage and waste control, speed-to-go-live, cost transparency, and ran a head-to-head vendor evaluation for the accelerated pivotal study."
           },
           {
             "title": "Stand up cost monitoring & benchmarking",
@@ -1611,7 +1510,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
       {
         "kind": "compare",
         "title": "Vendor selection for the pivotal study: a structured head-to-head",
-        "caption": "Two clinical-supply / packaging-and-distribution providers were evaluated for the accelerated pivotal study on the same comparator and SOC basket. Lower unit price did not win on its own — total landed cost, management fees and waste exposure decided it.",
+        "caption": "Two clinical-supply / packaging-and-distribution providers were evaluated for the accelerated pivotal study on the same comparator and SOC basket. Lower unit price did not win on its own, total landed cost, management fees and waste exposure decided it.",
         "head": [
           "Dimension",
           "Incumbent 3PL",
@@ -1635,7 +1534,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
           ],
           [
             "Best-case line saving",
-            "—",
+            ", ",
             "Up to ~38% on the strongest line"
           ],
           [
@@ -1671,7 +1570,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
       {
         "kind": "prose",
         "heading": "Critical-path mapping and the supply backbone",
-        "body": "For the accelerated pivotal study — planned for hundreds of patients across tens of countries and 100+ sites — we built a country-by-country critical path that tied regulatory submission, drug ready-for-QP-release, label translation and booklet/single-panel labeling, pack-and-label, depot setup, and first-patient-in (screened and randomized) into a single timeline across North America, EMEA, APAC and Latin America. This made it possible to see, per country, exactly which activity threatened the dosing date, and to confirm where comparator and SOC could be kept off the critical path via local or central-pharmacy sourcing.\n\nUnderpinning the operating rhythm, we stood up a weekly Drug Supply Working Group that drove a live action-item log — tracked through the high tens of items, opened and closed against named owners — and specified a low-code BI forecasting model to project kit demand from depot to site per study, translating subject cycles, vials-per-cycle and on-hand inventory into forward kit requirements."
+        "body": "For the accelerated pivotal study, planned for hundreds of patients across tens of countries and 100+ sites, we built a country-by-country critical path that tied regulatory submission, drug ready-for-QP-release, label translation and booklet/single-panel labeling, pack-and-label, depot setup, and first-patient-in (screened and randomized) into a single timeline across North America, EMEA, APAC and Latin America. This made it possible to see, per country, exactly which activity threatened the dosing date, and to confirm where comparator and SOC could be kept off the critical path via local or central-pharmacy sourcing.\n\nUnderpinning the operating rhythm, we stood up a weekly Drug Supply Working Group that drove a live action-item log, tracked through the high tens of items, opened and closed against named owners, and specified a low-code BI forecasting model to project kit demand from depot to site per study, translating subject cycles, vials-per-cycle and on-hand inventory into forward kit requirements."
       },
       {
         "kind": "stack",
@@ -1709,7 +1608,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
       {
         "kind": "prose",
         "heading": "Outcome",
-        "body": "In a matter of sprints rather than quarters, the sponsor moved from an inherited, opaque multi-study program to a ranked portfolio with named owners, a mapped critical path for its pivotal study, and a working cost-and-supply operating model run by its own team. The demonstrable wins were structural: drug product, comparator and SOC were confirmed off the critical path for the priority studies; a competitive vendor evaluation selected a provider at materially lower total landed cost despite higher unit prices on some lines; and a full block of ancillary and project-management spend — roughly $10M — was designed out of the pivotal study's budget and sourcing plan entirely.\n\nOn top of those delivered outcomes, the new cost-monitoring and site-sourcing model put further projected savings of over $5M within reach. Crucially, every deliverable was handed to a named current and future owner with a transition date — the engagement built capability, then stepped back."
+        "body": "In a matter of sprints rather than quarters, the sponsor moved from an inherited, opaque multi-study program to a ranked portfolio with named owners, a mapped critical path for its pivotal study, and a working cost-and-supply operating model run by its own team. The demonstrable wins were structural: drug product, comparator and SOC were confirmed off the critical path for the priority studies; a competitive vendor evaluation selected a provider at materially lower total landed cost despite higher unit prices on some lines; and a full block of ancillary and project-management spend, roughly $10M, was designed out of the pivotal study's budget and sourcing plan entirely.\n\nOn top of those delivered outcomes, the new cost-monitoring and site-sourcing model put further projected savings of over $5M within reach. Crucially, every deliverable was handed to a named current and future owner with a transition date, the engagement built capability, then stepped back."
       },
       {
         "kind": "note",
@@ -1719,20 +1618,20 @@ export const ENRICHED: Record<string, EnrichedContent> = {
     "faq": [
       {
         "q": "We just in-licensed an asset with a partner-built clinical program we now have to supply. Where do you start?",
-        "a": "With triage. Before redesigning anything, we capture a consistent attribute set for every in-scope study — ownership, RACI, countries, priority and rationale, supply status, sourcing strategy, regulatory and label readiness, dosing dates and budget — so the portfolio can be ranked objectively. That ranked view, plus a critical-path map for the highest-priority study and a graded risk register, is usually achievable in the first one or two sprints and immediately tells you where drug product, comparator or SOC is about to slip onto the critical path."
+        "a": "With triage. Before redesigning anything, we capture a consistent attribute set for every in-scope study, ownership, RACI, countries, priority and rationale, supply status, sourcing strategy, regulatory and label readiness, dosing dates and budget, so the portfolio can be ranked objectively. That ranked view, plus a critical-path map for the highest-priority study and a graded risk register, is usually achievable in the first one or two sprints and immediately tells you where drug product, comparator or SOC is about to slip onto the critical path."
       },
       {
         "q": "How do you actually take cost out of clinical supply without putting timelines at risk?",
-        "a": "We separate cost levers by how much change they introduce. The safe, high-value moves are shifting from blanket central sourcing toward site sourcing and a central-pharmacy reimbursement model where regulations allow, running a structured competitive RFP that weighs total landed cost and management fees rather than just unit price, and instituting itemized per-drug, per-country cost monitoring on a fixed cadence. We generate lessons learned from an in-flight study and cascade them to studies still early enough to change cheaply — banking savings while leaving in-flight batch plans untouched."
+        "a": "We separate cost levers by how much change they introduce. The safe, high-value moves are shifting from blanket central sourcing toward site sourcing and a central-pharmacy reimbursement model where regulations allow, running a structured competitive RFP that weighs total landed cost and management fees rather than just unit price, and instituting itemized per-drug, per-country cost monitoring on a fixed cadence. We generate lessons learned from an in-flight study and cascade them to studies still early enough to change cheaply, banking savings while leaving in-flight batch plans untouched."
       },
       {
         "q": "Will this leave our team dependent on consultants?",
-        "a": "No. The model is deliberately capability-building. We work as a lean core team alongside your functions, name single points of contact at operational and executive levels, and hand every deliverable to a named current and future owner with a transition date. The recurring operating rhythm — a weekly supply working group, a quarterly cost-monitoring cadence and a forecasting model — is designed for your team to run after we step back."
+        "a": "No. The model is deliberately capability-building. We work as a lean core team alongside your functions, name single points of contact at operational and executive levels, and hand every deliverable to a named current and future owner with a transition date. The recurring operating rhythm, a weekly supply working group, a quarterly cost-monitoring cadence and a forecasting model, is designed for your team to run after we step back."
       }
     ]
   },
   "cmc-portfolio-prioritization": {
-    "timeframe": "2024-2025",
+    "timeframe": "2024–2025",
     "dek": "How a clinical-stage biotech turned an informal CMC staffing scramble into a prioritized, named-resource allocation model with per-person and per-program capacity views.",
     "heroStat": {
       "value": "Multi-asset",
@@ -1742,7 +1641,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
       {
         "kind": "prose",
         "heading": "The situation",
-        "body": "A clinical-stage biotech advancing a multi-asset oncology portfolio faced a familiar mid-stage problem: more CMC work than people to do it. A lead program was driving toward regulatory submission readiness while earlier-stage assets needed to keep moving through the pipeline — all drawing on the same small, specialized Process & Formulation Development (PFD) bench.\n\nThere was no single, defensible view of who was working on what, at what intensity, against which deliverable. <strong>Capacity decisions were being made informally</strong>, asset by asset, with no way to see when a given scientist was committed past 100% or when a program was quietly under-resourced. The client needed a structured way to prioritize the portfolio and then allocate named people to it."
+        "body": "A pre-revenue, clinical-stage biotech advancing a multi-asset oncology portfolio faced a familiar mid-stage problem: more CMC work than people to do it. A lead program was driving toward regulatory submission readiness while earlier-stage assets needed to keep moving through the pipeline, all drawing on the same small, specialized development bench.\n\nThere was no single, defensible view of who was working on what, at what intensity, against which deliverable. <strong>Capacity decisions were being made informally</strong>, asset by asset, with no way to see when a given scientist was committed past 100% or when a program was quietly under-resourced. A structured way to prioritize the portfolio and allocate named people was needed."
       },
       {
         "kind": "flow",
@@ -1770,7 +1669,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
       {
         "kind": "prose",
         "heading": "Anchoring on priorities first",
-        "body": "The work began with a <strong>prioritization workshop</strong> with CMC leadership. Rather than starting from headcount, the team started from intent: each program was assigned an explicit objective so that allocation could follow strategy, not the other way round.\n\nThe lead program was framed around <strong>achieving regulatory submission readiness</strong> — authoring the relevant CMC quality module, running process-validation campaigns at contract manufacturers, optimizing dose strength, characterization work, and clinical and validation runs. The earlier-stage programs were framed around <strong>advancing the pipeline</strong>: one needed drug-product tech transfer, establishment and clinical runs at a manufacturing partner, and selection of cell-bank, drug-substance and drug-product partners; the earliest-stage asset was scoped around candidate-nomination work. With objectives fixed first, the allocation that followed could be defended as a strategy choice rather than a staffing accident."
+        "body": "The work began with a <strong>prioritization workshop</strong> with CMC leadership. Rather than starting from headcount, the team started from intent: each program was assigned an explicit objective so that allocation could follow strategy, not the other way round.\n\nThe lead program was framed around <strong>achieving regulatory submission readiness</strong>, with the matrix allocating named resources against the program's own activities: the relevant CMC quality module, process-validation campaigns at contract manufacturers, optimizing dose strength, characterization work, and clinical and validation runs. The earlier-stage programs were framed around <strong>advancing the pipeline</strong>: one needed drug-product development and manufacturing-partner selection across drug-substance and drug-product partners; the earliest-stage asset was scoped around candidate-nomination work. With objectives fixed first, the allocation that followed could be defended as a strategy choice rather than a staffing accident."
       },
       {
         "kind": "stack",
@@ -1796,7 +1695,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
             "label": "Overall CMC",
             "items": [
               "Regulatory quality-module authoring",
-              "Biophysical characterization in the PFD lab",
+              "Biophysical characterization in the lab",
               "Dose-strength optimization"
             ]
           }
@@ -1805,7 +1704,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
       {
         "kind": "prose",
         "heading": "Normalizing a mixed bench to one honest scale",
-        "body": "The hard part of any resource model is making heterogeneous people comparable. The bench mixed full-time scientists with fractional and shared resources — functional-service-provider staff and a part-period co-op among them — who do not map cleanly onto a full week.\n\nThe model put everyone on the same footing: every commitment expressed as a <strong>percentage of a 40-hour week</strong>, with each person's lines summing toward a 100% baseline. Fractional resources were entered at their true availability rather than rounded up, so a half-time contributor never read as a full head. That single normalization is what made the roll-ups trustworthy — a Grand Total only means something if a 100% line represents the same thing for every name in the column."
+        "body": "The hard part of any resource model is making heterogeneous people comparable. The bench mixed full-time scientists with fractional and shared resources that do not map cleanly onto a full week.\n\nThe model put everyone on the same footing: every commitment expressed as a <strong>percentage of a 40-hour week</strong>, with each person's lines summing toward a 100% baseline. Fractional resources were entered at their true availability rather than rounded up, so a half-time contributor never read as a full head. That normalization made the roll-ups trustworthy: a Grand Total only means something if a 100% line means the same for every name."
       },
       {
         "kind": "metrics",
@@ -1841,7 +1740,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
         "kind": "split",
         "title": "Before and after the model",
         "before": {
-          "label": "Before — informal allocation",
+          "label": "Before, informal allocation",
           "points": [
             "Capacity judged asset-by-asset, in people's heads",
             "No visibility into who was committed past 100%",
@@ -1850,7 +1749,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
           ]
         },
         "after": {
-          "label": "After — a single resource model",
+          "label": "After, a single resource model",
           "points": [
             "Every person mapped to activities at an explicit % of time",
             "Per-person Grand Totals expose over-allocation at a glance",
@@ -1865,7 +1764,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
         "items": [
           {
             "title": "Spotting over-allocation early",
-            "body": "Rolling each person's commitments to a Grand Total against a 100% / 40-hour baseline made it immediately visible when a specialist was booked beyond capacity — so a stretched scientist could be re-balanced before it affected delivery."
+            "body": "Rolling each person's commitments to a Grand Total against a 100% / 40-hour baseline made it visible when a specialist was booked beyond capacity, so a stretched scientist could be re-balanced before delivery slipped."
           },
           {
             "title": "Spotting thin coverage",
@@ -1873,27 +1772,27 @@ export const ENRICHED: Record<string, EnrichedContent> = {
           },
           {
             "title": "Making trade-offs explicit",
-            "body": "Because allocation was tied back to each program's stated objective, re-balancing became a strategy conversation — move time here, accept slower progress there — rather than an ad-hoc scramble. Every reallocation could be read against the goal it served."
+            "body": "Because allocation was tied back to each program's stated objective, re-balancing became a strategy conversation, move time here, accept slower progress there, rather than an ad-hoc scramble."
           }
         ]
       },
       {
         "kind": "prose",
         "heading": "What was delivered",
-        "body": "The engagement produced a working <strong>CMC project-resource matrix</strong> — built directly from the prioritization workshop output — that allocated named team members across Drug Substance, Drug Product and Overall-CMC activities for each prioritized asset, at percentage-of-time on a 40-hour-week basis.\n\nOn top of the matrix sat two capacity views: a <strong>per-person view</strong> (Grand Totals by person across all programs) and a <strong>per-program view</strong>, each designed to surface over- and under-allocation. The result was a single, defensible planning artifact the CMC organization could re-run as priorities, milestones and partner selections evolved through the regulatory timeline."
+        "body": "The engagement produced a working <strong>CMC project-resource matrix</strong>, built directly from the prioritization workshop output, that allocated named team members across Drug Substance, Drug Product and Overall-CMC activities for each prioritized asset, at percentage-of-time on a 40-hour-week basis.\n\nOn top of the matrix sat two capacity views: a <strong>per-person view</strong> (Grand Totals by person across all programs) and a <strong>per-program view</strong>, each designed to surface over- and under-allocation. The result was a single, defensible planning artifact the CMC organization could re-run as priorities, milestones and partner selections evolved."
       }
     ],
     "faq": [
       {
         "q": "How do you decide which programs get scarce CMC capacity?",
-        "a": "We start with a prioritization workshop that assigns each asset an explicit objective — for example, driving one program to regulatory submission readiness while keeping earlier-stage assets advancing. Allocation then follows that intent, so capacity trade-offs are made against strategy rather than informally, asset by asset."
+        "a": "The engagement starts with a prioritization workshop that assigns each asset an explicit objective, for example, driving one program to regulatory submission readiness while keeping earlier-stage assets advancing. Allocation then follows that intent, so capacity trade-offs are made against strategy rather than informally, asset by asset."
       },
       {
         "q": "What does the resource model actually produce?",
-        "a": "A project-resource matrix that maps named team members to specific CMC activities across drug substance, drug product and overall CMC at a percentage of time on a 40-hour-week basis, plus two roll-up views: a per-person view that flags anyone committed beyond 100%, and a per-program view that flags under-resourced assets. Fractional and shared staff are entered at true availability so the totals stay honest."
+        "a": "A project-resource matrix that maps named team members to specific CMC activities across drug substance, drug product and overall CMC at a percentage of time on a 40-hour-week basis, plus two roll-up views: a per-person view that flags anyone committed beyond 100%, and a per-program view that flags under-resourced assets. Fractional and shared staff are entered at true availability so totals stay honest."
       },
       {
-        "q": "Is this a one-time analysis or something we can keep using?",
+        "q": "Is this a one-time analysis or something that can keep being used?",
         "a": "It is built to be re-run. As milestones move, partner selections firm up and priorities shift, the same matrix and capacity views can be updated, giving leadership a living, defensible basis for re-balancing people across the portfolio."
       }
     ]
@@ -1909,7 +1808,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
       {
         "kind": "prose",
         "heading": "The engagement",
-        "body": "A clinical-stage oncology biopharma was advancing its lead asset through expansion-cohort studies, with a registrational program on the horizon. Clinical supply ran off a patchwork of exports: an <strong>IRT system</strong> for enrollment and kit-level inventory, a <strong>CDMO depot inventory report</strong> for physical stock, and <strong>Clinical Operations planning files</strong> for cohort targets and demand. Each lived in its own spreadsheet, on its own cadence, in its own format. Nobody could answer a simple cross-cutting question — <em>are we on track to enroll, and do we have enough drug to cover it?</em> — without manually stitching three sources together every cycle.\n\nThe firm was engaged to deliver an integrated clinical supply chain dashboard on a low-code analytics and automation stack, replacing fragmented reporting with one governed monthly view across three pillars: <strong>participants and enrollment, inventory, and resupply</strong>. Critically, the build embedded reconciliation logic so that mismatches between systems surface and get resolved <em>before</em> month-end sign-off, not after."
+        "body": "A pre-revenue, clinical-stage oncology biopharma was advancing its lead asset through expansion-cohort studies, with a registrational program on the horizon. Clinical supply ran off a patchwork of exports: an <strong>IRT system</strong> for enrollment and kit-level inventory, a <strong>CDMO depot inventory report</strong> for physical stock, and <strong>Clinical Operations planning files</strong> for cohort targets and demand. Each lived in its own spreadsheet, on its own cadence, in its own format. Nobody could answer a simple cross-cutting question, <em>are we on track to enroll, and do we have enough drug to cover it?</em>, without manually stitching three sources together every cycle.\n\nThe firm was engaged to deliver an integrated clinical supply chain dashboard on a low-code analytics and automation stack, replacing fragmented reporting with one governed monthly view across three pillars: <strong>participants and enrollment, inventory, and resupply</strong>. Critically, the build embedded reconciliation logic so that mismatches between systems surface and get resolved <em>before</em> month-end sign-off, not after."
       },
       {
         "kind": "flow",
@@ -1918,7 +1817,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
         "steps": [
           {
             "label": "Discovery",
-            "sub": "Mapped the fragmented sources — IRT exports, CDMO inventory reports, ClinOps planning files — and gathered requirements across supply, clinical and CMC."
+            "sub": "Mapped the fragmented sources, IRT exports, CDMO inventory reports, ClinOps planning files, and gathered requirements across supply, clinical and CMC."
           },
           {
             "label": "Design & build",
@@ -1967,7 +1866,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
       {
         "kind": "prose",
         "heading": "The reconciliation engine",
-        "body": "The dashboard's differentiator was not the charts; it was the <strong>two reconciliation checks that run every cycle</strong>. The <strong>inventory reconciliation</strong> compares IRT quantity-per-lot against the CDMO depot report; any variance must be investigated and resolved before sign-off. The <strong>participant reconciliation</strong> auto-flags every mismatch between IRT subject status and the ClinOps cohort tracker, so clinical operations can resolve timing lags or data-entry issues before the numbers are locked.\n\nThis turned the month-end close from a reactive scramble into a controlled gate. A documented methodology classifies discrepancy types — timing lags, data-entry errors — with defined remediation steps and an audit trail capturing who changed what and when. <strong>Lot and expiry were treated as mandatory fields</strong> across all datasets, with missing or invalid values surfaced for correction, and subject status constrained to a single canonical set (New Cohort, On Treatment, End-of-Treatment, Dose Modified, Completed) so the same status never means two things across sources."
+        "body": "The dashboard's differentiator was not the charts; it was the <strong>two reconciliation checks that run every cycle</strong>. The <strong>inventory reconciliation</strong> compares IRT quantity-per-lot against the CDMO depot report; any variance must be investigated and resolved before sign-off. The <strong>participant reconciliation</strong> auto-flags every mismatch between IRT subject status and the ClinOps cohort tracker, so clinical operations can resolve timing lags or data-entry issues before the numbers are locked.\n\nThis turned the month-end close from a reactive scramble into a controlled gate. A documented methodology classifies discrepancy types, timing lags, data-entry errors, with defined remediation steps and an audit trail capturing who changed what and when. <strong>Lot and expiry were treated as mandatory fields</strong> across all datasets, with missing or invalid values surfaced for correction, and subject status constrained to a single canonical set (New Cohort, On Treatment, End-of-Treatment, Dose Modified, Completed) so the same status never means two things across sources."
       },
       {
         "kind": "metrics",
@@ -2029,7 +1928,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
           },
           {
             "title": "Do we have enough drug?",
-            "body": "Months-on-Hand at every depot and site with red/amber/green coding — red means act now."
+            "body": "Months-on-Hand at every depot and site with red/amber/green coding, red means act now."
           },
           {
             "title": "What's at risk of expiring?",
@@ -2063,7 +1962,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
           },
           {
             "title": "Day 7–8 · Monthly supply review",
-            "body": "The supply lead chairs the meeting, presents the dashboard, decisions are made and actions logged — with the CMC VP in the room."
+            "body": "The supply lead chairs the meeting, presents the dashboard, decisions are made and actions logged, with the CMC VP in the room."
           },
           {
             "title": "Day 9 · Snapshot & archival",
@@ -2086,7 +1985,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
           ],
           [
             "UAT test scripts",
-            "One test case per functional requirement — positive and negative cases, performance and export checks — with pass/fail, tester and defect log"
+            "One test case per functional requirement, positive and negative cases, performance and export checks, with pass/fail, tester and defect log"
           ],
           [
             "File standards",
@@ -2102,7 +2001,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
       {
         "kind": "prose",
         "heading": "The deliverables",
-        "body": "The engagement closed with a working system and the operating model to run it: a <strong>17-page low-code dashboard</strong> spanning enrollment, inventory, months-on-hand, both reconciliations and an Executive Summary, fronted by a five-column Cover navigation grid with per-source refresh dates; a designed-and-delivered <strong>ClinOps file template and specification</strong> for a source that did not previously exist; a controlled document-library intake structure with file standards and automated notifications; a <strong>UAT and Functional Requirements pack</strong> tracing every requirement to a test; and an <strong>Operations & Governance Manual</strong> covering the monthly workflow, RACI, sign-off gates, escalation paths and onboarding.\n\nThe result moved the client from three disconnected spreadsheets to a single governed view that connects enrollment to supply coverage — and catches the mismatches that used to surface only after the books were closed."
+        "body": "The engagement closed with a working system and the operating model to run it: a <strong>17-page low-code dashboard</strong> spanning enrollment, inventory, months-on-hand, both reconciliations and an Executive Summary, fronted by a five-column Cover navigation grid with per-source refresh dates; a designed-and-delivered <strong>ClinOps file template and specification</strong> for a source that did not previously exist; a controlled document-library intake structure with file standards and automated notifications; a <strong>UAT and Functional Requirements pack</strong> tracing every requirement to a test; and an <strong>Operations & Governance Manual</strong> covering the monthly workflow, RACI, sign-off gates, escalation paths and onboarding.\n\nThe result moved the client from three disconnected spreadsheets to a single governed view that connects enrollment to supply coverage, and catches the mismatches that used to surface only after the books were closed."
       },
       {
         "kind": "note",
@@ -2120,22 +2019,22 @@ export const ENRICHED: Record<string, EnrichedContent> = {
       },
       {
         "q": "Do you need a heavy IT build, or can this run on a low-code stack?",
-        "a": "It runs on a low-code analytics and automation stack with file-based ingestion through a controlled document library — no direct database connections in the initial phase. That keeps it fast to stand up and easy for the supply team to operate, while file standards, a naming convention, mandatory lot/expiry fields and automated notifications keep the monthly refresh clean and largely hands-off."
+        "a": "It runs on a low-code analytics and automation stack with file-based ingestion through a controlled document library, no direct database connections in the initial phase. That keeps it fast to stand up and easy for the supply team to operate, while file standards, a naming convention, mandatory lot/expiry fields and automated notifications keep the monthly refresh clean and largely hands-off."
       }
     ]
   },
   "saas-pricing-data-analytics": {
     "timeframe": "",
-    "dek": "How a consumer-reviews SaaS platform rebuilt pricing into good/better/best packaging, cleaned its commercial data, and stood up cohort and account-health analytics it could run itself.",
+    "dek": "A consumer-reviews SaaS platform rebuilt pricing into good/better/best packaging, cleaned its commercial data, and gained cohort and account-health analytics it could run itself.",
     "heroStat": {
       "value": "4-step",
-      "label": "data-cleaning pipeline — contracts, then domains, then instance mapping, then entitlements"
+      "label": "data-cleaning pipeline, contracts, then domains, then instance mapping, then entitlements"
     },
     "blocks": [
       {
         "kind": "prose",
         "heading": "The situation",
-        "body": "A late-stage <strong>consumer-reviews SaaS platform</strong> ran <strong>two distinct commercial motions on overlapping CRM data</strong> — and each motion had been priced on its own independent logic. That single fact was the root of the problem: list prices, discounting, and packaging diverged depending on which motion a deal ran through, and the underlying records — accounts, contracts, usage, connections — were not clean enough to price against or to report on with confidence.\n\nThe brief was a <strong>handover</strong>, not a black box. The client wanted a defensible pricing model, a working configure-price-quote (CPQ) prototype, a migrated and cleaned data foundation, and analytics their own team could operate after the advisors stepped away. The work ran across three tightly coupled tracks — <strong>data migration and cleaning</strong>, <strong>pricing</strong>, and <strong>analytics</strong> — deliberately sequenced so each fed the next."
+        "body": "A late-stage, roughly $375M-a-year <strong>consumer-reviews SaaS platform</strong> ran <strong>two distinct commercial motions on overlapping CRM data</strong>, and each motion had been priced on its own independent logic. That was the root problem: list prices, discounting, and packaging diverged by motion, and the underlying records (accounts, contracts, usage, connections) were not clean enough to price against or report on with confidence.\n\nThe brief was a <strong>handover</strong>: a defensible pricing model, a working configure-price-quote (CPQ) prototype, a cleaned data foundation, and analytics the client's team could operate after the advisors stepped away. The work ran across three coupled tracks, <strong>data migration and cleaning</strong>, <strong>pricing</strong>, and <strong>analytics</strong>, sequenced so each fed the next."
       },
       {
         "kind": "flow",
@@ -2169,20 +2068,20 @@ export const ENRICHED: Record<string, EnrichedContent> = {
         "title": "The data migration & cleaning pipeline",
         "items": [
           {
-            "title": "Step 1 — Contracts",
-            "body": "Reconcile services contracts against active customer accounts, resolving the opportunity and quote extracts into a single contract-level spine — the authoritative record of what each customer was contracted for and paying."
+            "title": "Step 1, Contracts",
+            "body": "Reconcile services contracts against active customer accounts, resolving the opportunity and quote extracts into a single contract-level spine, the authoritative record of what each customer was contracted for and paying."
           },
           {
-            "title": "Step 2 — Domains",
+            "title": "Step 2, Domains",
             "body": "Attach customer domains to that contract spine, untangling brands and URLs that spanned multiple agreements so each domain mapped cleanly to its commercial owner."
           },
           {
-            "title": "Step 3 — Instance mapping",
+            "title": "Step 3, Instance mapping",
             "body": "Map product instances and their features to the cleaned domains, so usage and connections data could be tied to a specific deployment rather than a fuzzy account."
           },
           {
-            "title": "Step 4 — Entitlements",
-            "body": "Resolve final entitlements per instance — which features each customer was licensed for. This is the bridge between the data foundation and the new pricing model."
+            "title": "Step 4, Entitlements",
+            "body": "Resolve final entitlements per instance, which features each customer was licensed for. This is the bridge between the data foundation and the new pricing model."
           }
         ]
       },
@@ -2211,7 +2110,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
       {
         "kind": "prose",
         "heading": "Why good/better/best per motion",
-        "body": "The most consequential design choice was to build a <strong>separate good/better/best ladder for each of the two motions</strong> rather than force both onto one unified scheme. The two motions sold against genuinely different value and consumption patterns; a single ladder would have papered over that and reintroduced the inconsistency the engagement set out to remove. Keeping the ladders distinct — while standardising the <em>method</em> (three tiers, documented inputs, a repeatable new-price calculation) — let each motion price honestly against its own logic without the two drifting apart again. Legacy agreements were then mapped against the new ladders so the existing book could be placed onto tiers."
+        "body": "The key design choice was a <strong>separate good/better/best ladder per motion</strong> rather than one unified scheme. The two motions sold against different value and consumption patterns; a single ladder would have masked that and reintroduced the inconsistency the engagement set out to remove. Keeping the ladders distinct while standardising the <em>method</em> (three tiers, documented inputs, a repeatable new-price calculation) let each motion price against its own logic without the two drifting apart. Legacy agreements were then mapped onto the new tiers."
       },
       {
         "kind": "callouts",
@@ -2241,7 +2140,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
         "items": [
           {
             "value": "2",
-            "label": "Commercial motions modeled — each with its own price model and CPQ prototype"
+            "label": "Commercial motions modeled, each with its own price model and CPQ prototype"
           },
           {
             "value": "4",
@@ -2260,7 +2159,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
       {
         "kind": "prose",
         "heading": "Analytics & handover",
-        "body": "On the cleaned foundation, the team stood up <strong>cohort analysis</strong> in a low-code BI platform — versioned and refined across iterations — supported by pivot tables and stair-step contract views that made renewal and expansion patterns legible. Paired with the two-level health scoring, this gave the client a consistent way to look at cohorts and accounts alongside the new pricing.\n\nEverything was delivered as <strong>operable artifacts</strong> so the client's own team could run it: the source and intermediate data files, the four-step cleaned migration datasets, the GBB master and pricing-model workbooks, both CPQ prototypes, and the cohort-analysis reports. The engagement was structured throughout for transfer of ownership — built so the team could requote in the CPQ prototypes and refresh the analytics without the advisors in the room."
+        "body": "On the cleaned foundation, <strong>cohort analysis</strong> was built in a low-code BI platform, refined across iterations and supported by pivot tables and stair-step contract views that made renewal and expansion patterns legible. Paired with the two-level health scoring, it gave the client a consistent view of cohorts and accounts alongside the new pricing.\n\nEverything shipped as <strong>operable artifacts</strong> the client's team could run: source and intermediate data files, the four-step cleaned migration datasets, the GBB master and pricing-model workbooks, both CPQ prototypes, and the cohort-analysis reports. The engagement was structured for transfer of ownership, so the team could requote and refresh the analytics without the advisors."
       },
       {
         "kind": "stack",
@@ -2298,15 +2197,15 @@ export const ENRICHED: Record<string, EnrichedContent> = {
     "faq": [
       {
         "q": "Why clean the data before touching pricing?",
-        "a": "Pricing is only as defensible as the records it runs on. We reconcile contracts, domains, product instances, and entitlements into a single trusted spine first, so the price model and the impact analysis are calculated against what customers are actually contracted for and using — not against stale CRM exports."
+        "a": "Pricing is only as defensible as the records it runs on. Contracts, domains, product instances, and entitlements were reconciled into a single trusted spine first, so the price model and impact analysis ran against what customers were actually contracted for and using, not stale CRM exports."
       },
       {
         "q": "Why a separate good/better/best ladder per motion instead of one unified scheme?",
-        "a": "The two commercial motions sold against different value and consumption patterns, so a single ladder would have masked real differences and reintroduced the inconsistency we were removing. We standardised the method — three tiers, documented inputs, a repeatable new-price calculation — while keeping a distinct ladder per motion, then mapped legacy agreements onto the tiers."
+        "a": "The two commercial motions sold against different value and consumption patterns, so a single ladder would have masked real differences and reintroduced the inconsistency the engagement set out to remove. The method was standardised, three tiers, documented inputs, a repeatable new-price calculation, while a distinct ladder per motion was kept, then mapped legacy agreements onto the tiers."
       },
       {
-        "q": "Do we get something we can operate after you leave?",
-        "a": "That is the point of the engagement. It is structured as a handover: cleaned migration datasets, the pricing-model and packaging workbooks, working CPQ configurator prototypes, and the cohort and health-score analytics are all delivered as artifacts built for your team to run and refresh independently."
+        "q": "Is the result operable after the advisors leave?",
+        "a": "Yes. It is structured as a handover: cleaned migration datasets, the pricing-model and packaging workbooks, working CPQ configurator prototypes, and the cohort and health-score analytics are delivered as artifacts built for the client's team to run and refresh independently."
       }
     ]
   },
@@ -2321,7 +2220,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
       {
         "kind": "prose",
         "heading": "The mandate",
-        "body": "A consulting team was engaged to build a defensible, decision-grade view of where Large Language Model (LLM) and Voice-AI demand is forming — not at the headline \"AI market\" level, but vertical-by-vertical and region-by-region. The brief was deliberately narrow on technology (text and voice LLM applications) and deliberately broad on geography, with a mandate to look past the well-covered developed markets toward <strong>India, the wider Asia-Pacific (APAC), and the Global South</strong> (developing economies across Asia, Africa, and Latin America).\n\nThe core question was an investment-grade one: across four target verticals — <strong>Education, Legal, Defense, and Agriculture</strong> — where is the money today, how fast is each pocket compounding to 2030, and which region/vertical intersections offer the steepest, least-contested growth? The deliverable had to be sourced, comparable, and honest about where the numbers were firm versus inferred."
+        "body": "A consulting team was engaged to build a defensible, decision-grade view of where Large Language Model (LLM) and Voice-AI demand is forming, not at the headline \"AI market\" level, but vertical-by-vertical and region-by-region. The brief was deliberately narrow on technology (text and voice LLM applications) and deliberately broad on geography, with a mandate to look past the well-covered developed markets toward <strong>India, the wider Asia-Pacific (APAC), and the Global South</strong> (developing economies across Asia, Africa, and Latin America).\n\nThe core question was an investment-grade one: across four target verticals, <strong>Education, Legal, Defense, and Agriculture</strong>, where is the money today, how fast is each pocket compounding to 2030, and which region/vertical intersections offer the steepest, least-contested growth? The deliverable had to be sourced, comparable, and honest about where the numbers were firm versus inferred."
       },
       {
         "kind": "flow",
@@ -2387,7 +2286,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
       {
         "kind": "compare",
         "title": "The consolidated comparative table (core verticals)",
-        "caption": "Base-year value, 2030 projection, and CAGR by vertical and region — the spine of the deliverable. Figures are public market-research estimates from top-tier syndicated research houses; cells marked (inferred) are computed from a stated CAGR or regional revenue share, not primary data.",
+        "caption": "Base-year value, 2030 projection, and CAGR by vertical and region, the spine of the deliverable. Figures are public market-research estimates from top-tier syndicated research houses; cells marked (inferred) are computed from a stated CAGR or regional revenue share, not primary data.",
         "head": [
           "Vertical",
           "Region",
@@ -2488,19 +2387,19 @@ export const ENRICHED: Record<string, EnrichedContent> = {
         "title": "What the numbers said, vertical by vertical",
         "items": [
           {
-            "title": "Education — the steepest curve",
+            "title": "Education, the steepest curve",
             "body": "The fastest-compounding vertical by far, with a global base of <strong>~$6.9B (2025) projected to ~$41B by 2030 (~42.8% CAGR)</strong>. APAC and India both run in the high-30s%, lifted by multilingual AI tutors and national AI-in-education policy. Drag factors: infrastructure limits, teacher-training gaps, rural connectivity, and adoption inequality."
           },
           {
-            "title": "Legal — small base, explosive growth",
+            "title": "Legal, small base, explosive growth",
             "body": "A modest global base (<strong>~$1.45B in 2024</strong>) growing at ~17% globally, but India is the breakout at <strong>~23% CAGR</strong> ($29.5M to $106.3M). E-courts, judgment translation, and contract automation drive it; data-privacy and accuracy concerns plus low SME adoption hold it back."
           },
           {
-            "title": "Defense — largest pool, but LLMs are pre-revenue",
-            "body": "As of mid-2024 there were <strong>no publicly known operational LLM deployments in defense</strong> — the language-AI TAM here is essentially pre-commercial, sitting inside a much larger broader-AI market. That broader market is the biggest of the four (<strong>~$22-24B global in 2023-24, doubling to ~$43B by 2030</strong>) but the slowest-growing (~10% global, ~13% in APAC and India). The generative-AI/LLM subset was just ~$0.7-0.9B globally."
+            "title": "Defense, largest pool, but LLMs are pre-revenue",
+            "body": "As of mid-2024 there were <strong>no publicly known operational LLM deployments in defense</strong>, the language-AI TAM here is essentially pre-commercial, sitting inside a much larger broader-AI market. That broader market is the biggest of the four (<strong>~$22-24B global in 2023-24, doubling to ~$43B by 2030</strong>) but the slowest-growing (~10% global, ~13% in APAC and India). The generative-AI/LLM subset was just ~$0.7-0.9B globally."
           },
           {
-            "title": "Agriculture — fastest-growing developing-market story",
+            "title": "Agriculture, fastest-growing developing-market story",
             "body": "Global ~$2.55B (2025) to ~$7.05B (2030) at ~22.5%, with APAC outpacing at ~23-27%. India grows steadily (~12%) off a tiny base. The generative-AI subset is the nascent edge: ~$216M (2024) heading toward $2B+ by the mid-2030s."
           }
         ]
@@ -2511,7 +2410,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
         "before": {
           "label": "Largest today (absolute $)",
           "points": [
-            "Defense dominates on raw spend — tens of billions globally",
+            "Defense dominates on raw spend, tens of billions globally",
             "Developed markets (esp. North America) hold the bulk of current revenue",
             "Education and Agriculture are still sub-$10B globally in 2025",
             "Legal is the smallest core vertical by absolute size"
@@ -2520,7 +2419,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
         "after": {
           "label": "Fastest tomorrow (CAGR)",
           "points": [
-            "Education leads at ~40%+ — a 5-7x expansion across emerging regions by 2030",
+            "Education leads at ~40%+, a 5-7x expansion across emerging regions by 2030",
             "Agriculture and Legal compound in the low-20s%, led by India and APAC",
             "Defense grows slowest (~10-13%) despite the largest base",
             "Emerging regions consistently outpace the global average"
@@ -2534,7 +2433,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
           {
             "label": "Technology markets (global, 2024-25 base to 2030)",
             "items": [
-              "Speech-to-text — ASR apps: ~$3.2B to $7.1B, ~14% CAGR",
+              "Speech-to-text, ASR apps: ~$3.2B to $7.1B, ~14% CAGR",
               "Speech-to-text API (a separate vendor market definition overlapping ASR): ~$3.81B to $8.57B, ~14.4% CAGR",
               "Text-to-speech (TTS): ~$3.87B to $7.28B, ~12.89% CAGR"
             ]
@@ -2542,10 +2441,10 @@ export const ENRICHED: Record<string, EnrichedContent> = {
           {
             "label": "Regional Voice-AI outlook to 2030",
             "items": [
-              "APAC — ~$16.6B by 2030, ~18-19% CAGR (fastest major region)",
-              "India — ~$1.1-1.8B by 2030 (NASSCOM ~$1.82B) at ~20-26% CAGR, off a ~$0.5-0.6B 2025 base",
-              "Global South — ~$27-28B by 2030, mid-teens % CAGR",
-              "Middle East & Africa — ~$6.8B by 2030; Latin America ~$4.43B"
+              "APAC, ~$16.6B by 2030, ~18-19% CAGR (fastest major region)",
+              "India, ~$1.1-1.8B by 2030 (NASSCOM ~$1.82B) at ~20-26% CAGR, off a ~$0.5-0.6B 2025 base",
+              "Global South, ~$27-28B by 2030, mid-teens % CAGR",
+              "Middle East & Africa, ~$6.8B by 2030; Latin America ~$4.43B"
             ]
           },
           {
@@ -2564,11 +2463,11 @@ export const ENRICHED: Record<string, EnrichedContent> = {
         "items": [
           {
             "title": "Banking / Financial Services",
-            "body": "Chatbots, retrieval-augmented copilots, KYC/fraud operations, and advisor assistants (with voice next) — growing at <strong>~31.8% (2024-2030)</strong>, the hottest adjacent signal surfaced."
+            "body": "Chatbots, retrieval-augmented copilots, KYC/fraud operations, and advisor assistants (with voice next), growing at <strong>~31.8% (2024-2030)</strong>, the hottest adjacent signal surfaced."
           },
           {
             "title": "Media & Entertainment (Localization / Voice)",
-            "body": "AI voiceover, dubbing, voice cloning, and adaptive TTS — <strong>~29-30% CAGR (2024-2030)</strong>, a natural extension of the Voice-AI thesis into content."
+            "body": "AI voiceover, dubbing, voice cloning, and adaptive TTS, <strong>~29-30% CAGR (2024-2030)</strong>, a natural extension of the Voice-AI thesis into content."
           }
         ]
       },
@@ -2586,7 +2485,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
           },
           {
             "title": "Flag inferred cells explicitly",
-            "body": "Where no direct number existed (e.g., APAC Education 2030, or APAC Agriculture total derived from a 61.2% software share), values were computed from the stated CAGR or regional share and labelled \"inferred\" or \"est.\" — never presented as primary data."
+            "body": "Where no direct number existed (e.g., APAC Education 2030, or APAC Agriculture total derived from a 61.2% software share), values were computed from the stated CAGR or regional share and labelled \"inferred\" or \"est.\", never presented as primary data."
           },
           {
             "title": "Separate broad AI from LLM-specific AI",
@@ -2597,7 +2496,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
       {
         "kind": "prose",
         "heading": "The consolidated outlook",
-        "body": "The synthesis produced a clear strategic read. <strong>Education is the growth engine</strong> — the steepest CAGR of any vertical and a 5-7x market expansion across India, APAC, Latin America, and the Middle East & Africa by 2030. <strong>Defense is the cash pool with a catch</strong> — the largest absolute market, but slow-growing and, for LLMs specifically, still pre-commercial, with no known operational deployments as of mid-2024. <strong>Legal and Agriculture are the emerging-market plays</strong>, where India and APAC consistently grow faster than the global average off small bases.\n\nThe cross-cutting theme: in every vertical, <strong>developing regions outpaced the global average</strong>, and the binding constraint was rarely demand — it was infrastructure, connectivity, literacy, and trust. The Voice-AI layer reinforced this, with multilingual and vernacular interfaces emerging as the wedge for the Global South. Banking and Media localization were flagged as the highest-momentum adjacencies for any subsequent phase of work."
+        "body": "The synthesis produced a clear strategic read. <strong>Education is the growth engine</strong>, the steepest CAGR of any vertical and a 5-7x market expansion across India, APAC, Latin America, and the Middle East & Africa by 2030. <strong>Defense is the cash pool with a catch</strong>, the largest absolute market, but slow-growing and, for LLMs specifically, still pre-commercial, with no known operational deployments as of mid-2024. <strong>Legal and Agriculture are the emerging-market plays</strong>, where India and APAC consistently grow faster than the global average off small bases.\n\nThe cross-cutting theme: in every vertical, <strong>developing regions outpaced the global average</strong>, and the binding constraint was rarely demand, it was infrastructure, connectivity, literacy, and trust. The Voice-AI layer reinforced this, with multilingual and vernacular interfaces emerging as the wedge for the Global South. Banking and Media localization were flagged as the highest-momentum adjacencies for any subsequent phase of work."
       },
       {
         "kind": "note",
@@ -2611,16 +2510,16 @@ export const ENRICHED: Record<string, EnrichedContent> = {
       },
       {
         "q": "Why separate Voice-AI and the generative-AI subset from the broader AI market?",
-        "a": "Headline 'AI in [sector]' numbers often bundle established narrow-AI (computer vision, predictive analytics) with the much smaller, faster-growing LLM and voice layer. Conflating them overstates addressable demand for a language-AI strategy. We size the voice markets — speech-to-text (ASR) and text-to-speech — separately, treat overlapping vendor definitions like ASR and speech-to-text API as overlapping rather than additive, and isolate the generative-AI subset so the addressable market reflects what an LLM or voice product can actually capture. In Defense, that discipline surfaced the key finding: no known operational LLM deployments as of mid-2024."
+        "a": "Headline 'AI in [sector]' numbers often bundle established narrow-AI (computer vision, predictive analytics) with the much smaller, faster-growing LLM and voice layer. Conflating them overstates addressable demand for a language-AI strategy. We size the voice markets, speech-to-text (ASR) and text-to-speech, separately, treat overlapping vendor definitions like ASR and speech-to-text API as overlapping rather than additive, and isolate the generative-AI subset so the addressable market reflects what an LLM or voice product can actually capture. In Defense, that discipline surfaced the key finding: no known operational LLM deployments as of mid-2024."
       },
       {
         "q": "What does a deliverable like this contain?",
-        "a": "A consolidated comparative master table (vertical x region x base value, 2030 projection, CAGR, drivers, constraints, sources), per-vertical fact sheets, a dedicated Voice-AI section covering technology markets and regional sizing, a flag list of adjacent high-growth sectors, and a synthesized 2025-2030 outlook ranking the most attractive region/vertical intersections — all fully sourced to named syndicated research houses."
+        "a": "A consolidated comparative master table (vertical x region x base value, 2030 projection, CAGR, drivers, constraints, sources), per-vertical fact sheets, a dedicated Voice-AI section covering technology markets and regional sizing, a flag list of adjacent high-growth sectors, and a synthesized 2025-2030 outlook ranking the most attractive region/vertical intersections, all fully sourced to named syndicated research houses."
       }
     ]
   },
   "qms-governance-dashboards": {
-    "timeframe": "2023",
+    "timeframe": "2022–2023",
     "dek": "How a large global pharma replaced fragmented quality oversight with one repeatable governance board across every QMS module, a cross-module board, and a low-code dashboard built for audit-ready decisions.",
     "heroStat": {
       "value": "One board template",
@@ -2630,12 +2529,12 @@ export const ENRICHED: Record<string, EnrichedContent> = {
       {
         "kind": "prose",
         "heading": "The setup",
-        "body": "A large global pharmaceutical company ran a <strong>modernized quality-management system (mQMS)</strong> spanning many interdependent quality modules — deviation, CAPA, change control, complaints, audit, document and training management, and the regulated processes that connect them. Each module had its own owners, metrics, and review rhythm, but governance was fragmented. Module health was discussed in isolation, escalations surfaced unevenly, and there was no single, audit-ready view a leadership board could open in a meeting and trust.\n\nThe client engaged us to design and build a <strong>governance dashboard solution</strong> that would standardize how every module is reviewed, how issues escalate across modules, and how the whole system is governed by a cross-module board — delivered on a low-code platform the quality organization could maintain itself."
+        "body": "A global pharmaceutical company with revenue north of $50B ran a <strong>modernized quality-management system (mQMS)</strong> spanning many interdependent quality modules, deviation, CAPA, change control, complaints, audit, document and training management, and the regulated processes that connect them. Each module had its own owners, metrics, and review rhythm, but governance was fragmented. Module health was discussed in isolation, escalations surfaced unevenly, and there was no single, audit-ready view a leadership board could open in a meeting and trust.\n\nThe engagement designed and built a <strong>governance dashboard solution</strong> standardizing how every module is reviewed, how issues escalate across modules, and how the whole system is governed by a cross-module board, delivered on a low-code platform the quality organization could maintain itself."
       },
       {
         "kind": "prose",
         "heading": "The work",
-        "body": "We began with a <strong>Tool Requirement Document</strong> that defined the solution before any build: the module set, the structure of each governance board, the escalation flows between modules, the reporting and meeting outputs, and the backup and maintenance model. That requirements baseline did double duty — it drove the dashboard build and framed a parallel <strong>low-code platform capability assessment</strong>.\n\nFrom there we designed a single, repeatable board template and instantiated it for <strong>every mQMS module</strong>, plus one <strong>cross-module board</strong> that rolls the modules up. Each board is a working meeting surface: a chair opens it live, walks the agenda, captures status and actions inside the tool, and prints the result as the meeting-minutes record. Because every module uses the identical section layout, a reviewer who learns one board can run any of them."
+        "body": "Work began by capturing client requirements that defined the solution before any build: the module set, each governance board's structure, escalation flows between modules, reporting and meeting outputs, and the backup and maintenance model. That requirements baseline drove the dashboard build directly: it defined what each governance board and the cross-module roll-up had to do before any screen was assembled on the platform.\n\nA single, repeatable board template was then designed and instantiated for <strong>every mQMS module</strong>, plus one <strong>cross-module board</strong> rolling them up. Each board is a working meeting surface: a chair opens it live, walks the agenda, captures status and actions inside the tool, and prints the result as the meeting-minutes record. Because every module uses the identical section layout, a reviewer who learns one board can run any of them."
       },
       {
         "kind": "stack",
@@ -2644,15 +2543,15 @@ export const ENRICHED: Record<string, EnrichedContent> = {
           {
             "label": "Module status",
             "items": [
-              "Overall Module Health — Status, Description, Action, Due, prepared for each board meeting",
+              "Overall Module Health, Status, Description, Action, Due, prepared for each board meeting",
               "Annual Assessment of the module",
-              "Meeting Maintenance — editable meeting cadence"
+              "Meeting Maintenance, editable meeting cadence"
             ]
           },
           {
             "label": "Cross-module signal",
             "items": [
-              "Escalated Items — escalations summarized and aggregated from every module",
+              "Escalated Items, escalations summarized and aggregated from every module",
               "Regulatory Changes affecting the module",
               "Action Items tied to regulatory information"
             ]
@@ -2660,8 +2559,8 @@ export const ENRICHED: Record<string, EnrichedContent> = {
           {
             "label": "Improvement & architecture",
             "items": [
-              "Continuous Improvement / Feedback — audit nonconformances, verbal recommendations, lessons learned, audit recommendations, external partners, other modules, sites and affiliates",
-              "Module Architecture — periodic review of processes, training, planned and proposed changes and backlog; module documents; new standard or network processes"
+              "Continuous Improvement / Feedback, audit nonconformances, verbal recommendations, lessons learned, audit recommendations, external partners, other modules, sites and affiliates",
+              "Module Architecture, periodic review of processes, training, planned and proposed changes and backlog; module documents; new standard or network processes"
             ]
           }
         ]
@@ -2695,11 +2594,11 @@ export const ENRICHED: Record<string, EnrichedContent> = {
       },
       {
         "kind": "steps",
-        "title": "The training guides — making it run without us",
+        "title": "The training guides, making it run independently",
         "items": [
           {
             "title": "mQMS Governance Dashboard training guide",
-            "body": "A navigation guide covering the full meeting flow — instructions, cover, agenda, meeting cadence, overall assessment, regulatory changes, continuous improvement and feedback, module architecture, additional discussion topics, additional action items, printing for the minutes record, and requesting folder and dashboard backups."
+            "body": "A navigation guide covering the full meeting flow, instructions, cover, agenda, meeting cadence, overall assessment, regulatory changes, continuous improvement and feedback, module architecture, additional discussion topics, additional action items, printing for the minutes record, and requesting folder and dashboard backups."
           },
           {
             "title": "Module-by-module coverage",
@@ -2713,8 +2612,8 @@ export const ENRICHED: Record<string, EnrichedContent> = {
       },
       {
         "kind": "prose",
-        "heading": "The platform capability assessment",
-        "body": "The dashboard solution was delivered on a <strong>low-code BI and collaboration platform</strong> the quality team could own and edit — boards, cadence, and sections are configurable without engineering. In parallel, and against the same requirements baseline, we ran a <strong>low-code platform capability assessment</strong>: we evaluated a separate <strong>enterprise low-code application platform</strong> for the heavier, workflow-driven capabilities the QMS roadmap might later require. The result gave the client an evidence-based view of what each tool class can and cannot do before committing further investment."
+        "heading": "The build platform and team enablement",
+        "body": "The dashboard solution was built on an <strong>enterprise low-code application platform</strong>, with the screens and logic assembled directly in the tool and a <strong>low-code data and collaboration tool</strong> integrated on the backend to hold the underlying records. The design goal throughout was an artifact the quality team could own and edit: boards, cadence, and sections are configurable without engineering, so reviewers maintain the governance layer themselves."
       },
       {
         "kind": "split",
@@ -2744,41 +2643,41 @@ export const ENRICHED: Record<string, EnrichedContent> = {
         "items": [
           {
             "title": "Governance dashboard solution",
-            "body": "Module-wise governance boards for every mQMS module plus a cross-module board, on a low-code platform — each carrying the full section layout from module health to architecture."
+            "body": "Module-wise governance boards for every mQMS module plus a cross-module board, on a low-code platform, each carrying the full section layout from module health to architecture."
           },
           {
-            "title": "Tool Requirement Document",
-            "body": "Requirements baseline covering modules, governance boards, escalation flows, reporting, and backup and maintenance — the document that drove both the build and the platform evaluation."
+            "title": "Requirements baseline",
+            "body": "Requirements baseline covering modules, governance boards, escalation flows, reporting, and backup and maintenance, the requirements that drove the dashboard build."
           },
           {
             "title": "Training guides",
             "body": "A navigation guide and a module-by-module guide covering every section, the live meeting flow, minutes printing, and backup requests."
           },
           {
-            "title": "Low-code capability assessment",
-            "body": "An evaluation of an enterprise low-code application platform against the requirements, informing future QMS tooling decisions."
+            "title": "Platform enablement",
+            "body": "Platform enablement for the quality team, structured training across the low-code platform's logic, screen building, data modeling, and reusable components, so they could maintain and extend the boards in-house."
           }
         ]
       }
     ],
     "faq": [
       {
-        "q": "How do you keep module-level reviews and enterprise-wide oversight in sync?",
-        "a": "We use a single repeatable board template instantiated per module, then a cross-module board that aggregates the signals every module flags — chiefly escalated items and regulatory changes. Because the layout is identical everywhere, a local module review and the enterprise board read the same way, and an item escalated in one module surfaces consistently on the cross-module board."
+        "q": "How are module-level reviews and enterprise-wide oversight kept in sync?",
+        "a": "A single repeatable board template is instantiated per module, then a cross-module board aggregates the signals every module flags, chiefly escalated items and regulatory changes. Because the layout is identical everywhere, a local module review and the enterprise board read the same way, and an item escalated in one module surfaces consistently on the cross-module board."
       },
       {
-        "q": "Will our quality team be able to run and maintain this without ongoing consulting support?",
-        "a": "That is the design intent. The solution is built on a low-code platform your team can configure, and we deliver both a navigation training guide and a module-by-module guide that walks through every section, the live meeting flow, printing the minutes record, and requesting folder and dashboard backups. Cadence and sections are editable without engineering."
+        "q": "Can the quality team run and maintain this without ongoing consulting support?",
+        "a": "That is the design intent. The solution runs on a low-code platform the quality team can configure, delivered with a navigation guide and a module-by-module guide covering every section, the live meeting flow, printing the minutes record, and requesting folder and dashboard backups. Cadence and sections are editable without engineering."
       },
       {
-        "q": "How do you make the governance record audit-ready?",
+        "q": "How is the governance record made audit-ready?",
         "a": "Every board is a live working surface during the meeting, then printed as the meeting-minutes record, so decisions, owners, actions and due dates are captured in one place. Defined backup procedures for folders and dashboards keep that record recoverable and defensible under audit."
       }
     ]
   },
   "pricing-trade-analytics-bi": {
-    "timeframe": "Multi-project engagement",
-    "dek": "How a CPG pricing and trade-analytics team got a multi-project BI solution — a documented data model, dashboards, and a project-by-project manual for self-serve upkeep.",
+    "timeframe": "2022–2023",
+    "dek": "How a CPG pricing and trade-analytics team got a multi-project BI solution, a documented data model, dashboards, and a project-by-project manual for self-serve upkeep.",
     "heroStat": {
       "value": "Multi-project",
       "label": "BI solution handed over with a project-by-project training manual so the client could maintain and extend every dashboard in-house"
@@ -2787,17 +2686,17 @@ export const ENRICHED: Record<string, EnrichedContent> = {
       {
         "kind": "prose",
         "heading": "The engagement",
-        "body": "A consumer-packaged-goods (CPG) team responsible for <strong>pricing and trade analytics</strong> needed a governed, repeatable analytics environment built on a <strong>low-code BI platform</strong>. The work spanned several distinct analytical projects, each modeled and surfaced through filterable dashboards.\n\nThe brief was twofold. First, build a <strong>multi-project business-intelligence solution</strong>: connect the raw data, model it, and present it through dashboards with filters and charts. Second — and weighted equally — hand the solution over in a state the client's own team could <strong>maintain and extend without the consultant</strong>, including loading each new year of data and adding new projects."
+        "body": "A consumer-packaged-goods (CPG) team responsible for <strong>pricing and trade analytics</strong> needed a governed, repeatable analytics environment built on a <strong>BI platform</strong>. The work spanned several distinct analytical projects, each modeled and surfaced through filterable dashboards covering pricing and sales analytics: retention rate, single-time versus repeat-versus-new buyers, sales performance, and a price-volume-mix (PVM) waterfall.\n\nThe brief was twofold. First, build a <strong>multi-project business-intelligence solution</strong>: connect the raw data, model it, and present it through dashboards with filters and charts. Second, and weighted equally, hand the solution over in a state the client's own team could <strong>maintain and extend without the consultant</strong>, including loading each new year of data and adding new projects."
       },
       {
         "kind": "prose",
         "heading": "A three-layer pattern, applied project by project",
-        "body": "The technical spine of the solution is a reusable three-layer architecture rather than a one-off build. At its core is the design decision that pays off on every refresh: the working <strong>sales table is a dynamic combination of the raw yearly files</strong>, assembled in the platform's query/ETL layer. Because the combination is dynamic, adding a new year of data is <strong>additive</strong> — a drop-in refresh — provided the new file matches the existing structure, rather than a manual rebuild of the logic.\n\nThat combined sales table carries the calculations and derived columns reused across every dashboard in the project, so the analytical logic lives in one place. The same pattern was applied across the multiple projects in the solution, giving the client one consistent shape to learn once and reuse."
+        "body": "The technical spine of the solution is a reusable three-layer architecture rather than a one-off build. At its core is the design decision that pays off on every refresh: the working <strong>sales table is a dynamic combination of the raw yearly files</strong>, assembled in the platform's query/ETL layer. Because the combination is dynamic, adding a new year of data is <strong>additive</strong>, a drop-in refresh, provided the new file matches the existing structure, rather than a manual rebuild of the logic.\n\nThat combined sales table carries the calculations and derived columns reused across every dashboard in the project, so the analytical logic lives in one place. The same pattern was applied across the multiple projects in the solution, giving the client one consistent shape to learn once and reuse."
       },
       {
         "kind": "flow",
         "title": "How each project was built",
-        "caption": "A repeatable pattern, from raw files to a governed dashboard.",
+        "caption": "A repeatable pattern, from raw files to governed, reconciliation-checked dashboards.",
         "steps": [
           {
             "label": "Ingest raw sources",
@@ -2820,7 +2719,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
             "sub": "Calculated columns on the combined table, reused across dashboards"
           },
           {
-            "label": "Surface dashboards",
+            "label": "Surface and reconcile dashboards",
             "sub": "Filters and charts on top of the model, opening on a cover and consolidated assumptions view"
           }
         ]
@@ -2850,7 +2749,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
             "items": [
               "Cover tab",
               "Consolidated Definitions and Assumptions tab",
-              "Filtered, charted analysis dashboards"
+              "Filtered, charted analysis dashboards: retention rate, single-time vs repeat-vs-new buyers, sales performance, and price-volume-mix (PVM) waterfall"
             ]
           }
         ]
@@ -2882,7 +2781,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
         "title": "The solution by the numbers",
         "items": [
           {
-            "value": "3 years",
+            "value": "Multiple years",
             "label": "Raw yearly data files dynamically combined into the flagship project's working sales table"
           },
           {
@@ -2913,7 +2812,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
           },
           {
             "title": "A project-by-project training manual",
-            "body": "A comprehensive manual walking through every project end to end — so the client can load new data, adjust assumptions, and extend the dashboards without ongoing dependency on the consultant."
+            "body": "A comprehensive manual walking through every project end to end, so the client can load new data, adjust assumptions, and extend the dashboards without ongoing dependency on the consultant."
           }
         ]
       },
@@ -2924,7 +2823,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
     ],
     "faq": [
       {
-        "q": "Can our team maintain the dashboards after handover, or will we be dependent on a consultant?",
+        "q": "Can the client's team maintain the dashboards after handover, or will it stay dependent on a consultant?",
         "a": "Self-serve maintenance is a primary design goal. The solution ships with a project-by-project training manual covering data sources, the data model and table relationships, dashboard filters, charts, and all assumptions. Because the sales table is a dynamic combination of the yearly files, loading a new year is a drop-in refresh as long as the new data matches the existing structure, and the manual documents how to extend or add dashboards."
       },
       {
@@ -2932,8 +2831,8 @@ export const ENRICHED: Record<string, EnrichedContent> = {
         "a": "Every dashboard follows a consistent spine: a cover view, then a single consolidated Definitions and Assumptions view. Methodology and assumptions live in one place rather than being scattered across individual charts, which keeps the analysis auditable and easy to revisit."
       },
       {
-        "q": "What do we actually receive at the end of the engagement?",
-        "a": "The running BI solution files — a versioned package per project — plus the underlying data-file packages, a documented data model for each project, and the comprehensive project-by-project training manual. You own and can operate the full solution in-house."
+        "q": "What does the client actually receive at the end of the engagement?",
+        "a": "The running BI solution files, a versioned package per project, plus the underlying data-file packages, a documented data model for each project, and the comprehensive project-by-project training manual. You own and can operate the full solution in-house."
       }
     ]
   }

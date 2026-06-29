@@ -152,6 +152,17 @@ a { text-decoration: none; }
 .js [data-split],
 .js [data-scrub-text] { visibility: hidden; }
 
+/* Failsafe: if the motion script is slow or fails to run, BaseLayout adds
+   .motion-failsafe after 2s so content is shown rather than left blank. */
+.js.motion-failsafe [data-reveal],
+.js.motion-failsafe [data-reveal-group] > *,
+.js.motion-failsafe [data-split],
+.js.motion-failsafe [data-scrub-text] {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+}
+
 .sw-mask {
   display: inline-block;
   overflow: hidden;

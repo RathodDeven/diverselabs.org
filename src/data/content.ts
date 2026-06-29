@@ -74,6 +74,10 @@ export interface Doc {
   author?: string;
   /** When true the doc is excluded from listings + getStaticPaths */
   draft?: boolean;
+  /** True when Priyam personally delivered this engagement (timesheet-backed). Shows a badge. */
+  directlyDelivered?: boolean;
+  /** First-person "My Direct Contribution" paragraph (anonymized, no client names/hours). */
+  contribution?: string;
 }
 
 const SITE = 'https://diverselabs.org';
