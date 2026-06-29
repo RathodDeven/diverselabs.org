@@ -69,7 +69,7 @@ const readMin = Math.max(2, Math.round(wordCount / 220));
       {doc.directlyDelivered && (
         <div class="doc-delivered" data-reveal data-reveal-delay="0.1">
           <span class="doc-delivered-mark" aria-hidden="true">✓</span>
-          Directly delivered by me
+          Directly delivered
         </div>
       )}
 
@@ -134,7 +134,7 @@ const readMin = Math.max(2, Math.round(wordCount / 220));
       <section class="doc-contrib" data-reveal id="my-contribution">
         <div class="doc-contrib-head">
           <span class="doc-contrib-mark" aria-hidden="true">✓</span>
-          <span class="doc-contrib-eyebrow">My direct contribution</span>
+          <span class="doc-contrib-eyebrow">Direct contribution</span>
         </div>
         <p class="doc-contrib-body" set:html={doc.contribution} />
       </section>

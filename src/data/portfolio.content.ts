@@ -21,12 +21,12 @@ export const ENRICHED: Record<string, EnrichedContent> = {
     },
     "faq": [
       {
-        "q": "We're approaching a first commercial launch from a clinical CDMO base. How early should launch-readiness work start?",
+        "q": "When a first commercial launch is approaching from a clinical CDMO base, how early should launch-readiness work start?",
         "a": "For a first-of-its-kind product, start well before the approval decision and treat the assessment as phase-appropriate. In this engagement the work was framed explicitly so that not every gap had to be closed before approval; the priority was to surface the real crunches, risks and stage-appropriate fixes through a structured core-process review rather than to over-engineer. A focused 8-week diagnostic gives you a prioritized gap list scored by impact and ease, a demand-capacity view that ties forecast to suites and crews, and a governance and dashboard design the launch team can stand up incrementally as approval firms up."
       },
       {
-        "q": "Should we internalize bill-of-materials and raw-material oversight from our CDMO, or leave it outsourced?",
-        "a": "It is a quantified decision driven by volume and capability thresholds, not a philosophy. We baseline the current economics (BOM cost per batch, the highest-cost materials, storage, freight, insurance and the CDMO's procurement fee), then model future-state OpEx, CapEx and savings across scenarios from fully outsourced to a client-owned warehouse. The go / no-go turns on concrete triggers: the batch-volume band at which in-house storage and QC pay back, and whether the client can stand up the ERP/inventory, additional LIMS modules, supplier management and raw-material QC each scenario requires. We map those trigger points and the sequence to build against them, deliverable in roughly five weeks."
+        "q": "Should bill-of-materials and raw-material oversight be internalized from the CDMO, or left outsourced?",
+        "a": "It is a quantified decision driven by volume and capability thresholds, not a philosophy. The work baselines the current economics (BOM cost per batch, the highest-cost materials, storage, freight, insurance and the CDMO's procurement fee), then models future-state OpEx, CapEx and savings across scenarios from fully outsourced to a client-owned warehouse. The go / no-go turns on concrete triggers: the batch-volume band at which in-house storage and QC pay back, and whether the client can stand up the ERP/inventory, additional LIMS modules, supplier management and raw-material QC each scenario requires. Those trigger points and the build sequence are mapped, deliverable in roughly five weeks."
       },
       {
         "q": "What makes a gene-therapy commercial supply chain different from a conventional biologic?",
@@ -42,7 +42,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
       {
         "kind": "prose",
         "heading": "The mandate",
-        "body": "We were engaged to run a focused launch-readiness assessment of the commercial supply chain. The brief was deliberately pragmatic: identify the immediate crunches through focused interviews, stay agile and iterate on solutions without over-engineering, and keep every recommendation <strong>fit-for-purpose and stage-appropriate</strong> given the uncertainty of approval.\n\nThe work was framed so as not to critique prior launch-readiness efforts, given approval uncertainty, it was never expected that every gap would be closed before approval. The job was to see clearly, prioritize, and design the operating model the launch would need."
+        "body": "The engagement ran a focused launch-readiness assessment of the commercial supply chain. The brief was deliberately pragmatic: identify the immediate crunches through focused interviews, stay agile and iterate on solutions without over-engineering, and keep every recommendation <strong>fit-for-purpose and stage-appropriate</strong> given the uncertainty of approval.\n\nThe work was framed so as not to critique prior launch-readiness efforts, given approval uncertainty, it was never expected that every gap would be closed before approval. The job was to see clearly, prioritize, and design the operating model the launch would need."
       },
       {
         "kind": "stack",
@@ -84,7 +84,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
       },
       {
         "kind": "steps",
-        "title": "How we ran the 8-week assessment",
+        "title": "How the 8-week assessment ran",
         "items": [
           {
             "title": "Risk & gap assessment",
@@ -154,7 +154,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
       },
       {
         "kind": "flow",
-        "title": "The order-to-delivery flow we mapped and instrumented",
+        "title": "The order-to-delivery flow, mapped and instrumented",
         "caption": "Patient-specific gene-therapy product moving from order capture through CDMO finishing to the site of care.",
         "steps": [
           {
@@ -186,7 +186,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
       {
         "kind": "prose",
         "heading": "From assessment to operating tools: the demand-capacity model and S&OP",
-        "body": "The centerpiece of the build was a <strong>demand-capacity model</strong> that translated a combined clinical-plus-commercial forecast into the number of finishing suites, crews and QA-release hours required month by month. It encoded the constraints that actually drove the answer: vial-yield throughput stepping up over time, the fixed pool of QA-release hours split dynamically between labelling and kitting, and the crew rule that one crew runs two suites.\n\nThe model went through multiple iterations as forecasts firmed up, and it showed starkly how demand growth drove suite requirements, from a single suite in the early quarters toward the full four-suite, two-crew configuration as kitting volumes scaled. Around it we stood up an integrated <strong>sales-and-operations-planning</strong> process, meeting structure, participants and cadence, plus a design hand-off calendar and a dynamic planning dashboard. We also built a <strong>QA-release model</strong> that sized and sequenced the quality-release capacity feeding labelling and kitting, since QA-release hours were a binding constraint on finishing throughput."
+        "body": "The centerpiece of the build was a <strong>demand-capacity model</strong> that translated a combined clinical-plus-commercial forecast into the number of finishing suites, crews and QA-release hours required month by month. It encoded the constraints that actually drove the answer: vial-yield throughput stepping up over time, the fixed pool of QA-release hours split dynamically between labelling and kitting, and the crew rule that one crew runs two suites.\n\nThe model went through multiple iterations as forecasts firmed up, and it showed starkly how demand growth drove suite requirements, from a single suite in the early quarters toward the full four-suite, two-crew configuration as kitting volumes scaled. Around it sat an integrated <strong>sales-and-operations-planning</strong> process, meeting structure, participants and cadence, plus a design hand-off calendar and a dynamic planning dashboard, and a <strong>QA-release model</strong> that sized and sequenced the quality-release capacity feeding labelling and kitting, since QA-release hours were a binding constraint on finishing throughput."
       },
     ]
   },
@@ -465,12 +465,12 @@ export const ENRICHED: Record<string, EnrichedContent> = {
       {
         "kind": "prose",
         "heading": "The situation: a quality function caught between two operating logics",
-        "body": "A roughly $30B global pharmaceutical company engaged the firm to redesign the operating model for its R&D Quality organization following a major reorganization. Historically, R&D Quality had been a <strong>compliance-focused function</strong>, its priority was conducting audits and facilitating regulatory inspections. Less weight was placed on the strategic role a modern quality organization plays in advising the business and stewarding the Quality Management System (QMS), such as procedural-document and training administration.\n\nIn that vacuum, individual Development functions had grown their own <strong>embedded quality groups and central process teams</strong> to meet local needs. The reorganization strengthened and expanded the central quality business-partner role to reach all Development functions, but it created a structural collision. There was no clear line for where central R&D Quality ended and the embedded teams began."
+        "body": "A roughly $30B global pharmaceutical company engaged the firm to redesign the operating model for its R&D Quality organization following a major reorganization. Historically, R&D Quality had been a <strong>compliance-focused function</strong>, prioritizing audits and regulatory inspections. Less weight was placed on the strategic role a modern quality organization plays in advising the business and stewarding the Quality Management System (QMS), such as procedural-document and training administration.\n\nIn that vacuum, individual Development functions had grown their own <strong>embedded quality groups and central process teams</strong> to meet local needs. The reorganization strengthened and expanded the central quality business-partner role to reach all Development functions, but it created a structural collision. There was no clear line for where central R&D Quality ended and the embedded teams began."
       },
       {
         "kind": "prose",
         "heading": "The problem, stated plainly",
-        "body": "The diagnosis was a lack of clarity on the role played by central R&D Quality alongside the embedded process teams. The consequences were concrete: <strong>duplication of effort, potential misplacement of resources, and the absence of a coordinated, holistic approach</strong> to quality oversight of GxP business operations.\n\nBoth sides shared a genuine commitment to quality and each held a distinct remit, but capability, activity, and resource overlaps were real and unmanaged. An informal review roughly a year earlier had confirmed relative roles in support of quality processes, but its outputs were never formalized; the need for a proper redesign had only ever surfaced through informal mentions. The leading risk flagged at kickoff was getting the embedded teams aligned on the very basis and objectives of the work, to be mitigated by socializing a charter and securing Development leadership support."
+        "body": "The diagnosis: unclear roles for central R&D Quality alongside the embedded process teams. The consequences were concrete: <strong>duplication of effort, potential misplacement of resources, and the absence of a coordinated, holistic approach</strong> to quality oversight of GxP business operations.\n\nBoth sides shared a genuine commitment to quality and each held a distinct remit, but capability, activity, and resource overlaps were real and unmanaged. An informal review roughly a year earlier had confirmed relative roles in support of quality processes, but its outputs were never formalized; the need for a proper redesign had only ever surfaced through informal mentions. The leading risk flagged at kickoff was getting the embedded teams aligned on the very basis and objectives of the work, to be mitigated by socializing a charter and securing Development leadership support."
       },
       {
         "kind": "flow",
@@ -660,7 +660,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
       {
         "kind": "prose",
         "heading": "Where the engagement landed",
-        "body": "The work was structured to run from current-state assessment through to implementation planning and long-term resourcing, not to a post-implementation outcome. Its value sat in the design itself: a single tailorable operating model replacing an ad-hoc patchwork, an activity-by-activity ownership map that forced one agreed decision-owner per process step where there had previously been none, formalized role descriptions and governance, and a professionalized process-owner network operating to shared standards. The deliverable set closed with a long-term resource model to sustain it, leaving the client with an executable plan rather than a one-off diagnosis."
+        "body": "The work ran from current-state assessment through implementation planning and long-term resourcing, not to a post-implementation outcome. Its value sat in the design itself: a single tailorable operating model replacing an ad-hoc patchwork, an activity-by-activity ownership map that forced one agreed decision-owner per process step where there had previously been none, formalized role descriptions and governance, and a professionalized process-owner network operating to shared standards. The deliverable set closed with a long-term resource model to sustain it, leaving the client with an executable plan rather than a one-off diagnosis."
       },
       {
         "kind": "note",
@@ -674,11 +674,11 @@ export const ENRICHED: Record<string, EnrichedContent> = {
       },
       {
         "q": "How do you handle overlap between central quality and embedded functional teams?",
-        "a": "We decompose every quality-owned activity into discrete process steps and assign ownership across the central process owner, the quality business partner, the embedded group, and the functional subject-matter expert, forcing explicit agreement on who decides versus who is merely consulted. A maturity model and current-state interviews ground the design in how work actually runs today, not the org chart."
+        "a": "Every quality-owned activity is split into process steps, with ownership assigned across the central process owner, the quality business partner, the embedded group, and the functional subject-matter expert, forcing explicit agreement on who decides versus who is merely consulted. A maturity model and current-state interviews ground the design in how work actually runs today, not the org chart."
       },
       {
         "q": "Why stand up a formal process-owner network alongside the model redesign?",
-        "a": "A redesigned model only holds if named owners are accountable end-to-end for each process and operate to shared standards. We install the network with a charter, role descriptions, training, success metrics, and structured forums so owners can resolve interdependencies, then plan the long-term resourcing to sustain it."
+        "a": "A redesigned model only holds if named owners are accountable end-to-end for each process and operate to shared standards. The network gets a charter, role descriptions, training, success metrics, and structured forums so owners can resolve interdependencies, then plan the long-term resourcing to sustain it."
       }
     ]
   },
@@ -693,7 +693,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
       {
         "kind": "prose",
         "heading": "The situation",
-        "body": "A roughly $400M commercial-stage specialty pharmaceutical company had launched its lead topical prescription product and was scaling supply behind a fast-ramping demand curve. The external manufacturing footprint that carried that launch was concentrated and, in places, single-threaded: <strong>one primary drug-product CMO</strong> performing the full fill-and-release workflow for the cream; a <strong>single primary drug-substance source</strong>; and a packaging-plus-distribution node handling labeling, serialization, storage and distribution.\n\nThat concentration had delivered the launch, the primary CMO had produced dozens of commercial drug-product lots across development, launch and continued supply, but it left the network exposed. The same partner had hit a failed tech transfer and an out-of-specification impurity result on an adjacent program, and had recently changed ownership. With Technical Operations preparing a board readout, leadership needed a clear-eyed view of where supply could break, what the alternates were, and how much inventory and shelf-life headroom stood between the company and a stock-out."
+        "body": "A roughly $400M commercial-stage specialty pharmaceutical company had launched its lead topical prescription product and was scaling supply behind a fast-ramping demand curve. The external manufacturing footprint that carried that launch was concentrated and, in places, single-threaded: <strong>one primary drug-product CMO</strong> performing the full fill-and-release workflow for the cream; a <strong>single primary drug-substance source</strong>; and a packaging-plus-distribution node handling labeling, serialization, storage and distribution.\n\nThat concentration had delivered the launch, the primary CMO had produced dozens of commercial drug-product lots across development, launch and continued supply, but it left the network exposed. The same partner had hit a failed tech transfer and an out-of-spec impurity result on an adjacent program, and had recently changed ownership. With Technical Operations preparing a board readout, leadership needed a clear view of where supply could break, what the alternates were, and the inventory and shelf-life headroom standing between the company and a stock-out."
       },
       {
         "kind": "flow",
@@ -758,7 +758,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
         "caption": "Optimizing for: Rx topical cream, commercial scale, strong analytical, regulatory-inspected. Each candidate was priority-ranked from best fit to screen-out.",
         "head": [
           "Screening dimension",
-          "What we looked for",
+          "What the screen looked for",
           "Why it mattered"
         ],
         "rows": [
@@ -857,7 +857,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
       {
         "kind": "prose",
         "heading": "Inventory & shelf-life optimization, the board readout",
-        "body": "The resilience story only holds if there is enough product in the channel to ride out a disruption. The Tech Ops readout modeled scrap exposure across a range of demand scenarios of inventory sitting at its stop-sell date, from a modest baseline to a substantially larger downside of potential write-off, driven by launch-buildup lots manufactured roughly a year earlier.\n\nTwo levers reshaped the curve. First, <strong>extending the registered shelf-life</strong> pushed the stop-sell date out and gave supply chain real flexibility, since stop-sell timing runs a full year ahead of true expiry. Second, <strong>actively modulating production</strong>, confirming near-term slots, then deliberately slowing manufacturing, pulled finished-goods inventory back toward the target months-of-coverage band. The readout framed the trade-off plainly: months of coverage against scrap-write-off exposure, with coverage held inside a defined target range."
+        "body": "The resilience story only holds with enough product in the channel to ride out a disruption. The Tech Ops readout modeled scrap exposure across a range of demand scenarios of inventory sitting at its stop-sell date, from a modest baseline to a substantially larger downside of potential write-off, driven by launch-buildup lots manufactured roughly a year earlier.\n\nTwo levers reshaped the curve. First, <strong>extending the registered shelf-life</strong> pushed the stop-sell date out and gave supply chain real flexibility, since stop-sell timing runs a full year ahead of true expiry. Second, <strong>actively modulating production</strong>, confirming near-term slots, then deliberately slowing manufacturing, pulled finished-goods inventory back toward the target months-of-coverage band. The readout framed the trade-off plainly: months of coverage against scrap-write-off exposure, coverage held inside a target range."
       },
       {
         "kind": "metrics",
@@ -913,7 +913,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
       },
       {
         "kind": "steps",
-        "title": "What we delivered",
+        "title": "What the engagement delivered",
         "items": [
           {
             "title": "Global manufacturing network map",
@@ -964,7 +964,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
       {
         "kind": "prose",
         "heading": "The situation",
-        "body": "A global, Western-headquartered small-molecule and active-pharmaceutical-ingredient contract development and manufacturing organization (CDMO) of around $350M in annual sales, long regarded as a <strong>gold-standard</strong> partner for complex chemistry, was watching order income soften. Its premium reputation was intact, but it was steadily losing early-phase (preclinical through Phase 2) work to faster, lower-cost Asian competitors.\n\nThe business-optimization program ran with one blunt brief: <strong>To understand today's market and customer dynamics, sharpen the offering, and compete on more than chemistry</strong>. The mandate was explicitly time-critical. It ran with our consulting team on a strict confidentiality footing, so clients and employees would speak candidly rather than diplomatically."
+        "body": "A global, Western-headquartered small-molecule and active-pharmaceutical-ingredient contract development and manufacturing organization (CDMO) of around $350M in annual sales, long regarded as a <strong>gold-standard</strong> partner for complex chemistry, was watching order income soften. Its premium reputation was intact, but it was steadily losing early-phase (preclinical through Phase 2) work to faster, lower-cost Asian competitors.\n\nThe business-optimization program ran with one blunt brief: <strong>To understand today's market and customer dynamics, sharpen the offering, and compete on more than chemistry</strong>. The mandate was explicitly time-critical. It ran on a strict confidentiality footing, so clients and employees would speak candidly rather than diplomatically."
       },
       {
         "kind": "quote",
@@ -1095,7 +1095,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
       },
       {
         "kind": "steps",
-        "title": "What we recommended: a phased leadership roadmap",
+        "title": "The recommendation: a phased leadership roadmap",
         "items": [
           {
             "title": "Phase 1, Quick wins (0-3 months)",
@@ -1132,7 +1132,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
         "a": "Sessions are run by dedicated independent interviewers, two to three per session, on a strict confidentiality footing, with an explicit sponsor message that honesty, not flattery, is the goal. Numerical scores on a fixed, questionnaire-driven framework establish a baseline, and open-ended probing captures the real anecdotes and dealbreakers behind each score. Won, lost, and internal perspectives are interviewed separately so internal assumptions can be tested against external reality."
       },
       {
-        "q": "We're a premium Western CDMO losing early-phase work to low-cost competitors. Is the answer just to cut price?",
+        "q": "A premium Western CDMO is losing early-phase work to low-cost competitors. Is the answer just to cut price?",
         "a": "Usually not. Here the evidence showed clients tolerated a meaningful premium, roughly a quarter above market, when tech-transfer risk was high or the firm already held relevant know-how; the losses were driven as much by slow proposals, long contracting, and applying commercial-grade rigor to early-phase work as by headline price. The plan combined tiered, phase-appropriate pricing with a leaner early-phase operating model, rather than a blanket discount that would erode the premium positioning clients still valued."
       },
       {
@@ -1409,7 +1409,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
       },
       {
         "q": "How do you compare 3PL bids fairly when fee schedules differ?",
-        "a": "You standardize. We issue a single line-item pricing grid so every finalist quotes the same activities, then flow each one's unit rates against a common multi-year demand forecast to produce a three-year total cost of ownership. That cost model is combined with a weighted scorecard covering quality and regulatory posture, cold-chain and DSCSA capability, technology and data integration, and organizational fit, so the decision rests on total value, not headline rates."
+        "a": "You standardize. A single line-item pricing grid is issued so every finalist quotes the same activities, then flow each one's unit rates against a common multi-year demand forecast to produce a three-year total cost of ownership. That cost model is combined with a weighted scorecard covering quality and regulatory posture, cold-chain and DSCSA capability, technology and data integration, and organizational fit, so the decision rests on total value, not headline rates."
       }
     ]
   },
@@ -1641,7 +1641,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
       {
         "kind": "prose",
         "heading": "The situation",
-        "body": "A pre-revenue, clinical-stage biotech advancing a multi-asset oncology portfolio faced a familiar mid-stage problem: more CMC work than people to do it. A lead program was driving toward regulatory submission readiness while earlier-stage assets needed to keep moving through the pipeline, all drawing on the same small, specialized Process & Formulation Development (PFD) bench.\n\nThere was no single, defensible view of who was working on what, at what intensity, against which deliverable. <strong>Capacity decisions were being made informally</strong>, asset by asset, with no way to see when a given scientist was committed past 100% or when a program was quietly under-resourced. The client needed a structured way to prioritize the portfolio and then allocate named people to it."
+        "body": "A pre-revenue, clinical-stage biotech advancing a multi-asset oncology portfolio faced a familiar mid-stage problem: more CMC work than people to do it. A lead program was driving toward regulatory submission readiness while earlier-stage assets needed to keep moving through the pipeline, all drawing on the same small, specialized development bench.\n\nThere was no single, defensible view of who was working on what, at what intensity, against which deliverable. <strong>Capacity decisions were being made informally</strong>, asset by asset, with no way to see when a given scientist was committed past 100% or when a program was quietly under-resourced. A structured way to prioritize the portfolio and allocate named people was needed."
       },
       {
         "kind": "flow",
@@ -1695,7 +1695,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
             "label": "Overall CMC",
             "items": [
               "Regulatory quality-module authoring",
-              "Biophysical characterization in the PFD lab",
+              "Biophysical characterization in the lab",
               "Dose-strength optimization"
             ]
           }
@@ -1704,7 +1704,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
       {
         "kind": "prose",
         "heading": "Normalizing a mixed bench to one honest scale",
-        "body": "The hard part of any resource model is making heterogeneous people comparable. The bench mixed full-time scientists with fractional and shared resources, who do not all map cleanly onto a full week.\n\nThe model put everyone on the same footing: every commitment expressed as a <strong>percentage of a 40-hour week</strong>, with each person's lines summing toward a 100% baseline. Fractional resources were entered at their true availability rather than rounded up, so a half-time contributor never read as a full head. That single normalization is what made the roll-ups trustworthy, a Grand Total only means something if a 100% line represents the same thing for every name in the column."
+        "body": "The hard part of any resource model is making heterogeneous people comparable. The bench mixed full-time scientists with fractional and shared resources that do not map cleanly onto a full week.\n\nThe model put everyone on the same footing: every commitment expressed as a <strong>percentage of a 40-hour week</strong>, with each person's lines summing toward a 100% baseline. Fractional resources were entered at their true availability rather than rounded up, so a half-time contributor never read as a full head. That normalization made the roll-ups trustworthy: a Grand Total only means something if a 100% line means the same for every name."
       },
       {
         "kind": "metrics",
@@ -1764,7 +1764,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
         "items": [
           {
             "title": "Spotting over-allocation early",
-            "body": "Rolling each person's commitments to a Grand Total against a 100% / 40-hour baseline made it immediately visible when a specialist was booked beyond capacity, so a stretched scientist could be re-balanced before it affected delivery."
+            "body": "Rolling each person's commitments to a Grand Total against a 100% / 40-hour baseline made it visible when a specialist was booked beyond capacity, so a stretched scientist could be re-balanced before delivery slipped."
           },
           {
             "title": "Spotting thin coverage",
@@ -1772,27 +1772,27 @@ export const ENRICHED: Record<string, EnrichedContent> = {
           },
           {
             "title": "Making trade-offs explicit",
-            "body": "Because allocation was tied back to each program's stated objective, re-balancing became a strategy conversation, move time here, accept slower progress there, rather than an ad-hoc scramble. Every reallocation could be read against the goal it served."
+            "body": "Because allocation was tied back to each program's stated objective, re-balancing became a strategy conversation, move time here, accept slower progress there, rather than an ad-hoc scramble."
           }
         ]
       },
       {
         "kind": "prose",
         "heading": "What was delivered",
-        "body": "The engagement produced a working <strong>CMC project-resource matrix</strong>, built directly from the prioritization workshop output, that allocated named team members across Drug Substance, Drug Product and Overall-CMC activities for each prioritized asset, at percentage-of-time on a 40-hour-week basis.\n\nOn top of the matrix sat two capacity views: a <strong>per-person view</strong> (Grand Totals by person across all programs) and a <strong>per-program view</strong>, each designed to surface over- and under-allocation. The result was a single, defensible planning artifact the CMC organization could re-run as priorities, milestones and partner selections evolved through the regulatory timeline."
+        "body": "The engagement produced a working <strong>CMC project-resource matrix</strong>, built directly from the prioritization workshop output, that allocated named team members across Drug Substance, Drug Product and Overall-CMC activities for each prioritized asset, at percentage-of-time on a 40-hour-week basis.\n\nOn top of the matrix sat two capacity views: a <strong>per-person view</strong> (Grand Totals by person across all programs) and a <strong>per-program view</strong>, each designed to surface over- and under-allocation. The result was a single, defensible planning artifact the CMC organization could re-run as priorities, milestones and partner selections evolved."
       }
     ],
     "faq": [
       {
         "q": "How do you decide which programs get scarce CMC capacity?",
-        "a": "We start with a prioritization workshop that assigns each asset an explicit objective, for example, driving one program to regulatory submission readiness while keeping earlier-stage assets advancing. Allocation then follows that intent, so capacity trade-offs are made against strategy rather than informally, asset by asset."
+        "a": "The engagement starts with a prioritization workshop that assigns each asset an explicit objective, for example, driving one program to regulatory submission readiness while keeping earlier-stage assets advancing. Allocation then follows that intent, so capacity trade-offs are made against strategy rather than informally, asset by asset."
       },
       {
         "q": "What does the resource model actually produce?",
-        "a": "A project-resource matrix that maps named team members to specific CMC activities across drug substance, drug product and overall CMC at a percentage of time on a 40-hour-week basis, plus two roll-up views: a per-person view that flags anyone committed beyond 100%, and a per-program view that flags under-resourced assets. Fractional and shared staff are entered at true availability so the totals stay honest."
+        "a": "A project-resource matrix that maps named team members to specific CMC activities across drug substance, drug product and overall CMC at a percentage of time on a 40-hour-week basis, plus two roll-up views: a per-person view that flags anyone committed beyond 100%, and a per-program view that flags under-resourced assets. Fractional and shared staff are entered at true availability so totals stay honest."
       },
       {
-        "q": "Is this a one-time analysis or something we can keep using?",
+        "q": "Is this a one-time analysis or something that can keep being used?",
         "a": "It is built to be re-run. As milestones move, partner selections firm up and priorities shift, the same matrix and capacity views can be updated, giving leadership a living, defensible basis for re-balancing people across the portfolio."
       }
     ]
@@ -2025,7 +2025,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
   },
   "saas-pricing-data-analytics": {
     "timeframe": "",
-    "dek": "How a consumer-reviews SaaS platform rebuilt pricing into good/better/best packaging, cleaned its commercial data, and stood up cohort and account-health analytics it could run itself.",
+    "dek": "A consumer-reviews SaaS platform rebuilt pricing into good/better/best packaging, cleaned its commercial data, and gained cohort and account-health analytics it could run itself.",
     "heroStat": {
       "value": "4-step",
       "label": "data-cleaning pipeline, contracts, then domains, then instance mapping, then entitlements"
@@ -2034,7 +2034,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
       {
         "kind": "prose",
         "heading": "The situation",
-        "body": "A late-stage, roughly $375M-a-year <strong>consumer-reviews SaaS platform</strong> ran <strong>two distinct commercial motions on overlapping CRM data</strong>, and each motion had been priced on its own independent logic. That single fact was the root of the problem: list prices, discounting, and packaging diverged depending on which motion a deal ran through, and the underlying records, accounts, contracts, usage, connections, were not clean enough to price against or to report on with confidence.\n\nThe brief was a <strong>handover</strong>, not a black box. The client wanted a defensible pricing model, a working configure-price-quote (CPQ) prototype, a migrated and cleaned data foundation, and analytics their own team could operate after the advisors stepped away. The work ran across three tightly coupled tracks, <strong>data migration and cleaning</strong>, <strong>pricing</strong>, and <strong>analytics</strong>, deliberately sequenced so each fed the next."
+        "body": "A late-stage, roughly $375M-a-year <strong>consumer-reviews SaaS platform</strong> ran <strong>two distinct commercial motions on overlapping CRM data</strong>, and each motion had been priced on its own independent logic. That was the root problem: list prices, discounting, and packaging diverged by motion, and the underlying records (accounts, contracts, usage, connections) were not clean enough to price against or report on with confidence.\n\nThe brief was a <strong>handover</strong>: a defensible pricing model, a working configure-price-quote (CPQ) prototype, a cleaned data foundation, and analytics the client's team could operate after the advisors stepped away. The work ran across three coupled tracks, <strong>data migration and cleaning</strong>, <strong>pricing</strong>, and <strong>analytics</strong>, sequenced so each fed the next."
       },
       {
         "kind": "flow",
@@ -2110,7 +2110,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
       {
         "kind": "prose",
         "heading": "Why good/better/best per motion",
-        "body": "The most consequential design choice was to build a <strong>separate good/better/best ladder for each of the two motions</strong> rather than force both onto one unified scheme. The two motions sold against genuinely different value and consumption patterns; a single ladder would have papered over that and reintroduced the inconsistency the engagement set out to remove. Keeping the ladders distinct, while standardising the <em>method</em> (three tiers, documented inputs, a repeatable new-price calculation), let each motion price honestly against its own logic without the two drifting apart again. Legacy agreements were then mapped against the new ladders so the existing book could be placed onto tiers."
+        "body": "The key design choice was a <strong>separate good/better/best ladder per motion</strong> rather than one unified scheme. The two motions sold against different value and consumption patterns; a single ladder would have masked that and reintroduced the inconsistency the engagement set out to remove. Keeping the ladders distinct while standardising the <em>method</em> (three tiers, documented inputs, a repeatable new-price calculation) let each motion price against its own logic without the two drifting apart. Legacy agreements were then mapped onto the new tiers."
       },
       {
         "kind": "callouts",
@@ -2159,7 +2159,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
       {
         "kind": "prose",
         "heading": "Analytics & handover",
-        "body": "On the cleaned foundation, the team stood up <strong>cohort analysis</strong> in a low-code BI platform, versioned and refined across iterations, supported by pivot tables and stair-step contract views that made renewal and expansion patterns legible. Paired with the two-level health scoring, this gave the client a consistent way to look at cohorts and accounts alongside the new pricing.\n\nEverything was delivered as <strong>operable artifacts</strong> so the client's own team could run it: the source and intermediate data files, the four-step cleaned migration datasets, the GBB master and pricing-model workbooks, both CPQ prototypes, and the cohort-analysis reports. The engagement was structured throughout for transfer of ownership, built so the team could requote in the CPQ prototypes and refresh the analytics without the advisors in the room."
+        "body": "On the cleaned foundation, <strong>cohort analysis</strong> was built in a low-code BI platform, refined across iterations and supported by pivot tables and stair-step contract views that made renewal and expansion patterns legible. Paired with the two-level health scoring, it gave the client a consistent view of cohorts and accounts alongside the new pricing.\n\nEverything shipped as <strong>operable artifacts</strong> the client's team could run: source and intermediate data files, the four-step cleaned migration datasets, the GBB master and pricing-model workbooks, both CPQ prototypes, and the cohort-analysis reports. The engagement was structured for transfer of ownership, so the team could requote and refresh the analytics without the advisors."
       },
       {
         "kind": "stack",
@@ -2197,15 +2197,15 @@ export const ENRICHED: Record<string, EnrichedContent> = {
     "faq": [
       {
         "q": "Why clean the data before touching pricing?",
-        "a": "Pricing is only as defensible as the records it runs on. We reconcile contracts, domains, product instances, and entitlements into a single trusted spine first, so the price model and the impact analysis are calculated against what customers are actually contracted for and using, not against stale CRM exports."
+        "a": "Pricing is only as defensible as the records it runs on. Contracts, domains, product instances, and entitlements were reconciled into a single trusted spine first, so the price model and impact analysis ran against what customers were actually contracted for and using, not stale CRM exports."
       },
       {
         "q": "Why a separate good/better/best ladder per motion instead of one unified scheme?",
-        "a": "The two commercial motions sold against different value and consumption patterns, so a single ladder would have masked real differences and reintroduced the inconsistency we were removing. We standardised the method, three tiers, documented inputs, a repeatable new-price calculation, while keeping a distinct ladder per motion, then mapped legacy agreements onto the tiers."
+        "a": "The two commercial motions sold against different value and consumption patterns, so a single ladder would have masked real differences and reintroduced the inconsistency the engagement set out to remove. The method was standardised, three tiers, documented inputs, a repeatable new-price calculation, while a distinct ladder per motion was kept, then mapped legacy agreements onto the tiers."
       },
       {
-        "q": "Do we get something we can operate after you leave?",
-        "a": "That is the point of the engagement. It is structured as a handover: cleaned migration datasets, the pricing-model and packaging workbooks, working CPQ configurator prototypes, and the cohort and health-score analytics are all delivered as artifacts built for your team to run and refresh independently."
+        "q": "Is the result operable after the advisors leave?",
+        "a": "Yes. It is structured as a handover: cleaned migration datasets, the pricing-model and packaging workbooks, working CPQ configurator prototypes, and the cohort and health-score analytics are delivered as artifacts built for the client's team to run and refresh independently."
       }
     ]
   },
@@ -2529,12 +2529,12 @@ export const ENRICHED: Record<string, EnrichedContent> = {
       {
         "kind": "prose",
         "heading": "The setup",
-        "body": "A global pharmaceutical company with revenue north of $50B ran a <strong>modernized quality-management system (mQMS)</strong> spanning many interdependent quality modules, deviation, CAPA, change control, complaints, audit, document and training management, and the regulated processes that connect them. Each module had its own owners, metrics, and review rhythm, but governance was fragmented. Module health was discussed in isolation, escalations surfaced unevenly, and there was no single, audit-ready view a leadership board could open in a meeting and trust.\n\nThe client engaged us to design and build a <strong>governance dashboard solution</strong> that would standardize how every module is reviewed, how issues escalate across modules, and how the whole system is governed by a cross-module board, delivered on a low-code platform the quality organization could maintain itself."
+        "body": "A global pharmaceutical company with revenue north of $50B ran a <strong>modernized quality-management system (mQMS)</strong> spanning many interdependent quality modules, deviation, CAPA, change control, complaints, audit, document and training management, and the regulated processes that connect them. Each module had its own owners, metrics, and review rhythm, but governance was fragmented. Module health was discussed in isolation, escalations surfaced unevenly, and there was no single, audit-ready view a leadership board could open in a meeting and trust.\n\nThe engagement designed and built a <strong>governance dashboard solution</strong> standardizing how every module is reviewed, how issues escalate across modules, and how the whole system is governed by a cross-module board, delivered on a low-code platform the quality organization could maintain itself."
       },
       {
         "kind": "prose",
         "heading": "The work",
-        "body": "We began by capturing client requirements that defined the solution before any build: the module set, the structure of each governance board, the escalation flows between modules, the reporting and meeting outputs, and the backup and maintenance model. That requirements baseline drove the dashboard build directly: it defined what each governance board and the cross-module roll-up had to do before any screen was assembled on the platform.\n\nFrom there we designed a single, repeatable board template and instantiated it for <strong>every mQMS module</strong>, plus one <strong>cross-module board</strong> that rolls the modules up. Each board is a working meeting surface: a chair opens it live, walks the agenda, captures status and actions inside the tool, and prints the result as the meeting-minutes record. Because every module uses the identical section layout, a reviewer who learns one board can run any of them."
+        "body": "Work began by capturing client requirements that defined the solution before any build: the module set, each governance board's structure, escalation flows between modules, reporting and meeting outputs, and the backup and maintenance model. That requirements baseline drove the dashboard build directly: it defined what each governance board and the cross-module roll-up had to do before any screen was assembled on the platform.\n\nA single, repeatable board template was then designed and instantiated for <strong>every mQMS module</strong>, plus one <strong>cross-module board</strong> rolling them up. Each board is a working meeting surface: a chair opens it live, walks the agenda, captures status and actions inside the tool, and prints the result as the meeting-minutes record. Because every module uses the identical section layout, a reviewer who learns one board can run any of them."
       },
       {
         "kind": "stack",
@@ -2594,7 +2594,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
       },
       {
         "kind": "steps",
-        "title": "The training guides, making it run without us",
+        "title": "The training guides, making it run independently",
         "items": [
           {
             "title": "mQMS Governance Dashboard training guide",
@@ -2662,15 +2662,15 @@ export const ENRICHED: Record<string, EnrichedContent> = {
     ],
     "faq": [
       {
-        "q": "How do you keep module-level reviews and enterprise-wide oversight in sync?",
-        "a": "We use a single repeatable board template instantiated per module, then a cross-module board that aggregates the signals every module flags, chiefly escalated items and regulatory changes. Because the layout is identical everywhere, a local module review and the enterprise board read the same way, and an item escalated in one module surfaces consistently on the cross-module board."
+        "q": "How are module-level reviews and enterprise-wide oversight kept in sync?",
+        "a": "A single repeatable board template is instantiated per module, then a cross-module board aggregates the signals every module flags, chiefly escalated items and regulatory changes. Because the layout is identical everywhere, a local module review and the enterprise board read the same way, and an item escalated in one module surfaces consistently on the cross-module board."
       },
       {
-        "q": "Will our quality team be able to run and maintain this without ongoing consulting support?",
-        "a": "That is the design intent. The solution is built on a low-code platform your team can configure, and we deliver both a navigation training guide and a module-by-module guide that walks through every section, the live meeting flow, printing the minutes record, and requesting folder and dashboard backups. Cadence and sections are editable without engineering."
+        "q": "Can the quality team run and maintain this without ongoing consulting support?",
+        "a": "That is the design intent. The solution runs on a low-code platform the quality team can configure, delivered with a navigation guide and a module-by-module guide covering every section, the live meeting flow, printing the minutes record, and requesting folder and dashboard backups. Cadence and sections are editable without engineering."
       },
       {
-        "q": "How do you make the governance record audit-ready?",
+        "q": "How is the governance record made audit-ready?",
         "a": "Every board is a live working surface during the meeting, then printed as the meeting-minutes record, so decisions, owners, actions and due dates are captured in one place. Defined backup procedures for folders and dashboards keep that record recoverable and defensible under audit."
       }
     ]
@@ -2823,7 +2823,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
     ],
     "faq": [
       {
-        "q": "Can our team maintain the dashboards after handover, or will we be dependent on a consultant?",
+        "q": "Can the client's team maintain the dashboards after handover, or will it stay dependent on a consultant?",
         "a": "Self-serve maintenance is a primary design goal. The solution ships with a project-by-project training manual covering data sources, the data model and table relationships, dashboard filters, charts, and all assumptions. Because the sales table is a dynamic combination of the yearly files, loading a new year is a drop-in refresh as long as the new data matches the existing structure, and the manual documents how to extend or add dashboards."
       },
       {
@@ -2831,7 +2831,7 @@ export const ENRICHED: Record<string, EnrichedContent> = {
         "a": "Every dashboard follows a consistent spine: a cover view, then a single consolidated Definitions and Assumptions view. Methodology and assumptions live in one place rather than being scattered across individual charts, which keeps the analysis auditable and easy to revisit."
       },
       {
-        "q": "What do we actually receive at the end of the engagement?",
+        "q": "What does the client actually receive at the end of the engagement?",
         "a": "The running BI solution files, a versioned package per project, plus the underlying data-file packages, a documented data model for each project, and the comprehensive project-by-project training manual. You own and can operate the full solution in-house."
       }
     ]
