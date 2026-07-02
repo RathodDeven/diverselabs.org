@@ -1,0 +1,49 @@
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Enablement track timeline from 2024 to 2025: an RFP chatbot prototype, then nine platform training sessions with guided exercises, then the RFP agent build and the first CRM agent version, ending with a demo recording and conference deck">
+  <defs>
+    <pattern id="g" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#fff" fill-opacity="0.05"/></pattern>
+    <radialGradient id="gv" cx="50%" cy="38%" r="66%"><stop offset="0%" stop-color="#fff" stop-opacity="0.06"/><stop offset="100%" stop-color="#fff" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="640" height="400" fill="#0a0a0a"/>
+  <rect width="640" height="400" fill="url(#g)"/>
+  <rect width="640" height="400" fill="url(#gv)"/>
+
+  <text x="32" y="34" font-family="'JetBrains Mono',monospace" font-size="10" fill="#fff" fill-opacity="0.5">ENABLEMENT TRACK · PROTOTYPE TO WORKING AGENTS</text>
+  <text x="608" y="34" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.32">03 / 03</text>
+
+  <line x1="48" y1="210" x2="592" y2="210" stroke="#fff" stroke-opacity="0.25" stroke-width="1.5"/>
+  <text x="48" y="244" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.45">2024</text>
+  <text x="592" y="244" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.45">2025</text>
+
+  <circle cx="96" cy="210" r="5" fill="#0a0a0a" stroke="#fff" stroke-opacity="0.55" stroke-width="1.5"/>
+  <line x1="96" y1="203" x2="96" y2="150" stroke="#fff" stroke-opacity="0.2"/>
+  <text x="96" y="128" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.7">RFP CHATBOT</text>
+  <text x="96" y="142" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.45">prototype</text>
+
+  <rect x="180" y="200" width="140" height="20" rx="10" fill="#fff" fill-opacity="0.08" stroke="#fff" stroke-opacity="0.3"/>
+  <g fill="#fff" fill-opacity="0.55">
+    <circle cx="194" cy="210" r="2"/><circle cx="208" cy="210" r="2"/><circle cx="222" cy="210" r="2"/>
+    <circle cx="236" cy="210" r="2"/><circle cx="250" cy="210" r="2"/><circle cx="264" cy="210" r="2"/>
+    <circle cx="278" cy="210" r="2"/><circle cx="292" cy="210" r="2"/><circle cx="306" cy="210" r="2"/>
+  </g>
+  <line x1="250" y1="200" x2="250" y2="286" stroke="#fff" stroke-opacity="0.2"/>
+  <text x="250" y="304" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.7">PLATFORM TRAINING · 9 SESSIONS</text>
+  <text x="250" y="318" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.45">guided exercises throughout</text>
+
+  <circle cx="400" cy="210" r="7" fill="#fff" fill-opacity="0.95"/>
+  <line x1="400" y1="200" x2="400" y2="150" stroke="#fff" stroke-opacity="0.4"/>
+  <text x="400" y="128" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="10" fill="#fff" fill-opacity="0.95">RFP AGENT BUILD</text>
+  <text x="400" y="144" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.55">grounded in the proposal library</text>
+
+  <circle cx="488" cy="210" r="5" fill="#0a0a0a" stroke="#fff" stroke-opacity="0.6" stroke-width="1.5"/>
+  <line x1="488" y1="203" x2="488" y2="286" stroke="#fff" stroke-opacity="0.2"/>
+  <text x="488" y="304" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.7">CRM AGENT v1</text>
+  <text x="488" y="318" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.45">SOP encoded</text>
+
+  <circle cx="568" cy="210" r="5" fill="#0a0a0a" stroke="#fff" stroke-opacity="0.55" stroke-width="1.5"/>
+  <line x1="568" y1="203" x2="568" y2="150" stroke="#fff" stroke-opacity="0.2"/>
+  <text x="560" y="128" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.7">DEMO + DECK</text>
+  <text x="560" y="142" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.45">recording · conference</text>
+
+  <line x1="32" y1="356" x2="608" y2="356" stroke="#fff" stroke-opacity="0.14"/>
+  <text x="32" y="380" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.38">INTERNAL BUILD AT A BOUTIQUE CONSULTANCY · TRAIN FIRST, THEN SHIP</text>
+</svg>

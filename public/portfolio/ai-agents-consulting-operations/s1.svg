@@ -1,0 +1,50 @@
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Architecture of an RFP-response agent: the firm's proposal library, case studies and team bios feed a retrieval step into the agent, which produces a first-pass draft that consultants edit instead of drafting from blank">
+  <defs>
+    <pattern id="g" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#fff" fill-opacity="0.05"/></pattern>
+    <radialGradient id="gv" cx="50%" cy="38%" r="66%"><stop offset="0%" stop-color="#fff" stop-opacity="0.06"/><stop offset="100%" stop-color="#fff" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="640" height="400" fill="#0a0a0a"/>
+  <rect width="640" height="400" fill="url(#g)"/>
+  <rect width="640" height="400" fill="url(#gv)"/>
+
+  <text x="32" y="34" font-family="'JetBrains Mono',monospace" font-size="10" fill="#fff" fill-opacity="0.5">RFP-RESPONSE AGENT · ARCHITECTURE</text>
+  <text x="608" y="34" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.32">01 / 03</text>
+
+  <text x="32" y="86" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.45">FIRM KNOWLEDGE</text>
+
+  <rect x="32" y="100" width="140" height="42" rx="6" fill="#fff" fill-opacity="0.05" stroke="#fff" stroke-opacity="0.16"/>
+  <text x="102" y="125" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.6">PROPOSAL LIBRARY</text>
+
+  <rect x="32" y="156" width="140" height="42" rx="6" fill="#fff" fill-opacity="0.05" stroke="#fff" stroke-opacity="0.16"/>
+  <text x="102" y="181" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.6">CASE STUDIES</text>
+
+  <rect x="32" y="212" width="140" height="42" rx="6" fill="#fff" fill-opacity="0.05" stroke="#fff" stroke-opacity="0.16"/>
+  <text x="102" y="237" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.6">TEAM BIOS</text>
+
+  <path d="M172 121 H196 Q206 121 210 145 L216 168" stroke="#fff" stroke-opacity="0.25" fill="none"/>
+  <line x1="172" y1="177" x2="216" y2="177" stroke="#fff" stroke-opacity="0.25"/>
+  <path d="M172 233 H196 Q206 233 210 209 L216 186" stroke="#fff" stroke-opacity="0.25" fill="none"/>
+
+  <rect x="218" y="148" width="104" height="58" rx="6" fill="#fff" fill-opacity="0.06" stroke="#fff" stroke-opacity="0.2"/>
+  <text x="270" y="173" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.6">RETRIEVAL</text>
+  <text x="270" y="189" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.4">grounded, sourced</text>
+
+  <line x1="322" y1="177" x2="352" y2="177" stroke="#fff" stroke-opacity="0.3"/>
+  <path d="M348 173 L356 177 L348 181" fill="none" stroke="#fff" stroke-opacity="0.3"/>
+
+  <rect x="356" y="140" width="112" height="74" rx="8" fill="#fff" fill-opacity="0.12" stroke="#fff" stroke-opacity="0.85" stroke-width="1.5"/>
+  <text x="412" y="171" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="10" fill="#fff" fill-opacity="0.95">AGENT</text>
+  <text x="412" y="188" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.6">enterprise platform</text>
+
+  <line x1="468" y1="177" x2="498" y2="177" stroke="#fff" stroke-opacity="0.3"/>
+  <path d="M494 173 L502 177 L494 181" fill="none" stroke="#fff" stroke-opacity="0.3"/>
+
+  <rect x="502" y="148" width="106" height="58" rx="6" fill="#fff" fill-opacity="0.06" stroke="#fff" stroke-opacity="0.2"/>
+  <text x="555" y="173" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.75">FIRST-PASS</text>
+  <text x="555" y="189" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.75">DRAFT</text>
+
+  <line x1="32" y1="292" x2="608" y2="292" stroke="#fff" stroke-opacity="0.14"/>
+  <text x="32" y="320" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.55">CONSULTANTS EDIT · NOT DRAFT FROM BLANK</text>
+  <text x="32" y="344" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.38">BEFORE: DAYS PER RESPONSE, ONE RAN TO 7 VERSIONS</text>
+  <text x="608" y="344" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.38">PROTOTYPE 2024 · AGENT BUILD 2025</text>
+</svg>
