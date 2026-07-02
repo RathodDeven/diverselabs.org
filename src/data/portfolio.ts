@@ -538,45 +538,54 @@ export const portfolioCaseStudies: Doc[] = [
     ],
   },
 
-  /* ───────────────────────── 11 · LLM & Voice-AI market research ───────────────────────── */
+  /* ───────────────────────── 11 · AI agents for consulting operations ───────────────────────── */
   {
-    slug: 'llm-voice-ai-market-research',
+    slug: 'ai-agents-consulting-operations',
     collection: 'work',
     type: 'case-study',
-    title: 'Sizing the LLM and Voice-AI markets across emerging economies',
-    crumb: 'LLM & Voice-AI market research',
-    seoTitle: 'LLM & Voice-AI Market Sizing, Research Case Study',
+    title: 'AI agents for a consulting firm\'s own operations: RFP response and CRM',
+    crumb: 'AI agents: RFP response & CRM',
+    seoTitle: 'AI Agents for Consulting Operations, RFP Response and CRM Case Study',
     description:
-      'A market-research body of work assessing the size, growth and outlook of LLM and Voice-AI markets across multiple verticals and regions, with sourced comparative tables.',
-    keywords: 'LLM market sizing, voice AI market, market research, AI in education, legal AI, AI in defense, AI in agriculture',
-    eyebrow: 'Applied AI · Market research',
-    dek: 'An applied-AI market-intelligence initiative assessing the size, growth and outlook of LLM and Voice-AI markets across emerging economies, Education, Legal, Defense, Agriculture, and Voice AI.',
-    tags: ['Market research', 'Applied AI', 'Market sizing'],
-    heroStat: { value: '4 verticals + Voice AI', label: 'market sizing, 2025–2030' },
+      'Two working AI agents built inside a boutique consulting firm: an RFP-response agent grounded in the firm\'s proposal library, and a CRM agent encoding the business-development standard operating procedure.',
+    keywords: 'AI agents, RFP response automation, proposal automation, CRM agent, enterprise agent platform, applied AI, consulting operations',
+    eyebrow: 'Applied AI · Agent builds · Boutique consulting firm',
+    dek: 'A boutique consulting firm pointed AI at its own operating drag: an RFP-response agent grounded in the firm\'s proposal library, a CRM agent encoding the business-development SOP, and a structured enablement track on an enterprise agent platform.',
+    tags: ['Applied AI', 'AI agents', 'Automation'],
+    heroStat: { value: '2 agents', label: 'RFP response and CRM, built hands-on on an enterprise agent platform' },
     datePublished: '2025-09-01',
     author: AUTHOR,
     blocks: [
       {
         kind: 'prose',
-        heading: 'What it was',
-        body: 'A market-research body of work assessing the size, growth and outlook of LLM and Voice-AI markets across emerging economies (2025–2030), spanning multiple verticals plus Voice AI (ASR/TTS/STT, voice biometrics, virtual assistants, contact-center automation and speech analytics).',
+        heading: 'The situation',
+        body: 'Proposal responses were among the firm\'s heaviest business-development costs: each RFP meant days of drafting from scratch, and one response ran to seven versions before it went out. CRM upkeep had the same shape, manual and procedural, absorbing consultant time better spent on client work. Before advising clients on AI, the firm turned it on its own operations.',
+      },
+      {
+        kind: 'flow',
+        title: 'How it progressed',
+        caption: 'From a retrieval prototype to two working agents and a trained team.',
+        steps: [
+          { label: 'Prototype', sub: 'An RFP chatbot proved the retrieval idea (2024)' },
+          { label: 'Rebuild as an agent', sub: 'Enterprise agent platform, grounded in the proposal library (2025)' },
+          { label: 'CRM agent v1', sub: 'The business-development SOP, encoded' },
+          { label: 'Enablement', sub: 'Nine-session platform training with guided exercises' },
+        ],
       },
       {
         kind: 'callouts',
-        title: 'Verticals covered',
+        title: 'The agents',
         items: [
-          { title: 'Education', body: 'Market sizing and growth projections for AI in education.' },
-          { title: 'Legal', body: 'Comparative market-size and CAGR analysis for legal AI.' },
-          { title: 'Defense', body: 'AI in aerospace & defense, sized globally and regionally.' },
-          { title: 'Agriculture & Voice AI', body: 'AI in agriculture plus a dedicated Voice-AI market analysis.' },
+          { title: 'RFP-response agent', body: 'Drafts a first-pass response from the firm\'s past proposals, case studies and team bios, so consultants edit instead of starting blank. Packaged with a recorded demo walkthrough and a conference deck.' },
+          { title: 'CRM agent', body: 'A first working version built around the business-development SOP, turning pipeline upkeep from a manual routine into a prompted workflow.' },
         ],
       },
       {
         kind: 'stack',
         title: 'Deliverables',
         groups: [
-          { label: 'Outputs', items: ['Market-outlook presentation', 'Per-vertical analyses', 'Comparative data tables'] },
-          { label: 'Method', items: ['Multi-sector sizing', 'CAGRs with sourcing', 'Regional breakdowns'] },
+          { label: 'Agents', items: ['RFP-response agent', 'CRM agent (SOP v1)', 'Demo recording'] },
+          { label: 'Enablement', items: ['Nine-session training track', 'Guided exercises', 'Conference deck'] },
         ],
       },
     ],
@@ -868,7 +877,7 @@ const TIMEFRAMES: Record<string, string> = {
   'cmc-portfolio-prioritization': '2024',
   'clinical-supply-chain-dashboard': 'through 2026',
   'saas-pricing-data-analytics': '2022–2023',
-  'llm-voice-ai-market-research': '2025',
+  'ai-agents-consulting-operations': '2024–2025',
   'qms-governance-dashboards': '2022–2024',
   'pricing-trade-analytics-bi': '2022–2023',
 };
@@ -954,6 +963,8 @@ const CONTRIBUTIONS: Record<string, string> = {
     'Produced the capacity-and-loading view at the heart of this work, the per-person FTE and budget graphs, plus the workshop and post-workshop decks leadership aligned around: timelines, executive summary, stakeholder and vendor mapping, risk and gaps, and the serialization and PPQ-scenario prep that fed the launch workshop.',
   'pricing-trade-analytics-bi':
     'Built the multi-project pricing and sales-analytics BI from the data model up: the retention-rate, single-time-buyer and repeat-versus-new-buyer views, the sales-performance and price-volume-mix (PVM) waterfall dashboards, and the reconciliation checks that validated every calculation against the source data, plus the project-by-project training manual so the team could extend it independently.',
+  'ai-agents-consulting-operations':
+    'Built both agents end to end: prototyped the RFP chatbot, rebuilt it as a platform agent grounded in the proposal library, produced the demo recording and the conference deck, and built the first SOP-driven version of the CRM agent. Completed the full platform enablement track (nine sessions plus guided exercises), and had written the manual RFP responses that motivated the automation in the first place.',
 };
 for (const d of portfolioCaseStudies) {
   const c = CONTRIBUTIONS[d.slug];
@@ -1046,8 +1057,8 @@ export const portfolioStages: Record<string, PortfolioStage[]> = {
     ['Sprint kickoff & objectives', 'Critical-path map & RACI', 'Future-state operating model']),
   'clinical-supply-chain-dashboard': stageSet('clinical-supply-chain-dashboard',
     ['Participants', 'Inventory', 'Resupply']),
-  'llm-voice-ai-market-research': stageSet('llm-voice-ai-market-research',
-    ['Market sizing by vertical', 'Growth trajectory & CAGR', 'Voice-AI landscape']),
+  'ai-agents-consulting-operations': stageSet('ai-agents-consulting-operations',
+    ['RFP-response agent', 'CRM agent (SOP v1)', 'Enablement track']),
   'cmc-portfolio-prioritization': stageSet('cmc-portfolio-prioritization',
     ['Portfolio prioritization', 'Project–resource matrix', 'Capacity & loading']),
   'saas-pricing-data-analytics': stageSet('saas-pricing-data-analytics',

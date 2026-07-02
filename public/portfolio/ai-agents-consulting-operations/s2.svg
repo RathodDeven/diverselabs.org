@@ -1,0 +1,50 @@
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="CRM agent with the business-development standard operating procedure encoded: five SOP steps shown as a manual routine on the left versus a prompted agent workflow on the right">
+  <defs>
+    <pattern id="g" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#fff" fill-opacity="0.05"/></pattern>
+    <radialGradient id="gv" cx="50%" cy="38%" r="66%"><stop offset="0%" stop-color="#fff" stop-opacity="0.06"/><stop offset="100%" stop-color="#fff" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="640" height="400" fill="#0a0a0a"/>
+  <rect width="640" height="400" fill="url(#g)"/>
+  <rect width="640" height="400" fill="url(#gv)"/>
+
+  <text x="32" y="34" font-family="'JetBrains Mono',monospace" font-size="10" fill="#fff" fill-opacity="0.5">CRM AGENT · SOP ENCODED</text>
+  <text x="608" y="34" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.32">02 / 03</text>
+
+  <text x="120" y="82" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.4">MANUAL ROUTINE</text>
+  <text x="472" y="82" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.8">PROMPTED WORKFLOW</text>
+  <line x1="32" y1="92" x2="208" y2="92" stroke="#fff" stroke-opacity="0.14"/>
+  <line x1="336" y1="92" x2="608" y2="92" stroke="#fff" stroke-opacity="0.5"/>
+
+  <text x="272" y="82" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.5">SOP STEP</text>
+
+  <rect x="216" y="102" width="112" height="40" rx="6" fill="#fff" fill-opacity="0.05" stroke="#fff" stroke-opacity="0.18"/>
+  <text x="272" y="126" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.65">LOG TOUCHPOINT</text>
+  <rect x="216" y="150" width="112" height="40" rx="6" fill="#fff" fill-opacity="0.05" stroke="#fff" stroke-opacity="0.18"/>
+  <text x="272" y="174" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.65">QUALIFY LEAD</text>
+  <rect x="216" y="198" width="112" height="40" rx="6" fill="#fff" fill-opacity="0.05" stroke="#fff" stroke-opacity="0.18"/>
+  <text x="272" y="222" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.65">SET NEXT ACTION</text>
+  <rect x="216" y="246" width="112" height="40" rx="6" fill="#fff" fill-opacity="0.05" stroke="#fff" stroke-opacity="0.18"/>
+  <text x="272" y="270" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.65">FOLLOW-UP CADENCE</text>
+  <rect x="216" y="294" width="112" height="40" rx="6" fill="#fff" fill-opacity="0.05" stroke="#fff" stroke-opacity="0.18"/>
+  <text x="272" y="318" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff" fill-opacity="0.65">PIPELINE REVIEW</text>
+
+  <g font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff">
+    <text x="120" y="126" text-anchor="middle" fill-opacity="0.35">typed by hand, when remembered</text>
+    <text x="120" y="174" text-anchor="middle" fill-opacity="0.35">judgement, undocumented</text>
+    <text x="120" y="222" text-anchor="middle" fill-opacity="0.35">sticky notes, inbox</text>
+    <text x="120" y="270" text-anchor="middle" fill-opacity="0.35">slips between projects</text>
+    <text x="120" y="318" text-anchor="middle" fill-opacity="0.35">ad hoc before meetings</text>
+  </g>
+
+  <g font-family="'JetBrains Mono',monospace" font-size="8" fill="#fff">
+    <text x="472" y="126" text-anchor="middle" fill-opacity="0.7">prompted capture, structured fields</text>
+    <text x="472" y="174" text-anchor="middle" fill-opacity="0.7">SOP criteria applied consistently</text>
+    <text x="472" y="222" text-anchor="middle" fill-opacity="0.7">next step proposed from the SOP</text>
+    <text x="472" y="270" text-anchor="middle" fill-opacity="0.7">cadence tracked, nudged</text>
+    <text x="472" y="318" text-anchor="middle" fill-opacity="0.7">pipeline state on demand</text>
+  </g>
+
+  <rect x="356" y="98" width="232" height="244" rx="8" fill="none" stroke="#fff" stroke-opacity="0.85" stroke-width="1.5"/>
+  <rect x="380" y="352" width="184" height="22" rx="11" fill="#fff" fill-opacity="0.12" stroke="#fff" stroke-opacity="0.5"/>
+  <text x="472" y="367" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="#fff" fill-opacity="0.9">AGENT · FIRST WORKING VERSION</text>
+</svg>
