@@ -22,8 +22,8 @@ const FRAG = /* glsl */ `
   const vec3 GREEN = vec3(0.290, 0.871, 0.502);
 
   void main() {
-    float crush = smoothstep(0.0, 0.32, uP);   // scene squashes to a line
-    float write = smoothstep(0.40, 1.0, uP);   // sentence phase
+    float crush = smoothstep(0.0, 0.25, uP);   // scene squashes to a line
+    float write = smoothstep(0.30, 0.68, uP);  // sentence sets on, then HOLDS
 
     vec3 col = vec3(0.024);
 
@@ -31,12 +31,12 @@ const FRAG = /* glsl */ `
     float sy = max(1.0 - crush * 0.998, 0.002);
     float y = 0.5 + (vUv.y - 0.5) / sy;
     if (y > 0.0 && y < 1.0 && crush < 1.0) {
-      float bandC = 0.5, bandH = 0.16;
+      float bandC = 0.5, bandH = 0.20;
       float inBand = 1.0 - smoothstep(bandH * 0.94, bandH, abs(y - bandC));
-      // same drift phase as the numbers scene so the strip doesn't snap
-      // sideways at the handoff
-      vec2 suv = vec2(fract(vUv.x * 0.5 + 0.35 + uTime * 0.008), (y - (bandC - bandH)) / (2.0 * bandH));
-      col = mix(col, texture2D(uStrip, suv).rgb * 0.30 * (1.0 - crush), inBand);
+      // same drift phase as the numbers scene's end state (uP=1) so the
+      // strip doesn't snap sideways at the handoff
+      vec2 suv = vec2(fract(vUv.x * 0.45 + 0.85 + uTime * 0.004), (y - (bandC - bandH)) / (2.0 * bandH));
+      col = mix(col, texture2D(uStrip, suv).rgb * 0.5 * (1.0 - crush), inBand);
     }
 
     // the line: blazes at full crush, then dims + sinks to underline the words
@@ -93,15 +93,16 @@ export function createTurn(ctx: SceneCtx, win: [number, number]): FilmScene {
       uniforms.uP.value = p;
 
       // DOM crush of the odometer block mirrors the shader crush
-      const crush = Math.min(1, p / 0.32);
+      const crush = Math.min(1, p / 0.25);
       if (odo) {
         const sy = Math.max(1 - crush, 0.002);
         odo.style.transform = `scaleY(${sy})`;
         odo.style.opacity = String(1 - crush * 0.35);
       }
 
-      // weight bloom: each word 300 -> 640, staggered; tracking tightens
-      const write = Math.min(1, Math.max(0, (p - 0.4) / 0.6));
+      // weight bloom: each word 300 -> 640, staggered; tracking tightens.
+      // Completes by 68% — the belief line then sits with the visitor.
+      const write = Math.min(1, Math.max(0, (p - 0.3) / 0.38));
       const n = Math.max(words.length, 1);
       words.forEach((w, i) => {
         const local = Math.min(1, Math.max(0, (write * (n + 2.5) - i) / 2.5));

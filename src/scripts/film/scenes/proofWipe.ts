@@ -26,8 +26,10 @@ const FRAG = /* glsl */ `
   varying vec2 vUv;
 
   void main() {
-    // wipe edge travels -0.15 -> 1.15 with a slight vertical bow
-    float edge = mix(-0.15, 1.15, uP) + 0.035 * sin(vUv.y * 5.2 + uP * 4.0);
+    // wipe completes by 55% of the scene; the rest HOLDS the full NudgeFlow
+    // loop playing. Slight vertical bow on the travelling edge.
+    float wp = smoothstep(0.06, 0.55, uP);
+    float edge = mix(-0.15, 1.15, wp) + 0.035 * sin(vUv.y * 5.2 + wp * 4.0);
     float d = vUv.x - edge;           // >0: ahead (from), <0: behind (to)
     float band = 0.085;               // smear band width
 

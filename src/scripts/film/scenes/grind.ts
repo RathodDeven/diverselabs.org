@@ -13,6 +13,7 @@ import {
   fitTextPx,
   uni,
   FONT_DISPLAY,
+  FONT_MONO,
   type CanvasTex,
   type FilmScene,
   type SceneCtx,
@@ -20,7 +21,20 @@ import {
 } from '../lib';
 
 export const WORD = 'AGAIN.';
+/** 8 AGAINs, then the 9th stamp is the turn: ENOUGH. */
 export const MAX_STAMPS = 9;
+const SHOUT = 'ENOUGH.';
+
+/* the micro-tasks that land beside each AGAIN — the visitor's own week */
+const TASKS = [
+  'follow-up #47 sent',
+  'row 212 re-typed',
+  'pdf page 118 copied over',
+  'status chased, again',
+  'lead pasted into the sheet',
+  'export re-run at 6pm',
+  'same reply, third time',
+];
 
 /* Deterministic per-stamp jitter so scrubbing backwards replays exactly.
    Stamp 0 is the first paint — it lands dead-center, unjittered. */
@@ -38,7 +52,9 @@ function jitter(i: number) {
   };
 }
 
-/** Draws `count` stamps. Shared with scene 2, which needs the full wall. */
+/** Draws `count` stamps. Shared with scene 2, which needs the full wall.
+    Stamps 1-8 are AGAIN., each annotated with a real micro-task; stamp 9
+    slams ENOUGH. dead-center over the buckled wall — the turn of the film. */
 export function drawWall(
   ctx: CanvasRenderingContext2D,
   w: number,
@@ -51,12 +67,16 @@ export function drawWall(
   ctx.textAlign = 'center';
   ctx.textBaseline = 'middle';
   const basePx = fitTextPx(ctx, WORD, 600, FONT_DISPLAY, w * 0.92);
+  const shout = count >= MAX_STAMPS;
+  const againCount = Math.min(count, MAX_STAMPS - 1);
   // the stack buckles: everything compresses slightly as copies land
-  const squeeze = 1 - (count - 1) * 0.012;
-  for (let i = 0; i < count; i++) {
+  const squeeze = 1 - (againCount - 1) * 0.012;
+
+  for (let i = 0; i < againCount; i++) {
     const j = jitter(i);
-    const age = count - 1 - i; // 0 = newest
-    const shade = Math.max(0x6b, 0xf4 - age * 0x14);
+    const age = againCount - 1 - i; // 0 = newest
+    let shade = Math.max(0x6b, 0xf4 - age * 0x14);
+    if (shout) shade = Math.min(shade, 0x52); // the wall recedes under ENOUGH.
     ctx.save();
     ctx.translate(w / 2 + j.dx * w, h / 2 + j.dy * h * squeeze);
     ctx.rotate((j.rot * Math.PI) / 180);
@@ -65,6 +85,31 @@ export function drawWall(
     const hex = shade.toString(16).padStart(2, '0');
     ctx.fillStyle = `#${hex}${hex}${hex}`;
     ctx.fillText(WORD, 0, 0);
+    ctx.restore();
+
+    // the micro-task that caused this stamp, filed beside it like a receipt
+    if (i > 0 && i - 1 < TASKS.length) {
+      const j2 = jitter(i + 37);
+      const tx = w / 2 + j2.dx * w * 2.6;
+      const ty = h / 2 + j2.dy * h * 0.9;
+      ctx.font = `500 ${Math.max(11, w * 0.011)}px ${FONT_MONO}`;
+      const tShade = shout ? 0x3f : Math.max(0x55, 0x8a - age * 0x0c);
+      const thex = tShade.toString(16).padStart(2, '0');
+      ctx.fillStyle = `#${thex}${thex}${thex}`;
+      ctx.fillText(TASKS[i - 1], tx, ty);
+    }
+  }
+
+  if (shout) {
+    const px = fitTextPx(ctx, SHOUT, 600, FONT_DISPLAY, w * 0.74);
+    ctx.save();
+    ctx.translate(w / 2, h / 2);
+    ctx.font = `600 ${px}px ${FONT_DISPLAY}`;
+    // hard shadow so it detaches from the wall behind it
+    ctx.shadowColor = 'rgba(6, 6, 6, 0.9)';
+    ctx.shadowBlur = Math.max(24, w * 0.03);
+    ctx.fillStyle = '#ffffff';
+    ctx.fillText(SHOUT, 0, 0);
     ctx.restore();
   }
 }
@@ -116,16 +161,22 @@ export function createGrind(ctx: SceneCtx, win: [number, number]): FilmScene {
     mesh,
     setProgress(p) {
       uniforms.uP.value = p;
-      // stamps land on a deterministic ladder across the first 85% of the
-      // scene; the last 15% holds the finished wall (handoff to the shatter)
-      const target = 1 + Math.min(MAX_STAMPS - 1, Math.floor((p / 0.85) * (MAX_STAMPS - 1)));
+      // stamps land on a deterministic ladder across the first 72% of the
+      // scene; ENOUGH. slams as the final stamp and HOLDS — the visitor sits
+      // with the shout before the wall shatters into the thesis
+      const target = 1 + Math.min(MAX_STAMPS - 1, Math.floor((p / 0.72) * (MAX_STAMPS - 1)));
       if (target !== count) {
         const grew = target > count;
+        const isShout = grew && target === MAX_STAMPS;
         stamp(target);
         if (grew) {
           gsap.killTweensOf(uniforms.uImpact);
-          uniforms.uImpact.value = 1;
-          gsap.to(uniforms.uImpact, { value: 0, duration: 0.42, ease: 'power3.out' });
+          uniforms.uImpact.value = isShout ? 1.6 : 1;
+          gsap.to(uniforms.uImpact, {
+            value: 0,
+            duration: isShout ? 0.7 : 0.42,
+            ease: 'power3.out',
+          });
         }
       }
     },

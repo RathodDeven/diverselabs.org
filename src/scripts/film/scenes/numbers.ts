@@ -36,10 +36,9 @@ export function getStrip(): CanvasTex {
       if (!strip) return;
       const { ctx, canvas, tex } = strip;
       ctx.save();
-      ctx.filter = 'grayscale(1) brightness(0.85) contrast(0.9)';
-      const pad = 48;
+      ctx.filter = 'grayscale(1) brightness(0.95)';
+      const pad = 26;
       const size = Math.min(slot - pad, canvas.height - pad);
-      ctx.globalAlpha = 0.9;
       ctx.drawImage(img, i * slot + (slot - size) / 2, (canvas.height - size) / 2, size, size);
       ctx.restore();
       // film sprocket holes between slots
@@ -63,17 +62,18 @@ const FRAG = /* glsl */ `
   void main() {
     vec3 col = vec3(0.024);
 
-    // filmstrip band across the middle third, drifting with scroll + time
+    // filmstrip band across the middle: SCROLL drives the strip, so the
+    // scene's dwell is spent travelling past every company we've worked with
     float bandC = 0.5;
-    float bandH = 0.16;
+    float bandH = 0.20;
     float inBand = 1.0 - smoothstep(bandH * 0.94, bandH, abs(vUv.y - bandC));
     if (inBand > 0.0) {
       vec2 suv;
       suv.y = (vUv.y - (bandC - bandH)) / (2.0 * bandH);
-      suv.x = fract(vUv.x * 0.5 + uP * 0.35 + uTime * 0.008
+      suv.x = fract(vUv.x * 0.45 + uP * 0.85 + uTime * 0.004
                     + (vUv.y - 0.5) * uVel * 0.10); // velocity shear
       vec3 s = texture2D(uStrip, suv).rgb;
-      col = mix(col, s * 0.30, inBand);
+      col = mix(col, s * 0.5, inBand);
     }
 
     col += filmGrain(vUv, uTime) * 0.05;
@@ -149,7 +149,8 @@ export function createNumbers(ctx: SceneCtx, win: [number, number]): FilmScene {
       uniforms.uP.value = p;
       build();
       for (const d of digits) {
-        const e = Math.min(1, Math.max(0, (p - 0.08 - d.row * 0.09) / 0.55));
+        // rolls finish by ~45% — the numbers then hold while logos travel
+        const e = Math.min(1, Math.max(0, (p - 0.05 - d.row * 0.06) / 0.28));
         const k = easeOutBack(e); // overshoots just before settling — the "click"
         const pos = Math.max(0, (SPINS * 10 + d.value) * k);
         const off = ((pos % 10) + 10) % 10;

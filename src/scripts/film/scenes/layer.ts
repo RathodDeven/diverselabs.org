@@ -104,9 +104,11 @@ const FRAG = /* glsl */ `
   varying vec2 vUv;
 
   void main() {
-    float pPan  = smoothstep(0.00, 0.30, uP);
-    float pZoom = smoothstep(0.32, 0.84, uP);
-    float pIris = smoothstep(0.82, 1.00, uP);
+    // everything completes by 78% — the last stretch HOLDS full-bleed
+    // footage so the visitor can actually watch it
+    float pPan  = smoothstep(0.00, 0.26, uP);
+    float pZoom = smoothstep(0.26, 0.62, uP);
+    float pIris = smoothstep(0.60, 0.78, uP);
 
     // exponential zoom feels like constant approach speed
     float zoom = mix(1.0, 1.10, pPan) * exp(pZoom * 3.65); // 1 -> ~42x

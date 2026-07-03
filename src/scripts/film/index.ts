@@ -55,6 +55,11 @@ interface Caption {
   outAt: number;
 }
 
+/** Master-progress values the film eases onto when the visitor stops
+    scrolling nearby: each scene's composed "rest frame" (ENOUGH., the
+    thesis, each full-bleed loop, the settled numbers, the belief line). */
+const REST_POINTS = [0.12, 0.242, 0.401, 0.529, 0.672, 0.774, 0.908, 1.0];
+
 class Film {
   private renderer: THREE.WebGLRenderer;
   private scene3 = new THREE.Scene();
@@ -64,6 +69,8 @@ class Film {
   private captions: Caption[] = [];
   private progress = -1;
   private velSmooth = 0;
+  private idleFrames = 0;
+  private snapDone = false;
   private vp: Viewport;
   private track: HTMLElement;
   private tickFn: (time: number) => void;
@@ -97,14 +104,14 @@ class Film {
     };
 
     this.scenes = [
-      createGrind(ctx, [0.0, 0.155]),
-      createRefusal(ctx, [0.155, 0.295]),
-      createLayer(ctx, [0.295, 0.46]),
-      createProofWipe(ctx, [0.46, 0.575]),
-      createFlap(ctx, [0.575, 0.715]),
-      createNumbers(ctx, [0.715, 0.82]),
-      createTurn(ctx, [0.82, 0.915]),
-      createDoorway(ctx, [0.915, 1.000001]),
+      createGrind(ctx, [0.0, 0.14]),
+      createRefusal(ctx, [0.14, 0.26]),
+      createLayer(ctx, [0.26, 0.42]),
+      createProofWipe(ctx, [0.42, 0.56]),
+      createFlap(ctx, [0.56, 0.7]),
+      createNumbers(ctx, [0.7, 0.82]),
+      createTurn(ctx, [0.82, 0.93]),
+      createDoorway(ctx, [0.93, 1.000001]),
     ];
     this.scenes.forEach((s) => this.scene3.add(s.mesh));
 
@@ -196,11 +203,47 @@ class Film {
       (Math.max(-1, Math.min(1, this.velSmooth / 3000))).toFixed(3)
     );
 
+    this.maybeSnap();
+
     // stop rendering once the film has scrolled past
     if (this.progress >= 1 && this.root.getBoundingClientRect().bottom < 0) return;
 
     this.active?.update?.(time);
     this.renderer.render(this.scene3, this.camera);
+  }
+
+  /** When the visitor stops scrolling near a rest point, ease onto it —
+      transitions complete and each scene settles on its composed frame. */
+  private maybeSnap() {
+    const lenis = (window as { __lenis?: { scrollTo: (y: number, o?: object) => void } }).__lenis;
+    if (!lenis || this.progress <= 0.01 || this.progress >= 0.995) return;
+    if (Math.abs(this.velSmooth) > 45) {
+      this.idleFrames = 0;
+      this.snapDone = false;
+      return;
+    }
+    if (++this.idleFrames < 14 || this.snapDone) return;
+    this.snapDone = true; // one attempt per stop — never fight the visitor
+
+    let nearest = REST_POINTS[0];
+    let dist = 1;
+    for (const r of REST_POINTS) {
+      const d = Math.abs(r - this.progress);
+      if (d < dist) {
+        dist = d;
+        nearest = r;
+      }
+    }
+    if (dist < 0.004 || dist > 0.05) return; // already there / too far to pull
+
+    const rect = this.track.getBoundingClientRect();
+    const span = rect.height - window.innerHeight;
+    if (span <= 0) return;
+    const target = window.scrollY + rect.top + nearest * span;
+    lenis.scrollTo(target, {
+      duration: 1.05,
+      easing: (t: number) => 1 - Math.pow(1 - t, 3),
+    });
   }
 
   dispose() {

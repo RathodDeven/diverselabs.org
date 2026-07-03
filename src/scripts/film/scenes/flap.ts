@@ -57,9 +57,10 @@ const FRAG = /* glsl */ `
   const float ROW_H = 0.30;
   const vec3 GREEN = vec3(0.290, 0.871, 0.502); // #4ade80
 
-  /* flip timing for cell i: staggered left->right across mid-scene */
+  /* flip timing for cell i: staggered left->right, all done by ~60% — the
+     rest of the scene HOLDS green APPROVED over the playing footage */
   float flipT(float i) {
-    return clamp((uP - (0.30 + i * 0.052)) / 0.15, 0.0, 1.0);
+    return clamp((uP - (0.18 + i * 0.045)) / 0.10, 0.0, 1.0);
   }
 
   /* sample a word texture through the split-flap fold of its cell */
@@ -85,8 +86,8 @@ const FRAG = /* glsl */ `
     float isB, fold;
     float a = flapAlpha(vUv, t, isB, fold);
 
-    // scanline position: sweeps top -> bottom across the scene
-    float scanY = 1.0 - (uP * 1.5 - 0.1);
+    // scanline position: sweeps top -> bottom, exits by the hold
+    float scanY = 1.0 - (uP * 1.9 - 0.05);
     float scan = exp(-abs(vUv.y - scanY) * 90.0);
 
     // media refracted by the letter field: cheap gradient of alpha
