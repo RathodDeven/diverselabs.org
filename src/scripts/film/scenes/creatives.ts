@@ -56,8 +56,8 @@ export function createCreatives(ctx: SceneCtx, win: [number, number]): FilmScene
       uniforms.uP.value = p;
       grab();
       phones.forEach((ph, i) => {
-        // staggered rise: all settled by ~45%, then the ads just play
-        const e = easeOut(Math.min(1, Math.max(0, (p - i * 0.06) / 0.32)));
+        // staggered rise: all settled by ~40%, then the ads just play
+        const e = easeOut(Math.min(1, Math.max(0, (p - i * 0.05) / 0.28)));
         const rise = (1 - e) * 120;
         const tilt = (i - 1) * 4 * (1 - e * 0.4); // settles to a slight fan
         ph.style.transform = `translateY(${rise}vh) rotate(${tilt}deg)`;

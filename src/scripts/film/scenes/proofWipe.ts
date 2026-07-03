@@ -1,8 +1,9 @@
 /**
- * Scene 4 — PROOF I: NUDGEFLOW.
+ * Scene 5 — PROOF I: NUDGEFLOW.
  * A squeegee wipe drags left->right 1:1 with scroll: ahead of the edge the
- * held hero frame, behind it the NudgeFlow loop. At the edge: directional
- * smear + slight RGB split, like ink pulled across the frame.
+ * film's black (the bridge ended on black), behind it the NudgeFlow loop.
+ * At the edge: directional smear + slight RGB split, like ink pulled
+ * across the frame. Most of the scene HOLDS the loop playing, pure.
  */
 import {
   fsQuad,
@@ -12,7 +13,6 @@ import {
   type SceneCtx,
   type Viewport,
 } from '../lib';
-import { getHeroMedia } from './layer';
 
 /* NudgeFlow footage is shared with the approval sweep (scene 5): when that
    scene plays the CRM loop, this one pauses and holds its exact last frame. */
@@ -26,44 +26,40 @@ export function getNudgeMedia(): MediaTex {
 }
 
 const FRAG = /* glsl */ `
-  uniform sampler2D uFrom;
   uniform sampler2D uTo;
   uniform float uP;
   uniform float uTime;
   uniform float uAspect;
-  uniform float uFromAspect;
   uniform float uToAspect;
   uniform float uVel; // -1..1 smoothed scroll velocity
   varying vec2 vUv;
 
   void main() {
-    // beat 1 (0-14%): the held hero frame + the bridge line in the DOM.
-    // Wipe runs 16-42%; MOST of the scene then HOLDS the full NudgeFlow
+    // Wipe runs 4-24%; the REST of the scene HOLDS the full NudgeFlow
     // loop playing, pure — no grade, no vignette on top of the video.
-    float wp = smoothstep(0.16, 0.42, uP);
-    float hold = smoothstep(0.42, 0.55, uP);
+    float wp = smoothstep(0.04, 0.24, uP);
+    float hold = smoothstep(0.24, 0.36, uP);
     float edge = mix(-0.15, 1.15, wp) + 0.035 * sin(vUv.y * 5.2 + wp * 4.0);
-    float d = vUv.x - edge;           // >0: ahead (from), <0: behind (to)
+    float d = vUv.x - edge;           // >0: ahead (black), <0: behind (to)
     float band = 0.085;               // smear band width
 
-    vec2 fromUv = coverUv(vUv, uAspect, uFromAspect);
-    vec2 toUv   = coverUv(vUv, uAspect, uToAspect);
+    vec2 toUv = coverUv(vUv, uAspect, uToAspect);
 
     // directional smear inside the band: stretch samples along x toward edge
     float inBand = 1.0 - smoothstep(0.0, band, abs(d));
     float smear = inBand * band * (0.9 + abs(uVel) * 1.4);
 
-    vec3 from = vec3(0.0);
     vec3 to = vec3(0.0);
     // 5-tap directional blur, RGB split scaled by smear
     for (int i = 0; i < 5; i++) {
       float o = (float(i) - 2.0) * 0.5 * smear;
-      from += texture2D(uFrom, fromUv + vec2(o, 0.0)).rgb * 0.2;
-      to   += texture2D(uTo,   toUv   + vec2(o, 0.0)).rgb * 0.2;
+      to += texture2D(uTo, toUv + vec2(o, 0.0)).rgb * 0.2;
     }
     float split = smear * 0.6;
-    from.r = texture2D(uFrom, fromUv + vec2(split, 0.0)).r * 0.55 + from.r * 0.45;
-    to.b   = texture2D(uTo,   toUv   - vec2(split, 0.0)).b * 0.55 + to.b * 0.45;
+    to.b = texture2D(uTo, toUv - vec2(split, 0.0)).b * 0.55 + to.b * 0.45;
+
+    // ahead of the edge: the film's black world
+    vec3 from = vec3(0.024) + filmGrain(vUv, uTime) * 0.05;
 
     float side = smoothstep(-0.004, 0.004, d); // 1 = from side
     vec3 col = mix(to, from, side);
@@ -80,25 +76,16 @@ const FRAG = /* glsl */ `
 `;
 
 export function createProofWipe(ctx: SceneCtx, win: [number, number]): FilmScene {
-  // "from" is the shared hero video: playing NudgeFlow pauses it, so the
-  // outgoing plate holds the exact frame the iris ended on
-  const from = getHeroMedia();
   const to = getNudgeMedia();
 
   const uniforms = {
-    uFrom: uni(from.tex),
     uTo: uni(to.tex),
     uP: uni(0),
     uTime: uni(0),
     uAspect: uni(ctx.vp.aspect),
-    uFromAspect: uni(from.aspect),
     uToAspect: uni(to.aspect),
     uVel: uni(0),
   };
-  from.onSwap(() => {
-    uniforms.uFrom.value = from.tex;
-    uniforms.uFromAspect.value = from.aspect;
-  });
   to.onSwap(() => {
     uniforms.uTo.value = to.tex;
     uniforms.uToAspect.value = to.aspect;

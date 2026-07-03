@@ -29,10 +29,10 @@ const FRAG = /* glsl */ `
   const vec3 GREEN = vec3(0.290, 0.871, 0.502);
 
   void main() {
-    // scanline sweeps down (uv y-up): completes by 32%, then a LONG hold
+    // scanline sweeps down (uv y-up): completes by 26%, then a LONG hold
     // on the playing loop — pure video, no filter
-    float sp = smoothstep(0.05, 0.32, uP);
-    float hold = smoothstep(0.32, 0.45, uP);
+    float sp = smoothstep(0.04, 0.26, uP);
+    float hold = smoothstep(0.26, 0.38, uP);
     float edgeY = mix(1.12, -0.12, sp);
     float d = vUv.y - edgeY;          // >0: above the line (revealed CRM)
     float band = 0.05;

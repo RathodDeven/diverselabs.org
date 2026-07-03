@@ -13,6 +13,7 @@ import { ensureFonts, type FilmScene, type SceneCtx, type Tier, type Viewport } 
 import { createGrind } from './scenes/grind';
 import { createRefusal } from './scenes/refusal';
 import { createLayer } from './scenes/layer';
+import { createBridge } from './scenes/bridge';
 import { createProofWipe } from './scenes/proofWipe';
 import { createFlap } from './scenes/flap';
 import { createCreatives } from './scenes/creatives';
@@ -59,7 +60,7 @@ interface Caption {
 /** Master-progress values the film eases onto when the visitor stops
     scrolling nearby: each scene's composed "rest frame" (ENOUGH., the
     thesis, each full-bleed loop, the phones, the numbers, the belief line). */
-const REST_POINTS = [0.085, 0.14, 0.176, 0.276, 0.405, 0.538, 0.685, 0.786, 0.916, 1.0];
+const REST_POINTS = [0.072, 0.12, 0.151, 0.238, 0.295, 0.395, 0.537, 0.691, 0.793, 0.917, 1.0];
 
 class Film {
   private renderer: THREE.WebGLRenderer;
@@ -105,14 +106,15 @@ class Film {
     };
 
     this.scenes = [
-      createGrind(ctx, [0.0, 0.1]),
-      createRefusal(ctx, [0.1, 0.18]),
-      createLayer(ctx, [0.18, 0.3]),
-      createProofWipe(ctx, [0.3, 0.44]),
-      createFlap(ctx, [0.44, 0.58]),
-      createCreatives(ctx, [0.58, 0.72]),
-      createNumbers(ctx, [0.72, 0.83]),
-      createTurn(ctx, [0.83, 0.945]),
+      createGrind(ctx, [0.0, 0.085]),
+      createRefusal(ctx, [0.085, 0.155]),
+      createLayer(ctx, [0.155, 0.265]),
+      createBridge(ctx, [0.265, 0.315]),
+      createProofWipe(ctx, [0.315, 0.46]),
+      createFlap(ctx, [0.46, 0.6]),
+      createCreatives(ctx, [0.6, 0.73]),
+      createNumbers(ctx, [0.73, 0.835]),
+      createTurn(ctx, [0.835, 0.945]),
       createDoorway(ctx, [0.945, 1.000001]),
     ];
     this.scenes.forEach((s) => this.scene3.add(s.mesh));
