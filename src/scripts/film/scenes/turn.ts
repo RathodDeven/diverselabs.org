@@ -47,8 +47,7 @@ export function createTurn(ctx: SceneCtx, win: [number, number]): FilmScene {
   };
   const mesh = fsQuad(FRAG, uniforms);
 
-  let odo: HTMLElement | null = null;
-  let logos: HTMLElement | null = null;
+  let voices: HTMLElement | null = null;
   let words: HTMLElement[] = [];
   let turnEl: HTMLElement | null = null;
 
@@ -70,8 +69,7 @@ export function createTurn(ctx: SceneCtx, win: [number, number]): FilmScene {
       }
       words = Array.from(turnEl?.querySelectorAll<HTMLElement>('.turn-w') ?? []);
     }
-    if (!odo) odo = document.getElementById('film-odo');
-    if (!logos) logos = document.getElementById('film-logos');
+    if (!voices) voices = document.getElementById('film-voices');
   };
 
   return {
@@ -82,17 +80,13 @@ export function createTurn(ctx: SceneCtx, win: [number, number]): FilmScene {
       grab();
       uniforms.uP.value = p;
 
-      // DOM crush: the whole stats scene (numbers + logo rows) squashes
-      // into the green line, mirroring the shader
+      // DOM crush: the testimonial frame squashes into the green line,
+      // mirroring the shader
       const crush = Math.min(1, p / 0.25);
       const sy = Math.max(1 - crush, 0.002);
-      if (odo) {
-        odo.style.transform = `scaleY(${sy})`;
-        odo.style.opacity = String(1 - crush * 0.4);
-      }
-      if (logos) {
-        logos.style.transform = `rotate(-8deg) scaleY(${sy})`;
-        logos.style.opacity = String(0.55 * (1 - crush));
+      if (voices) {
+        voices.style.transform = `scaleY(${sy})`;
+        voices.style.opacity = String(1 - crush * 0.4);
       }
 
       // weight bloom: each word 300 -> 640, staggered, with a small rise —
@@ -117,13 +111,9 @@ export function createTurn(ctx: SceneCtx, win: [number, number]): FilmScene {
       uniforms.uTime.value = t;
     },
     onExit() {
-      if (odo) {
-        odo.style.transform = '';
-        odo.style.opacity = '';
-      }
-      if (logos) {
-        logos.style.transform = '';
-        logos.style.opacity = '';
+      if (voices) {
+        voices.style.transform = '';
+        voices.style.opacity = '';
       }
     },
     resize(_vp: Viewport) {},
