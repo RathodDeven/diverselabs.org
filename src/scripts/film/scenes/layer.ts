@@ -19,8 +19,8 @@ import {
   type Viewport,
 } from '../lib';
 
-const LINE1 = 'WE BUILD';
-const LINE2 = 'AI AGENTS';
+const LINE1 = 'WE LAYER';
+const LINE2 = 'INTELLIGENCE';
 
 interface WordLayout {
   /** Center of the A counter, in texture UV (y up). */
@@ -50,16 +50,16 @@ function drawWord(c: CanvasRenderingContext2D, w: number, h: number): WordLayout
   c.fillText(LINE1, x1, y1);
   c.fillText(LINE2, x2, y2);
 
-  // locate the A of "AGENTS" in line 2 (prefix "AI ")
-  const prefixW = c.measureText('AI ').width;
+  // locate the A of "LAYER" in line 1 (prefix "WE L")
+  const prefixW = c.measureText('WE L').width;
   const aW = c.measureText('A').width;
-  const aX = x2 + prefixW + aW / 2;
+  const aX = x1 + prefixW + aW / 2;
   // the enclosed counter of A sits above the crossbar — above middle
-  const counterY = y2 - px * 0.13;
+  const counterY = y1 - px * 0.13;
   const toUv = (X: number, Y: number) => ({ x: X / w, y: 1 - Y / h });
   return {
     focus: toUv(aX, counterY),
-    aCenter: toUv(aX, y2),
+    aCenter: toUv(aX, y1),
     aSize: { w: aW / w, h: (px * 0.74) / h },
   };
 }
@@ -104,11 +104,11 @@ const FRAG = /* glsl */ `
   varying vec2 vUv;
 
   void main() {
-    // everything completes by 66% — the last third HOLDS full-bleed
+    // everything completes by 55% — nearly half the scene HOLDS full-bleed
     // footage so the visitor can actually watch it
-    float pPan  = smoothstep(0.00, 0.22, uP);
-    float pZoom = smoothstep(0.22, 0.52, uP);
-    float pIris = smoothstep(0.50, 0.66, uP);
+    float pPan  = smoothstep(0.00, 0.20, uP);
+    float pZoom = smoothstep(0.20, 0.44, uP);
+    float pIris = smoothstep(0.42, 0.55, uP);
 
     // exponential zoom feels like constant approach speed
     float zoom = mix(1.0, 1.10, pPan) * exp(pZoom * 3.65); // 1 -> ~42x

@@ -37,11 +37,11 @@ const FRAG = /* glsl */ `
   varying vec2 vUv;
 
   void main() {
-    // beat 1 (0-20%): the held hero frame + the bridge line in the DOM.
-    // Wipe runs 22-55%; the rest HOLDS the full NudgeFlow loop playing,
-    // pure — no grade, no vignette on top of the video.
-    float wp = smoothstep(0.22, 0.55, uP);
-    float hold = smoothstep(0.55, 0.72, uP);
+    // beat 1 (0-14%): the held hero frame + the bridge line in the DOM.
+    // Wipe runs 16-42%; MOST of the scene then HOLDS the full NudgeFlow
+    // loop playing, pure — no grade, no vignette on top of the video.
+    float wp = smoothstep(0.16, 0.42, uP);
+    float hold = smoothstep(0.42, 0.55, uP);
     float edge = mix(-0.15, 1.15, wp) + 0.035 * sin(vUv.y * 5.2 + wp * 4.0);
     float d = vUv.x - edge;           // >0: ahead (from), <0: behind (to)
     float band = 0.085;               // smear band width

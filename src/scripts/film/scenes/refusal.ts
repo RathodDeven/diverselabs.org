@@ -1,8 +1,9 @@
 /**
  * Scene 2 — THE REFUSAL.
  * The finished AGAIN-wall shatters into grid cells that fly apart; the debris
- * recondenses letter-by-letter into the thesis line. One shader, two type
- * textures, fully reversible on scrub.
+ * recondenses into the thesis, holds, then the thesis itself shatters and
+ * reforms into the answer — one belief morphing into what we do about it.
+ * One shader, three type textures, fully reversible on scrub.
  */
 import {
   fsQuad,
@@ -20,6 +21,7 @@ import { drawWall, MAX_STAMPS } from './grind';
 
 export const THESIS_L1 = 'Machines should do';
 export const THESIS_L2 = 'the machine work.';
+export const ANSWER = "So that's what we build.";
 
 function drawThesis(c: CanvasRenderingContext2D, w: number, h: number) {
   c.clearRect(0, 0, w, h);
@@ -38,9 +40,22 @@ function drawThesis(c: CanvasRenderingContext2D, w: number, h: number) {
   c.fillText(THESIS_L2, w / 2, h / 2 + gap);
 }
 
+function drawAnswer(c: CanvasRenderingContext2D, w: number, h: number) {
+  c.clearRect(0, 0, w, h);
+  c.fillStyle = '#060606';
+  c.fillRect(0, 0, w, h);
+  c.textAlign = 'center';
+  c.textBaseline = 'middle';
+  const px = fitTextPx(c, ANSWER, 500, FONT_DISPLAY, w * 0.78);
+  c.font = `500 ${px}px ${FONT_DISPLAY}`;
+  c.fillStyle = '#f4f4f4';
+  c.fillText(ANSWER, w / 2, h / 2);
+}
+
 const FRAG = /* glsl */ `
   uniform sampler2D uWall;
   uniform sampler2D uThesis;
+  uniform sampler2D uAnswer;
   uniform vec2 uGrid;
   uniform float uP;
   uniform float uTime;
@@ -85,21 +100,26 @@ const FRAG = /* glsl */ `
   }
 
   void main() {
-    // wall departs slowly, thesis streams in early — the two debris fields
-    // overlap so the middle of the scene is a storm, never a void
-    float kOut = smoothstep(0.0, 0.62, uP);
-    float kIn  = 1.0 - smoothstep(0.10, 0.74, uP);
+    // beat 1: wall departs, thesis streams in (overlapping storms)
+    float kOut  = smoothstep(0.0, 0.34, uP);
+    float kIn1  = 1.0 - smoothstep(0.08, 0.42, uP);
+    // beat 2: thesis holds until 55%, then shatters into the answer
+    float kOut1 = smoothstep(0.55, 0.74, uP);
+    float kIn2  = 1.0 - smoothstep(0.60, 0.90, uP);
 
     vec4 wallBit = debris(uWall, vUv, uGrid, kOut, 0.0);
 
-    // thesis assembles left-to-right (letter-by-letter feel): cells further
-    // right lag behind the assembly front
+    // sentences assemble left-to-right: cells further right lag the front
     float xLag = (floor(vUv.x * uGrid.x) / uGrid.x) * 0.30;
-    vec4 thesisBit = debris(uThesis, vUv, uGrid * 1.35, clamp(kIn + xLag * kIn, 0.0, 1.0), 7.0);
+    float kThesis = clamp(kIn1 + xLag * kIn1 + kOut1, 0.0, 1.0);
+    vec4 thesisBit = debris(uThesis, vUv, uGrid * 1.35, kThesis, 7.0);
+    float kAns = clamp(kIn2 + xLag * kIn2, 0.0, 1.0);
+    vec4 ansBit = debris(uAnswer, vUv, uGrid * 1.35, kAns, 13.0);
 
     vec3 col = vec3(0.024);
     col = mix(col, wallBit.rgb, wallBit.a);
     col = mix(col, thesisBit.rgb, thesisBit.a);
+    col = mix(col, ansBit.rgb, ansBit.a);
     col += filmGrain(vUv, uTime) * 0.05;
     col *= vig(vUv, 0.5);
     gl_FragColor = vec4(col, 1.0);
@@ -112,10 +132,12 @@ export function createRefusal(ctx: SceneCtx, win: [number, number]): FilmScene {
     drawWall(c, w, hh, MAX_STAMPS)
   );
   let thesisTex: CanvasTex = makeCanvasTex(size.w, size.h, drawThesis);
+  let answerTex: CanvasTex = makeCanvasTex(size.w, size.h, drawAnswer);
 
   const uniforms = {
     uWall: uni(wallTex.tex),
     uThesis: uni(thesisTex.tex),
+    uAnswer: uni(answerTex.tex),
     uGrid: uni([46, 26]),
     uP: uni(0),
     uTime: uni(0),
@@ -136,14 +158,18 @@ export function createRefusal(ctx: SceneCtx, win: [number, number]): FilmScene {
       const s = typeTexSize(vp, 2048);
       wallTex.dispose();
       thesisTex.dispose();
+      answerTex.dispose();
       wallTex = makeCanvasTex(s.w, s.h, (c, w, x) => drawWall(c, w, x, MAX_STAMPS));
       thesisTex = makeCanvasTex(s.w, s.h, drawThesis);
+      answerTex = makeCanvasTex(s.w, s.h, drawAnswer);
       uniforms.uWall.value = wallTex.tex;
       uniforms.uThesis.value = thesisTex.tex;
+      uniforms.uAnswer.value = answerTex.tex;
     },
     dispose() {
       wallTex.dispose();
       thesisTex.dispose();
+      answerTex.dispose();
     },
   };
 }

@@ -104,7 +104,7 @@ export function createNumbers(ctx: SceneCtx, win: [number, number]): FilmScene {
       build();
       for (const d of digits) {
         // rolls finish by ~45% — the numbers then hold while logos travel
-        const e = Math.min(1, Math.max(0, (p - 0.05 - d.row * 0.06) / 0.28));
+        const e = Math.min(1, Math.max(0, (p - 0.05 - d.row * 0.06) / 0.26));
         const k = easeOutBack(e); // overshoots just before settling — the "click"
         const pos = Math.max(0, (SPINS * 10 + d.value) * k);
         const off = ((pos % 10) + 10) % 10;

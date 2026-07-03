@@ -59,7 +59,7 @@ interface Caption {
 /** Master-progress values the film eases onto when the visitor stops
     scrolling nearby: each scene's composed "rest frame" (ENOUGH., the
     thesis, each full-bleed loop, the phones, the numbers, the belief line). */
-const REST_POINTS = [0.098, 0.196, 0.33, 0.46, 0.61, 0.754, 0.837, 0.935, 1.0];
+const REST_POINTS = [0.085, 0.14, 0.176, 0.276, 0.405, 0.538, 0.685, 0.786, 0.916, 1.0];
 
 class Film {
   private renderer: THREE.WebGLRenderer;
@@ -105,15 +105,15 @@ class Film {
     };
 
     this.scenes = [
-      createGrind(ctx, [0.0, 0.115]),
-      createRefusal(ctx, [0.115, 0.21]),
-      createLayer(ctx, [0.21, 0.35]),
-      createProofWipe(ctx, [0.35, 0.5]),
-      createFlap(ctx, [0.5, 0.65]),
-      createCreatives(ctx, [0.65, 0.78]),
-      createNumbers(ctx, [0.78, 0.875]),
-      createTurn(ctx, [0.875, 0.955]),
-      createDoorway(ctx, [0.955, 1.000001]),
+      createGrind(ctx, [0.0, 0.1]),
+      createRefusal(ctx, [0.1, 0.18]),
+      createLayer(ctx, [0.18, 0.3]),
+      createProofWipe(ctx, [0.3, 0.44]),
+      createFlap(ctx, [0.44, 0.58]),
+      createCreatives(ctx, [0.58, 0.72]),
+      createNumbers(ctx, [0.72, 0.83]),
+      createTurn(ctx, [0.83, 0.945]),
+      createDoorway(ctx, [0.945, 1.000001]),
     ];
     this.scenes.forEach((s) => this.scene3.add(s.mesh));
 
