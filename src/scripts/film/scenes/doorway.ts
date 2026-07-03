@@ -50,6 +50,7 @@ const FRAG = /* glsl */ `
 export function createDoorway(ctx: SceneCtx, win: [number, number]): FilmScene {
   const uniforms = { uP: uni(0), uTime: uni(0) };
   const mesh = fsQuad(FRAG, uniforms);
+  let turnEl: HTMLElement | null = null;
 
   return {
     name: 'doorway',
@@ -59,6 +60,14 @@ export function createDoorway(ctx: SceneCtx, win: [number, number]): FilmScene {
       uniforms.uP.value = p;
       // panel becomes interactive once the gate is wide enough to read
       document.getElementById('film')?.classList.toggle('gate-open', p > 0.55);
+
+      // the belief line stays and rides the top shutter out — it never pops
+      if (!turnEl) turnEl = document.querySelector<HTMLElement>('.film-turn');
+      if (turnEl) {
+        const e = p * p * (3 - 2 * p); // same easing as the shutters
+        const rise = e * 0.62 * window.innerHeight;
+        turnEl.style.transform = `translate(-50%, calc(-50% - ${rise.toFixed(1)}px))`;
+      }
     },
     update(t) {
       uniforms.uTime.value = t;
@@ -69,6 +78,7 @@ export function createDoorway(ctx: SceneCtx, win: [number, number]): FilmScene {
     onExit() {
       ctx.setClearAlpha(1);
       document.getElementById('film')?.classList.remove('gate-open');
+      if (turnEl) turnEl.style.transform = '';
     },
     resize(_vp: Viewport) {},
   };

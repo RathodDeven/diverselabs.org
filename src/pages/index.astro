@@ -39,33 +39,45 @@ const description =
         <div class="film-copy" aria-hidden="false">
           <p class="film-hint" data-cap="grind" data-in="0" data-out="0.10">scroll</p>
 
-          <div class="film-ticker" data-cap="grind" data-in="0" data-out="0.7">
-            <span
-              >follow-up sent&nbsp;·&nbsp;pdf retyped&nbsp;·&nbsp;lead
-              copied&nbsp;·&nbsp;status chased&nbsp;·&nbsp;row
-              re-entered&nbsp;·&nbsp;export, again&nbsp;·&nbsp;follow-up
-              sent&nbsp;·&nbsp;pdf retyped&nbsp;·&nbsp;lead
-              copied&nbsp;·&nbsp;status chased&nbsp;·&nbsp;row
-              re-entered&nbsp;·&nbsp;export, again&nbsp;·&nbsp;</span
-            >
-          </div>
-
-          <div class="film-proof" data-cap="proof-nudgeflow" data-in="0.55" data-out="1">
-            <span class="proof-num">01</span>
-            <p class="proof-line">Held, not dropped.</p>
+          <div class="film-proof" data-cap="proof-nudgeflow" data-in="0.6" data-out="1">
             <p class="proof-tag">
-              NudgeFlow · ClickPe (YC S23) — WhatsApp + voice agents
+              NudgeFlow · ClickPe (YC S23)
               <a href="/work/clickpe-nudgeflow-whatsapp-voice-ai-agent">case study ↗</a>
             </p>
           </div>
 
-          <div class="film-proof" data-cap="proof-approved" data-in="0.6" data-out="1">
-            <span class="proof-num">02</span>
-            <p class="proof-line">Nothing sends without a human.</p>
+          <div class="film-proof" data-cap="proof-approved" data-in="0.62" data-out="1">
             <p class="proof-tag">
               CRM follow-up agent · ScaleUp
               <a href="/work/scaleup-zoho-crm-follow-up-agent">case study ↗</a>
             </p>
+          </div>
+
+          <!-- Scene 6 backdrop: client logos drifting in rows toward top-left -->
+          <div id="film-logos" class="film-logos" aria-hidden="true">
+            {[
+              [
+                ['clickpe', 'ClickPe'], ['scaleup', 'ScaleUp'], ['ad360', 'AD360'],
+                ['digitalkalakari', 'DigitalKalakari'], ['mezh_studio', 'Mezh Studio'], ['bloomerstv', 'BloomersTV'],
+              ],
+              [
+                ['handprotocol', 'Hand Protocol'], ['danz', 'DANZ NOW'], ['interality', 'Interality'],
+                ['paiso', 'Paiso'], ['vikram_enterprise', 'Vikram Enterprise'],
+              ],
+              [
+                ['vashi', 'Vashi Integrated'], ['landboard', 'Landboard'], ['celo', 'Celo'],
+                ['lens', 'Lens'], ['livepeer', 'Livepeer'],
+              ],
+            ].map((row) => (
+              <div class="logo-row">
+                {[...row, ...row].map(([file, name]) => (
+                  <span class="logo-chip">
+                    <img src={`/companies/${file}.jpeg`} alt="" width="40" height="40" loading="lazy" />
+                    <i>{name}</i>
+                  </span>
+                ))}
+              </div>
+            ))}
           </div>
 
           <!-- Scene 6: odometer stats (digit strips built by the scene) -->

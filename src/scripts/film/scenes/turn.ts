@@ -11,10 +11,8 @@ import {
   type SceneCtx,
   type Viewport,
 } from '../lib';
-import { getStrip } from './numbers';
 
 const FRAG = /* glsl */ `
-  uniform sampler2D uStrip;
   uniform float uP;
   uniform float uTime;
   varying vec2 vUv;
@@ -27,21 +25,10 @@ const FRAG = /* glsl */ `
 
     vec3 col = vec3(0.024);
 
-    // the old scene's backdrop, squashing into the center line
-    float sy = max(1.0 - crush * 0.998, 0.002);
-    float y = 0.5 + (vUv.y - 0.5) / sy;
-    if (y > 0.0 && y < 1.0 && crush < 1.0) {
-      float bandC = 0.5, bandH = 0.20;
-      float inBand = 1.0 - smoothstep(bandH * 0.94, bandH, abs(y - bandC));
-      // same drift phase as the numbers scene's end state (uP=1) so the
-      // strip doesn't snap sideways at the handoff
-      vec2 suv = vec2(fract(vUv.x * 0.45 + 0.85 + uTime * 0.004), (y - (bandC - bandH)) / (2.0 * bandH));
-      col = mix(col, texture2D(uStrip, suv).rgb * 0.5 * (1.0 - crush), inBand);
-    }
-
-    // the line: blazes at full crush, then dims + sinks to underline the words
+    // the line: blazes at full crush, then dims + sinks to underline the
+    // words — it stays lit through the hold so the frame never dies
     float lineY = mix(0.5, 0.30, write);
-    float lineI = crush * (1.0 - write * 0.82);
+    float lineI = max(crush * (1.0 - write * 0.75), 0.0);
     float line = exp(-abs(vUv.y - lineY) * mix(150.0, 420.0, crush));
     float bloom = exp(-abs(vUv.y - lineY) * 22.0);
     col += GREEN * (line * 1.4 + bloom * 0.22) * lineI;
@@ -53,13 +40,13 @@ const FRAG = /* glsl */ `
 
 export function createTurn(ctx: SceneCtx, win: [number, number]): FilmScene {
   const uniforms = {
-    uStrip: uni(getStrip().tex),
     uP: uni(0),
     uTime: uni(0),
   };
   const mesh = fsQuad(FRAG, uniforms);
 
   let odo: HTMLElement | null = null;
+  let logos: HTMLElement | null = null;
   let words: HTMLElement[] = [];
   let turnEl: HTMLElement | null = null;
 
@@ -82,6 +69,7 @@ export function createTurn(ctx: SceneCtx, win: [number, number]): FilmScene {
       words = Array.from(turnEl?.querySelectorAll<HTMLElement>('.turn-w') ?? []);
     }
     if (!odo) odo = document.getElementById('film-odo');
+    if (!logos) logos = document.getElementById('film-logos');
   };
 
   return {
@@ -92,25 +80,36 @@ export function createTurn(ctx: SceneCtx, win: [number, number]): FilmScene {
       grab();
       uniforms.uP.value = p;
 
-      // DOM crush of the odometer block mirrors the shader crush
+      // DOM crush: the whole stats scene (numbers + logo rows) squashes
+      // into the green line, mirroring the shader
       const crush = Math.min(1, p / 0.25);
+      const sy = Math.max(1 - crush, 0.002);
       if (odo) {
-        const sy = Math.max(1 - crush, 0.002);
         odo.style.transform = `scaleY(${sy})`;
-        odo.style.opacity = String(1 - crush * 0.35);
+        odo.style.opacity = String(1 - crush * 0.4);
+      }
+      if (logos) {
+        logos.style.transform = `rotate(-8deg) scaleY(${sy})`;
+        logos.style.opacity = String(0.55 * (1 - crush));
       }
 
-      // weight bloom: each word 300 -> 640, staggered; tracking tightens.
-      // Completes by 68% — the belief line then sits with the visitor.
+      // weight bloom: each word 300 -> 640, staggered, with a small rise —
+      // words gain mass and settle. Completes by 68%, then the line sits
+      // with the visitor for the rest of the scene (and rides the doorway
+      // shutter out instead of vanishing).
       const write = Math.min(1, Math.max(0, (p - 0.3) / 0.38));
       const n = Math.max(words.length, 1);
       words.forEach((w, i) => {
         const local = Math.min(1, Math.max(0, (write * (n + 2.5) - i) / 2.5));
         const e = local * local * (3 - 2 * local);
         w.style.fontVariationSettings = `'wght' ${Math.round(300 + 340 * e)}`;
-        w.style.opacity = String(0.25 + 0.75 * e);
+        w.style.opacity = String(0.22 + 0.78 * e);
+        w.style.transform = `translateY(${(1 - e) * 0.45}em)`;
       });
-      if (turnEl) turnEl.style.letterSpacing = `${0.04 - 0.05 * write}em`;
+      if (turnEl) {
+        turnEl.style.letterSpacing = `${0.04 - 0.05 * write}em`;
+        turnEl.style.transform = ''; // reclaim from the doorway's ride-out
+      }
     },
     update(t) {
       uniforms.uTime.value = t;
@@ -119,6 +118,10 @@ export function createTurn(ctx: SceneCtx, win: [number, number]): FilmScene {
       if (odo) {
         odo.style.transform = '';
         odo.style.opacity = '';
+      }
+      if (logos) {
+        logos.style.transform = '';
+        logos.style.opacity = '';
       }
     },
     resize(_vp: Viewport) {},

@@ -14,6 +14,17 @@ import {
 } from '../lib';
 import { getHeroMedia } from './layer';
 
+/* NudgeFlow footage is shared with the approval sweep (scene 5): when that
+   scene plays the CRM loop, this one pauses and holds its exact last frame. */
+let nudgeMedia: MediaTex | null = null;
+export function getNudgeMedia(): MediaTex {
+  if (!nudgeMedia) {
+    nudgeMedia = MediaTex.fromImage('/film/loops/nudgeflow.webp');
+    nudgeMedia.upgradeToVideo('/film/loops/nudgeflow.mp4');
+  }
+  return nudgeMedia;
+}
+
 const FRAG = /* glsl */ `
   uniform sampler2D uFrom;
   uniform sampler2D uTo;
@@ -52,6 +63,10 @@ const FRAG = /* glsl */ `
     from.r = texture2D(uFrom, fromUv + vec2(split, 0.0)).r * 0.55 + from.r * 0.45;
     to.b   = texture2D(uTo,   toUv   - vec2(split, 0.0)).b * 0.55 + to.b * 0.45;
 
+    // graded dark — footage sits inside the brand's black, not on top of it
+    from *= 0.68;
+    to *= 0.68;
+
     float side = smoothstep(-0.004, 0.004, d); // 1 = from side
     vec3 col = mix(to, from, side);
 
@@ -70,8 +85,7 @@ export function createProofWipe(ctx: SceneCtx, win: [number, number]): FilmScene
   // "from" is the shared hero video: playing NudgeFlow pauses it, so the
   // outgoing plate holds the exact frame the iris ended on
   const from = getHeroMedia();
-  const to = MediaTex.fromImage('/film/loops/nudgeflow.webp');
-  to.upgradeToVideo('/film/loops/nudgeflow.mp4');
+  const to = getNudgeMedia();
 
   const uniforms = {
     uFrom: uni(from.tex),
@@ -117,6 +131,7 @@ export function createProofWipe(ctx: SceneCtx, win: [number, number]): FilmScene
     dispose() {
       // `from` is the shared hero media — layer.ts owns its disposal
       to.dispose();
+      nudgeMedia = null;
     },
   };
 }

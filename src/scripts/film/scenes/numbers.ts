@@ -1,81 +1,28 @@
 /**
  * Scene 6 — PROOF III: THE NUMBERS.
  * Colossal odometer stats physically roll and click into place (DOM digit
- * strips scrubbed by scroll). Behind them, the client logos drift as one
- * grayscale filmstrip; scroll velocity shears the whole scene.
+ * strips scrubbed by scroll). Behind them, every client we've worked with
+ * drifts past as rows of logo chips travelling toward the top-left —
+ * scroll drives the travel, so the dwell is spent among the companies.
  */
-import * as THREE from 'three';
 import {
   fsQuad,
-  makeCanvasTex,
   uni,
-  type CanvasTex,
   type FilmScene,
   type SceneCtx,
   type Viewport,
 } from '../lib';
 
-const LOGOS = [
-  'clickpe', 'scaleup', 'ad360', 'digitalkalakari', 'mezh_studio', 'bloomerstv',
-  'handprotocol', 'danz', 'interality', 'paiso', 'vikram_enterprise', 'vashi',
-  'landboard', 'celo', 'lens', 'livepeer',
-].map((n) => `/companies/${n}.jpeg`);
-
-/* One shared filmstrip texture; scene 7 crushes the same strip. */
-let strip: CanvasTex | null = null;
-export function getStrip(): CanvasTex {
-  if (strip) return strip;
-  strip = makeCanvasTex(4096, 256, (c, w, h) => {
-    c.fillStyle = '#0a0a0a';
-    c.fillRect(0, 0, w, h);
-  });
-  const slot = 4096 / LOGOS.length;
-  LOGOS.forEach((url, i) => {
-    const img = new Image();
-    img.onload = () => {
-      if (!strip) return;
-      const { ctx, canvas, tex } = strip;
-      ctx.save();
-      ctx.filter = 'grayscale(1) brightness(0.95)';
-      const pad = 26;
-      const size = Math.min(slot - pad, canvas.height - pad);
-      ctx.drawImage(img, i * slot + (slot - size) / 2, (canvas.height - size) / 2, size, size);
-      ctx.restore();
-      // film sprocket holes between slots
-      ctx.fillStyle = '#060606';
-      ctx.fillRect(i * slot - 3, 0, 6, canvas.height);
-      tex.needsUpdate = true;
-    };
-    img.src = url;
-  });
-  strip.tex.wrapS = THREE.RepeatWrapping;
-  return strip;
-}
-
 const FRAG = /* glsl */ `
-  uniform sampler2D uStrip;
   uniform float uP;
   uniform float uTime;
-  uniform float uVel;
   varying vec2 vUv;
 
   void main() {
     vec3 col = vec3(0.024);
-
-    // filmstrip band across the middle: SCROLL drives the strip, so the
-    // scene's dwell is spent travelling past every company we've worked with
-    float bandC = 0.5;
-    float bandH = 0.20;
-    float inBand = 1.0 - smoothstep(bandH * 0.94, bandH, abs(vUv.y - bandC));
-    if (inBand > 0.0) {
-      vec2 suv;
-      suv.y = (vUv.y - (bandC - bandH)) / (2.0 * bandH);
-      suv.x = fract(vUv.x * 0.45 + uP * 0.85 + uTime * 0.004
-                    + (vUv.y - 0.5) * uVel * 0.10); // velocity shear
-      vec3 s = texture2D(uStrip, suv).rgb;
-      col = mix(col, s * 0.5, inBand);
-    }
-
+    // faint center glow so the stats sit in a pool of light
+    float d = length((vUv - 0.5) * vec2(1.4, 1.0));
+    col += vec3(0.028) * (1.0 - smoothstep(0.1, 0.75, d));
     col += filmGrain(vUv, uTime) * 0.05;
     col *= vig(vUv, 0.5);
     gl_FragColor = vec4(col, 1.0);
@@ -90,22 +37,29 @@ interface OdoDigit {
   row: number;
 }
 
+/* per-row drift: [start vw, travel vw] — all rows head left (the container's
+   -8deg rotation turns that into a bottom-right -> top-left drift) */
+const ROW_DRIFT: Array<[number, number]> = [
+  [4, -42],
+  [-18, -30],
+  [-6, -52],
+];
+
 export function createNumbers(ctx: SceneCtx, win: [number, number]): FilmScene {
-  const uniforms = {
-    uStrip: uni(getStrip().tex),
-    uP: uni(0),
-    uTime: uni(0),
-    uVel: uni(0),
-  };
+  const uniforms = { uP: uni(0), uTime: uni(0) };
   const mesh = fsQuad(FRAG, uniforms);
 
   let digits: OdoDigit[] = [];
   let odo: HTMLElement | null = null;
+  let logoRows: HTMLElement[] = [];
   let built = false;
 
   const build = () => {
     if (built) return;
     odo = document.getElementById('film-odo');
+    logoRows = Array.from(
+      document.querySelectorAll<HTMLElement>('#film-logos .logo-row')
+    );
     if (!odo) return;
     built = true;
     odo.querySelectorAll<HTMLElement>('[data-odo-val]').forEach((valEl, row) => {
@@ -154,15 +108,17 @@ export function createNumbers(ctx: SceneCtx, win: [number, number]): FilmScene {
         const k = easeOutBack(e); // overshoots just before settling — the "click"
         const pos = Math.max(0, (SPINS * 10 + d.value) * k);
         const off = ((pos % 10) + 10) % 10;
-        // percentage of the strip's own height: one step is exactly one of
-        // its 11 rows, regardless of the row's font-size/height in em
         d.el.style.transform = `translateY(${(-off * 100) / 11}%)`;
       }
+      // scroll carries the visitor past every company
+      logoRows.forEach((row, i) => {
+        const [start, travel] = ROW_DRIFT[i % ROW_DRIFT.length];
+        row.style.transform = `translate3d(${start + travel * p}vw, 0, 0)`;
+      });
     },
     update(t) {
       uniforms.uTime.value = t;
       const v = Math.max(-1, Math.min(1, ctx.vel() / 3000));
-      uniforms.uVel.value = v;
       if (odo) odo.style.transform = `skewY(${v * 2.2}deg) scaleY(${1 + Math.abs(v) * 0.04})`;
     },
     onExit() {
