@@ -1,0 +1,536 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Faq from '../components/Faq.astro';
+import CTAButton from '../components/CTAButton.astro';
+import { gmailCompose } from '../lib/mail';
+import { breadcrumbJsonLd, faqJsonLd } from '../data/content';
+
+const title = 'AI Automation Services | Diverse Labs';
+const description =
+  'Six AI systems we build: chat & support agents, lead gen & CRM automation, semantic search & doc intelligence, AI video production, data query & analysis, and predictive ML.';
+
+const services = [
+  {
+    num: '01',
+    title: 'AI Chat & Support Agents',
+    desc: 'Conversational agents trained on your knowledge base that resolve queries, qualify leads, and escalate intelligently.',
+    chips: ['Multi-turn memory', 'CRM sync', 'Smart escalation'],
+    mockup: 'chat',
+  },
+  {
+    num: '02',
+    title: 'Lead Gen & CRM Automation',
+    desc: 'Pipelines that capture, score, and route leads — then trigger follow-ups without anyone lifting a finger.',
+    chips: ['Lead scoring', 'Auto follow-ups', 'Pipeline sync'],
+    mockup: 'pipeline',
+  },
+  {
+    num: '03',
+    title: 'Semantic Search & Doc Intelligence',
+    desc: 'RAG-powered search across your documents, PDFs, and databases. Answers in seconds, not hours.',
+    chips: ['Full RAG stack', 'PDF parsing', 'Instant retrieval'],
+    mockup: 'search',
+  },
+  {
+    num: '04',
+    title: 'AI Video & Creative Production',
+    desc: 'Photorealistic AI video ads and UGC content with natural voices — produced at a fraction of studio cost.',
+    chips: ['Realistic avatars', 'Brand scripts', 'Fast turnaround'],
+    mockup: 'video',
+  },
+  {
+    num: '05',
+    title: 'Data Query & Analysis',
+    desc: 'Ask your database questions in plain English. Get structured answers, live charts, and alerts back.',
+    chips: ['NL-to-SQL', 'Auto dashboards', 'Anomaly alerts'],
+    mockup: 'terminal',
+  },
+  {
+    num: '06',
+    title: 'Predictive Analytics & ML',
+    desc: 'Custom models trained on your data to forecast demand, churn, or performance — embedded in your workflow.',
+    chips: ['Custom models', 'Forecasting', 'Live monitoring'],
+    mockup: 'chart',
+  },
+];
+
+const allClients = [
+  { name: 'ClickPe',                   logo: '/companies/clickpe.jpeg',          href: 'https://clickpe.ai/' },
+  { name: 'ScaleUp Inc',               logo: '/companies/scaleup.jpeg',          href: 'https://scaleupinc.com/' },
+  { name: 'AD360',                     logo: '/companies/ad360.jpeg',            href: 'https://ad360.in/' },
+  { name: 'DigitalKalakari',           logo: '/companies/digitalkalakari.jpeg',  href: 'https://digitalkalakari.com/' },
+  { name: 'Mezh Studio',               logo: '/companies/mezh_studio.jpeg',      href: 'https://www.instagram.com/mezh.studio/' },
+  { name: 'BloomersTV',                logo: '/companies/bloomerstv.jpeg',       href: 'https://bloomers.tv/' },
+  { name: 'Hand Protocol',             logo: '/companies/handprotocol.jpeg',     href: 'https://handprotocol.org/' },
+  { name: 'DANZ NOW',                  logo: '/companies/danz.jpeg',             href: 'https://danz.now/' },
+  { name: 'Interality',                logo: '/companies/interality.jpeg',       href: 'https://www.instagram.com/interality/' },
+  { name: 'Paiso',                     logo: '/companies/paiso.jpeg',            href: 'https://paiso.xyz/' },
+  { name: 'Vikram Enterprise',         logo: '/companies/vikram_enterprise.jpeg' },
+  { name: 'Vashi Integrated Solutions',logo: '/companies/vashi.jpeg' },
+  { name: 'Landboard',                 logo: '/companies/landboard.jpeg' },
+  { name: 'Celo',                      logo: '/companies/celo.jpeg' },
+  { name: 'Lens',                      logo: '/companies/lens.jpeg' },
+  { name: 'Livepeer',                  logo: '/companies/livepeer.jpeg' },
+];
+
+const halfway = Math.ceil(allClients.length / 2);
+const logoRowOne = allClients.slice(0, halfway);
+const logoRowTwo = allClients.slice(halfway);
+
+const tapeWords = ['AI Agents', 'Automation', 'AI Video', 'Web & Mobile', 'Data & ML'];
+
+const faqs = [
+  {
+    question: 'What is an AI agent and how is it different from a regular chatbot?',
+    answer: 'A chatbot follows scripts. An AI agent understands context, reasons through multi-step problems, and takes real actions across your tools — a vending machine versus a skilled employee who never sleeps.',
+  },
+  {
+    question: 'How does Diverse Labs customize AI systems for our specific business?',
+    answer: 'A free discovery session maps your workflows, data, and business rules. Then we build for your exact stack — your products, your tone, your tools — never a generic template.',
+  },
+  {
+    question: 'Do you build regular software too, or only AI?',
+    answer: 'Both. We ship production-grade web, mobile, and desktop products from the ground up — used by thousands of people across fintech, creator platforms, and enterprise tools.',
+  },
+  {
+    question: 'What is human-in-the-loop automation and can we control it?',
+    answer: 'A human approves specific actions before the AI proceeds. Fully automated, human-in-the-loop, or hybrid — you decide which stages need approval. Total control.',
+  },
+  {
+    question: 'Will we need to replace our existing tools and systems?',
+    answer: 'No. Salesforce, HubSpot, Shopify, custom databases — whatever you run stays. Our AI layer integrates on top, with zero disruption to current operations.',
+  },
+  {
+    question: 'How long does it take to build and deploy an AI system?',
+    answer: 'A focused AI agent: 2–4 weeks from discovery to live. Multi-agent systems with deep integrations: 8–12 weeks. You get a precise milestone timeline after the discovery call.',
+  },
+  {
+    question: 'What industries and business types do you work with?',
+    answer: 'Mainly e-commerce, fintech, SaaS, and professional services with high-volume repetitive workflows — from funded startups to established enterprises.',
+  },
+  {
+    question: 'What does a typical engagement look like?',
+    answer: 'Discovery call → scoped plan with milestones → build and deliver → weekly iteration. Most clients see measurable results within the first 30 days.',
+  },
+];
+
+const testimonials = [
+  {
+    quote:
+      "Deven quickly understood our Zoho CRM and follow-up workflow, then built a secure, practical automation that gives our team useful context without adding operational noise. He combines strong technical execution with an operator's mindset — making Diverse Labs a reliable partner for turning complex workflows into tools we actually use.",
+    name: 'Marcos Buelvas',
+    title: 'Global Operations Consulting',
+    company: 'ScaleUp',
+    logo: '/companies/scaleup.jpeg',
+    image: '/people/marcos-buelvas.webp',
+    initials: 'MB',
+    relation: 'Client · June 2026',
+    // The recommendation lives in Deven's LinkedIn "Recommendations" section
+    recommendationUrl: 'https://www.linkedin.com/in/deven-rathod-475b39205',
+  },
+];
+const featured = testimonials[0];
+
+const crumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'Services', href: '/services' },
+];
+
+const serviceCatalogJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'OfferCatalog',
+  name: 'AI Automation Services',
+  url: 'https://diverselabs.org/services',
+  itemListElement: services.map((s, i) => ({
+    '@type': 'Offer',
+    position: i + 1,
+    itemOffered: {
+      '@type': 'Service',
+      name: s.title,
+      description: s.desc,
+      serviceType: s.title,
+      provider: {
+        '@type': 'Organization',
+        name: 'Diverse Labs',
+        url: 'https://diverselabs.org',
+      },
+    },
+  })),
+};
+
+const jsonLd = [
+  breadcrumbJsonLd(crumbs),
+  serviceCatalogJsonLd,
+  faqJsonLd(faqs.map((f) => ({ q: f.question, a: f.answer }))),
+];
+---
+
+<BaseLayout title={title} description={description} jsonLd={jsonLd}>
+
+  <!-- ═══════════════ HERO ═══════════════ -->
+  <section class="page-section-tight" style="padding-top: clamp(8rem, 16vh, 11rem)">
+    <div class="container">
+      <p class="label mb-6" data-reveal>Services</p>
+      <h1 class="display-hero" data-split style="font-size: clamp(2.8rem, 7.5vw, 6.5rem)">
+        What we <span class="text-outline">build.</span>
+      </h1>
+      <div class="mt-8 max-w-xl" data-reveal data-reveal-delay="0.35">
+        <p class="hero-sub">
+          Custom AI agents, automation, and production software — six systems
+          built for your stack that do real work from day one.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ SERVICES (stacking cards) ═══════════════ -->
+  <section id="capabilities" class="page-section line-grid">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <div>
+          <p class="label mb-4">Capabilities</p>
+          <h2>AI systems that do real work</h2>
+        </div>
+        <span class="head-side mono-num">(06) Capabilities</span>
+      </div>
+
+      <div class="stack" data-stack>
+        {services.map((s) => (
+          <div class="stack-card">
+            <div class="stack-card-inner">
+              <div class="stack-copy">
+                <span class="stack-idx mono-num">{s.num} / 06</span>
+                <h3 class="stack-title">{s.title}</h3>
+                <p class="stack-desc">{s.desc}</p>
+                <div class="stack-chips">
+                  {s.chips.map((chip) => <span class="chip">{chip}</span>)}
+                </div>
+                <a
+                  href={gmailCompose(
+                    `Let's discuss: ${s.title}`,
+                    `Hi Deven,\n\nI'm interested in ${s.title} for my team — can we talk through what you'd build?`
+                  )}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="stack-link"
+                >
+                  <span class="stack-link-arrow" aria-hidden="true">→</span>
+                  Discuss this system
+                </a>
+              </div>
+
+              <div class="stack-visual" aria-hidden="true">
+                <div class="svc-mockup">
+                  {s.mockup === 'chat' && (
+                    <div>
+                      <div class="sm-bar">
+                        <span class="sm-dot"></span><span class="sm-dot"></span><span class="sm-dot"></span>
+                        <span class="sm-bar-title">Support Agent</span>
+                        <span class="sm-live"><span class="sm-live-dot"></span>Live</span>
+                      </div>
+                      <div class="sm-chat">
+                        <div class="sm-bubble sm-user sm-w1">Hi, where is my order?</div>
+                        <div class="sm-typing sm-wty"><span></span><span></span><span></span></div>
+                        <div class="sm-bubble sm-bot sm-w3">Order #4821 ships tomorrow — tracking sent to your email.</div>
+                        <div class="sm-pill sm-w4">✓ Resolved &nbsp;·&nbsp; CRM updated</div>
+                      </div>
+                    </div>
+                  )}
+                  {s.mockup === 'pipeline' && (
+                    <div>
+                      <div class="sm-bar">
+                        <span class="sm-dot"></span><span class="sm-dot"></span><span class="sm-dot"></span>
+                        <span class="sm-bar-title">Lead Pipeline</span>
+                      </div>
+                      <div class="sm-pipeline">
+                        <div class="sm-col">
+                          <div class="sm-col-hdr">New</div>
+                          <div class="sm-card sm-card-dim">TechStart</div>
+                        </div>
+                        <div class="sm-col">
+                          <div class="sm-col-hdr">Qualified</div>
+                          <div class="sm-card sm-card-dim">Initech</div>
+                        </div>
+                        <div class="sm-col">
+                          <div class="sm-col-hdr">Closing</div>
+                          <div class="sm-card sm-card-dim">Globex</div>
+                        </div>
+                        <div class="sm-traveler" aria-hidden="true">
+                          <span class="sm-trav-name">Acme Corp</span>
+                          <span class="sm-score">
+                            <i class="sm-s1">54</i><i class="sm-s2">82</i><i class="sm-s3">96</i>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="sm-foot">
+                        <span class="sm-pill sm-w5">⚡ Follow-up sent automatically</span>
+                      </div>
+                    </div>
+                  )}
+                  {s.mockup === 'search' && (
+                    <div>
+                      <div class="sm-bar">
+                        <span class="sm-dot"></span><span class="sm-dot"></span><span class="sm-dot"></span>
+                        <div class="sm-search-bar-wrap">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                          <span class="sm-typeq">refund policy Q3</span>
+                        </div>
+                      </div>
+                      <div class="sm-results">
+                        <div class="sm-doc sm-doc-hl sm-w2">
+                          <svg class="sm-doc-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+                          <span class="sm-doc-name">refund-policy-v3.pdf</span>
+                          <span class="sm-rel"><i class="sm-rel-fill sm-fill-a" style="--w:92%"></i></span>
+                          <span class="sm-doc-pct">92%</span>
+                        </div>
+                        <div class="sm-doc sm-w2a">
+                          <svg class="sm-doc-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+                          <span class="sm-doc-name">billing-faq.md</span>
+                          <span class="sm-rel"><i class="sm-rel-fill sm-fill-a" style="--w:74%"></i></span>
+                          <span class="sm-doc-pct">81%</span>
+                        </div>
+                        <div class="sm-answer sm-w4">→ Refunds are processed within 5 business days.</div>
+                      </div>
+                    </div>
+                  )}
+                  {s.mockup === 'video' && (
+                    <div>
+                      <div class="sm-bar">
+                        <span class="sm-dot"></span><span class="sm-dot"></span><span class="sm-dot"></span>
+                        <span class="sm-bar-title">AI Creative Studio</span>
+                        <span class="sm-live sm-rec"><span class="sm-live-dot"></span>REC</span>
+                      </div>
+                      <div class="sm-studio">
+                        <div class="sm-script sm-w1">“Meet the serum your skin has been waiting for…”</div>
+                        <div class="sm-stage sm-w2">
+                          <div class="sm-avatar" aria-hidden="true">
+                            <span class="sm-avatar-head"></span>
+                            <span class="sm-avatar-body"></span>
+                          </div>
+                          <div class="sm-wave" aria-hidden="true">
+                            <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+                          </div>
+                        </div>
+                        <div class="sm-render">
+                          <div class="sm-render-bar"><div class="sm-render-fill"></div></div>
+                          <span class="sm-render-lbl">
+                            <i class="sm-r1">Rendering 4K…</i><i class="sm-r2">✓ Ready to publish</i>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                  {s.mockup === 'terminal' && (
+                    <div>
+                      <div class="sm-bar">
+                        <span class="sm-dot"></span><span class="sm-dot"></span><span class="sm-dot"></span>
+                        <span class="sm-bar-title">Query Engine</span>
+                      </div>
+                      <div class="sm-terminal">
+                        <div class="sm-cmd"><span class="sm-typecmd">$ ask "revenue by region last 90d"</span></div>
+                        <div class="sm-sql sm-w3">→ SELECT region, SUM(total) FROM orders …</div>
+                        <div class="sm-rrow sm-w4">
+                          <span class="sm-rlbl">West</span>
+                          <span class="sm-rbar"><i class="sm-fill-b" style="--w:88%"></i></span>
+                          <span class="sm-rval">$102k</span>
+                        </div>
+                        <div class="sm-rrow sm-w4a">
+                          <span class="sm-rlbl">North</span>
+                          <span class="sm-rbar"><i class="sm-fill-b" style="--w:70%"></i></span>
+                          <span class="sm-rval">$84k</span>
+                        </div>
+                        <div class="sm-rrow sm-w4b">
+                          <span class="sm-rlbl">South</span>
+                          <span class="sm-rbar"><i class="sm-fill-b" style="--w:52%"></i></span>
+                          <span class="sm-rval">$61k</span>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                  {s.mockup === 'chart' && (
+                    <div>
+                      <div class="sm-bar">
+                        <span class="sm-dot"></span><span class="sm-dot"></span><span class="sm-dot"></span>
+                        <span class="sm-bar-title">Forecast Model</span>
+                      </div>
+                      <div class="sm-chart">
+                        <div class="sm-chart-cols" aria-hidden="true">
+                          <div class="sm-bar-v" style="height:34px"></div>
+                          <div class="sm-bar-v" style="height:50px"></div>
+                          <div class="sm-bar-v" style="height:44px"></div>
+                          <div class="sm-bar-v" style="height:64px"></div>
+                          <div class="sm-bar-v sm-bar-fc" style="height:78px"></div>
+                          <div class="sm-bar-v sm-bar-fc" style="height:92px"></div>
+                        </div>
+                        <div class="sm-chart-lbls" aria-hidden="true">
+                          <span>Q1</span><span>Q2</span><span>Q3</span><span>Q4</span>
+                          <span class="sm-lbl-fc">Q1'</span><span class="sm-lbl-fc">Q2'</span>
+                        </div>
+                        <span class="sm-pill sm-chart-pill sm-w4">↑ 23% forecast</span>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ TAPE MARQUEE ═══════════════ -->
+  <section class="tape" data-marquee data-speed="1" aria-hidden="true">
+    <div class="tape-track" data-marquee-track>
+      {[0, 1].map(() => (
+        <div class="tape-row">
+          {tapeWords.map((word, i) => (
+            <>
+              <span class={`tape-item${i % 2 === 1 ? ' outline' : ''}`}>{word}</span>
+              <span class="tape-star">✦</span>
+            </>
+          ))}
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- ═══════════════ TRUSTED BY (client-logo marquee) ═══════════════ -->
+  <section class="page-section">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <div>
+          <p class="label mb-4">Trusted by</p>
+          <h2><span data-count="15" data-suffix="+">15+</span> teams we've shipped for</h2>
+        </div>
+        <span class="head-side">Startups → Enterprise</span>
+      </div>
+    </div>
+
+    <div class="logo-tape" data-marquee data-speed="0.55" data-skew="false" aria-label="Clients and partners">
+      <div class="logo-tape-track" data-marquee-track>
+        {[0, 1].map(() => (
+          <div class="logo-tape-row">
+            {logoRowOne.map((client) =>
+              client.href ? (
+                <a class="logo-card" href={client.href} target="_blank" rel="nofollow noopener noreferrer" aria-label={`Visit ${client.name} website`}>
+                  <img src={client.logo} alt={`${client.name} logo`} loading="lazy" decoding="async" />
+                  <span class="logo-arrow" aria-hidden="true">↗</span>
+                </a>
+              ) : (
+                <div class="logo-card">
+                  <img src={client.logo} alt={`${client.name} logo`} loading="lazy" decoding="async" />
+                </div>
+              )
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="logo-tape" data-marquee data-speed="0.55" data-skew="false" data-direction="right" aria-hidden="true">
+      <div class="logo-tape-track" data-marquee-track>
+        {[0, 1].map(() => (
+          <div class="logo-tape-row">
+            {logoRowTwo.map((client) =>
+              client.href ? (
+                <a class="logo-card" href={client.href} target="_blank" rel="nofollow noopener noreferrer" tabindex="-1" aria-label={`Visit ${client.name} website`}>
+                  <img src={client.logo} alt={`${client.name} logo`} loading="lazy" decoding="async" />
+                  <span class="logo-arrow" aria-hidden="true">↗</span>
+                </a>
+              ) : (
+                <div class="logo-card">
+                  <img src={client.logo} alt={`${client.name} logo`} loading="lazy" decoding="async" />
+                </div>
+              )
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ TESTIMONIAL ═══════════════ -->
+  <section class="page-section" aria-label="Client recommendation">
+    <div class="container">
+      <figure class="tmonial" data-reveal>
+        <span class="tmonial-aura" aria-hidden="true"></span>
+        <div class="tmonial-head">
+          <span class="label no-rule">In their words</span>
+          <a class="tmonial-badge" href={featured.recommendationUrl} target="_blank" rel="noopener noreferrer" aria-label="View this recommendation on LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z" />
+            </svg>
+            Recommended on LinkedIn
+            <span class="tmonial-badge-arrow" aria-hidden="true">↗</span>
+          </a>
+        </div>
+
+        <blockquote class="tmonial-quote">
+          <span class="tmonial-mark" aria-hidden="true">“</span>{featured.quote}
+        </blockquote>
+
+        <figcaption class="tmonial-by">
+          <span class="tmonial-avatar">
+            <img
+              src={featured.image}
+              alt={featured.name}
+              width="56"
+              height="56"
+              loading="lazy"
+              decoding="async"
+              onerror="this.remove()"
+            />
+            <span class="tmonial-mono" aria-hidden="true">{featured.initials}</span>
+          </span>
+          <span class="tmonial-meta">
+            <span class="tmonial-name">
+              {featured.name}
+              <svg class="tmonial-verified" viewBox="0 0 24 24" aria-label="Verified" role="img">
+                <path fill="currentColor" d="m23 12-2.44-2.79.34-3.69-3.61-.82-1.89-3.2L12 2.96 8.6 1.5 6.71 4.69 3.1 5.5l.34 3.7L1 12l2.44 2.79-.34 3.7 3.61.82 1.89 3.2L12 21.04l3.4 1.46 1.89-3.19 3.61-.82-.34-3.69L23 12zm-12.91 4.72-3.8-3.81 1.48-1.48 2.32 2.33 5.85-5.87 1.48 1.48-7.33 7.35z" />
+              </svg>
+            </span>
+            <span class="tmonial-role">{featured.title} · {featured.company} · {featured.relation}</span>
+          </span>
+          <img class="tmonial-logo" src={featured.logo} alt={`${featured.company} logo`} width="40" height="40" loading="lazy" decoding="async" />
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ═══════════════ FAQ ═══════════════ -->
+  <section class="page-section">
+    <div class="container" style="max-width: 56rem">
+      <div class="section-head" data-reveal>
+        <div>
+          <p class="label mb-4">FAQ</p>
+          <h2>Common questions</h2>
+        </div>
+        <span class="head-side mono-num">({String(faqs.length).padStart(2, '0')})</span>
+      </div>
+
+      <Faq items={faqs.map((f) => ({ q: f.question, a: f.answer }))} revealGroup />
+    </div>
+  </section>
+
+  <!-- ═══════════════ CTA ═══════════════ -->
+  <section class="page-section-tight pb-24">
+    <div class="container">
+      <div class="cta-panel" data-reveal>
+        <div class="relative z-10">
+          <p class="label no-rule mb-6 justify-center flex">Ready when you are</p>
+          <h2 class="cta-title" data-split>Still doing repetitive<br />work by hand?</h2>
+          <p class="cta-sub">Let's build an AI system that gives your team its time back.</p>
+          <div class="flex flex-col sm:flex-row items-center gap-4 justify-center">
+            <CTAButton href="https://cal.com/diverselabs/30min">Book a Discovery Call</CTAButton>
+            <a href="mailto:deven@diverselabs.org"
+               class="footer-link text-sm">
+              or email deven@diverselabs.org
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

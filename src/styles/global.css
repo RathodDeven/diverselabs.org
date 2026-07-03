@@ -2861,3 +2861,292 @@ body.cursor-click .cursor-dot {
 .insight-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; }
 .insight-arrow { color: var(--faint); flex-shrink: 0; transition: transform 0.3s var(--ease-out); }
 .insight-card:hover .insight-arrow { transform: translateX(4px); color: var(--ink); }
+
+/* ================================================================
+   HOME FILM — scroll-driven cinematic landing
+   Canvas (z1) over CTA panel (z0), copy layer on top (z2).
+   ================================================================ */
+.film-track {
+  height: 820vh;
+  position: relative;
+}
+@media (max-width: 820px) {
+  .film-track { height: 640vh; }
+}
+.film-stage {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100dvh;
+  overflow: clip;
+  background: var(--bg);
+}
+#film-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  display: block;
+}
+.film-copy {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+.film-copy a { pointer-events: auto; }
+
+/* ── captions: masked slide reveals (no plain fades) ─────────── */
+.film-cap,
+.film-hint,
+.film-ticker,
+.film-proof {
+  position: absolute;
+  opacity: 0;
+  transform: translateY(14px);
+  clip-path: inset(0 0 100% 0);
+  transition:
+    transform 0.55s var(--ease-out),
+    clip-path 0.55s var(--ease-out),
+    opacity 0.3s linear;
+}
+.film-cap.on,
+.film-hint.on,
+.film-ticker.on,
+.film-proof.on {
+  opacity: 1;
+  transform: translateY(0);
+  clip-path: inset(0 0 -20% 0);
+}
+
+.film-cap {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+.cap-bl {
+  left: clamp(1.25rem, 4vw, 3.5rem);
+  bottom: clamp(1.25rem, 5vh, 3rem);
+}
+
+.film-hint {
+  left: 50%;
+  bottom: 1.4rem;
+  margin-left: -1.2rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--faint);
+  animation: film-hint-bob 2.2s ease-in-out infinite;
+}
+@keyframes film-hint-bob {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 6px; }
+}
+
+.film-ticker {
+  left: 0;
+  right: 0;
+  top: calc(var(--nav-h) + 0.6rem);
+  overflow: hidden;
+  white-space: nowrap;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  color: var(--faint);
+}
+.film-ticker span {
+  display: inline-block;
+  padding-left: 100%;
+  animation: film-ticker-roll 26s linear infinite;
+}
+@keyframes film-ticker-roll {
+  to { transform: translateX(-100%); }
+}
+
+/* ── proof captions (scenes 4-5) ─────────────────────────────── */
+.film-proof {
+  left: clamp(1.25rem, 4vw, 3.5rem);
+  bottom: clamp(1.5rem, 7vh, 4rem);
+  max-width: min(30rem, 82vw);
+  /* scrim so proof copy reads over any footage */
+  padding: 1rem 1.2rem;
+  border-radius: 12px;
+  background: rgba(6, 6, 6, 0.55);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+.proof-num {
+  font-family: var(--font-mono);
+  font-size: clamp(3.2rem, 9vw, 6.5rem);
+  font-weight: 500;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(244, 244, 244, 0.75);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+.proof-line {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.3rem, 3vw, 2rem);
+  color: var(--ink);
+  margin-bottom: 0.4rem;
+  text-wrap: balance;
+}
+.proof-tag {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+}
+.proof-tag a {
+  color: var(--ink);
+  margin-left: 0.6rem;
+  border-bottom: 1px solid var(--line);
+}
+.proof-tag a:hover { border-color: var(--ink); }
+
+/* ── scene 6: odometer ───────────────────────────────────────── */
+.film-odo {
+  position: absolute;
+  inset: 0;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(0.6rem, 2.5vh, 1.6rem);
+  transform-origin: 50% 50%;
+}
+[data-scene='numbers'] .film-odo,
+[data-scene='turn'] .film-odo {
+  display: flex;
+}
+.odo-row {
+  display: flex;
+  align-items: baseline;
+  gap: 1.2rem;
+}
+.odo-val {
+  display: inline-flex;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(3.4rem, 11vw, 8.5rem);
+  line-height: 1;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+}
+.odo-cell {
+  display: inline-block;
+  height: 1em;
+  overflow: hidden;
+}
+.odo-strip {
+  display: inline-flex;
+  flex-direction: column;
+  will-change: transform;
+}
+.odo-strip span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 1em;
+  line-height: 1;
+  /* digits are ~0.72em tall — centering leaves headroom so caps never clip */
+  font-size: 0.92em;
+}
+.odo-sym { display: inline-block; }
+.odo-label {
+  font-family: var(--font-mono);
+  font-size: clamp(0.7rem, 1.4vw, 0.85rem);
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+/* ── scene 7: the belief line ────────────────────────────────── */
+.film-turn {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: min(46rem, 88vw);
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3.6vw, 2.6rem);
+  line-height: 1.35;
+  color: var(--ink);
+  display: none;
+}
+[data-scene='turn'] .film-turn { display: block; }
+.turn-w {
+  font-variation-settings: 'wght' 300;
+  opacity: 0.25;
+}
+
+/* ── scene 8: the doorway panel (behind the canvas) ──────────── */
+.film-panel {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(1rem, 3vh, 2rem);
+  pointer-events: none;
+  padding: 1.5rem;
+}
+.film.gate-open .film-panel { pointer-events: auto; }
+.panel-kicker {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+.panel-build {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(3.2rem, 12vw, 10rem);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  text-align: center;
+  transform: skewY(calc(var(--film-vel, 0) * -1.5deg));
+  transition: color 0.25s var(--ease-out);
+}
+.panel-build:hover { color: #4ade80; }
+.panel-row {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.panel-link {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+}
+.panel-link:hover { color: var(--ink); }
+
+/* ── tiers: fallback vs film ─────────────────────────────────── */
+.film-fallback { display: block; }
+html.js:not([data-film-tier='off']) .film-fallback { display: none; }
+html:not(.js) .film-track,
+html[data-film-tier='off'] .film-track { display: none; }
+.fb-beats {
+  display: grid;
+  gap: 1.1rem;
+  margin: 2.2rem 0 2.6rem;
+  max-width: 44rem;
+  color: var(--muted);
+}
+.fb-beats strong { color: var(--ink); font-weight: 600; }
+.film-fallback .panel-row { justify-content: flex-start; }

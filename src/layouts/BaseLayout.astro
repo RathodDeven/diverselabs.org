@@ -14,6 +14,8 @@ export interface Props {
   noindex?: boolean;
   /** When true, hide the site nav + footer entirely (sealed / standalone page) */
   standalone?: boolean;
+  /** When true, skip the fixed BackgroundShader canvas (pages with their own WebGL) */
+  hideBackdrop?: boolean;
   /** Extra per-page JSON-LD objects (Article, Service, HowTo, FAQPage, BreadcrumbList, …) */
   jsonLd?: Record<string, unknown>[];
 }
@@ -26,6 +28,7 @@ const {
   keywords = 'AI agents, workflow automation, custom AI systems, web app development, mobile app development, AI chatbot, business automation, AI consulting, LLM integration',
   noindex = false,
   standalone = false,
+  hideBackdrop = false,
   jsonLd = [],
 } = Astro.props as Props;
 
@@ -38,6 +41,7 @@ const isActive = (path: string) =>
 
 const navItems = [
   { href: '/', label: 'Home' },
+  { href: '/services', label: 'Services' },
   { href: '/work', label: 'Work' },
   { href: '/blog', label: 'Insights' },
   { href: '/about', label: 'About' },
@@ -140,7 +144,7 @@ const websiteSchema = {
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;450;500;550;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Inter:wght@400;450;500;550;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
     <title>{actualTitle}</title>
 
@@ -176,7 +180,7 @@ const websiteSchema = {
     <!-- Scroll progress indicator -->
     <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
 
-    <BackgroundShader />
+    {!hideBackdrop && <BackgroundShader />}
 
     {!standalone && (
     <>
