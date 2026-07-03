@@ -82,12 +82,12 @@ const REST_POINTS = [0.072, 0.12, 0.151, 0.238, 0.295, 0.395, 0.537, 0.677, 0.75
    stays on screen through real scrolling; transitions stay 1x (quick). */
 const SEGS: Array<[number, number, number]> = [
   [0.0, 0.085, 1], [0.085, 0.155, 1],
-  [0.155, 0.215, 1], [0.215, 0.265, 1.6],   // WE LAYER -> hero hold
+  [0.155, 0.215, 1], [0.215, 0.265, 1.3],   // WE LAYER -> hero hold
   [0.265, 0.315, 1],
-  [0.315, 0.355, 1], [0.355, 0.46, 1.9],    // wipe -> NudgeFlow hold
-  [0.46, 0.5, 1], [0.5, 0.6, 1.9],          // sweep -> CRM hold
-  [0.6, 0.645, 1], [0.645, 0.71, 1.6],      // phones rise -> ads hold
-  [0.71, 0.79, 1.25], [0.79, 0.865, 1.25],  // numbers, voices
+  [0.315, 0.355, 1], [0.355, 0.46, 1.5],    // wipe -> NudgeFlow hold
+  [0.46, 0.5, 1], [0.5, 0.6, 1.5],          // sweep -> CRM hold
+  [0.6, 0.645, 1], [0.645, 0.71, 1.3],      // phones rise -> ads hold
+  [0.71, 0.79, 1.1], [0.79, 0.865, 1.1],    // numbers, voices
   [0.865, 0.945, 1], [0.945, 1.0, 1],
 ];
 const FILM_PTS: number[] = [0];
@@ -273,7 +273,7 @@ class Film {
     if (this.smooth < 0) this.smooth = target;
     const dp = target - this.smooth;
     // reduced motion: no inertia — progress tracks the scrollbar exactly
-    this.smooth += reducedMotion || Math.abs(dp) < 0.00035 ? dp : dp * 0.13;
+    this.smooth += reducedMotion || Math.abs(dp) < 0.00035 ? dp : dp * 0.1;
     if (Math.abs(this.smooth - this.progress) > 1e-5) this.setProgress(this.smooth);
 
     const lenis = (window as { __lenis?: { velocity?: number } }).__lenis;
