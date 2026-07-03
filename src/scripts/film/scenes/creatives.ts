@@ -56,10 +56,14 @@ export function createCreatives(ctx: SceneCtx, win: [number, number]): FilmScene
       uniforms.uP.value = p;
       grab();
       phones.forEach((ph, i) => {
-        // staggered rise: all settled by ~40%, then the ads just play
+        // staggered rise: all settled by ~40%, then the ads just play;
+        // at the end they continue up past the camera — same direction,
+        // no pop at the scene boundary
         const e = easeOut(Math.min(1, Math.max(0, (p - i * 0.05) / 0.28)));
-        const rise = (1 - e) * 120;
-        const tilt = (i - 1) * 4 * (1 - e * 0.4); // settles to a slight fan
+        const xo = Math.min(1, Math.max(0, (p - 0.86 - i * 0.03) / 0.11));
+        const exit = xo * xo * (3 - 2 * xo);
+        const rise = (1 - e) * 120 - exit * 130;
+        const tilt = (i - 1) * 4 * (1 - e * 0.4);
         ph.style.transform = `translateY(${rise}vh) rotate(${tilt}deg)`;
       });
     },

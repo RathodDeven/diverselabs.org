@@ -51,12 +51,15 @@ export function createNumbers(ctx: SceneCtx, win: [number, number]): FilmScene {
 
   let digits: OdoDigit[] = [];
   let odo: HTMLElement | null = null;
+  let logosEl: HTMLElement | null = null;
   let logoRows: HTMLElement[] = [];
   let built = false;
+  let odoRise = 0; // merged with the velocity skew in update()
 
   const build = () => {
     if (built) return;
     odo = document.getElementById('film-odo');
+    logosEl = document.getElementById('film-logos');
     logoRows = Array.from(
       document.querySelectorAll<HTMLElement>('#film-logos .logo-row')
     );
@@ -102,6 +105,14 @@ export function createNumbers(ctx: SceneCtx, win: [number, number]): FilmScene {
     setProgress(p) {
       uniforms.uP.value = p;
       build();
+
+      // the section never pops: it slides in over the first 12% and
+      // accelerates out over the last 14%, all scroll-driven
+      const ki = Math.min(1, p / 0.12);
+      const kIn = ki * ki * (3 - 2 * ki);
+      const ko = Math.min(1, Math.max(0, (p - 0.86) / 0.14));
+      const kOut = ko * ko * (3 - 2 * ko);
+
       for (const d of digits) {
         // rolls finish by ~45% — the numbers then hold while logos travel
         const e = Math.min(1, Math.max(0, (p - 0.05 - d.row * 0.06) / 0.26));
@@ -110,19 +121,34 @@ export function createNumbers(ctx: SceneCtx, win: [number, number]): FilmScene {
         const off = ((pos % 10) + 10) % 10;
         d.el.style.transform = `translateY(${(-off * 100) / 11}%)`;
       }
-      // scroll carries the visitor past every company
+
+      // scroll carries the visitor past every company; on exit the rows
+      // keep going, faster — leaving the way they travelled
       logoRows.forEach((row, i) => {
         const [start, travel] = ROW_DRIFT[i % ROW_DRIFT.length];
-        row.style.transform = `translate3d(${start + travel * p}vw, 0, 0)`;
+        const x = start + 10 * (1 - kIn) + travel * p - 30 * kOut;
+        row.style.transform = `translate3d(${x}vw, 0, 0)`;
       });
+      if (logosEl) logosEl.style.opacity = String(0.4 * kIn * (1 - kOut));
+
+      // the stats rise in with the rolls and lift away at the end
+      odoRise = (1 - kIn) * 12 - kOut * 34;
+      if (odo) odo.style.opacity = String(kIn * (1 - kOut));
     },
     update(t) {
       uniforms.uTime.value = t;
       const v = Math.max(-1, Math.min(1, ctx.vel() / 3000));
-      if (odo) odo.style.transform = `skewY(${v * 2.2}deg) scaleY(${1 + Math.abs(v) * 0.04})`;
+      if (odo)
+        odo.style.transform =
+          `translateY(${odoRise.toFixed(2)}vh) skewY(${v * 2.2}deg) ` +
+          `scaleY(${1 + Math.abs(v) * 0.04})`;
     },
     onExit() {
-      if (odo) odo.style.transform = '';
+      if (odo) {
+        odo.style.transform = '';
+        odo.style.opacity = '';
+      }
+      if (logosEl) logosEl.style.opacity = '';
     },
     resize(_vp: Viewport) {},
     dispose() {

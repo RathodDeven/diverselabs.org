@@ -30,15 +30,20 @@ const FRAG = /* glsl */ `
 
   void main() {
     // scanline sweeps down (uv y-up): completes by 26%, then a LONG hold
-    // on the playing loop — pure video, no filter
+    // on the playing loop — pure video, no filter. At the very end the
+    // plate rides up and out (the bridge's exit language), leaving black
+    // for the phones to rise into.
     float sp = smoothstep(0.04, 0.26, uP);
     float hold = smoothstep(0.26, 0.38, uP);
+    float exitK = smoothstep(0.86, 1.0, uP);
     float edgeY = mix(1.12, -0.12, sp);
     float d = vUv.y - edgeY;          // >0: above the line (revealed CRM)
     float band = 0.05;
 
-    vec2 fromUv = coverUv(vUv, uAspect, uFromAspect);
-    vec2 toUv   = coverUv(vUv, uAspect, uToAspect);
+    vec2 plate = vec2(vUv.x, vUv.y - exitK * 1.08);
+    float onPlate = step(0.0, plate.y) * step(plate.y, 1.0);
+    vec2 fromUv = coverUv(plate, uAspect, uFromAspect);
+    vec2 toUv   = coverUv(plate, uAspect, uToAspect);
 
     // vertical smear inside the band, stronger when scrolling hard
     float inBand = 1.0 - smoothstep(0.0, band, abs(d));
@@ -54,6 +59,8 @@ const FRAG = /* glsl */ `
 
     float side = smoothstep(-0.003, 0.003, d); // 1 = revealed side
     vec3 col = mix(from, to, side);
+    // beyond the departing plate: the film's black
+    col = mix(vec3(0.024) + filmGrain(vUv, uTime) * 0.05, col, onPlate);
 
     // the scanline itself: hot green core + soft bloom, cooling as it lands
     float core = exp(-abs(d) * 320.0);

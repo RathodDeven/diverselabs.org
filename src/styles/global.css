@@ -2964,6 +2964,13 @@ body.cursor-click .cursor-dot {
   align-items: center;
   gap: clamp(0.6rem, 2.5vh, 1.6rem);
   transform-origin: 50% 50%;
+  /* dark pool so the stats always read over the passing logo rows */
+  background: radial-gradient(
+    ellipse 58% 52% at 50% 50%,
+    rgba(6, 6, 6, 0.92) 0%,
+    rgba(6, 6, 6, 0.6) 46%,
+    transparent 74%
+  );
 }
 [data-scene='numbers'] .film-odo {
   display: flex;
@@ -2981,6 +2988,7 @@ body.cursor-click .cursor-dot {
   line-height: 1;
   color: var(--ink);
   letter-spacing: -0.02em;
+  text-shadow: 0 2px 22px rgba(6, 6, 6, 0.85);
 }
 .odo-cell {
   display: inline-block;
@@ -3006,10 +3014,11 @@ body.cursor-click .cursor-dot {
 .odo-sym { display: inline-block; }
 .odo-label {
   font-family: var(--font-mono);
-  font-size: clamp(0.7rem, 1.4vw, 0.85rem);
+  font-size: clamp(0.72rem, 1.4vw, 0.9rem);
   letter-spacing: 0.06em;
-  color: var(--muted);
+  color: #d9d9d9;
   white-space: nowrap;
+  text-shadow: 0 1px 14px rgba(6, 6, 6, 0.9);
 }
 
 /* ── scene 6 backdrop: logo rows drifting toward the top-left ── */
@@ -3021,7 +3030,7 @@ body.cursor-click .cursor-dot {
   justify-content: center;
   gap: clamp(1rem, 3.5vh, 2.2rem);
   transform: rotate(-8deg);
-  opacity: 0.55;
+  opacity: 0; /* scene drives entrance/exit */
   z-index: -1;
 }
 [data-scene='numbers'] .film-logos {
