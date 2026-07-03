@@ -153,7 +153,9 @@ export function createNumbers(ctx: SceneCtx, win: [number, number]): FilmScene {
         const k = easeOutBack(e); // overshoots just before settling — the "click"
         const pos = Math.max(0, (SPINS * 10 + d.value) * k);
         const off = ((pos % 10) + 10) % 10;
-        d.el.style.transform = `translateY(${-off}em)`;
+        // percentage of the strip's own height: one step is exactly one of
+        // its 11 rows, regardless of the row's font-size/height in em
+        d.el.style.transform = `translateY(${(-off * 100) / 11}%)`;
       }
     },
     update(t) {

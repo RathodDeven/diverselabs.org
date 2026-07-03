@@ -9,6 +9,7 @@ import * as THREE from 'three';
 import {
   fsQuad,
   makeCanvasTex,
+  typeTexSize,
   fitTextPx,
   uni,
   FONT_DISPLAY,
@@ -89,7 +90,10 @@ const FRAG = /* glsl */ `
 `;
 
 export function createGrind(ctx: SceneCtx, win: [number, number]): FilmScene {
-  let wall: CanvasTex = makeCanvasTex(2048, Math.round(2048 / ctx.vp.aspect));
+  // no mipmaps: this canvas is redrawn per stamp and sampled ~1:1 — mipmap
+  // regeneration per stamp is the difference between a kick and a hitch
+  const size = typeTexSize(ctx.vp, 2048);
+  let wall: CanvasTex = makeCanvasTex(size.w, size.h, undefined, { mipmaps: false });
   wall.redraw((c, w, h) => drawWall(c, w, h, 1));
 
   const uniforms = {
@@ -130,7 +134,8 @@ export function createGrind(ctx: SceneCtx, win: [number, number]): FilmScene {
     },
     resize(vp: Viewport) {
       wall.dispose();
-      wall = makeCanvasTex(2048, Math.round(2048 / vp.aspect));
+      const s = typeTexSize(vp, 2048);
+      wall = makeCanvasTex(s.w, s.h, undefined, { mipmaps: false });
       wall.redraw((c, w, h) => drawWall(c, w, h, count));
       uniforms.uTex.value = wall.tex;
     },

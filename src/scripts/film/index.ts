@@ -26,8 +26,9 @@ type FullTier = Tier | 'off';
 function detectTier(): FullTier {
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return 'off';
   try {
+    // three r172 is WebGL2-only — a WebGL1-only device must get the fallback
     const c = document.createElement('canvas');
-    if (!c.getContext('webgl2') && !c.getContext('webgl')) return 'off';
+    if (!c.getContext('webgl2')) return 'off';
   } catch {
     return 'off';
   }
@@ -36,6 +37,15 @@ function detectTier(): FullTier {
   const small = window.innerWidth < 820;
   if (mem <= 4 || cores <= 4 || small) return 'low';
   return 'high';
+}
+
+/** Framebuffer DPR is a hardware question, not a viewport-size one — the
+    all-typography film goes blurry on phones if forced to DPR 1. */
+function pickDpr(): number {
+  const mem = (navigator as { deviceMemory?: number }).deviceMemory ?? 8;
+  const cores = navigator.hardwareConcurrency ?? 8;
+  const weak = mem <= 4 || cores <= 4;
+  return Math.min(window.devicePixelRatio || 1, weak ? 1.5 : 2);
 }
 
 interface Caption {
@@ -72,7 +82,7 @@ class Film {
       powerPreference: 'high-performance',
     });
     this.renderer.setClearColor(0x060606, 1);
-    const dpr = tier === 'high' ? Math.min(window.devicePixelRatio || 1, 2) : 1;
+    const dpr = pickDpr();
     this.vp = this.measure(dpr);
     this.renderer.setPixelRatio(dpr);
     this.renderer.setSize(this.vp.w, this.vp.h, false);
@@ -211,6 +221,9 @@ async function boot() {
   const root = document.getElementById('film');
   if (!root) return;
   if (film || root.dataset.booted) return;
+  // never boot against a hidden track (e.g. tier CSS put the fallback up)
+  const track = root.querySelector<HTMLElement>('#film-track');
+  if (!track || track.offsetHeight === 0) return;
   root.dataset.booted = '1';
 
   const tier = detectTier();
@@ -218,7 +231,16 @@ async function boot() {
   if (tier === 'off') return;
 
   await ensureFonts();
-  film = new Film(root, tier);
+  // the await may have lost a race with a view transition — re-validate
+  if (film || !root.isConnected) return;
+  try {
+    film = new Film(root, tier);
+  } catch {
+    // renderer construction failed (context loss, driver) -> editorial page
+    document.documentElement.dataset.filmTier = 'off';
+    delete root.dataset.booted;
+    return;
+  }
   // late layout shifts (fonts, images elsewhere) — re-measure the track
   ScrollTrigger.refresh();
 }

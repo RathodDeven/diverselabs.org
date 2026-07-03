@@ -81,10 +81,26 @@ export interface CanvasTex {
   dispose: () => void;
 }
 
+/**
+ * Texture size for a fullscreen type canvas: match device pixels, never
+ * exceed maxW wide or 4096 tall (portrait phones would otherwise explode
+ * to widthPx/aspect heights and blow GPU memory / MAX_TEXTURE_SIZE).
+ */
+export function typeTexSize(vp: Viewport, maxW: number): { w: number; h: number } {
+  let w = Math.min(maxW, Math.max(640, Math.round(vp.w * vp.dpr)));
+  let h = Math.round(w / vp.aspect);
+  if (h > 4096) {
+    h = 4096;
+    w = Math.round(h * vp.aspect);
+  }
+  return { w, h };
+}
+
 export function makeCanvasTex(
   w: number,
   h: number,
-  draw?: (ctx: CanvasRenderingContext2D, w: number, h: number) => void
+  draw?: (ctx: CanvasRenderingContext2D, w: number, h: number) => void,
+  opts?: { mipmaps?: boolean }
 ): CanvasTex {
   const canvas = document.createElement('canvas');
   canvas.width = Math.max(2, Math.round(w));
@@ -93,8 +109,13 @@ export function makeCanvasTex(
   const tex = new THREE.CanvasTexture(canvas);
   tex.colorSpace = THREE.SRGBColorSpace;
   tex.anisotropy = 4;
-  tex.generateMipmaps = true;
-  tex.minFilter = THREE.LinearMipmapLinearFilter;
+  if (opts?.mipmaps === false) {
+    tex.generateMipmaps = false;
+    tex.minFilter = THREE.LinearFilter;
+  } else {
+    tex.generateMipmaps = true;
+    tex.minFilter = THREE.LinearMipmapLinearFilter;
+  }
   const api: CanvasTex = {
     tex,
     canvas,
@@ -162,13 +183,19 @@ export class MediaTex {
       m.aspect = t.image.width / t.image.height;
       m.tex.dispose();
       m.tex = t;
-      m.onSwap?.();
+      m.emitSwap();
     });
     return m;
   }
 
-  /** Called when the underlying texture object is replaced. */
-  onSwap: (() => void) | null = null;
+  /** Swap subscribers — shared MediaTex instances feed several scenes. */
+  private swapHandlers: Array<() => void> = [];
+  onSwap(fn: () => void) {
+    this.swapHandlers.push(fn);
+  }
+  private emitSwap() {
+    this.swapHandlers.forEach((fn) => fn());
+  }
 
   /** Upgrade to a looping muted video once it can play through. */
   upgradeToVideo(url: string) {
@@ -195,7 +222,7 @@ export class MediaTex {
             this.aspect = (v.videoWidth || 16) / (v.videoHeight || 9);
             this.tex.dispose();
             this.tex = t;
-            this.onSwap?.();
+            this.emitSwap();
             if (!this.wantPlaying) {
               // park on a representative frame — frame 0 is often black
               v.currentTime = Math.min(1.5, (v.duration || 2) * 0.25);
@@ -229,6 +256,7 @@ export class MediaTex {
 
   dispose() {
     this.pause();
+    this.swapHandlers = [];
     if (this.video) {
       this.video.src = '';
       this.video = null;

@@ -113,6 +113,11 @@ const websiteSchema = {
 
     <script is:inline>
       document.documentElement.classList.add('js');
+      // ClientRouter swaps strip ALL <html> attributes (class included) and
+      // never re-run identical inline scripts — restore the class after swaps
+      document.addEventListener('astro:after-swap', function () {
+        document.documentElement.classList.add('js');
+      });
       // Failsafe: if the motion script hasn't initialized within 2s (slow/failed
       // load), force the reveal-hidden content visible so the page is never blank.
       setTimeout(function () {

@@ -81,14 +81,14 @@ export function createProofWipe(ctx: SceneCtx, win: [number, number]): FilmScene
     uToAspect: uni(to.aspect),
     uVel: uni(0),
   };
-  from.onSwap = () => {
+  from.onSwap(() => {
     uniforms.uFrom.value = from.tex;
     uniforms.uFromAspect.value = from.aspect;
-  };
-  to.onSwap = () => {
+  });
+  to.onSwap(() => {
     uniforms.uTo.value = to.tex;
     uniforms.uToAspect.value = to.aspect;
-  };
+  });
   const mesh = fsQuad(FRAG, uniforms);
 
   return {

@@ -7,6 +7,7 @@
 import {
   fsQuad,
   makeCanvasTex,
+  typeTexSize,
   fitTextPx,
   uni,
   FONT_DISPLAY,
@@ -77,7 +78,10 @@ const FRAG = /* glsl */ `
                    step(abs(local2.y / max(shrink, 0.02)), 0.5);
     vec4 s = texture2D(tex, srcUv);
     float lum = max(max(s.r, s.g), s.b);
-    return vec4(s.rgb, lum * inCell * (1.0 - e * 0.55));
+    // fragments stay bright mid-flight but MUST hit zero at full departure,
+    // or fully-departed fields ghost over the adjacent scenes' clean frames
+    float fade = (1.0 - e * 0.55) * (1.0 - smoothstep(0.75, 1.0, e));
+    return vec4(s.rgb, lum * inCell * fade);
   }
 
   void main() {
@@ -103,11 +107,11 @@ const FRAG = /* glsl */ `
 `;
 
 export function createRefusal(ctx: SceneCtx, win: [number, number]): FilmScene {
-  const h = Math.round(2048 / ctx.vp.aspect);
-  let wallTex: CanvasTex = makeCanvasTex(2048, h, (c, w, hh) =>
+  const size = typeTexSize(ctx.vp, 2048);
+  let wallTex: CanvasTex = makeCanvasTex(size.w, size.h, (c, w, hh) =>
     drawWall(c, w, hh, MAX_STAMPS)
   );
-  let thesisTex: CanvasTex = makeCanvasTex(2048, h, drawThesis);
+  let thesisTex: CanvasTex = makeCanvasTex(size.w, size.h, drawThesis);
 
   const uniforms = {
     uWall: uni(wallTex.tex),
@@ -129,11 +133,11 @@ export function createRefusal(ctx: SceneCtx, win: [number, number]): FilmScene {
       uniforms.uTime.value = t;
     },
     resize(vp: Viewport) {
-      const hh = Math.round(2048 / vp.aspect);
+      const s = typeTexSize(vp, 2048);
       wallTex.dispose();
       thesisTex.dispose();
-      wallTex = makeCanvasTex(2048, hh, (c, w, x) => drawWall(c, w, x, MAX_STAMPS));
-      thesisTex = makeCanvasTex(2048, hh, drawThesis);
+      wallTex = makeCanvasTex(s.w, s.h, (c, w, x) => drawWall(c, w, x, MAX_STAMPS));
+      thesisTex = makeCanvasTex(s.w, s.h, drawThesis);
       uniforms.uWall.value = wallTex.tex;
       uniforms.uThesis.value = thesisTex.tex;
     },

@@ -8,6 +8,7 @@
 import {
   fsQuad,
   makeCanvasTex,
+  typeTexSize,
   uni,
   FONT_DISPLAY,
   MediaTex,
@@ -110,9 +111,9 @@ const FRAG = /* glsl */ `
 `;
 
 export function createFlap(ctx: SceneCtx, win: [number, number]): FilmScene {
-  const texH = Math.round(2048 / ctx.vp.aspect);
-  let wordA: CanvasTex = makeCanvasTex(2048, texH, drawFlapWord(WORD_A));
-  let wordB: CanvasTex = makeCanvasTex(2048, texH, drawFlapWord(WORD_B));
+  const size = typeTexSize(ctx.vp, 2048);
+  let wordA: CanvasTex = makeCanvasTex(size.w, size.h, drawFlapWord(WORD_A));
+  let wordB: CanvasTex = makeCanvasTex(size.w, size.h, drawFlapWord(WORD_B));
 
   const media = MediaTex.fromImage('/film/loops/crm.webp');
   media.upgradeToVideo('/film/loops/crm.mp4');
@@ -126,10 +127,10 @@ export function createFlap(ctx: SceneCtx, win: [number, number]): FilmScene {
     uAspect: uni(ctx.vp.aspect),
     uMediaAspect: uni(media.aspect),
   };
-  media.onSwap = () => {
+  media.onSwap(() => {
     uniforms.uMedia.value = media.tex;
     uniforms.uMediaAspect.value = media.aspect;
-  };
+  });
   const mesh = fsQuad(FRAG, uniforms);
 
   return {
@@ -150,11 +151,11 @@ export function createFlap(ctx: SceneCtx, win: [number, number]): FilmScene {
     },
     resize(vp: Viewport) {
       uniforms.uAspect.value = vp.aspect;
-      const hh = Math.round(2048 / vp.aspect);
+      const s = typeTexSize(vp, 2048);
       wordA.dispose();
       wordB.dispose();
-      wordA = makeCanvasTex(2048, hh, drawFlapWord(WORD_A));
-      wordB = makeCanvasTex(2048, hh, drawFlapWord(WORD_B));
+      wordA = makeCanvasTex(s.w, s.h, drawFlapWord(WORD_A));
+      wordB = makeCanvasTex(s.w, s.h, drawFlapWord(WORD_B));
       uniforms.uWordA.value = wordA.tex;
       uniforms.uWordB.value = wordB.tex;
     },

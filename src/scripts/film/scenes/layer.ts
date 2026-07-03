@@ -8,6 +8,7 @@
 import {
   fsQuad,
   makeCanvasTex,
+  typeTexSize,
   fitTextPx,
   uni,
   FONT_DISPLAY,
@@ -151,9 +152,9 @@ const FRAG = /* glsl */ `
 `;
 
 export function createLayer(ctx: SceneCtx, win: [number, number]): FilmScene {
-  const texH = Math.round(2600 / ctx.vp.aspect);
+  const size = typeTexSize(ctx.vp, 2600);
   let layout: WordLayout | undefined;
-  let word: CanvasTex = makeCanvasTex(2600, texH);
+  let word: CanvasTex = makeCanvasTex(size.w, size.h);
   word.redraw((c, w, h) => {
     layout = drawWord(c, w, h);
   });
@@ -179,10 +180,10 @@ export function createLayer(ctx: SceneCtx, win: [number, number]): FilmScene {
     uLetterCenter: uni([letterBox.center.x, letterBox.center.y]),
     uLetterSize: uni([letterBox.size.w, letterBox.size.h]),
   };
-  media.onSwap = () => {
+  media.onSwap(() => {
     uniforms.uMedia.value = media.tex;
     uniforms.uMediaAspect.value = media.aspect;
-  };
+  });
   const mesh = fsQuad(FRAG, uniforms);
 
   const applyLayout = () => {
@@ -211,7 +212,8 @@ export function createLayer(ctx: SceneCtx, win: [number, number]): FilmScene {
     resize(vp: Viewport) {
       uniforms.uAspect.value = vp.aspect;
       word.dispose();
-      word = makeCanvasTex(2600, Math.round(2600 / vp.aspect));
+      const s = typeTexSize(vp, 2600);
+      word = makeCanvasTex(s.w, s.h);
       word.redraw((c, w, h) => {
         layout = drawWord(c, w, h);
       });

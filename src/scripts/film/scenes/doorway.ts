@@ -40,7 +40,10 @@ const FRAG = /* glsl */ `
     float rest = exp(-dy * 300.0) * (1.0 - smoothstep(0.0, 0.08, uP));
     col += GREEN * rest * 1.2;
 
-    gl_FragColor = vec4(col, shutter);
+    // alpha must cover the emissive line too, or the resting line's core is
+    // a transparent hairline with the CTA panel peeking through
+    float glowA = clamp(lip * (0.9 - e * 0.55) + rest * 1.2, 0.0, 1.0);
+    gl_FragColor = vec4(col, max(shutter, glowA));
   }
 `;
 

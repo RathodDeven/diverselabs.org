@@ -2973,13 +2973,17 @@ body.cursor-click .cursor-dot {
   left: clamp(1.25rem, 4vw, 3.5rem);
   bottom: clamp(1.5rem, 7vh, 4rem);
   max-width: min(30rem, 82vw);
-  /* scrim so proof copy reads over any footage */
+  /* scrim so proof copy reads over any footage. Flat by default — live
+     backdrop blur over a per-frame canvas + decoding video janks mid phones */
   padding: 1rem 1.2rem;
   border-radius: 12px;
+  background: rgba(6, 6, 6, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+html[data-film-tier='high'] .film-proof {
   background: rgba(6, 6, 6, 0.55);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.07);
 }
 .proof-num {
   font-family: var(--font-mono);
@@ -3043,7 +3047,9 @@ body.cursor-click .cursor-dot {
 }
 .odo-cell {
   display: inline-block;
-  height: 1em;
+  /* mask height must equal the strip's row pitch (rows are 0.92em tall
+     because their height:1em resolves against their own 0.92em font) */
+  height: 0.92em;
   overflow: hidden;
 }
 .odo-strip {

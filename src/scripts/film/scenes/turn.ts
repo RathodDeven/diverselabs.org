@@ -33,7 +33,9 @@ const FRAG = /* glsl */ `
     if (y > 0.0 && y < 1.0 && crush < 1.0) {
       float bandC = 0.5, bandH = 0.16;
       float inBand = 1.0 - smoothstep(bandH * 0.94, bandH, abs(y - bandC));
-      vec2 suv = vec2(fract(vUv.x * 0.5 + 0.35), (y - (bandC - bandH)) / (2.0 * bandH));
+      // same drift phase as the numbers scene so the strip doesn't snap
+      // sideways at the handoff
+      vec2 suv = vec2(fract(vUv.x * 0.5 + 0.35 + uTime * 0.008), (y - (bandC - bandH)) / (2.0 * bandH));
       col = mix(col, texture2D(uStrip, suv).rgb * 0.30 * (1.0 - crush), inBand);
     }
 
