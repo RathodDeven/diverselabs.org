@@ -3091,8 +3091,7 @@ body.cursor-click .cursor-dot {
   margin: 0 auto;
   transform-origin: 50% 50%;
 }
-[data-scene='voices'] .film-voices,
-[data-scene='turn'] .film-voices {
+[data-scene='voices'] .film-voices {
   display: flex;
 }
 .voices-head {
@@ -3129,7 +3128,7 @@ body.cursor-click .cursor-dot {
   color: var(--ink);
   text-wrap: balance;
 }
-.vq-w { opacity: 0.14; }
+.vq-w { display: inline-block; opacity: 0.14; will-change: transform; }
 .voices-by {
   display: flex;
   align-items: center;

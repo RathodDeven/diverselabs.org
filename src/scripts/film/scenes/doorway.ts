@@ -1,9 +1,9 @@
 /**
- * Scene 8 — THE DOORWAY.
- * The green line splits open like a film gate: two black shutters part
- * vertically (canvas turns transparent in the widening slit), revealing the
- * DOM CTA panel that lives *behind* the canvas. Inverse of the CRT crush —
- * the film ends the way it collapsed.
+ * Scene 10 — THE DOORWAY.
+ * An iris opens out of the black onto the CTA panel behind the canvas —
+ * the same aperture language the visitor entered through in the WE LAYER
+ * zoom (through the counter of the A). White-hot rim, no color: the film
+ * ends the way it began, and green stays reserved for approval.
  */
 import {
   fsQuad,
@@ -16,39 +16,37 @@ import {
 const FRAG = /* glsl */ `
   uniform float uP;
   uniform float uTime;
+  uniform float uAspect;
   varying vec2 vUv;
 
-  const vec3 GREEN = vec3(0.290, 0.871, 0.502);
-
   void main() {
-    // gate half-height: 0 (closed) -> 0.62 (fully open, past screen edge)
     float e = uP * uP * (3.0 - 2.0 * uP);
-    float halfH = e * 0.62;
-    float dy = abs(vUv.y - 0.5);
+    // aperture radius: 0 (closed) -> past the corners (fully open)
+    float r = e * 1.6;
+    float d = length((vUv - 0.5) * vec2(uAspect, 1.0));
 
-    // shutters: opaque outside the slit, transparent inside
-    float shutter = smoothstep(halfH, halfH + 0.003, dy);
+    // opaque black outside the iris, transparent inside
+    float outside = smoothstep(max(r - 0.015, 0.0), max(r, 1e-4), d);
+    outside = mix(1.0, outside, step(1e-4, uP));
 
     vec3 col = vec3(0.024);
     col += filmGrain(vUv, uTime) * 0.05;
     col *= vig(vUv, 0.5);
 
-    // phosphor edge on each shutter lip
-    float lip = exp(-abs(dy - halfH) * 120.0);
-    col += GREEN * lip * (0.9 - e * 0.55);
-    // before it opens, the resting line glows at center
-    float rest = exp(-dy * 300.0) * (1.0 - smoothstep(0.0, 0.08, uP));
-    col += GREEN * rest * 1.2;
+    // white-hot rim on the opening — same as the letterform iris
+    float rimA = exp(-abs(d - r) * 90.0) * step(1e-4, uP) * (1.0 - e * 0.75);
+    col += vec3(1.0) * rimA * 0.8;
 
-    // alpha must cover the emissive line too, or the resting line's core is
-    // a transparent hairline with the CTA panel peeking through
-    float glowA = clamp(lip * (0.9 - e * 0.55) + rest * 1.2, 0.0, 1.0);
-    gl_FragColor = vec4(col, max(shutter, glowA));
+    gl_FragColor = vec4(col, max(outside, rimA));
   }
 `;
 
 export function createDoorway(ctx: SceneCtx, win: [number, number]): FilmScene {
-  const uniforms = { uP: uni(0), uTime: uni(0) };
+  const uniforms = {
+    uP: uni(0),
+    uTime: uni(0),
+    uAspect: uni(ctx.vp.aspect),
+  };
   const mesh = fsQuad(FRAG, uniforms);
   let turnEl: HTMLElement | null = null;
 
@@ -58,14 +56,16 @@ export function createDoorway(ctx: SceneCtx, win: [number, number]): FilmScene {
     mesh,
     setProgress(p) {
       uniforms.uP.value = p;
-      // panel becomes interactive once the gate is wide enough to read
-      document.getElementById('film')?.classList.toggle('gate-open', p > 0.55);
+      // panel becomes interactive once the iris is wide enough to read
+      document.getElementById('film')?.classList.toggle('gate-open', p > 0.5);
 
-      // the belief line stays and rides the top shutter out — it never pops
+      // the belief line rises out ahead of the opening — gone by half-open
+      // so it never fights the panel type showing through the aperture
       if (!turnEl) turnEl = document.querySelector<HTMLElement>('.film-turn');
       if (turnEl) {
-        const e = p * p * (3 - 2 * p); // same easing as the shutters
-        const rise = e * 0.62 * window.innerHeight;
+        const k = Math.min(1, p / 0.5);
+        const e = k * k * (3 - 2 * k);
+        const rise = e * 0.72 * window.innerHeight;
         turnEl.style.transform = `translate(-50%, calc(-50% - ${rise.toFixed(1)}px))`;
       }
     },
@@ -73,13 +73,15 @@ export function createDoorway(ctx: SceneCtx, win: [number, number]): FilmScene {
       uniforms.uTime.value = t;
     },
     onEnter() {
-      ctx.setClearAlpha(0); // let the DOM panel show through the slit
+      ctx.setClearAlpha(0); // let the DOM panel show through the iris
     },
     onExit() {
       ctx.setClearAlpha(1);
       document.getElementById('film')?.classList.remove('gate-open');
       if (turnEl) turnEl.style.transform = '';
     },
-    resize(_vp: Viewport) {},
+    resize(vp: Viewport) {
+      uniforms.uAspect.value = vp.aspect;
+    },
   };
 }

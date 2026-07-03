@@ -1,8 +1,8 @@
 /**
- * Scene 7 — THE TURN.
- * The stats scene vertically crushes into a single 2px phosphor line (CRT
- * power-off), then the belief line sets on word-by-word via variable-font
- * weight bloom — words gain mass, not opacity.
+ * Scene 9 — THE TURN.
+ * The testimonial has scattered to black; the belief line sets on out of
+ * the dark, word by word, via variable-font weight bloom — words gain
+ * mass, not opacity. It holds, then rides the doorway's iris out.
  */
 import {
   fsQuad,
@@ -17,25 +17,14 @@ const FRAG = /* glsl */ `
   uniform float uTime;
   varying vec2 vUv;
 
-  const vec3 GREEN = vec3(0.290, 0.871, 0.502);
-
   void main() {
-    float crush = smoothstep(0.0, 0.25, uP);   // scene squashes to a line
-    float write = smoothstep(0.30, 0.68, uP);  // sentence sets on, then HOLDS
-
     vec3 col = vec3(0.024);
-
-    // the line: blazes at full crush, dims + sinks to underline the words,
-    // then glides back to center at the very end — exactly where the
-    // doorway's resting line lives, so the handoff is seamless
-    float endBack = smoothstep(0.86, 1.0, uP);
-    float lineY = mix(mix(0.5, 0.30, write), 0.5, endBack);
-    float lineI = crush * (1.0 - write * 0.75) + endBack * 0.45;
-    float line = exp(-abs(vUv.y - lineY) * mix(150.0, 420.0, crush));
-    float bloom = exp(-abs(vUv.y - lineY) * 22.0);
-    col += GREEN * (line * 1.4 + bloom * 0.22) * lineI;
-
+    // a breath of light gathers behind the words as they gain weight
+    float d = length((vUv - 0.5) * vec2(1.5, 1.0));
+    float write = smoothstep(0.05, 0.55, uP);
+    col += vec3(0.03) * write * (1.0 - smoothstep(0.05, 0.7, d));
     col += filmGrain(vUv, uTime) * 0.04;
+    col *= vig(vUv, 0.45);
     gl_FragColor = vec4(col, 1.0);
   }
 `;
@@ -47,7 +36,6 @@ export function createTurn(ctx: SceneCtx, win: [number, number]): FilmScene {
   };
   const mesh = fsQuad(FRAG, uniforms);
 
-  let voices: HTMLElement | null = null;
   let words: HTMLElement[] = [];
   let turnEl: HTMLElement | null = null;
 
@@ -69,7 +57,6 @@ export function createTurn(ctx: SceneCtx, win: [number, number]): FilmScene {
       }
       words = Array.from(turnEl?.querySelectorAll<HTMLElement>('.turn-w') ?? []);
     }
-    if (!voices) voices = document.getElementById('film-voices');
   };
 
   return {
@@ -80,20 +67,10 @@ export function createTurn(ctx: SceneCtx, win: [number, number]): FilmScene {
       grab();
       uniforms.uP.value = p;
 
-      // DOM crush: the testimonial frame squashes into the green line,
-      // mirroring the shader
-      const crush = Math.min(1, p / 0.25);
-      const sy = Math.max(1 - crush, 0.002);
-      if (voices) {
-        voices.style.transform = `scaleY(${sy})`;
-        voices.style.opacity = String(1 - crush * 0.4);
-      }
-
       // weight bloom: each word 300 -> 640, staggered, with a small rise —
-      // words gain mass and settle. Completes by 68%, then the line sits
-      // with the visitor for the rest of the scene (and rides the doorway
-      // shutter out instead of vanishing).
-      const write = Math.min(1, Math.max(0, (p - 0.3) / 0.38));
+      // words gain mass and settle. Completes by ~55%, then the line sits
+      // with the visitor and rides the doorway iris out (never pops).
+      const write = Math.min(1, Math.max(0, (p - 0.05) / 0.5));
       const n = Math.max(words.length, 1);
       words.forEach((w, i) => {
         const local = Math.min(1, Math.max(0, (write * (n + 2.5) - i) / 2.5));
@@ -109,12 +86,6 @@ export function createTurn(ctx: SceneCtx, win: [number, number]): FilmScene {
     },
     update(t) {
       uniforms.uTime.value = t;
-    },
-    onExit() {
-      if (voices) {
-        voices.style.transform = '';
-        voices.style.opacity = '';
-      }
     },
     resize(_vp: Viewport) {},
   };

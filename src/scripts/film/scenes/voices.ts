@@ -66,11 +66,16 @@ export function createVoices(ctx: SceneCtx, win: [number, number]): FilmScene {
       uniforms.uP.value = p;
       grab();
 
+      // exit: the whole frame scatters like the film's debris — each word
+      // flies off on its own deterministic path (no green line, no crush)
+      const out = Math.min(1, Math.max(0, (p - 0.8) / 0.2));
+      const oe = out * out * (3 - 2 * out);
+
       if (head) {
         const e = Math.min(1, Math.max(0, p / 0.10));
         const k = e * e * (3 - 2 * e);
-        head.style.opacity = String(k);
-        head.style.transform = `translateY(${(1 - k) * 16}px)`;
+        head.style.opacity = String(k * (1 - oe));
+        head.style.transform = `translateY(${(1 - k) * 16 - oe * 60}px)`;
       }
 
       // the quote is spoken: words light up in order with scroll
@@ -78,14 +83,26 @@ export function createVoices(ctx: SceneCtx, win: [number, number]): FilmScene {
       const n = Math.max(words.length, 1);
       words.forEach((w, i) => {
         const local = Math.min(1, Math.max(0, (speak * (n + 4) - i) / 4));
-        w.style.opacity = String(0.14 + 0.86 * local);
+        if (oe > 0) {
+          const r = Math.sin(i * 127.1) * 43758.5453;
+          const rx = (r - Math.floor(r) - 0.5) * 2;
+          const r2 = Math.sin(i * 311.7) * 12543.21;
+          const ry = (r2 - Math.floor(r2) - 0.5) * 2;
+          w.style.transform =
+            `translate(${rx * oe * 160}px, ${(ry - 0.6) * oe * 140}px) ` +
+            `rotate(${rx * oe * 14}deg)`;
+          w.style.opacity = String((0.14 + 0.86 * local) * (1 - oe));
+        } else {
+          w.style.transform = '';
+          w.style.opacity = String(0.14 + 0.86 * local);
+        }
       });
 
       if (author) {
         const e = Math.min(1, Math.max(0, (p - 0.5) / 0.18));
         const k = e * e * (3 - 2 * e);
-        author.style.opacity = String(k);
-        author.style.transform = `translateY(${(1 - k) * 26}px)`;
+        author.style.opacity = String(k * (1 - oe));
+        author.style.transform = `translateY(${(1 - k) * 26 + oe * 70}px)`;
       }
     },
     update(t) {
