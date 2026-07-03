@@ -150,6 +150,13 @@ export function fitTextPx(
 
 /* ── Media textures (poster now, video when available) ─────── */
 
+/** prefers-reduced-motion: the film still plays (scroll-driven motion only)
+    but media stays on poster frames and nothing moves on its own. */
+export let reducedMotion = false;
+export function setReducedMotion(v: boolean) {
+  reducedMotion = v;
+}
+
 const activeMedia = new Set<MediaTex>();
 
 export class MediaTex {
@@ -199,6 +206,7 @@ export class MediaTex {
 
   /** Upgrade to a looping muted video once it can play through. */
   upgradeToVideo(url: string) {
+    if (reducedMotion) return; // posters only — nothing moves on its own
     if (this.video) return;
     const v = document.createElement('video');
     this.video = v;

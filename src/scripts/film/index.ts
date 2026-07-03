@@ -9,7 +9,15 @@
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import * as THREE from 'three';
-import { ensureFonts, type FilmScene, type SceneCtx, type Tier, type Viewport } from './lib';
+import {
+  ensureFonts,
+  reducedMotion,
+  setReducedMotion,
+  type FilmScene,
+  type SceneCtx,
+  type Tier,
+  type Viewport,
+} from './lib';
 import { createGrind } from './scenes/grind';
 import { createRefusal } from './scenes/refusal';
 import { createLayer } from './scenes/layer';
@@ -27,7 +35,12 @@ gsap.registerPlugin(ScrollTrigger);
 type FullTier = Tier | 'off';
 
 function detectTier(): FullTier {
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return 'off';
+  // reduced motion does NOT mean the static page: the film is scroll-driven
+  // (motion only under the visitor's own finger). It means: poster frames
+  // instead of autoplaying video, no inertia glide, no auto-snap. Windows
+  // ships with "Animation effects" off on plenty of machines — those
+  // visitors still get the film.
+  setReducedMotion(window.matchMedia('(prefers-reduced-motion: reduce)').matches);
   try {
     // three r172 is WebGL2-only — a WebGL1-only device must get the fallback
     const c = document.createElement('canvas');
@@ -38,7 +51,7 @@ function detectTier(): FullTier {
   const mem = (navigator as { deviceMemory?: number }).deviceMemory ?? 8;
   const cores = navigator.hardwareConcurrency ?? 8;
   const small = window.innerWidth < 820;
-  if (mem <= 4 || cores <= 4 || small) return 'low';
+  if (reducedMotion || mem <= 4 || cores <= 4 || small) return 'low';
   return 'high';
 }
 
@@ -259,7 +272,8 @@ class Film {
     const target = warp(this.readProgress());
     if (this.smooth < 0) this.smooth = target;
     const dp = target - this.smooth;
-    this.smooth += Math.abs(dp) < 0.00035 ? dp : dp * 0.13;
+    // reduced motion: no inertia — progress tracks the scrollbar exactly
+    this.smooth += reducedMotion || Math.abs(dp) < 0.00035 ? dp : dp * 0.13;
     if (Math.abs(this.smooth - this.progress) > 1e-5) this.setProgress(this.smooth);
 
     const lenis = (window as { __lenis?: { velocity?: number } }).__lenis;
@@ -282,6 +296,7 @@ class Film {
   /** When the visitor stops scrolling near a rest point, ease onto it —
       transitions complete and each scene settles on its composed frame. */
   private maybeSnap() {
+    if (reducedMotion) return; // never scroll the page on the user's behalf
     const lenis = (window as { __lenis?: { scrollTo: (y: number, o?: object) => void } }).__lenis;
     if (!lenis || this.progress <= 0.01 || this.progress >= 0.995) return;
     if (Math.abs(this.velSmooth) > 45) {

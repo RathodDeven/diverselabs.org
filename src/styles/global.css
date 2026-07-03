@@ -2932,6 +2932,9 @@ body.cursor-click .cursor-dot {
   0%, 100% { translate: 0 0; }
   50% { translate: 0 6px; }
 }
+@media (prefers-reduced-motion: reduce) {
+  .film-hint { animation: none; }
+}
 
 /* ── proof captions (scenes 4-5) ─────────────────────────────── */
 .film-proof {

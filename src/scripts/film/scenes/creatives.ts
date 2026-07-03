@@ -8,6 +8,7 @@
 import {
   fsQuad,
   uni,
+  reducedMotion,
   type FilmScene,
   type SceneCtx,
   type Viewport,
@@ -72,6 +73,7 @@ export function createCreatives(ctx: SceneCtx, win: [number, number]): FilmScene
     },
     onEnter() {
       grab();
+      if (reducedMotion) return; // posters stay still
       videos.forEach((v) => {
         v.play().catch(() => undefined); // muted + playsinline: allowed
       });
