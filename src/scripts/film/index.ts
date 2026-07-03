@@ -63,6 +63,54 @@ interface Caption {
     thesis, each full-bleed loop, the phones, the numbers, the belief line). */
 const REST_POINTS = [0.072, 0.12, 0.151, 0.238, 0.295, 0.395, 0.537, 0.677, 0.758, 0.839, 0.925, 1.0];
 
+/* ── scroll gearing ─────────────────────────────────────────────
+   [filmStart, filmEnd, weight]: heavier segments consume more scroll per
+   unit of film progress. Video holds are geared ~1.6-1.9x, so the loop
+   stays on screen through real scrolling; transitions stay 1x (quick). */
+const SEGS: Array<[number, number, number]> = [
+  [0.0, 0.085, 1], [0.085, 0.155, 1],
+  [0.155, 0.215, 1], [0.215, 0.265, 1.6],   // WE LAYER -> hero hold
+  [0.265, 0.315, 1],
+  [0.315, 0.355, 1], [0.355, 0.46, 1.9],    // wipe -> NudgeFlow hold
+  [0.46, 0.5, 1], [0.5, 0.6, 1.9],          // sweep -> CRM hold
+  [0.6, 0.645, 1], [0.645, 0.71, 1.6],      // phones rise -> ads hold
+  [0.71, 0.79, 1.25], [0.79, 0.865, 1.25],  // numbers, voices
+  [0.865, 0.945, 1], [0.945, 1.0, 1],
+];
+const FILM_PTS: number[] = [0];
+const SCROLL_PTS: number[] = [0];
+{
+  let acc = 0;
+  for (const [a, b, w] of SEGS) {
+    acc += (b - a) * w;
+    FILM_PTS.push(b);
+    SCROLL_PTS.push(acc);
+  }
+  for (let i = 0; i < SCROLL_PTS.length; i++) SCROLL_PTS[i] /= acc;
+}
+/** scroll fraction -> film progress */
+function warp(raw: number): number {
+  const r = Math.min(1, Math.max(0, raw));
+  for (let i = 1; i < SCROLL_PTS.length; i++) {
+    if (r <= SCROLL_PTS[i]) {
+      const t = (r - SCROLL_PTS[i - 1]) / (SCROLL_PTS[i] - SCROLL_PTS[i - 1]);
+      return FILM_PTS[i - 1] + t * (FILM_PTS[i] - FILM_PTS[i - 1]);
+    }
+  }
+  return 1;
+}
+/** film progress -> scroll fraction (for snap targets) */
+function unwarp(film: number): number {
+  const f = Math.min(1, Math.max(0, film));
+  for (let i = 1; i < FILM_PTS.length; i++) {
+    if (f <= FILM_PTS[i]) {
+      const t = (f - FILM_PTS[i - 1]) / (FILM_PTS[i] - FILM_PTS[i - 1]);
+      return SCROLL_PTS[i - 1] + t * (SCROLL_PTS[i] - SCROLL_PTS[i - 1]);
+    }
+  }
+  return 1;
+}
+
 class Film {
   private renderer: THREE.WebGLRenderer;
   private scene3 = new THREE.Scene();
@@ -202,11 +250,17 @@ class Film {
     }
   }
 
+  private smooth = -1;
+
   private tick(time: number) {
-    // poll progress every frame — scroll restores / programmatic jumps don't
-    // always emit events, and the film must never desync from the bar
-    const tp = this.readProgress();
-    if (Math.abs(tp - this.progress) > 1e-5) this.setProgress(tp);
+    // scroll -> gearing warp -> inertial glide. The glide is what makes
+    // every transition feel driven rather than dragged: a flick becomes a
+    // choreographed move that eases out instead of a 1:1 scrub.
+    const target = warp(this.readProgress());
+    if (this.smooth < 0) this.smooth = target;
+    const dp = target - this.smooth;
+    this.smooth += Math.abs(dp) < 0.00035 ? dp : dp * 0.13;
+    if (Math.abs(this.smooth - this.progress) > 1e-5) this.setProgress(this.smooth);
 
     const lenis = (window as { __lenis?: { velocity?: number } }).__lenis;
     const raw = (lenis?.velocity ?? 0) * 60; // ~px/s
@@ -219,7 +273,7 @@ class Film {
     this.maybeSnap();
 
     // stop rendering once the film has scrolled past
-    if (this.progress >= 1 && this.root.getBoundingClientRect().bottom < 0) return;
+    if (this.root.getBoundingClientRect().bottom < 0) return;
 
     this.active?.update?.(time);
     this.renderer.render(this.scene3, this.camera);
@@ -252,7 +306,8 @@ class Film {
     const rect = this.track.getBoundingClientRect();
     const span = rect.height - window.innerHeight;
     if (span <= 0) return;
-    const target = window.scrollY + rect.top + nearest * span;
+    // rest points live in film space — convert through the gearing
+    const target = window.scrollY + rect.top + unwarp(nearest) * span;
     lenis.scrollTo(target, {
       duration: 1.05,
       easing: (t: number) => 1 - Math.pow(1 - t, 3),
