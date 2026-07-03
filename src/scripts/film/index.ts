@@ -135,6 +135,7 @@ class Film {
   private velSmooth = 0;
   private idleFrames = 0;
   private snapDone = false;
+  private prevWheelMult = 1;
   private vp: Viewport;
   private track: HTMLElement;
   private tickFn: (time: number) => void;
@@ -194,6 +195,15 @@ class Film {
     // NOTE: no ScrollTrigger here on purpose — motion.ts kills all triggers on
     // every astro:page-load. Progress is derived from track geometry per tick.
     this.track = root.querySelector<HTMLElement>('#film-track')!;
+
+    // Wheel gearing: Windows mice move 3-5x more px per notch than trackpads,
+    // which blew through scenes in a few clicks. The film page halves wheel
+    // input; restored on dispose so other pages scroll normally.
+    const lenis = (window as { __lenis?: { options?: { wheelMultiplier?: number } } }).__lenis;
+    if (lenis?.options) {
+      this.prevWheelMult = lenis.options.wheelMultiplier ?? 1;
+      lenis.options.wheelMultiplier = 0.45;
+    }
 
     this.tickFn = (time) => this.tick(time);
     gsap.ticker.add(this.tickFn);
@@ -330,6 +340,8 @@ class Film {
   }
 
   dispose() {
+    const lenis = (window as { __lenis?: { options?: { wheelMultiplier?: number } } }).__lenis;
+    if (lenis?.options) lenis.options.wheelMultiplier = this.prevWheelMult;
     delete (window as unknown as { __film?: Film }).__film;
     gsap.ticker.remove(this.tickFn);
     window.removeEventListener('resize', this.onResize);

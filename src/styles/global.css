@@ -2867,11 +2867,11 @@ body.cursor-click .cursor-dot {
    Canvas (z1) over CTA panel (z0), copy layer on top (z2).
    ================================================================ */
 .film-track {
-  height: 2200vh;
+  height: 2600vh;
   position: relative;
 }
 @media (max-width: 820px) {
-  .film-track { height: 1600vh; }
+  .film-track { height: 1800vh; }
 }
 .film-stage {
   position: sticky;
