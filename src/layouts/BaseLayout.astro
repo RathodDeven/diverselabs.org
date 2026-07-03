@@ -16,6 +16,8 @@ export interface Props {
   standalone?: boolean;
   /** When true, skip the fixed BackgroundShader canvas (pages with their own WebGL) */
   hideBackdrop?: boolean;
+  /** When true, omit the footer's big CTA row (pages that end on their own CTA) */
+  hideFooterCta?: boolean;
   /** Extra per-page JSON-LD objects (Article, Service, HowTo, FAQPage, BreadcrumbList, …) */
   jsonLd?: Record<string, unknown>[];
 }
@@ -29,6 +31,7 @@ const {
   noindex = false,
   standalone = false,
   hideBackdrop = false,
+  hideFooterCta = false,
   jsonLd = [],
 } = Astro.props as Props;
 
@@ -254,10 +257,12 @@ const websiteSchema = {
     <!-- Footer -->
     <footer class="site-footer" role="contentinfo">
       <div class="container">
+        {!hideFooterCta && (
         <div class="footer-cta-row">
           <h2>Have a system in mind? Let's scope it.</h2>
           <CTAButton href="https://cal.com/diverselabs/30min">Book a Discovery Call</CTAButton>
         </div>
+        )}
 
         <div class="footer-grid">
           <div class="footer-col">

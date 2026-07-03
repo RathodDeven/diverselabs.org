@@ -6,7 +6,7 @@ const description =
   'Diverse Labs builds AI agents and automation systems that absorb repetitive work — drafted by machines, approved by humans. 10+ agents in production.';
 ---
 
-<BaseLayout title={title} description={description} hideBackdrop>
+<BaseLayout title={title} description={description} hideBackdrop hideFooterCta>
   <!-- ═══════════════ THE FILM ═══════════════ -->
   <div id="film" class="film">
     <div id="film-track" class="film-track">
@@ -39,6 +39,11 @@ const description =
         <div class="film-copy" aria-hidden="false">
           <p class="film-hint" data-cap="grind" data-in="0" data-out="0.10">scroll</p>
 
+          <!-- bridge from the promise into the proof -->
+          <p class="film-inter" data-cap="proof-nudgeflow" data-in="0" data-out="0.2">
+            Now watch them work.
+          </p>
+
           <div class="film-proof" data-cap="proof-nudgeflow" data-in="0.6" data-out="1">
             <p class="proof-tag">
               NudgeFlow · ClickPe (YC S23)
@@ -46,10 +51,33 @@ const description =
             </p>
           </div>
 
-          <div class="film-proof" data-cap="proof-approved" data-in="0.62" data-out="1">
+          <div class="film-proof" data-cap="proof-approved" data-in="0.55" data-out="1">
             <p class="proof-tag">
               CRM follow-up agent · ScaleUp
               <a href="/work/scaleup-zoho-crm-follow-up-agent">case study ↗</a>
+            </p>
+          </div>
+
+          <!-- Scene 6: AI creatives — real published ads on phone cards -->
+          <div id="film-phones" class="film-phones" aria-hidden="true">
+            {['c1', 'c2', 'c3'].map((n) => (
+              <div class="phone">
+                <video
+                  muted
+                  loop
+                  playsinline
+                  preload="metadata"
+                  poster={`/film/creatives/${n}.webp`}
+                  src={`/film/creatives/${n}.mp4`}
+                ></video>
+              </div>
+            ))}
+          </div>
+
+          <div class="film-proof" data-cap="creatives" data-in="0.5" data-out="1">
+            <p class="proof-tag">
+              AI Creatives — ads &amp; UGC we produce
+              <a href="/work/ai-creatives">see the work ↗</a>
             </p>
           </div>
 
@@ -72,8 +100,7 @@ const description =
               <div class="logo-row">
                 {[...row, ...row].map(([file, name]) => (
                   <span class="logo-chip">
-                    <img src={`/companies/${file}.jpeg`} alt="" width="40" height="40" loading="lazy" />
-                    <i>{name}</i>
+                    <img src={`/companies/${file}.jpeg`} alt={name} width="48" height="48" loading="lazy" />
                   </span>
                 ))}
               </div>
@@ -114,8 +141,9 @@ const description =
         already run. Drafted by machines. Approved by humans.
       </p>
       <div class="fb-beats">
-        <p><strong>Held, not dropped.</strong> WhatsApp + voice agents that catch leads before they cool — NudgeFlow, built for ClickPe (YC S23).</p>
-        <p><strong>Nothing sends without a human.</strong> A CRM agent that drafts every follow-up and waits for a yes — built for ScaleUp.</p>
+        <p><strong>NudgeFlow — ClickPe (YC S23).</strong> WhatsApp + voice agents that catch leads before they cool.</p>
+        <p><strong>CRM follow-up agent — ScaleUp.</strong> Drafts every follow-up; a human approves every send.</p>
+        <p><strong>AI Creatives.</strong> Published AI video ads and UGC, produced end to end.</p>
         <p><strong>10+ agents in production · 20k+ users reached · 15+ teams served.</strong></p>
         <p><strong>Your people carry the judgment. We build everything else.</strong></p>
       </div>

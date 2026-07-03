@@ -37,9 +37,11 @@ const FRAG = /* glsl */ `
   varying vec2 vUv;
 
   void main() {
-    // wipe completes by 55% of the scene; the rest HOLDS the full NudgeFlow
-    // loop playing. Slight vertical bow on the travelling edge.
-    float wp = smoothstep(0.06, 0.55, uP);
+    // beat 1 (0-20%): the held hero frame + the bridge line in the DOM.
+    // Wipe runs 22-55%; the rest HOLDS the full NudgeFlow loop playing,
+    // pure — no grade, no vignette on top of the video.
+    float wp = smoothstep(0.22, 0.55, uP);
+    float hold = smoothstep(0.55, 0.72, uP);
     float edge = mix(-0.15, 1.15, wp) + 0.035 * sin(vUv.y * 5.2 + wp * 4.0);
     float d = vUv.x - edge;           // >0: ahead (from), <0: behind (to)
     float band = 0.085;               // smear band width
@@ -63,10 +65,6 @@ const FRAG = /* glsl */ `
     from.r = texture2D(uFrom, fromUv + vec2(split, 0.0)).r * 0.55 + from.r * 0.45;
     to.b   = texture2D(uTo,   toUv   - vec2(split, 0.0)).b * 0.55 + to.b * 0.45;
 
-    // graded dark — footage sits inside the brand's black, not on top of it
-    from *= 0.68;
-    to *= 0.68;
-
     float side = smoothstep(-0.004, 0.004, d); // 1 = from side
     vec3 col = mix(to, from, side);
 
@@ -74,9 +72,9 @@ const FRAG = /* glsl */ `
     float line = exp(-abs(d) * 340.0);
     col = mix(col, vec3(0.95), line * 0.5);
 
-    // heavier grain in the smear band
-    col += filmGrain(vUv, uTime) * (0.04 + inBand * 0.06);
-    col *= vig(vUv, 0.42);
+    // grain + vignette only while transitioning — the held video is pure
+    col += filmGrain(vUv, uTime) * (0.04 + inBand * 0.06) * (1.0 - hold);
+    col *= mix(vig(vUv, 0.42), 1.0, hold);
     gl_FragColor = vec4(col, 1.0);
   }
 `;

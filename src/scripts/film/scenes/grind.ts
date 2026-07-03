@@ -13,7 +13,6 @@ import {
   fitTextPx,
   uni,
   FONT_DISPLAY,
-  FONT_MONO,
   type CanvasTex,
   type FilmScene,
   type SceneCtx,
@@ -24,17 +23,6 @@ export const WORD = 'AGAIN.';
 /** 8 AGAINs, then the 9th stamp is the turn: ENOUGH. */
 export const MAX_STAMPS = 9;
 const SHOUT = 'ENOUGH.';
-
-/* the micro-tasks that land beside each AGAIN — the visitor's own week */
-const TASKS = [
-  'follow-up #47 sent',
-  'row 212 re-typed',
-  'pdf page 118 copied over',
-  'status chased, again',
-  'lead pasted into the sheet',
-  'export re-run at 6pm',
-  'same reply, third time',
-];
 
 /* Deterministic per-stamp jitter so scrubbing backwards replays exactly.
    Stamp 0 is the first paint — it lands dead-center, unjittered. */
@@ -86,18 +74,6 @@ export function drawWall(
     ctx.fillStyle = `#${hex}${hex}${hex}`;
     ctx.fillText(WORD, 0, 0);
     ctx.restore();
-
-    // the micro-task that caused this stamp, filed beside it like a receipt
-    if (i > 0 && i - 1 < TASKS.length) {
-      const j2 = jitter(i + 37);
-      const tx = w / 2 + j2.dx * w * 2.6;
-      const ty = h / 2 + j2.dy * h * 0.9;
-      ctx.font = `500 ${Math.max(11, w * 0.011)}px ${FONT_MONO}`;
-      const tShade = shout ? 0x3f : Math.max(0x55, 0x8a - age * 0x0c);
-      const thex = tShade.toString(16).padStart(2, '0');
-      ctx.fillStyle = `#${thex}${thex}${thex}`;
-      ctx.fillText(TASKS[i - 1], tx, ty);
-    }
   }
 
   if (shout) {

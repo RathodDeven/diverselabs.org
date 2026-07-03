@@ -15,6 +15,7 @@ import { createRefusal } from './scenes/refusal';
 import { createLayer } from './scenes/layer';
 import { createProofWipe } from './scenes/proofWipe';
 import { createFlap } from './scenes/flap';
+import { createCreatives } from './scenes/creatives';
 import { createNumbers } from './scenes/numbers';
 import { createTurn } from './scenes/turn';
 import { createDoorway } from './scenes/doorway';
@@ -57,8 +58,8 @@ interface Caption {
 
 /** Master-progress values the film eases onto when the visitor stops
     scrolling nearby: each scene's composed "rest frame" (ENOUGH., the
-    thesis, each full-bleed loop, the settled numbers, the belief line). */
-const REST_POINTS = [0.12, 0.242, 0.401, 0.529, 0.672, 0.774, 0.908, 1.0];
+    thesis, each full-bleed loop, the phones, the numbers, the belief line). */
+const REST_POINTS = [0.098, 0.196, 0.33, 0.46, 0.61, 0.754, 0.837, 0.935, 1.0];
 
 class Film {
   private renderer: THREE.WebGLRenderer;
@@ -104,14 +105,15 @@ class Film {
     };
 
     this.scenes = [
-      createGrind(ctx, [0.0, 0.14]),
-      createRefusal(ctx, [0.14, 0.26]),
-      createLayer(ctx, [0.26, 0.42]),
-      createProofWipe(ctx, [0.42, 0.56]),
-      createFlap(ctx, [0.56, 0.7]),
-      createNumbers(ctx, [0.7, 0.82]),
-      createTurn(ctx, [0.82, 0.93]),
-      createDoorway(ctx, [0.93, 1.000001]),
+      createGrind(ctx, [0.0, 0.115]),
+      createRefusal(ctx, [0.115, 0.21]),
+      createLayer(ctx, [0.21, 0.35]),
+      createProofWipe(ctx, [0.35, 0.5]),
+      createFlap(ctx, [0.5, 0.65]),
+      createCreatives(ctx, [0.65, 0.78]),
+      createNumbers(ctx, [0.78, 0.875]),
+      createTurn(ctx, [0.875, 0.955]),
+      createDoorway(ctx, [0.955, 1.000001]),
     ];
     this.scenes.forEach((s) => this.scene3.add(s.mesh));
 
@@ -132,6 +134,13 @@ class Film {
     gsap.ticker.add(this.tickFn);
     window.addEventListener('resize', this.onResize, { passive: true });
     this.tick(0);
+    // debug handle: lets tooling advance a frame when rAF is throttled
+    (window as unknown as { __film?: Film }).__film = this;
+  }
+
+  /** Advance one frame manually (occluded windows throttle rAF to zero). */
+  forceTick() {
+    this.tick(performance.now() / 1000);
   }
 
   private readProgress(): number {
@@ -247,6 +256,7 @@ class Film {
   }
 
   dispose() {
+    delete (window as unknown as { __film?: Film }).__film;
     gsap.ticker.remove(this.tickFn);
     window.removeEventListener('resize', this.onResize);
     this.scenes.forEach((s) => {

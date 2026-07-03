@@ -29,8 +29,10 @@ const FRAG = /* glsl */ `
   const vec3 GREEN = vec3(0.290, 0.871, 0.502);
 
   void main() {
-    // scanline sweeps down (uv y-up): completes by 55%, then holds
-    float sp = smoothstep(0.06, 0.55, uP);
+    // scanline sweeps down (uv y-up): completes by 42%, then a LONG hold
+    // on the playing loop — pure video, no filter
+    float sp = smoothstep(0.06, 0.42, uP);
+    float hold = smoothstep(0.42, 0.58, uP);
     float edgeY = mix(1.12, -0.12, sp);
     float d = vUv.y - edgeY;          // >0: above the line (revealed CRM)
     float band = 0.05;
@@ -50,10 +52,6 @@ const FRAG = /* glsl */ `
       to   += texture2D(uTo,   toUv   + vec2(0.0, o)).rgb * 0.2;
     }
 
-    // graded dark — premium, inside the brand's black
-    from *= 0.68;
-    to *= 0.68;
-
     float side = smoothstep(-0.003, 0.003, d); // 1 = revealed side
     vec3 col = mix(from, to, side);
 
@@ -63,8 +61,9 @@ const FRAG = /* glsl */ `
     float heat = 1.0 - sp * 0.35;
     col += GREEN * (core * 1.1 + glow * 0.28) * heat * step(0.001, sp) * step(sp, 0.999);
 
-    col += filmGrain(vUv, uTime) * (0.04 + inBand * 0.05);
-    col *= vig(vUv, 0.42);
+    // grain + vignette only while transitioning — the held video is pure
+    col += filmGrain(vUv, uTime) * (0.04 + inBand * 0.05) * (1.0 - hold);
+    col *= mix(vig(vUv, 0.42), 1.0, hold);
     gl_FragColor = vec4(col, 1.0);
   }
 `;

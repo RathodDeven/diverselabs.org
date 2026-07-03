@@ -25,10 +25,12 @@ const FRAG = /* glsl */ `
 
     vec3 col = vec3(0.024);
 
-    // the line: blazes at full crush, then dims + sinks to underline the
-    // words — it stays lit through the hold so the frame never dies
-    float lineY = mix(0.5, 0.30, write);
-    float lineI = max(crush * (1.0 - write * 0.75), 0.0);
+    // the line: blazes at full crush, dims + sinks to underline the words,
+    // then glides back to center at the very end — exactly where the
+    // doorway's resting line lives, so the handoff is seamless
+    float endBack = smoothstep(0.86, 1.0, uP);
+    float lineY = mix(mix(0.5, 0.30, write), 0.5, endBack);
+    float lineI = crush * (1.0 - write * 0.75) + endBack * 0.45;
     float line = exp(-abs(vUv.y - lineY) * mix(150.0, 420.0, crush));
     float bloom = exp(-abs(vUv.y - lineY) * 22.0);
     col += GREEN * (line * 1.4 + bloom * 0.22) * lineI;

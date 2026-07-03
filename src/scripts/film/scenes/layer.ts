@@ -19,8 +19,8 @@ import {
   type Viewport,
 } from '../lib';
 
-const LINE1 = 'WE LAYER';
-const LINE2 = 'INTELLIGENCE';
+const LINE1 = 'WE BUILD';
+const LINE2 = 'AI AGENTS';
 
 interface WordLayout {
   /** Center of the A counter, in texture UV (y up). */
@@ -34,8 +34,8 @@ function drawWord(c: CanvasRenderingContext2D, w: number, h: number): WordLayout
   c.clearRect(0, 0, w, h);
   c.textBaseline = 'middle';
   const px = Math.min(
-    fitTextPx(c, LINE2, 600, FONT_DISPLAY, w * 0.9),
-    fitTextPx(c, LINE1, 600, FONT_DISPLAY, w * 0.9) // line1 shorter; line2 governs
+    fitTextPx(c, LINE2, 600, FONT_DISPLAY, w * 0.86),
+    fitTextPx(c, LINE1, 600, FONT_DISPLAY, w * 0.86) // line1 shorter; line2 governs
   );
   c.font = `600 ${px}px ${FONT_DISPLAY}`;
   c.fillStyle = '#f4f4f4';
@@ -50,16 +50,16 @@ function drawWord(c: CanvasRenderingContext2D, w: number, h: number): WordLayout
   c.fillText(LINE1, x1, y1);
   c.fillText(LINE2, x2, y2);
 
-  // locate the A in "WE LAYER" (prefix "WE L")
-  const prefixW = c.measureText('WE L').width;
+  // locate the A of "AGENTS" in line 2 (prefix "AI ")
+  const prefixW = c.measureText('AI ').width;
   const aW = c.measureText('A').width;
-  const aX = x1 + prefixW + aW / 2;
+  const aX = x2 + prefixW + aW / 2;
   // the enclosed counter of A sits above the crossbar — above middle
-  const counterY = y1 - px * 0.13;
+  const counterY = y2 - px * 0.13;
   const toUv = (X: number, Y: number) => ({ x: X / w, y: 1 - Y / h });
   return {
     focus: toUv(aX, counterY),
-    aCenter: toUv(aX, y1),
+    aCenter: toUv(aX, y2),
     aSize: { w: aW / w, h: (px * 0.74) / h },
   };
 }
@@ -104,15 +104,15 @@ const FRAG = /* glsl */ `
   varying vec2 vUv;
 
   void main() {
-    // everything completes by 78% — the last stretch HOLDS full-bleed
+    // everything completes by 66% — the last third HOLDS full-bleed
     // footage so the visitor can actually watch it
-    float pPan  = smoothstep(0.00, 0.26, uP);
-    float pZoom = smoothstep(0.26, 0.62, uP);
-    float pIris = smoothstep(0.60, 0.78, uP);
+    float pPan  = smoothstep(0.00, 0.22, uP);
+    float pZoom = smoothstep(0.22, 0.52, uP);
+    float pIris = smoothstep(0.50, 0.66, uP);
 
     // exponential zoom feels like constant approach speed
     float zoom = mix(1.0, 1.10, pPan) * exp(pZoom * 3.65); // 1 -> ~42x
-    float pan = mix(0.040, -0.040, pPan) * (1.0 - pZoom);
+    float pan = mix(0.026, -0.026, pPan) * (1.0 - pZoom);
 
     vec2 target = mix(vec2(0.5), uFocus, smoothstep(0.0, 0.35, pZoom));
     vec2 wordUv = target + (vUv - 0.5 + vec2(pan, 0.0)) / zoom;
@@ -127,10 +127,12 @@ const FRAG = /* glsl */ `
     float glyph = smoothstep(0.42, 0.58, aRaw);
 
     // footage inside the letterforms; slight push as we approach.
-    // Lifted so letterforms read even over dark frames.
+    // Lifted inside glyphs so letterforms read over dark frames — but the
+    // full-bleed reveal shows the video PURE, no filter.
     vec2 mUv = coverUv(vUv, uAspect, uMediaAspect);
     mUv = (mUv - 0.5) * (1.0 - 0.10 * pZoom) + 0.5;
-    vec3 media = texture2D(uMedia, mUv).rgb * 1.1 + 0.09;
+    vec3 mediaRaw = texture2D(uMedia, mUv).rgb;
+    vec3 media = mediaRaw * 1.1 + 0.09;
 
     vec3 outside = vec3(0.024) + filmGrain(vUv, uTime) * 0.05;
     vec3 col = mix(outside, media, glyph);
@@ -138,17 +140,18 @@ const FRAG = /* glsl */ `
     float edgeLine = smoothstep(0.18, 0.5, aRaw) * (1.0 - smoothstep(0.5, 0.82, aRaw));
     col += vec3(0.9) * edgeLine * 0.5 * (1.0 - pIris);
 
-    // iris: pass through the counterform into full-bleed footage
+    // iris: pass through the counterform into full-bleed, UNFILTERED footage
     float d = length((vUv - 0.5) * vec2(uAspect, 1.0));
     float irisR = pIris * 1.45;
     float inIris = (1.0 - smoothstep(max(irisR - 0.02, 0.0), max(irisR, 1e-4), d)) * step(1e-4, pIris);
-    col = mix(col, media, inIris);
+    col = mix(col, mediaRaw, inIris);
     // hot rim on the opening gate
     float rim = exp(-abs(d - irisR) * 60.0) * step(0.001, pIris) * (1.0 - pIris * 0.6);
     col += rim * 0.55;
 
-    col += filmGrain(vUv, uTime * 1.3) * 0.035;
-    col *= vig(vUv, 0.4);
+    // grain + vignette belong to the type world — they lift off the video
+    col += filmGrain(vUv, uTime * 1.3) * 0.035 * (1.0 - pIris);
+    col *= mix(vig(vUv, 0.4), 1.0, pIris);
     gl_FragColor = vec4(col, 1.0);
   }
 `;
