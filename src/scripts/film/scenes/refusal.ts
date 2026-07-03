@@ -61,11 +61,11 @@ const FRAG = /* glsl */ `
     vec2 away = cellCenter - 0.5;
     vec2 rnd = vec2(r - 0.5, r2 - 0.5);
     vec2 dir = normalize(away + rnd * 0.9 + 1e-4);
-    float dist = e * (0.28 + r * 0.55);
+    float dist = e * (0.18 + r * 0.38);
 
     // spin + shrink within the cell as it departs — fragments stay visible
     // most of the flight so the mid-transition reads as a storm, not a void
-    float shrink = 1.0 - e * 0.8;
+    float shrink = 1.0 - e * 0.62;
     float ang = (r - 0.5) * e * 3.2;
     vec2 local2 = fract(uv * grid) - 0.5;
     float ca = cos(ang), sa = sin(ang);
@@ -77,13 +77,14 @@ const FRAG = /* glsl */ `
                    step(abs(local2.y / max(shrink, 0.02)), 0.5);
     vec4 s = texture2D(tex, srcUv);
     float lum = max(max(s.r, s.g), s.b);
-    return vec4(s.rgb, lum * inCell * (1.0 - e * 0.82));
+    return vec4(s.rgb, lum * inCell * (1.0 - e * 0.55));
   }
 
   void main() {
-    // wall departs over the first half; thesis lands by 80% and holds clean
-    float kOut = smoothstep(0.0, 0.50, uP);
-    float kIn  = 1.0 - smoothstep(0.16, 0.80, uP);
+    // wall departs slowly, thesis streams in early — the two debris fields
+    // overlap so the middle of the scene is a storm, never a void
+    float kOut = smoothstep(0.0, 0.62, uP);
+    float kIn  = 1.0 - smoothstep(0.10, 0.74, uP);
 
     vec4 wallBit = debris(uWall, vUv, uGrid, kOut, 0.0);
 
@@ -111,7 +112,7 @@ export function createRefusal(ctx: SceneCtx, win: [number, number]): FilmScene {
   const uniforms = {
     uWall: uni(wallTex.tex),
     uThesis: uni(thesisTex.tex),
-    uGrid: uni([72, 40]),
+    uGrid: uni([46, 26]),
     uP: uni(0),
     uTime: uni(0),
   };

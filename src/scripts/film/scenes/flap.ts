@@ -30,7 +30,7 @@ function drawFlapWord(word: string) {
     c.textBaseline = 'middle';
     const cellW = (w * ROW_W) / CELLS;
     const x0 = (w * (1 - ROW_W)) / 2;
-    const px = cellW * 1.06; // tall condensed cells
+    const px = cellW * 1.2; // letters dominate the frame
     c.font = `600 ${px}px ${FONT_DISPLAY}`;
     c.lineWidth = Math.max(2, px * 0.035);
     c.strokeStyle = '#f4f4f4';
@@ -93,7 +93,7 @@ const FRAG = /* glsl */ `
     float ax = texture2D(uWordA, vUv + vec2(e, 0.0)).a - texture2D(uWordA, vUv - vec2(e, 0.0)).a;
     float ay = texture2D(uWordA, vUv + vec2(0.0, e)).a - texture2D(uWordA, vUv - vec2(0.0, e)).a;
     vec2 mUv = coverUv(vUv, uAspect, uMediaAspect) + vec2(ax, ay) * 0.045;
-    vec3 media = texture2D(uMedia, mUv).rgb * 0.82;
+    vec3 media = texture2D(uMedia, mUv).rgb * 0.62; // graded dark, brand-side
 
     vec3 letter = mix(vec3(0.956), GREEN, isB);
     vec3 col = media;

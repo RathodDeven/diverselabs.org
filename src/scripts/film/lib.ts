@@ -129,12 +129,13 @@ export function fitTextPx(
 
 /* ── Media textures (poster now, video when available) ─────── */
 
-const activeVideos = new Set<HTMLVideoElement>();
+const activeMedia = new Set<MediaTex>();
 
 export class MediaTex {
   tex: THREE.Texture;
   aspect = 16 / 9;
   private video: HTMLVideoElement | null = null;
+  private wantPlaying = false;
 
   private constructor(tex: THREE.Texture) {
     this.tex = tex;
@@ -183,38 +184,47 @@ export class MediaTex {
     v.addEventListener(
       'canplay',
       () => {
-        const t = new THREE.VideoTexture(v);
-        t.colorSpace = THREE.SRGBColorSpace;
-        t.minFilter = THREE.LinearFilter;
-        t.generateMipmaps = false;
-        this.aspect = (v.videoWidth || 16) / (v.videoHeight || 9);
-        this.tex.dispose();
-        this.tex = t;
-        this.onSwap?.();
+        // a never-played video uploads black — present a real frame before
+        // swapping the texture, then honor whatever play state is wanted
+        v.play()
+          .then(() => {
+            const t = new THREE.VideoTexture(v);
+            t.colorSpace = THREE.SRGBColorSpace;
+            t.minFilter = THREE.LinearFilter;
+            t.generateMipmaps = false;
+            this.aspect = (v.videoWidth || 16) / (v.videoHeight || 9);
+            this.tex.dispose();
+            this.tex = t;
+            this.onSwap?.();
+            if (!this.wantPlaying) {
+              // park on a representative frame — frame 0 is often black
+              v.currentTime = Math.min(1.5, (v.duration || 2) * 0.25);
+              v.pause();
+            }
+          })
+          .catch(() => undefined); // autoplay refused -> poster stays
       },
       { once: true }
     );
     v.load();
   }
 
-  /** Keep at most `keep` videos decoding; play this one, pause the rest. */
+  /** Play this one; by default pause every other decoding video. */
   play(exclusive = true) {
-    const v = this.video;
-    if (!v) return;
+    this.wantPlaying = true;
     if (exclusive) {
-      activeVideos.forEach((o) => {
-        if (o !== v) o.pause();
+      activeMedia.forEach((m) => {
+        if (m !== this) m.pause();
       });
-      activeVideos.clear();
     }
-    activeVideos.add(v);
-    v.play().catch(() => undefined);
+    activeMedia.add(this);
+    this.video?.play().catch(() => undefined);
   }
 
   pause() {
-    if (!this.video) return;
-    this.video.pause();
-    activeVideos.delete(this.video);
+    this.wantPlaying = false;
+    activeMedia.delete(this);
+    this.video?.pause();
   }
 
   dispose() {

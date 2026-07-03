@@ -12,6 +12,7 @@ import {
   type SceneCtx,
   type Viewport,
 } from '../lib';
+import { getHeroMedia } from './layer';
 
 const FRAG = /* glsl */ `
   uniform sampler2D uFrom;
@@ -64,9 +65,9 @@ const FRAG = /* glsl */ `
 `;
 
 export function createProofWipe(ctx: SceneCtx, win: [number, number]): FilmScene {
-  // "from" stays a held frame on purpose — one video decodes at a time,
-  // and the outgoing plate is meant to read as frozen ink being wiped away
-  const from = MediaTex.fromImage('/film/loops/hero.webp');
+  // "from" is the shared hero video: playing NudgeFlow pauses it, so the
+  // outgoing plate holds the exact frame the iris ended on
+  const from = getHeroMedia();
   const to = MediaTex.fromImage('/film/loops/nudgeflow.webp');
   to.upgradeToVideo('/film/loops/nudgeflow.mp4');
 
@@ -112,7 +113,7 @@ export function createProofWipe(ctx: SceneCtx, win: [number, number]): FilmScene
       uniforms.uAspect.value = vp.aspect;
     },
     dispose() {
-      from.dispose();
+      // `from` is the shared hero media — layer.ts owns its disposal
       to.dispose();
     },
   };

@@ -75,6 +75,18 @@ function drawLetter(c: CanvasRenderingContext2D, w: number, h: number) {
   return { center: { x: 0.5, y: 0.5 }, size: { w: (c.measureText('A').width) / w, h: (px * 0.74) / h } };
 }
 
+/* Hero footage is shared with the wipe scene: when the wipe starts playing
+   NudgeFlow, this video pauses and its texture holds the exact frame the
+   iris ended on — the "held frame" is real, not a poster jump-cut. */
+let heroMedia: MediaTex | null = null;
+export function getHeroMedia(): MediaTex {
+  if (!heroMedia) {
+    heroMedia = MediaTex.fromImage('/film/loops/hero.webp');
+    heroMedia.upgradeToVideo('/film/loops/hero.mp4');
+  }
+  return heroMedia;
+}
+
 const FRAG = /* glsl */ `
   uniform sampler2D uWord;
   uniform sampler2D uLetter;
@@ -151,8 +163,7 @@ export function createLayer(ctx: SceneCtx, win: [number, number]): FilmScene {
     letterBox = drawLetter(c, w, h);
   });
 
-  const media = MediaTex.fromImage('/film/loops/hero.webp');
-  media.upgradeToVideo('/film/loops/hero.mp4');
+  const media = getHeroMedia();
 
   const uniforms = {
     uWord: uni(word.tex),
@@ -211,6 +222,7 @@ export function createLayer(ctx: SceneCtx, win: [number, number]): FilmScene {
       word.dispose();
       letter.dispose();
       media.dispose();
+      heroMedia = null;
     },
   };
 }
