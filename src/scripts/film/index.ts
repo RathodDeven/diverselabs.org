@@ -147,6 +147,7 @@ class Film {
   private idleFrames = 0;
   private snapDone = false;
   private prevWheelMult = 1;
+  private targetP = 0;
   private vp: Viewport;
   private track: HTMLElement;
   private tickFn: (time: number, deltaMs: number) => void;
@@ -288,21 +289,15 @@ class Film {
 
   private tick(time: number, deltaMs: number) {
     // scroll -> gearing warp -> FIXED-RATE playback. Scroll only sets the
-    // destination; the film always travels there at a constant speed, so
-    // every animation looks identical on every screen no matter how hard
-    // or fast anyone scrolls. A soft-landing zone eases the final stop,
-    // and deep scrubs fast-forward to within ~a scene before playing.
+    // destination; the film ALWAYS travels there at its constant per-scene
+    // speed — no fast-forward, ever. Scroll to the bottom in one violent
+    // flick and the film still plays every beat at its own pace until it
+    // catches up. (First tick after load syncs instantly, so reloads and
+    // deep links don't replay the whole film.)
     const target = warp(this.readProgress());
     if (this.smooth < 0) this.smooth = target;
-    let dp = target - this.smooth;
-    const GAP = 0.12;
-    if (dp > GAP) {
-      this.smooth = target - GAP;
-      dp = GAP;
-    } else if (dp < -GAP) {
-      this.smooth = target + GAP;
-      dp = -GAP;
-    }
+    this.targetP = target;
+    const dp = target - this.smooth;
     const dt = Math.min(Math.max(deltaMs, 1), 50) / 1000;
     const RATE = 0.03 * rateAt(this.smooth); // per-scene constant playback speed
     const mag = Math.abs(dp);
@@ -334,6 +329,9 @@ class Film {
       transitions complete and each scene settles on its composed frame. */
   private maybeSnap() {
     if (reducedMotion) return; // never scroll the page on the user's behalf
+    // don't yank the scrollbar while the film is still traveling to a
+    // far-away target — let the playback finish the journey first
+    if (Math.abs(this.targetP - this.smooth) > 0.03) return;
     const lenis = (window as { __lenis?: { scrollTo: (y: number, o?: object) => void } }).__lenis;
     if (!lenis || this.progress <= 0.01 || this.progress >= 0.995) return;
     if (Math.abs(this.velSmooth) > 45) {
