@@ -276,18 +276,30 @@ class Film {
   private smooth = -1;
 
   private tick(time: number, deltaMs: number) {
-    // scroll -> gearing warp -> inertial glide. The glide is what makes
-    // every transition feel driven rather than dragged: a wheel notch (an
-    // instant scroll jump on many Windows setups) becomes a choreographed
-    // ease-out instead of a hard cut. ALWAYS on — it's the film's only
-    // guaranteed smoothing — and time-normalized so it settles identically
-    // on 60Hz and 144Hz screens (~0.6s to close a gap).
+    // scroll -> gearing warp -> FIXED-RATE playback. Scroll only sets the
+    // destination; the film always travels there at a constant speed, so
+    // every animation looks identical on every screen no matter how hard
+    // or fast anyone scrolls. A soft-landing zone eases the final stop,
+    // and deep scrubs fast-forward to within ~a scene before playing.
     const target = warp(this.readProgress());
     if (this.smooth < 0) this.smooth = target;
-    const dp = target - this.smooth;
+    let dp = target - this.smooth;
+    const GAP = 0.12;
+    if (dp > GAP) {
+      this.smooth = target - GAP;
+      dp = GAP;
+    } else if (dp < -GAP) {
+      this.smooth = target + GAP;
+      dp = -GAP;
+    }
     const dt = Math.min(Math.max(deltaMs, 1), 50) / 1000;
-    const k = 1 - Math.exp(-dt * 5.5);
-    this.smooth += Math.abs(dp) < 0.00035 ? dp : dp * k;
+    const RATE = 0.034; // film units per second — the whole film ≈ 30s of playback
+    const mag = Math.abs(dp);
+    const move =
+      mag < 0.00035
+        ? mag
+        : Math.min(mag, RATE * dt * Math.max(0.18, Math.min(1, mag / 0.012)));
+    this.smooth += Math.sign(dp) * move;
     if (Math.abs(this.smooth - this.progress) > 1e-5) this.setProgress(this.smooth);
 
     const lenis = (window as { __lenis?: { velocity?: number } }).__lenis;
