@@ -16,20 +16,13 @@ const description =
     <div class="container relative z-10">
       <div class="hero-layout">
         <div class="hero-copy">
-          <div class="mb-7" data-reveal>
-            <span class="badge">
-              <span class="badge-dot" aria-hidden="true"></span>
-              Currently taking new projects
-            </span>
-          </div>
-
           <h1 class="display-hero" data-split data-split-delay="0.15" aria-label="Your AI Tech Partner.">
             Your AI<br /><span class="text-outline">Tech Partner.</span>
           </h1>
 
           <p class="hero-sub mt-7" data-reveal data-reveal-delay="0.45">
-            We design and ship custom AI agents, automation, and production software —
-            systems that do real work for your team.
+            We design and ship custom AI agents, automation, and production
+            software. Systems that do real work for your team.
           </p>
 
           <div class="hero-cta-row mt-8" data-reveal data-reveal-delay="0.55">
@@ -37,19 +30,6 @@ const description =
             <a href="/work" class="btn btn-secondary btn-lg">
               Explore the work
             </a>
-          </div>
-        </div>
-
-        <!-- Animated showreel (autoplays; pauses when scrolled out of view) -->
-        <div class="hero-showreel" data-hero-reel data-reveal data-reveal-delay="0.35">
-          <div class="hero-showreel-frame">
-            <iframe
-              src="/showcase/hero/index.html"
-              title="Diverse Labs — animated showreel"
-              loading="eager"
-              tabindex="-1"
-              scrolling="no"
-            ></iframe>
           </div>
         </div>
       </div>
@@ -62,7 +42,7 @@ const description =
       <div class="film-stage">
         <!-- Scene 8 CTA panel — lives BEHIND the canvas; the gate opens onto it -->
         <div class="film-panel">
-          <p class="panel-kicker">See what to automate first — and what it's worth.</p>
+          <p class="panel-kicker">See what to automate first, and what it's worth.</p>
           <a
             class="panel-build"
             href="https://cal.com/diverselabs/30min"
@@ -211,7 +191,7 @@ const description =
       <p class="label">Diverse Labs</p>
       <h2 class="display-hero">Machines should do the machine work.</h2>
       <p class="hero-sub">
-        Your best people are doing machine work — follow-ups, re-typing, chasing
+        Your best people are doing machine work: follow-ups, re-typing, chasing
         status. We build AI agents that absorb it, layered on the stack you
         already run. Drafted by machines. Approved by humans.
       </p>
@@ -242,24 +222,3 @@ const description =
   import '../scripts/film/index';
 </script>
 
-<script>
-  // Hero showreel: pause the animation loop while it's off-screen (CPU saving)
-  function bindHeroReel() {
-    const reel = document.querySelector<HTMLElement>('[data-hero-reel]');
-    const frame = reel?.querySelector('iframe');
-    if (reel && frame && !reel.dataset.bound) {
-      reel.dataset.bound = 'true';
-      const io = new IntersectionObserver(
-        (entries) => {
-          const visible = entries[0].isIntersecting;
-          frame.contentWindow?.postMessage(visible ? 'dl-play' : 'dl-pause', location.origin);
-        },
-        { threshold: 0, rootMargin: '200px 0px' }
-      );
-      io.observe(reel);
-    }
-  }
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', bindHeroReel);
-  else bindHeroReel();
-  document.addEventListener('astro:page-load', bindHeroReel);
-</script>
