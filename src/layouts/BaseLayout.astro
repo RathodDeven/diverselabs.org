@@ -48,18 +48,23 @@ const navItems = [
   { href: '/work', label: 'Work' },
   { href: '/blog', label: 'Insights' },
   { href: '/about', label: 'About' },
+  { href: '/contact', label: 'Contact' },
 ];
 
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
+  "@id": "https://diverselabs.org/#organization",
   "name": "Diverse Labs",
   "alternateName": "Diverse Labs AI",
-  "description": "Diverse Labs builds custom AI agents, workflow automation, and production-grade software for businesses. We specialize in AI-powered customer support, lead generation, product discovery, and end-to-end software development.",
+  "description": "Diverse Labs is an AI automation agency building custom AI agents, workflow automation, and production-grade software for businesses. We specialize in AI-powered customer support, lead generation, product discovery, and end-to-end software development.",
   "url": "https://diverselabs.org",
+  "logo": "https://diverselabs.org/logo.svg",
+  "image": "https://diverselabs.org/og-image.png",
   "email": "deven@diverselabs.org",
   "sameAs": [
-    "https://www.linkedin.com/company/diverse-labs-org"
+    "https://www.linkedin.com/company/diverse-labs-org",
+    "https://x.com/diverse_labs"
   ],
   "areaServed": "Worldwide",
   "priceRange": "$$",
@@ -96,11 +101,7 @@ const websiteSchema = {
   "name": "Diverse Labs",
   "url": "https://diverselabs.org",
   "description": "Custom AI systems and software development for businesses that compete to scale.",
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": "https://diverselabs.org/?q={search_term_string}",
-    "query-input": "required name=search_term_string"
-  }
+  "publisher": { "@id": "https://diverselabs.org/#organization" }
 };
 ---
 
@@ -277,9 +278,11 @@ const websiteSchema = {
             <h4>Site</h4>
             <ul role="list">
               <li><a href="/" class="footer-link">Home</a></li>
+              <li><a href="/services" class="footer-link">Services</a></li>
               <li><a href="/work" class="footer-link">Work</a></li>
               <li><a href="/blog" class="footer-link">Insights</a></li>
               <li><a href="/about" class="footer-link">About</a></li>
+              <li><a href="/contact" class="footer-link">Contact</a></li>
             </ul>
           </div>
 
