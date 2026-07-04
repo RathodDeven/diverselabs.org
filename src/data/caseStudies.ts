@@ -16,7 +16,7 @@ export const caseStudies: Doc[] = [
     crumb: 'Zoho CRM follow-up agent',
     seoTitle: 'AI Follow-Up Agent for Zoho CRM — ScaleUp Case Study',
     description:
-      'A human-in-the-loop AI agent that drafts context-aware email and LinkedIn follow-ups from Zoho CRM. Reviewed and sent on approval. No rip-and-replace.',
+      'A human-in-the-loop AI agent that drafts context-aware email and LinkedIn follow-ups from Zoho CRM — researched, reviewed, and sent on approval. No rip-and-replace.',
     keywords:
       'AI follow-up email agent for Zoho CRM, automate follow-up emails Zoho CRM with AI, human-in-the-loop CRM follow-up, AI sales follow-up agent',
     eyebrow: 'ScaleUp · Zoho CRM',
@@ -221,7 +221,7 @@ export const caseStudies: Doc[] = [
     crumb: 'Distributor catalog pipeline',
     seoTitle: 'Automate Distributor Catalog Data Entry — Case Study',
     description:
-      'A distributor was retyping supplier price-list PDFs by hand. Our AI pipeline extracts, structures, and matches them into a clean catalog in minutes.',
+      'A distributor was retyping supplier price-list PDFs by hand. We built an AI pipeline that extracts, structures, and matches them into a clean catalog — in minutes, not days.',
     keywords:
       'automate distributor catalog data entry, convert distributor price list PDF to Excel, AI price list extraction, supplier price list automation',
     eyebrow: 'Distributor · Catalog ops',
@@ -320,7 +320,7 @@ export const caseStudies: Doc[] = [
     crumb: 'X DM outreach engine',
     seoTitle: 'Automated X (Twitter) DM Outreach — Case Study',
     description:
-      'An automated X/Twitter DM system built to stay unbanned: humanized timing, daily caps, reply detection, and A/B sequencing with a dashboard.',
+      'An automated X/Twitter DM system built to stay unbanned: humanized timing, office hours, daily caps, reply detection, and A/B sequencing with a management dashboard.',
     keywords:
       'automate twitter dms without getting banned, X DM outreach automation, safe cold DM tool, twitter dm sequencing',
     eyebrow: 'In-house · Outreach',
@@ -418,7 +418,7 @@ export const caseStudies: Doc[] = [
     crumb: 'AI cold-email on AWS SES',
     seoTitle: 'AI Cold Email System on AWS SES — Case Study',
     description:
-      'A cold-email system you own: AI personalizes copy, AWS SES sends one message per recipient, and bounce handling protects your sending domain.',
+      'A cold-email system you own: AI personalizes copy, AWS SES sends one message per recipient, and suppression + bounce/complaint handling protect the sending domain.',
     keywords:
       'build cold email automation system AWS SES, AI cold email personalization, SES bounce complaint suppression, owned cold email infrastructure',
     eyebrow: 'In-house · Outbound',

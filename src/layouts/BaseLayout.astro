@@ -14,10 +14,6 @@ export interface Props {
   noindex?: boolean;
   /** When true, hide the site nav + footer entirely (sealed / standalone page) */
   standalone?: boolean;
-  /** When true, skip the fixed BackgroundShader canvas (pages with their own WebGL) */
-  hideBackdrop?: boolean;
-  /** When true, omit the footer's big CTA row (pages that end on their own CTA) */
-  hideFooterCta?: boolean;
   /** Extra per-page JSON-LD objects (Article, Service, HowTo, FAQPage, BreadcrumbList, …) */
   jsonLd?: Record<string, unknown>[];
 }
@@ -30,8 +26,6 @@ const {
   keywords = 'AI agents, workflow automation, custom AI systems, web app development, mobile app development, AI chatbot, business automation, AI consulting, LLM integration',
   noindex = false,
   standalone = false,
-  hideBackdrop = false,
-  hideFooterCta = false,
   jsonLd = [],
 } = Astro.props as Props;
 
@@ -44,27 +38,21 @@ const isActive = (path: string) =>
 
 const navItems = [
   { href: '/', label: 'Home' },
-  { href: '/services', label: 'Services' },
   { href: '/work', label: 'Work' },
   { href: '/blog', label: 'Insights' },
   { href: '/about', label: 'About' },
-  { href: '/contact', label: 'Contact' },
 ];
 
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
-  "@id": "https://diverselabs.org/#organization",
   "name": "Diverse Labs",
   "alternateName": "Diverse Labs AI",
-  "description": "Diverse Labs is an AI automation agency building custom AI agents, workflow automation, and production-grade software for businesses. We specialize in AI-powered customer support, lead generation, product discovery, and end-to-end software development.",
+  "description": "Diverse Labs builds custom AI agents, workflow automation, and production-grade software for businesses. We specialize in AI-powered customer support, lead generation, product discovery, and end-to-end software development.",
   "url": "https://diverselabs.org",
-  "logo": "https://diverselabs.org/logo.svg",
-  "image": "https://diverselabs.org/og-image.png",
   "email": "deven@diverselabs.org",
   "sameAs": [
-    "https://www.linkedin.com/company/diverse-labs-org",
-    "https://x.com/diverse_labs"
+    "https://www.linkedin.com/company/diverse-labs-org"
   ],
   "areaServed": "Worldwide",
   "priceRange": "$$",
@@ -101,7 +89,11 @@ const websiteSchema = {
   "name": "Diverse Labs",
   "url": "https://diverselabs.org",
   "description": "Custom AI systems and software development for businesses that compete to scale.",
-  "publisher": { "@id": "https://diverselabs.org/#organization" }
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://diverselabs.org/?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
 };
 ---
 
@@ -117,11 +109,6 @@ const websiteSchema = {
 
     <script is:inline>
       document.documentElement.classList.add('js');
-      // ClientRouter swaps strip ALL <html> attributes (class included) and
-      // never re-run identical inline scripts — restore the class after swaps
-      document.addEventListener('astro:after-swap', function () {
-        document.documentElement.classList.add('js');
-      });
       // Failsafe: if the motion script hasn't initialized within 2s (slow/failed
       // load), force the reveal-hidden content visible so the page is never blank.
       setTimeout(function () {
@@ -153,7 +140,7 @@ const websiteSchema = {
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Inter:wght@400;450;500;550;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;450;500;550;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
     <title>{actualTitle}</title>
 
@@ -189,7 +176,7 @@ const websiteSchema = {
     <!-- Scroll progress indicator -->
     <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
 
-    {!hideBackdrop && <BackgroundShader />}
+    <BackgroundShader />
 
     {!standalone && (
     <>
@@ -258,12 +245,10 @@ const websiteSchema = {
     <!-- Footer -->
     <footer class="site-footer" role="contentinfo">
       <div class="container">
-        {!hideFooterCta && (
         <div class="footer-cta-row">
           <h2>Have a system in mind? Let's scope it.</h2>
           <CTAButton href="https://cal.com/diverselabs/30min">Book a Discovery Call</CTAButton>
         </div>
-        )}
 
         <div class="footer-grid">
           <div class="footer-col">
@@ -278,11 +263,9 @@ const websiteSchema = {
             <h4>Site</h4>
             <ul role="list">
               <li><a href="/" class="footer-link">Home</a></li>
-              <li><a href="/services" class="footer-link">Services</a></li>
               <li><a href="/work" class="footer-link">Work</a></li>
               <li><a href="/blog" class="footer-link">Insights</a></li>
               <li><a href="/about" class="footer-link">About</a></li>
-              <li><a href="/contact" class="footer-link">Contact</a></li>
             </ul>
           </div>
 
