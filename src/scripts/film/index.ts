@@ -138,7 +138,7 @@ class Film {
   private prevWheelMult = 1;
   private vp: Viewport;
   private track: HTMLElement;
-  private tickFn: (time: number) => void;
+  private tickFn: (time: number, deltaMs: number) => void;
   private resizeTimer = 0;
   private onResize = () => {
     window.clearTimeout(this.resizeTimer);
@@ -205,7 +205,7 @@ class Film {
       lenis.options.wheelMultiplier = 0.45;
     }
 
-    this.tickFn = (time) => this.tick(time);
+    this.tickFn = (time, deltaMs) => this.tick(time, deltaMs);
     gsap.ticker.add(this.tickFn);
     window.addEventListener('resize', this.onResize, { passive: true });
     this.tick(0);
@@ -215,7 +215,7 @@ class Film {
 
   /** Advance one frame manually (occluded windows throttle rAF to zero). */
   forceTick() {
-    this.tick(performance.now() / 1000);
+    this.tick(performance.now() / 1000, 16.7);
   }
 
   private readProgress(): number {
@@ -275,15 +275,19 @@ class Film {
 
   private smooth = -1;
 
-  private tick(time: number) {
+  private tick(time: number, deltaMs: number) {
     // scroll -> gearing warp -> inertial glide. The glide is what makes
-    // every transition feel driven rather than dragged: a flick becomes a
-    // choreographed move that eases out instead of a 1:1 scrub.
+    // every transition feel driven rather than dragged: a wheel notch (an
+    // instant scroll jump on many Windows setups) becomes a choreographed
+    // ease-out instead of a hard cut. ALWAYS on — it's the film's only
+    // guaranteed smoothing — and time-normalized so it settles identically
+    // on 60Hz and 144Hz screens (~0.6s to close a gap).
     const target = warp(this.readProgress());
     if (this.smooth < 0) this.smooth = target;
     const dp = target - this.smooth;
-    // reduced motion: no inertia — progress tracks the scrollbar exactly
-    this.smooth += reducedMotion || Math.abs(dp) < 0.00035 ? dp : dp * 0.1;
+    const dt = Math.min(Math.max(deltaMs, 1), 50) / 1000;
+    const k = 1 - Math.exp(-dt * 5.5);
+    this.smooth += Math.abs(dp) < 0.00035 ? dp : dp * k;
     if (Math.abs(this.smooth - this.progress) > 1e-5) this.setProgress(this.smooth);
 
     const lenis = (window as { __lenis?: { velocity?: number } }).__lenis;
