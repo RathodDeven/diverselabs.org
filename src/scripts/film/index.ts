@@ -76,31 +76,22 @@ interface Caption {
     thesis, each full-bleed loop, the phones, the numbers, the belief line). */
 const REST_POINTS = [0.072, 0.12, 0.151, 0.238, 0.295, 0.395, 0.537, 0.677, 0.758, 0.839, 0.925, 1.0];
 
-/* ── scroll gearing + playback rates ────────────────────────────
-   [filmStart, filmEnd, scrollWeight, rateMul]:
-   - scrollWeight: heavier segments consume more scroll per film unit
-   - rateMul: playback speed multiplier for the fixed-rate engine. <1 =
-     that stretch of film plays SLOWER. Stamps land one at a time
-     (grind 0.45), video holds linger ~7s (0.5), transitions breathe. */
-const SEGS: Array<[number, number, number, number]> = [
-  [0.0, 0.085, 1, 0.45],                          // AGAIN stamps, one at a time
-  [0.085, 0.155, 1, 0.7],                         // thesis morph
-  [0.155, 0.215, 1, 0.8], [0.215, 0.265, 1.3, 0.5],   // WE LAYER -> hero hold
-  [0.265, 0.315, 1, 0.8],                         // bridge
-  [0.315, 0.355, 1, 0.9], [0.355, 0.46, 1.5, 0.5],    // wipe -> NudgeFlow hold
-  [0.46, 0.5, 1, 0.9], [0.5, 0.6, 1.5, 0.5],          // sweep -> CRM hold
-  [0.6, 0.645, 1, 0.8], [0.645, 0.71, 1.3, 0.55],     // phones rise -> ads hold
-  [0.71, 0.79, 1.1, 0.7], [0.79, 0.865, 1.1, 0.65],   // numbers, voices
-  [0.865, 0.945, 1, 0.7], [0.945, 1.0, 1, 0.8],       // turn, doorway
+/* ── scroll gearing ─────────────────────────────────────────────
+   [filmStart, filmEnd, scrollWeight]: heavier segments consume more scroll
+   per film unit — this is where "slow in certain areas" comes from. The
+   video holds and heavy scenes take more scrolling to cross; the film
+   itself always follows the hand. */
+const SEGS: Array<[number, number, number]> = [
+  [0.0, 0.085, 1.4],                        // AGAIN stamps, one at a time
+  [0.085, 0.155, 1.2],                      // thesis morph
+  [0.155, 0.215, 1], [0.215, 0.265, 1.3],   // WE LAYER -> hero hold
+  [0.265, 0.315, 1],                        // bridge
+  [0.315, 0.355, 1], [0.355, 0.46, 1.5],    // wipe -> NudgeFlow hold
+  [0.46, 0.5, 1], [0.5, 0.6, 1.5],          // sweep -> CRM hold
+  [0.6, 0.645, 1], [0.645, 0.71, 1.3],      // phones rise -> ads hold
+  [0.71, 0.79, 1.1], [0.79, 0.865, 1.1],    // numbers, voices
+  [0.865, 0.945, 1], [0.945, 1.0, 1],       // turn, doorway
 ];
-
-/** playback-rate multiplier at a film position */
-function rateAt(film: number): number {
-  for (const [a, b, , r] of SEGS) {
-    if (film <= b) return r;
-  }
-  return SEGS[SEGS.length - 1][3];
-}
 const FILM_PTS: number[] = [0];
 const SCROLL_PTS: number[] = [0];
 {
@@ -288,24 +279,18 @@ class Film {
   private smooth = -1;
 
   private tick(time: number, deltaMs: number) {
-    // scroll -> gearing warp -> FIXED-RATE playback. Scroll only sets the
-    // destination; the film ALWAYS travels there at its constant per-scene
-    // speed — no fast-forward, ever. Scroll to the bottom in one violent
-    // flick and the film still plays every beat at its own pace until it
-    // catches up. (First tick after load syncs instantly, so reloads and
-    // deep links don't replay the whole film.)
+    // scroll -> gearing warp -> responsive glide. The film follows the
+    // hand: it moves when you move and settles ~0.4s after you stop —
+    // never animating on its own. Pace comes from the gearing above and
+    // the tall track, not from a playback clock (the fixed-rate experiment
+    // measurably ignored the visitor's input).
     const target = warp(this.readProgress());
     if (this.smooth < 0) this.smooth = target;
     this.targetP = target;
     const dp = target - this.smooth;
     const dt = Math.min(Math.max(deltaMs, 1), 50) / 1000;
-    const RATE = 0.03 * rateAt(this.smooth); // per-scene constant playback speed
-    const mag = Math.abs(dp);
-    const move =
-      mag < 0.00035
-        ? mag
-        : Math.min(mag, RATE * dt * Math.max(0.18, Math.min(1, mag / 0.012)));
-    this.smooth += Math.sign(dp) * move;
+    const k = 1 - Math.exp(-dt * 7);
+    this.smooth += Math.abs(dp) < 0.00035 ? dp : dp * k;
     if (Math.abs(this.smooth - this.progress) > 1e-5) this.setProgress(this.smooth);
 
     const lenis = (window as { __lenis?: { velocity?: number } }).__lenis;
