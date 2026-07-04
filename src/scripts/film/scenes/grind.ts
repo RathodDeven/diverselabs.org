@@ -20,8 +20,8 @@ import {
 } from '../lib';
 
 export const WORD = 'AGAIN.';
-/** 8 AGAINs, then the 9th stamp is the turn: ENOUGH. */
-export const MAX_STAMPS = 9;
+/** 5 AGAINs land one at a time, then the 6th stamp is the turn: ENOUGH. */
+export const MAX_STAMPS = 6;
 const SHOUT = 'ENOUGH.';
 
 /* Deterministic per-stamp jitter so scrubbing backwards replays exactly.
