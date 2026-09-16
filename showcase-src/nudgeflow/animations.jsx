@@ -13,7 +13,9 @@
 //   </Stage>
 //
 // <Stage> auto-scales to the viewport and provides the scrubber, play/pause,
-// ←/→ seek, space, and 0-to-reset controls, and persists the playhead.
+// click-the-picture to toggle, ←/→ seek, space, and 0-to-reset controls.
+// It behaves like a video player, not an editor: hovering the scrub track shows
+// a preview marker and never moves the film, and playback always opens at 0.
 // Inside <Stage>, any child can call useTime() to read the current
 // playhead (seconds). Or wrap content in <Sprite start={1} end={4}>...</Sprite>
 // to only render during that window -- children receive a `localTime` and
@@ -329,6 +331,12 @@ function RectSprite({
 }
 
 
+// ── Stage ───────────────────────────────────────────────────────────────────
+// Scales the fixed-size canvas to fit, drives the clock, and renders the player
+// chrome. It deliberately behaves like a video player rather than an editor:
+// hovering the scrub track never moves the film, clicking the picture toggles
+// play, and every visit opens at the beginning.
+
 function Stage({
   width = 1280,
   height = 720,
@@ -337,39 +345,30 @@ function Stage({
   fps = 60,
   loop = true,
   autoplay = true,
-  persistKey = 'animstage',
+  persistKey,           // accepted for harness compatibility; the playhead is no longer stored
+  controls = true,
   children,
 }) {
-  const [time, setTime] = React.useState(() => {
-    try {
-      const v = parseFloat(localStorage.getItem(persistKey + ':t') || '0');
-      return isFinite(v) ? clamp(v, 0, duration) : 0;
-    } catch { return 0; }
-  });
+  // Always starts at zero. Someone who taps play expects the opening frame, not
+  // wherever a previous visit happened to leave the playhead.
+  const [time, setTime] = React.useState(0);
   const [playing, setPlaying] = React.useState(autoplay);
-  const [hoverTime, setHoverTime] = React.useState(null);
   const [scale, setScale] = React.useState(1);
+  const [flash, setFlash] = React.useState(null);   // brief centre badge after a click
 
   const stageRef = React.useRef(null);
-  const canvasRef = React.useRef(null);
   const rafRef = React.useRef(null);
   const lastTsRef = React.useRef(null);
+  const flashTimer = React.useRef(null);
 
-  // Persist playhead
-  React.useEffect(() => {
-    try { localStorage.setItem(persistKey + ':t', String(time)); } catch {}
-  }, [time, persistKey]);
+  const barH = controls ? 44 : 0;
 
   // Auto-scale to fit viewport
   React.useEffect(() => {
     if (!stageRef.current) return;
     const el = stageRef.current;
     const measure = () => {
-      const barH = 44; // playback bar height
-      const s = Math.min(
-        el.clientWidth / width,
-        (el.clientHeight - barH) / height
-      );
+      const s = Math.min(el.clientWidth / width, (el.clientHeight - barH) / height);
       setScale(Math.max(0.05, s));
     };
     measure();
@@ -380,7 +379,7 @@ function Stage({
       ro.disconnect();
       window.removeEventListener('resize', measure);
     };
-  }, [width, height]);
+  }, [width, height, barH]);
 
   // Animation loop
   React.useEffect(() => {
@@ -409,30 +408,44 @@ function Stage({
     };
   }, [playing, duration, loop]);
 
-  // Keyboard: space = play/pause, ← → = seek
+  const toggle = React.useCallback(() => {
+    setPlaying((p) => {
+      const next = !p;
+      setFlash({ kind: next ? 'play' : 'pause', n: Math.random() });
+      return next;
+    });
+  }, []);
+
+  // Clear the badge a beat after it appears.
+  React.useEffect(() => {
+    if (!flash) return;
+    if (flashTimer.current) clearTimeout(flashTimer.current);
+    flashTimer.current = setTimeout(() => setFlash(null), 480);
+    return () => { if (flashTimer.current) clearTimeout(flashTimer.current); };
+  }, [flash]);
+
+  // Keyboard: space = play/pause, ← → = seek, 0 = back to start
   React.useEffect(() => {
     const onKey = (e) => {
       if (e.target && (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA')) return;
       if (e.code === 'Space') {
         e.preventDefault();
-        setPlaying(p => !p);
+        toggle();
       } else if (e.code === 'ArrowLeft') {
-        setTime(t => clamp(t - (e.shiftKey ? 1 : 0.1), 0, duration));
+        setTime(t => clamp(t - (e.shiftKey ? 1 : 5), 0, duration));
       } else if (e.code === 'ArrowRight') {
-        setTime(t => clamp(t + (e.shiftKey ? 1 : 0.1), 0, duration));
+        setTime(t => clamp(t + (e.shiftKey ? 1 : 5), 0, duration));
       } else if (e.key === '0' || e.code === 'Home') {
         setTime(0);
       }
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  }, [duration]);
-
-  const displayTime = hoverTime != null ? hoverTime : time;
+  }, [duration, toggle]);
 
   const ctxValue = React.useMemo(
-    () => ({ time: displayTime, duration, playing, setTime, setPlaying }),
-    [displayTime, duration, playing]
+    () => ({ time, duration, playing, setTime, setPlaying }),
+    [time, duration, playing]
   );
 
   return (
@@ -447,15 +460,19 @@ function Stage({
       }}
     >
       {/* Canvas area — vertically centered in remaining space */}
-      <div style={{
-        flex: 1,
-        width: '100%',
-        display: 'flex', alignItems: 'center', justifyContent: 'center',
-        overflow: 'hidden',
-        minHeight: 0,
-      }}>
+      <div
+        onClick={controls ? toggle : undefined}
+        style={{
+          flex: 1,
+          width: '100%',
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          overflow: 'hidden',
+          minHeight: 0,
+          position: 'relative',
+          cursor: controls ? 'pointer' : 'default',
+        }}
+      >
         <div
-          ref={canvasRef}
           style={{
             width, height,
             background,
@@ -465,113 +482,161 @@ function Stage({
             flexShrink: 0,
             boxShadow: '0 20px 60px rgba(0,0,0,0.4)',
             overflow: 'hidden',
+            pointerEvents: 'none',
           }}
         >
           <TimelineContext.Provider value={ctxValue}>
             {children}
           </TimelineContext.Provider>
         </div>
+
+        {controls && flash && <ClickBadge kind={flash.kind} />}
       </div>
 
       {/* Playback bar — stacked below canvas, never overlapping */}
-      <PlaybackBar
-        time={displayTime}
-        actualTime={time}
-        duration={duration}
-        playing={playing}
-        onPlayPause={() => setPlaying(p => !p)}
-        onReset={() => { setTime(0); }}
-        onSeek={(t) => setTime(t)}
-        onHover={(t) => setHoverTime(t)}
-      />
+      {controls && (
+        <PlaybackBar
+          time={time}
+          duration={duration}
+          playing={playing}
+          onPlayPause={toggle}
+          onReset={() => { setTime(0); }}
+          onSeek={(t) => setTime(t)}
+        />
+      )}
+    </div>
+  );
+}
+
+// A play/pause glyph that surfaces for a beat after the picture is clicked, so
+// the click reads as a click even when the frame underneath barely moves.
+
+let badgeCssInjected = false;
+function injectBadgeCss() {
+  if (badgeCssInjected || typeof document === 'undefined') return;
+  badgeCssInjected = true;
+  const s = document.createElement('style');
+  s.textContent =
+    '@keyframes dlBadge{0%{opacity:0;transform:scale(0.78)}' +
+    '22%{opacity:1;transform:scale(1)}' +
+    '70%{opacity:1;transform:scale(1)}' +
+    '100%{opacity:0;transform:scale(1.18)}}';
+  document.head.appendChild(s);
+}
+
+function ClickBadge({ kind }) {
+  injectBadgeCss();
+  return (
+    <div
+      aria-hidden="true"
+      style={{
+        position: 'absolute',
+        left: '50%', top: '50%',
+        width: 62, height: 62,
+        marginLeft: -31, marginTop: -31,
+        borderRadius: '50%',
+        background: 'rgba(10,10,10,0.55)',
+        border: '1px solid rgba(255,255,255,0.18)',
+        backdropFilter: 'blur(6px)',
+        WebkitBackdropFilter: 'blur(6px)',
+        display: 'flex', alignItems: 'center', justifyContent: 'center',
+        color: '#fff',
+        pointerEvents: 'none',
+        animation: 'dlBadge 480ms ease-out forwards',
+      }}
+    >
+      {kind === 'play' ? (
+        <svg width="20" height="20" viewBox="0 0 14 14"><path d="M3.5 2l8 5-8 5V2z" fill="currentColor"/></svg>
+      ) : (
+        <svg width="20" height="20" viewBox="0 0 14 14">
+          <rect x="3.5" y="2" width="2.8" height="10" fill="currentColor"/>
+          <rect x="7.7" y="2" width="2.8" height="10" fill="currentColor"/>
+        </svg>
+      )}
     </div>
   );
 }
 
 // ── Playback bar ────────────────────────────────────────────────────────────
 // Play/pause, return-to-begin, scrub track, time display.
-// Uses fixed-width time fields so layout doesn't thrash.
+// Hovering the track shows a preview marker and a timecode. It does NOT seek:
+// only a press or a drag moves the playhead.
 
-function PlaybackBar({ time, duration, playing, onPlayPause, onReset, onSeek, onHover }) {
+function PlaybackBar({ time, duration, playing, onPlayPause, onReset, onSeek }) {
   const trackRef = React.useRef(null);
   const [dragging, setDragging] = React.useState(false);
+  const [hoverPct, setHoverPct] = React.useState(null);
+  const [barHover, setBarHover] = React.useState(false);
 
-  const timeFromEvent = React.useCallback((e) => {
+  const pctFromEvent = React.useCallback((e) => {
     const rect = trackRef.current.getBoundingClientRect();
-    const x = clamp((e.clientX - rect.left) / rect.width, 0, 1);
-    return x * duration;
-  }, [duration]);
+    return clamp((e.clientX - rect.left) / rect.width, 0, 1);
+  }, []);
 
-  const onTrackMove = (e) => {
+  const onPointerDown = (e) => {
     if (!trackRef.current) return;
-    const t = timeFromEvent(e);
-    if (dragging) {
-      onSeek(t);
-    } else {
-      onHover(t);
-    }
-  };
-
-  const onTrackLeave = () => {
-    if (!dragging) onHover(null);
-  };
-
-  const onTrackDown = (e) => {
+    e.preventDefault();
+    const p = pctFromEvent(e);
     setDragging(true);
-    const t = timeFromEvent(e);
-    onSeek(t);
-    onHover(null);
+    setHoverPct(p);
+    onSeek(p * duration);
+    try { e.currentTarget.setPointerCapture(e.pointerId); } catch {}
   };
 
-  React.useEffect(() => {
+  const onPointerMove = (e) => {
+    if (!trackRef.current) return;
+    const p = pctFromEvent(e);
+    setHoverPct(p);
+    if (dragging) onSeek(p * duration);
+  };
+
+  const endDrag = (e) => {
     if (!dragging) return;
-    const onUp = () => setDragging(false);
-    const onMove = (e) => {
-      if (!trackRef.current) return;
-      const t = timeFromEvent(e);
-      onSeek(t);
-    };
-    window.addEventListener('mouseup', onUp);
-    window.addEventListener('mousemove', onMove);
-    return () => {
-      window.removeEventListener('mouseup', onUp);
-      window.removeEventListener('mousemove', onMove);
-    };
-  }, [dragging, timeFromEvent, onSeek]);
+    setDragging(false);
+    try { e.currentTarget.releasePointerCapture(e.pointerId); } catch {}
+  };
+
+  const onKeyDown = (e) => {
+    if (e.key === 'ArrowLeft') { e.preventDefault(); onSeek(clamp(time - 5, 0, duration)); }
+    else if (e.key === 'ArrowRight') { e.preventDefault(); onSeek(clamp(time + 5, 0, duration)); }
+    else if (e.key === 'Home') { e.preventDefault(); onSeek(0); }
+    else if (e.key === 'End') { e.preventDefault(); onSeek(duration); }
+  };
 
   const pct = duration > 0 ? (time / duration) * 100 : 0;
+  const showKnob = barHover || dragging;
+
   const fmt = (t) => {
-    const total = Math.max(0, t);
+    const total = Math.max(0, Math.floor(t));
     const m = Math.floor(total / 60);
-    const s = Math.floor(total % 60);
-    const cs = Math.floor((total * 100) % 100);
-    return `${String(m).padStart(1, '0')}:${String(s).padStart(2, '0')}.${String(cs).padStart(2, '0')}`;
+    const s = total % 60;
+    return `${m}:${String(s).padStart(2, '0')}`;
   };
 
   const mono = 'JetBrains Mono, ui-monospace, SFMono-Regular, monospace';
 
   return (
-    <div style={{
-      display: 'flex', alignItems: 'center', gap: 12,
-      padding: '8px 16px',
-      background: 'rgba(20,20,20,0.92)',
-      borderTop: '1px solid rgba(255,255,255,0.08)',
-      width: '100%',
-      maxWidth: 680,
-      alignSelf: 'center',
+    <div
+      onMouseEnter={() => setBarHover(true)}
+      onMouseLeave={() => { setBarHover(false); setHoverPct(null); }}
+      style={{
+        display: 'flex', alignItems: 'center', gap: 12,
+        padding: '8px 16px',
+        background: 'rgba(12,12,12,0.94)',
+        borderTop: '1px solid rgba(255,255,255,0.09)',
+        width: '100%',
+        maxWidth: 680,
+        alignSelf: 'center',
 
-      borderRadius: 8,
-      color: '#f6f4ef',
-      fontFamily: 'Inter, system-ui, sans-serif',
-      userSelect: 'none',
-      flexShrink: 0,
-    }}>
-      <IconButton onClick={onReset} title="Return to start (0)">
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-          <path d="M3 2v10M12 2L5 7l7 5V2z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" strokeLinecap="round"/>
-        </svg>
-      </IconButton>
-      <IconButton onClick={onPlayPause} title="Play/pause (space)">
+        borderRadius: 8,
+        color: '#f4f4f4',
+        fontFamily: 'Inter, system-ui, sans-serif',
+        userSelect: 'none',
+        touchAction: 'none',
+        flexShrink: 0,
+      }}
+    >
+      <IconButton onClick={onPlayPause} title={playing ? 'Pause (space)' : 'Play (space)'}>
         {playing ? (
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
             <rect x="3" y="2" width="3" height="10" fill="currentColor"/>
@@ -583,14 +648,19 @@ function PlaybackBar({ time, duration, playing, onPlayPause, onReset, onSeek, on
           </svg>
         )}
       </IconButton>
+      <IconButton onClick={onReset} title="Back to the start (0)">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+          <path d="M3 2v10M12 2L5 7l7 5V2z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" strokeLinecap="round"/>
+        </svg>
+      </IconButton>
 
       {/* Current time: fixed width so it doesn't thrash */}
       <div style={{
         fontFamily: mono,
         fontSize: 12,
         fontVariantNumeric: 'tabular-nums',
-        width: 64, textAlign: 'right',
-        color: '#f6f4ef',
+        width: 38, textAlign: 'right',
+        color: '#f4f4f4',
       }}>
         {fmt(time)}
       </div>
@@ -598,38 +668,91 @@ function PlaybackBar({ time, duration, playing, onPlayPause, onReset, onSeek, on
       {/* Scrub track */}
       <div
         ref={trackRef}
-        onMouseMove={onTrackMove}
-        onMouseLeave={onTrackLeave}
-        onMouseDown={onTrackDown}
+        role="slider"
+        tabIndex={0}
+        aria-label="Seek"
+        aria-valuemin={0}
+        aria-valuemax={Math.round(duration)}
+        aria-valuenow={Math.round(time)}
+        aria-valuetext={`${fmt(time)} of ${fmt(duration)}`}
+        onPointerDown={onPointerDown}
+        onPointerMove={onPointerMove}
+        onPointerUp={endDrag}
+        onPointerCancel={endDrag}
+        onPointerLeave={() => { if (!dragging) setHoverPct(null); }}
+        onKeyDown={onKeyDown}
         style={{
           flex: 1,
           height: 22,
           position: 'relative',
           cursor: 'pointer',
           display: 'flex', alignItems: 'center',
+          outline: 'none',
+          touchAction: 'none',
         }}
       >
         <div style={{
           position: 'absolute',
-          left: 0, right: 0, height: 4,
-          background: 'rgba(255,255,255,0.12)',
-          borderRadius: 2,
+          left: 0, right: 0, height: showKnob ? 5 : 3,
+          background: 'rgba(255,255,255,0.14)',
+          borderRadius: 3,
+          transition: 'height 140ms ease',
         }}/>
+
+        {/* Where a press would land. A marker only; it never moves the film. */}
+        {hoverPct != null && !dragging && (
+          <div style={{
+            position: 'absolute',
+            left: `${hoverPct * 100}%`,
+            top: 3, bottom: 3,
+            width: 1,
+            marginLeft: -0.5,
+            background: 'rgba(255,255,255,0.45)',
+            pointerEvents: 'none',
+          }}/>
+        )}
+
         <div style={{
           position: 'absolute',
-          left: 0, width: `${pct}%`, height: 4,
-          background: 'oklch(72% 0.12 250)',
-          borderRadius: 2,
+          left: 0, width: `${pct}%`, height: showKnob ? 5 : 3,
+          background: 'rgba(255,255,255,0.88)',
+          borderRadius: 3,
+          transition: 'height 140ms ease',
         }}/>
         <div style={{
           position: 'absolute',
           left: `${pct}%`, top: '50%',
-          width: 12, height: 12,
-          marginLeft: -6, marginTop: -6,
+          width: 11, height: 11,
+          marginLeft: -5.5, marginTop: -5.5,
           background: '#fff',
           borderRadius: 6,
-          boxShadow: '0 2px 4px rgba(0,0,0,0.4)',
+          opacity: showKnob ? 1 : 0,
+          transform: showKnob ? 'scale(1)' : 'scale(0.5)',
+          transition: 'opacity 140ms ease, transform 140ms ease',
+          pointerEvents: 'none',
         }}/>
+
+        {/* Timecode under the cursor */}
+        {hoverPct != null && (
+          <div style={{
+            position: 'absolute',
+            left: `${hoverPct * 100}%`,
+            bottom: 'calc(100% + 6px)',
+            transform: 'translateX(-50%)',
+            fontFamily: mono,
+            fontSize: 10,
+            lineHeight: 1,
+            padding: '4px 6px',
+            borderRadius: 4,
+            background: 'rgba(0,0,0,0.85)',
+            border: '1px solid rgba(255,255,255,0.12)',
+            color: '#f4f4f4',
+            whiteSpace: 'nowrap',
+            pointerEvents: 'none',
+          }}>
+            {fmt(hoverPct * duration)}
+          </div>
+        )}
       </div>
 
       {/* Duration: fixed width */}
@@ -637,8 +760,8 @@ function PlaybackBar({ time, duration, playing, onPlayPause, onReset, onSeek, on
         fontFamily: mono,
         fontSize: 12,
         fontVariantNumeric: 'tabular-nums',
-        width: 64, textAlign: 'left',
-        color: 'rgba(246,244,239,0.55)',
+        width: 38, textAlign: 'left',
+        color: 'rgba(244,244,244,0.5)',
       }}>
         {fmt(duration)}
       </div>
@@ -652,6 +775,7 @@ function IconButton({ children, onClick, title }) {
     <button
       onClick={onClick}
       title={title}
+      aria-label={title}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
       style={{
@@ -660,9 +784,10 @@ function IconButton({ children, onClick, title }) {
         background: hover ? 'rgba(255,255,255,0.12)' : 'rgba(255,255,255,0.04)',
         border: '1px solid rgba(255,255,255,0.1)',
         borderRadius: 6,
-        color: '#f6f4ef',
+        color: '#f4f4f4',
         cursor: 'pointer',
         padding: 0,
+        flexShrink: 0,
         transition: 'background 120ms',
       }}
     >
@@ -670,7 +795,6 @@ function IconButton({ children, onClick, title }) {
     </button>
   );
 }
-
 
 Object.assign(window, {
   Easing, interpolate, animate, clamp,

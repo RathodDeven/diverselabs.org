@@ -34,6 +34,23 @@ node showcase-src/build.mjs
 - `hero/hero.jsx`: added a `controls` prop on `Stage` (hero hides the scrubber),
   a `window.__dlPlay` hook so the page can pause the loop when it scrolls
   off-screen, and `useState(0)` so the hero always opens from t=0.
+- `nudgeflow/animations.jsx` + `crm/crm-video.jsx` (they carry a byte-identical
+  copy of the engine, so keep `Stage`/`PlaybackBar`/`IconButton` in sync between
+  them): the imported `Stage` was an authoring tool, and on a marketing page it
+  behaved badly. Three things changed.
+  1. **Hover no longer seeks.** The import piped the hovered track position
+     straight into the playhead, so brushing past the scrubber yanked the film
+     to wherever the cursor happened to be. Hover now draws a marker and a
+     timecode and nothing else; only a press or a drag moves the playhead.
+  2. **No persisted playhead.** It used to save the position to `localStorage`
+     and resume there, so a second visit dropped you into the middle of the
+     explainer. Playback always opens at 0. The old `persistKey` prop is still
+     accepted (the `index.html` harnesses pass it) but is ignored.
+  3. **Video-player manners.** Clicking the picture toggles play, with a brief
+     centre badge so the click registers; the bar is monochrome to match the
+     site instead of the editor's blue; timecodes are `m:ss` rather than frame-
+     accurate `m:ss.cs`; the track is a real `role="slider"` and runs on pointer
+     events, so it scrubs on touch too.
 
 ## How they're wired in
 
