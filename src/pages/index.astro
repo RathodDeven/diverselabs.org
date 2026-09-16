@@ -19,7 +19,7 @@ const services = [
   {
     num: '02',
     title: 'Lead Gen & CRM Automation',
-    desc: 'Pipelines that capture, score, and route leads — then trigger follow-ups without anyone lifting a finger.',
+    desc: 'Pipelines that capture, score, and route leads, then trigger follow-ups without anyone lifting a finger.',
     chips: ['Lead scoring', 'Auto follow-ups', 'Pipeline sync'],
     mockup: 'pipeline',
   },
@@ -33,7 +33,7 @@ const services = [
   {
     num: '04',
     title: 'AI Video & Creative Production',
-    desc: 'Photorealistic AI video ads and UGC content with natural voices — produced at a fraction of studio cost.',
+    desc: 'Photorealistic AI video ads and UGC content with natural voices. Produced at a fraction of studio cost.',
     chips: ['Realistic avatars', 'Brand scripts', 'Fast turnaround'],
     mockup: 'video',
   },
@@ -47,7 +47,7 @@ const services = [
   {
     num: '06',
     title: 'Predictive Analytics & ML',
-    desc: 'Custom models trained on your data to forecast demand, churn, or performance — embedded in your workflow.',
+    desc: 'Custom models trained on your data to forecast demand, churn, or performance. Embedded in your workflow.',
     chips: ['Custom models', 'Forecasting', 'Live monitoring'],
     mockup: 'chart',
   },
@@ -92,6 +92,13 @@ const homeProjects = [
     description: 'WhatsApp + voice agents that classify leads and sync outcomes automatically.',
   },
   {
+    name: 'PoliteReach',
+    image: '/work/politereach.webp',
+    href: 'https://politereach.com/',
+    tags: ['Our product', 'LinkedIn outreach'],
+    description: 'Our own product, just launched. Your AI runs LinkedIn outreach from your own accounts and stops the second someone replies.',
+  },
+  {
     name: 'Distributor catalog pipeline',
     image: '/work/distributor-catalog.svg',
     href: '/work/distributor-catalog-automation',
@@ -117,7 +124,7 @@ const homeProjects = [
     image: '/work/paiso.webp',
     href: 'https://paiso.xyz/',
     tags: ['Mobile app', 'Fintech'],
-    description: 'Consumer fintech app live on the Play Store — fast cash access and rewards.',
+    description: 'Consumer fintech app live on the Play Store: fast cash access and rewards.',
   },
   {
     name: 'DANZ NOW',
@@ -140,23 +147,23 @@ const tapeWords = ['AI Agents', 'Automation', 'AI Video', 'Web & Mobile', 'Data 
 const faqs = [
   {
     question: 'What is an AI agent and how is it different from a regular chatbot?',
-    answer: 'A chatbot follows scripts. An AI agent understands context, reasons through multi-step problems, and takes real actions across your tools — a vending machine versus a skilled employee who never sleeps.',
+    answer: 'A chatbot follows scripts. An AI agent understands context, reasons through multi-step problems, and takes real actions across your tools. Think vending machine versus a skilled employee who never sleeps.',
   },
   {
     question: 'How does Diverse Labs customize AI systems for our specific business?',
-    answer: 'A free discovery session maps your workflows, data, and business rules. Then we build for your exact stack — your products, your tone, your tools — never a generic template.',
+    answer: 'A free discovery session maps your workflows, data, and business rules. Then we build for your exact stack: your products, your tone, your tools. Never a generic template.',
   },
   {
     question: 'Do you build regular software too, or only AI?',
-    answer: 'Both. We ship production-grade web, mobile, and desktop products from the ground up — used by thousands of people across fintech, creator platforms, and enterprise tools.',
+    answer: 'Both. We ship production-grade web, mobile, and desktop products from the ground up, used by thousands of people across fintech, creator platforms, and enterprise tools.',
   },
   {
     question: 'What is human-in-the-loop automation and can we control it?',
-    answer: 'A human approves specific actions before the AI proceeds. Fully automated, human-in-the-loop, or hybrid — you decide which stages need approval. Total control.',
+    answer: 'A human approves specific actions before the AI proceeds. You decide which stages need approval: fully automated, human-in-the-loop, or hybrid. Total control.',
   },
   {
     question: 'Will we need to replace our existing tools and systems?',
-    answer: 'No. Salesforce, HubSpot, Shopify, custom databases — whatever you run stays. Our AI layer integrates on top, with zero disruption to current operations.',
+    answer: 'No. Whatever you run stays: Salesforce, HubSpot, Shopify, custom databases. Our AI layer integrates on top, with zero disruption to current operations.',
   },
   {
     question: 'How long does it take to build and deploy an AI system?',
@@ -164,7 +171,7 @@ const faqs = [
   },
   {
     question: 'What industries and business types do you work with?',
-    answer: 'Mainly e-commerce, fintech, SaaS, and professional services with high-volume repetitive workflows — from funded startups to established enterprises.',
+    answer: 'Mainly e-commerce, fintech, SaaS, and professional services with high-volume repetitive workflows, from funded startups to established enterprises.',
   },
   {
     question: 'What does a typical engagement look like?',
@@ -174,8 +181,13 @@ const faqs = [
 
 const testimonials = [
   {
+    // Trimmed to the first sentence, verbatim. The "Recommended on LinkedIn"
+    // badge above the quote links to the full text, which continues:
+    // "He combines strong technical execution with an operator's mindset —
+    //  making Diverse Labs a reliable partner for turning complex workflows
+    //  into tools we actually use."
     quote:
-      "Deven quickly understood our Zoho CRM and follow-up workflow, then built a secure, practical automation that gives our team useful context without adding operational noise. He combines strong technical execution with an operator's mindset — making Diverse Labs a reliable partner for turning complex workflows into tools we actually use.",
+      "Deven quickly understood our Zoho CRM and follow-up workflow, then built a secure, practical automation that gives our team useful context without adding operational noise.",
     name: 'Marcos Buelvas',
     title: 'Global Operations Consulting',
     company: 'ScaleUp',
@@ -213,8 +225,8 @@ const featured = testimonials[0];
           </h1>
 
           <p class="hero-sub mt-7" data-reveal data-reveal-delay="0.45">
-            We design and ship custom AI agents, automation, and production software —
-            systems that do real work for your team.
+            We design and ship custom AI agents, automation, and production software.
+            Systems that do real work for your team.
           </p>
 
           <div class="hero-cta-row mt-8" data-reveal data-reveal-delay="0.55">
@@ -230,7 +242,7 @@ const featured = testimonials[0];
           <div class="hero-showreel-frame">
             <iframe
               src="/showcase/hero/index.html"
-              title="Diverse Labs — animated showreel"
+              title="Diverse Labs animated showreel"
               loading="eager"
               tabindex="-1"
               scrolling="no"
@@ -255,6 +267,7 @@ const featured = testimonials[0];
       </div>
     </div>
   </section>
+
 
   <!-- ═══════════════ TAPE MARQUEE ═══════════════ -->
   <section class="tape" data-marquee data-speed="1" aria-hidden="true">
@@ -327,6 +340,26 @@ const featured = testimonials[0];
     </div>
   </section>
 
+  <!-- ═══════════════ LAUNCH NOTE (deliberately quiet) ═══════════════ -->
+  <section class="launch-note" aria-label="New product from Diverse Labs">
+    <div class="container">
+      <a
+        class="launch-note-row"
+        href="https://politereach.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+        data-reveal
+      >
+        <span class="launch-note-tag">Just launched</span>
+        <span class="launch-note-text">
+          <strong>PoliteReach</strong>, a product by Diverse Labs. Your AI runs your
+          LinkedIn outreach and stops the second someone replies.
+        </span>
+        <span class="launch-note-link">politereach.com <span aria-hidden="true">↗</span></span>
+      </a>
+    </div>
+  </section>
+
   <!-- ═══════════════ SYSTEMS IN MOTION (playable explainers) ═══════════════ -->
   <section id="in-motion" class="page-section">
     <div class="container">
@@ -345,7 +378,7 @@ const featured = testimonials[0];
           data-src="/showcase/nudgeflow/index.html"
         >
           <button class="showcase-media" type="button" aria-label="Play the NudgeFlow explainer">
-            <img class="showcase-poster" src="/work/nudgeflow.webp" alt="NudgeFlow — WhatsApp and voice AI agent" loading="lazy" decoding="async" width="800" height="450" />
+            <img class="showcase-poster" src="/work/nudgeflow.webp" alt="NudgeFlow, a WhatsApp and voice AI agent" loading="lazy" decoding="async" width="800" height="450" />
             <span class="showcase-scrim" aria-hidden="true"></span>
             <span class="showcase-play" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z" /></svg>
@@ -357,7 +390,7 @@ const featured = testimonials[0];
               <span class="chip">WhatsApp agent</span>
               <span class="chip">Voice AI</span>
             </div>
-            <h3>NudgeFlow — WhatsApp + voice agent</h3>
+            <h3>NudgeFlow · WhatsApp + voice agent</h3>
             <p>An AI agent that re-engages drop-offs over WhatsApp and voice, classifies intent, and syncs every outcome back automatically. Built for ClickPe (YC&nbsp;S23).</p>
             <a href="/work/clickpe-nudgeflow-whatsapp-voice-ai-agent" class="showcase-link">
               <span class="showcase-link-arrow" aria-hidden="true">→</span>
@@ -385,7 +418,7 @@ const featured = testimonials[0];
               <span class="chip">Human-in-the-loop</span>
             </div>
             <h3>CRM follow-up automation</h3>
-            <p>Drafts context-aware follow-ups inside any CRM — reads the record, researches the web, finds the hook, and waits for your approval before anything sends.</p>
+            <p>Drafts context-aware follow-ups inside any CRM. Reads the record, researches the web, finds the hook, and waits for your approval before anything sends.</p>
             <a href="/work/scaleup-zoho-crm-follow-up-agent" class="showcase-link">
               <span class="showcase-link-arrow" aria-hidden="true">→</span>
               Read the case study
@@ -421,7 +454,7 @@ const featured = testimonials[0];
                 <a
                   href={gmailCompose(
                     `Let's discuss: ${s.title}`,
-                    `Hi Deven,\n\nI'm interested in ${s.title} for my team — can we talk through what you'd build?`
+                    `Hi Deven,\n\nI'm interested in ${s.title} for my team. Can we talk through what you'd build?`
                   )}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -444,7 +477,7 @@ const featured = testimonials[0];
                       <div class="sm-chat">
                         <div class="sm-bubble sm-user sm-w1">Hi, where is my order?</div>
                         <div class="sm-typing sm-wty"><span></span><span></span><span></span></div>
-                        <div class="sm-bubble sm-bot sm-w3">Order #4821 ships tomorrow — tracking sent to your email.</div>
+                        <div class="sm-bubble sm-bot sm-w3">Order #4821 ships tomorrow. Tracking sent to your email.</div>
                         <div class="sm-pill sm-w4">✓ Resolved &nbsp;·&nbsp; CRM updated</div>
                       </div>
                     </div>
@@ -592,6 +625,54 @@ const featured = testimonials[0];
     </div>
   </section>
 
+  <!-- ═══════════════ TESTIMONIAL ═══════════════ -->
+  <section class="page-section" aria-label="Client recommendation">
+    <div class="container">
+      <figure class="tmonial" data-reveal>
+        <span class="tmonial-aura" aria-hidden="true"></span>
+        <div class="tmonial-head">
+          <span class="label no-rule">In their words</span>
+          <a class="tmonial-badge" href={featured.recommendationUrl} target="_blank" rel="noopener noreferrer" aria-label="View this recommendation on LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z" />
+            </svg>
+            Recommended on LinkedIn
+            <span class="tmonial-badge-arrow" aria-hidden="true">↗</span>
+          </a>
+        </div>
+
+        <blockquote class="tmonial-quote">
+          <span class="tmonial-mark" aria-hidden="true">“</span>{featured.quote}
+        </blockquote>
+
+        <figcaption class="tmonial-by">
+          <span class="tmonial-avatar">
+            <img
+              src={featured.image}
+              alt={featured.name}
+              width="56"
+              height="56"
+              loading="lazy"
+              decoding="async"
+              onerror="this.remove()"
+            />
+            <span class="tmonial-mono" aria-hidden="true">{featured.initials}</span>
+          </span>
+          <span class="tmonial-meta">
+            <span class="tmonial-name">
+              {featured.name}
+              <svg class="tmonial-verified" viewBox="0 0 24 24" aria-label="Verified" role="img">
+                <path fill="currentColor" d="m23 12-2.44-2.79.34-3.69-3.61-.82-1.89-3.2L12 2.96 8.6 1.5 6.71 4.69 3.1 5.5l.34 3.7L1 12l2.44 2.79-.34 3.7 3.61.82 1.89 3.2L12 21.04l3.4 1.46 1.89-3.19 3.61-.82-.34-3.69L23 12zm-12.91 4.72-3.8-3.81 1.48-1.48 2.32 2.33 5.85-5.87 1.48 1.48-7.33 7.35z" />
+              </svg>
+            </span>
+            <span class="tmonial-role">{featured.title} · {featured.company} · {featured.relation}</span>
+          </span>
+          <img class="tmonial-logo" src={featured.logo} alt={`${featured.company} logo`} width="40" height="40" loading="lazy" decoding="async" />
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
   <!-- ═══════════════ WORK REEL (pinned horizontal) ═══════════════ -->
   <section id="work" class="reel-section" data-reel aria-label="Selected work">
     <div class="reel-viewport">
@@ -645,53 +726,6 @@ const featured = testimonials[0];
     </div>
   </section>
 
-  <!-- ═══════════════ TESTIMONIAL ═══════════════ -->
-  <section class="page-section" aria-label="Client recommendation">
-    <div class="container">
-      <figure class="tmonial" data-reveal>
-        <span class="tmonial-aura" aria-hidden="true"></span>
-        <div class="tmonial-head">
-          <span class="label no-rule">In their words</span>
-          <a class="tmonial-badge" href={featured.recommendationUrl} target="_blank" rel="noopener noreferrer" aria-label="View this recommendation on LinkedIn">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z" />
-            </svg>
-            Recommended on LinkedIn
-            <span class="tmonial-badge-arrow" aria-hidden="true">↗</span>
-          </a>
-        </div>
-
-        <blockquote class="tmonial-quote">
-          <span class="tmonial-mark" aria-hidden="true">“</span>{featured.quote}
-        </blockquote>
-
-        <figcaption class="tmonial-by">
-          <span class="tmonial-avatar">
-            <img
-              src={featured.image}
-              alt={featured.name}
-              width="56"
-              height="56"
-              loading="lazy"
-              decoding="async"
-              onerror="this.remove()"
-            />
-            <span class="tmonial-mono" aria-hidden="true">{featured.initials}</span>
-          </span>
-          <span class="tmonial-meta">
-            <span class="tmonial-name">
-              {featured.name}
-              <svg class="tmonial-verified" viewBox="0 0 24 24" aria-label="Verified" role="img">
-                <path fill="currentColor" d="m23 12-2.44-2.79.34-3.69-3.61-.82-1.89-3.2L12 2.96 8.6 1.5 6.71 4.69 3.1 5.5l.34 3.7L1 12l2.44 2.79-.34 3.7 3.61.82 1.89 3.2L12 21.04l3.4 1.46 1.89-3.19 3.61-.82-.34-3.69L23 12zm-12.91 4.72-3.8-3.81 1.48-1.48 2.32 2.33 5.85-5.87 1.48 1.48-7.33 7.35z" />
-              </svg>
-            </span>
-            <span class="tmonial-role">{featured.title} · {featured.company} · {featured.relation}</span>
-          </span>
-          <img class="tmonial-logo" src={featured.logo} alt={`${featured.company} logo`} width="40" height="40" loading="lazy" decoding="async" />
-        </figcaption>
-      </figure>
-    </div>
-  </section>
 
   <!-- ═══════════════ PHILOSOPHY ═══════════════ -->
   <section class="page-section">
@@ -699,7 +733,7 @@ const featured = testimonials[0];
       <p class="label mb-8" data-reveal>Philosophy</p>
       <p class="scrub-statement" data-scrub-text>
         Repetitive work shouldn't consume your smartest people. We build AI that
-        absorbs the routine — so your team drives the decisions that actually
+        absorbs the routine, so your team drives the decisions that actually
         move the business.
       </p>
 
@@ -741,25 +775,8 @@ const featured = testimonials[0];
     </div>
   </section>
 
-  <!-- ═══════════════ CTA ═══════════════ -->
-  <section class="page-section-tight pb-24">
-    <div class="container">
-      <div class="cta-panel" data-reveal>
-        <div class="relative z-10">
-          <p class="label no-rule mb-6 justify-center flex">Ready when you are</p>
-          <h2 class="cta-title" data-split>Still doing repetitive<br />work by hand?</h2>
-          <p class="cta-sub">Let's build an AI system that gives your team its time back.</p>
-          <div class="flex flex-col sm:flex-row items-center gap-4 justify-center">
-            <CTAButton href="https://cal.com/diverselabs/30min">Book a Discovery Call</CTAButton>
-            <a href="mailto:deven@diverselabs.org"
-               class="footer-link text-sm">
-              or email deven@diverselabs.org
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- The page's closing ask lives in the site footer ("Have a system in mind?
+       Let's scope it."), so there is no separate CTA panel here. -->
 
   <script>
     function initShowcase() {
