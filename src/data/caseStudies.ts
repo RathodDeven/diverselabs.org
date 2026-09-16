@@ -12,15 +12,15 @@ export const caseStudies: Doc[] = [
     collection: 'work',
     type: 'case-study',
     schemaType: 'Article',
-    title: 'How we automated Zoho CRM follow-ups for ScaleUp — without replacing their stack',
+    title: 'How we automated Zoho CRM follow-ups for ScaleUp without replacing their stack',
     crumb: 'Zoho CRM follow-up agent',
-    seoTitle: 'AI Follow-Up Agent for Zoho CRM — ScaleUp Case Study',
+    seoTitle: 'AI Follow-Up Agent for Zoho CRM: ScaleUp Case Study',
     description:
-      'A human-in-the-loop AI agent that drafts context-aware email and LinkedIn follow-ups from Zoho CRM — researched, reviewed, and sent on approval. No rip-and-replace.',
+      'A human-in-the-loop AI agent that drafts context-aware email and LinkedIn follow-ups from Zoho CRM: researched, reviewed, and sent on approval. No rip-and-replace.',
     keywords:
       'AI follow-up email agent for Zoho CRM, automate follow-up emails Zoho CRM with AI, human-in-the-loop CRM follow-up, AI sales follow-up agent',
     eyebrow: 'ScaleUp · Zoho CRM',
-    dek: 'ScaleUp runs follow-ups out of Zoho CRM. We layered an AI agent on top that pulls full contact context, researches the company, and drafts the email or LinkedIn message — then waits for a human to approve before anything sends.',
+    dek: 'ScaleUp runs follow-ups out of Zoho CRM. We layered an AI agent on top that pulls full contact context, researches the company, and drafts the email or LinkedIn message. Then it waits for a human to approve before anything sends.',
     ogImage: '/companies/scaleup.jpeg',
     tags: ['AI agent', 'Zoho CRM', 'Human-in-the-loop'],
     client: 'ScaleUp',
@@ -32,7 +32,7 @@ export const caseStudies: Doc[] = [
       {
         kind: 'prose',
         heading: 'The brief',
-        body: 'ScaleUp didn\'t want a new CRM or a black-box autoresponder. They wanted their reps to keep control of Zoho while losing the slow part — writing a personalised, well-researched follow-up for every contact. The constraint: <strong>nothing leaves without a human looking at it</strong>.',
+        body: 'ScaleUp didn\'t want a new CRM or a black-box autoresponder. They wanted their reps to keep control of Zoho while losing the slow part (writing a personalised, well-researched follow-up for every contact). The constraint: <strong>nothing leaves without a human looking at it</strong>.',
       },
       {
         kind: 'flow',
@@ -42,7 +42,7 @@ export const caseStudies: Doc[] = [
           { label: 'Fetch context', sub: 'Contact, account, notes, deal + email history' },
           { label: 'Research', sub: 'Company identity, recent news, public profile' },
           { label: 'Draft', sub: 'Email or LinkedIn copy, in ScaleUp\'s voice' },
-          { label: 'Human approves', sub: 'Card in Google Chat — review, edit, send' },
+          { label: 'Human approves', sub: 'Card in Google Chat: review, edit, send' },
           { label: 'Sync back', sub: 'Account/contact updated in Zoho' },
         ],
         caption: 'Built Cloudflare-native: a Worker takes the webhook, a queue does the slow research + drafting so Zoho gets an instant response.',
@@ -64,7 +64,7 @@ export const caseStudies: Doc[] = [
         title: 'The decisions that made it safe',
         items: [
           { title: 'Drafted, not sent', body: 'The agent only ever prepares a draft. A teammate approves it from a Google Chat card with a one-click compose link.' },
-          { title: 'No rip-and-replace', body: 'Zoho stays the source of truth. The agent reads and writes through the Zoho API — the team\'s workflow is untouched.' },
+          { title: 'No rip-and-replace', body: 'Zoho stays the source of truth. The agent reads and writes through the Zoho API. The team\'s workflow is untouched.' },
           { title: 'Email and LinkedIn', body: 'If a contact\'s email domain looks stale, the card flips to copy-ready LinkedIn content and explains why.' },
           { title: 'Idempotent by design', body: 'Each task is de-duplicated, so retries never double-send and cadence steps stay clean.' },
         ],
@@ -88,7 +88,7 @@ export const caseStudies: Doc[] = [
     faq: [
       {
         q: 'Does this replace Zoho CRM?',
-        a: 'No. Zoho stays your system of record. The agent reads context from Zoho and writes drafts/updates back through the API — your team keeps working exactly where they already do.',
+        a: 'No. Zoho stays your system of record. The agent reads context from Zoho and writes drafts/updates back through the API, so your team keeps working exactly where they already do.',
       },
       {
         q: 'Can the AI send emails on its own?',
@@ -96,7 +96,7 @@ export const caseStudies: Doc[] = [
       },
       {
         q: 'How is this different from Zoho Zia or a template autoresponder?',
-        a: 'Zia and templates work from merge tags. This agent pulls real CRM history plus live company research and writes a specific message — closer to a junior rep than a mail-merge.',
+        a: 'Zia and templates work from merge tags. This agent pulls real CRM history plus live company research and writes a specific message. Closer to a junior rep than a mail-merge.',
       },
     ],
     related: [
@@ -105,7 +105,7 @@ export const caseStudies: Doc[] = [
     ],
     cta: {
       title: 'Run follow-ups out of a CRM?',
-      sub: 'We\'ll map your cadence and show you exactly where an AI agent saves time — without changing your stack.',
+      sub: 'We\'ll map your cadence and show you exactly where an AI agent saves time without changing your stack.',
     },
   },
 
@@ -117,13 +117,13 @@ export const caseStudies: Doc[] = [
     schemaType: 'Article',
     title: 'Inside NudgeFlow: a WhatsApp + voice AI lead agent for ClickPe (YC S23)',
     crumb: 'WhatsApp + voice lead agent',
-    seoTitle: 'WhatsApp + Voice AI Lead Agent — NudgeFlow Case Study',
+    seoTitle: 'WhatsApp + Voice AI Lead Agent: NudgeFlow Case Study',
     description:
-      'NudgeFlow orchestrates follow-ups across WhatsApp and AI voice calls — policy-driven, idempotent, with human handoff. Built for ClickPe (YC S23).',
+      'NudgeFlow orchestrates follow-ups across WhatsApp and AI voice calls. Policy-driven, idempotent, with human handoff. Built for ClickPe (YC S23).',
     keywords:
       'WhatsApp voice lead follow-up automation, AI voice agent WhatsApp, multi-channel follow-up orchestration, automated lead follow-up system',
     eyebrow: 'ClickPe (YC S23) · NudgeFlow',
-    dek: 'Leads go cold between channels. NudgeFlow is the orchestration layer we built so one dropped lead becomes a single, policy-aware journey across WhatsApp and AI voice calls — with a human able to step in at any point.',
+    dek: 'Leads go cold between channels. NudgeFlow is the orchestration layer we built so one dropped lead becomes a single, policy-aware journey across WhatsApp and AI voice calls, with a human able to step in at any point.',
     ogImage: '/work/nudgeflow.webp',
     tags: ['AI system', 'WhatsApp', 'Voice agent'],
     client: 'ClickPe · YC S23',
@@ -148,7 +148,7 @@ export const caseStudies: Doc[] = [
           { label: 'Listen', sub: 'Replies + call intent tracked in memory' },
           { label: 'Handoff', sub: 'Pause the agent, route to a human' },
         ],
-        caption: 'Every action is an idempotent job — retries and restarts never double-contact a lead.',
+        caption: 'Every action is an idempotent job. Retries and restarts never double-contact a lead.',
       },
       {
         kind: 'metrics',
@@ -166,9 +166,9 @@ export const caseStudies: Doc[] = [
         title: 'What made it production-grade',
         items: [
           { title: 'Policy-driven', body: 'Contact windows, attempt limits, and cooldowns are config, not code. Sends that fall outside a lead\'s window are held, not dropped.' },
-          { title: 'Compliance windows', body: 'Per-timezone send windows mean no 3 a.m. messages — ops monitors “outside-window” spikes as a health signal.' },
-          { title: 'Human handoff', body: 'Any conversation can pause the agent and wait for a person — handoff sessions are a first-class thing the team monitors.' },
-          { title: 'Call analytics', body: 'Each voice call leaves a snapshot — intent, disposition, summary — so the next touch is informed and the funnel is measurable.' },
+          { title: 'Compliance windows', body: 'Per-timezone send windows mean no 3 a.m. messages, and ops monitors “outside-window” spikes as a health signal.' },
+          { title: 'Human handoff', body: 'Any conversation can pause the agent and wait for a person. Handoff sessions are a first-class thing the team monitors.' },
+          { title: 'Call analytics', body: 'Each voice call leaves a snapshot (intent, disposition, summary), so the next touch is informed and the funnel is measurable.' },
         ],
       },
       {
@@ -184,7 +184,7 @@ export const caseStudies: Doc[] = [
       {
         kind: 'prose',
         heading: 'The result',
-        body: 'A dropped lead is no longer a dead end — it becomes a tracked journey that knows when to nudge on WhatsApp, when to place an AI voice call, when to wait, and when to get out of the way for a human. The whole funnel is visible, so the team optimises touches instead of guessing.',
+        body: 'A dropped lead is no longer a dead end. It becomes a tracked journey that knows when to nudge on WhatsApp, when to place an AI voice call, when to wait, and when to get out of the way for a human. The whole funnel is visible, so the team optimises touches instead of guessing.',
       },
     ],
     faq: [
@@ -194,7 +194,7 @@ export const caseStudies: Doc[] = [
       },
       {
         q: 'How does it avoid spamming leads?',
-        a: 'Policies — contact windows, attempt caps, cooldowns, and per-timezone send hours — gate every action. Out-of-window actions are held and retried in-window, never force-sent.',
+        a: 'Every action is gated by policy: contact windows, attempt caps, cooldowns, and per-timezone send hours. Out-of-window actions are held and retried in-window, never force-sent.',
       },
       {
         q: 'Can a human take over a conversation?',
@@ -207,7 +207,7 @@ export const caseStudies: Doc[] = [
     ],
     cta: {
       title: 'Leads going cold between channels?',
-      sub: 'We build the orchestration layer so follow-ups resume on their own — and a human steps in only when it matters.',
+      sub: 'We build the orchestration layer so follow-ups resume on their own, and a human steps in only when it matters.',
     },
   },
 
@@ -219,13 +219,13 @@ export const caseStudies: Doc[] = [
     schemaType: 'Article',
     title: 'From 200-page supplier PDFs to a live catalog: an automated price-list pipeline',
     crumb: 'Distributor catalog pipeline',
-    seoTitle: 'Automate Distributor Catalog Data Entry — Case Study',
+    seoTitle: 'Automate Distributor Catalog Data Entry (Case Study)',
     description:
-      'A distributor was retyping supplier price-list PDFs by hand. We built an AI pipeline that extracts, structures, and matches them into a clean catalog — in minutes, not days.',
+      'A distributor was retyping supplier price-list PDFs by hand. We built an AI pipeline that extracts, structures, and matches them into a clean catalog in minutes, not days.',
     keywords:
       'automate distributor catalog data entry, convert distributor price list PDF to Excel, AI price list extraction, supplier price list automation',
     eyebrow: 'Distributor · Catalog ops',
-    dek: 'Distributors live and die by their price lists — and most arrive as messy supplier PDFs that someone retypes by hand. We built a pipeline that reads those PDFs with AI, structures every line, and turns a stack of documents into a clean, matched catalog.',
+    dek: 'Distributors live and die by their price lists, and most arrive as messy supplier PDFs that someone retypes by hand. We built a pipeline that reads those PDFs with AI, structures every line, and turns a stack of documents into a clean, matched catalog.',
     tags: ['Document AI', 'Extraction', 'Ops automation'],
     heroStat: { value: '200-page PDFs', label: 'to a structured catalog, automatically' },
     datePublished: '2026-06-13',
@@ -234,7 +234,7 @@ export const caseStudies: Doc[] = [
       {
         kind: 'prose',
         heading: 'The brief',
-        body: 'New supplier price lists landed constantly — as PDFs, in every layout imaginable. Staff retyped them into spreadsheets line by line: slow, expensive, and error-prone. The ask was simple: <strong>stop the manual data entry without losing accuracy</strong>.',
+        body: 'New supplier price lists landed constantly, as PDFs in every layout imaginable. Staff retyped them into spreadsheets line by line: slow, expensive, and error-prone. The ask was simple: <strong>stop the manual data entry without losing accuracy</strong>.',
       },
       {
         kind: 'flow',
@@ -265,9 +265,9 @@ export const caseStudies: Doc[] = [
         kind: 'callouts',
         title: 'Built for real ops',
         items: [
-          { title: 'Layout-agnostic', body: 'Different suppliers, different templates — the AI reads the content, not a fixed schema, so new formats don\'t need new code.' },
+          { title: 'Layout-agnostic', body: 'Different suppliers, different templates. The AI reads the content, not a fixed schema, so new formats don\'t need new code.' },
           { title: 'Credit-metered', body: 'Usage runs on a credit balance with an audit trail, so cost per job is transparent and controllable.' },
-          { title: 'Privacy-minded', body: 'Uploaded PDFs and generated workbooks are processed and cleaned up — scratch files don\'t linger in storage.' },
+          { title: 'Privacy-minded', body: 'Uploaded PDFs and generated workbooks are processed and cleaned up, so scratch files don\'t linger in storage.' },
           { title: 'Self-serve', body: 'A simple web app: upload, watch the job, download the workbook. No engineer in the loop for day-to-day runs.' },
         ],
       },
@@ -283,7 +283,7 @@ export const caseStudies: Doc[] = [
       {
         kind: 'prose',
         heading: 'The result',
-        body: 'The team stopped retyping price lists. Supplier PDFs now go in one side and a clean, matched catalog comes out the other — fast enough that pricing keeps pace with suppliers instead of trailing a week behind.',
+        body: 'The team stopped retyping price lists. Supplier PDFs now go in one side and a clean, matched catalog comes out the other, fast enough that pricing keeps pace with suppliers instead of trailing a week behind.',
       },
     ],
     faq: [
@@ -293,20 +293,20 @@ export const caseStudies: Doc[] = [
       },
       {
         q: 'Where does the data come out?',
-        a: 'As a clean, structured Excel workbook matched against your existing catalog — ready to import or quote from.',
+        a: 'As a clean, structured Excel workbook matched against your existing catalog, ready to import or quote from.',
       },
       {
         q: 'Is it accurate enough to price from?',
-        a: 'Extraction is structured and reviewable, and the pipeline is built so a person can spot-check output before it feeds quotes — far more consistent than line-by-line manual entry.',
+        a: 'Extraction is structured and reviewable, and the pipeline is built so a person can spot-check output before it feeds quotes, far more consistent than line-by-line manual entry.',
       },
     ],
     related: [
-      { href: '/blog/convert-distributor-price-list-pdf-to-excel', label: 'Convert a distributor price list PDF to Excel — automatically', eyebrow: 'GUIDE' },
+      { href: '/blog/convert-distributor-price-list-pdf-to-excel', label: 'Convert a distributor price list PDF to Excel automatically', eyebrow: 'GUIDE' },
       { href: '/work/scaleup-zoho-crm-follow-up-agent', label: 'AI follow-up agent for Zoho CRM', eyebrow: 'CASE STUDY' },
     ],
     cta: {
       title: 'Still retyping supplier PDFs?',
-      sub: 'Send us a sample price list. We\'ll show you the structured catalog it becomes — and what the pipeline would cost you.',
+      sub: 'Send us a sample price list. We\'ll show you the structured catalog it becomes, and what the pipeline would cost you.',
     },
   },
 
@@ -318,13 +318,13 @@ export const caseStudies: Doc[] = [
     schemaType: 'Article',
     title: 'A safe, human-paced X (Twitter) DM outreach engine',
     crumb: 'X DM outreach engine',
-    seoTitle: 'Automated X (Twitter) DM Outreach — Case Study',
+    seoTitle: 'Automated X (Twitter) DM Outreach Case Study',
     description:
       'An automated X/Twitter DM system built to stay unbanned: humanized timing, office hours, daily caps, reply detection, and A/B sequencing with a management dashboard.',
     keywords:
       'automate twitter dms without getting banned, X DM outreach automation, safe cold DM tool, twitter dm sequencing',
     eyebrow: 'In-house · Outreach',
-    dek: 'Most DM automation gets accounts banned. We built the opposite: an outreach engine that behaves like a careful human — one message at a time, on a real schedule, that stops the moment someone replies.',
+    dek: 'Most DM automation gets accounts banned. We built the opposite: an outreach engine that behaves like a careful human, sending one message at a time on a real schedule and stopping the moment someone replies.',
     tags: ['Outreach', 'Automation', 'Anti-ban'],
     heroStat: { value: '1 at a time', label: 'human-paced sends, built to stay unbanned' },
     datePublished: '2026-06-13',
@@ -333,7 +333,7 @@ export const caseStudies: Doc[] = [
       {
         kind: 'prose',
         heading: 'The brief',
-        body: 'Cold DM outreach on X works — until automation makes an account look like a bot and it gets locked. The goal was an engine that scales outreach while staying under X\'s radar, and that never keeps messaging someone who already answered.',
+        body: 'Cold DM outreach on X works, until automation makes an account look like a bot and it gets locked. The goal was an engine that scales outreach while staying under X\'s radar, and that never keeps messaging someone who already answered.',
       },
       {
         kind: 'flow',
@@ -345,16 +345,16 @@ export const caseStudies: Doc[] = [
           { label: 'Send', sub: 'Stealth browser types char-by-char' },
           { label: 'Schedule next', sub: 'Follow-up after a randomized delay' },
         ],
-        caption: 'Messages are prefilled at import — the sender never calls an LLM mid-send, so timing stays natural.',
+        caption: 'Messages are prefilled at import. The sender never calls an LLM mid-send, so timing stays natural.',
       },
       {
         kind: 'callouts',
         title: 'The anti-ban design',
         items: [
-          { title: 'One job at a time', body: 'Worker concurrency is one. No parallel sends — the single strongest signal that a human, not a script, is at the keyboard.' },
-          { title: 'Human-like timing', body: 'Randomized waits before opening a DM, before typing, and between messages — plus char-by-char typing speed, never fixed delays.' },
+          { title: 'One job at a time', body: 'Worker concurrency is one. No parallel sends: the single strongest signal that a human, not a script, is at the keyboard.' },
+          { title: 'Human-like timing', body: 'Randomized waits before opening a DM, before typing, and between messages, plus char-by-char typing speed, never fixed delays.' },
           { title: 'Office hours', body: 'Sends are restricted to normal waking hours in the account\'s timezone. No machine-like 24/7 activity.' },
-          { title: 'Daily caps', body: 'Hard per-day limits scaled to account age, enforced with counters — exceed the cap and jobs wait for tomorrow.' },
+          { title: 'Daily caps', body: 'Hard per-day limits scaled to account age, enforced with counters. Exceed the cap and jobs wait for tomorrow.' },
         ],
       },
       {
@@ -381,17 +381,17 @@ export const caseStudies: Doc[] = [
       {
         kind: 'prose',
         heading: 'The result',
-        body: 'Outreach that runs like a diligent SDR, not a bot farm: prefilled sequences, reply-aware follow-ups, A/B comparison across strategies and audiences, and a dashboard to watch it all — without the account locks that kill most DM automation.',
+        body: 'Outreach that runs like a diligent SDR, not a bot farm: prefilled sequences, reply-aware follow-ups, A/B comparison across strategies and audiences, and a dashboard to watch it all, without the account locks that kill most DM automation.',
       },
     ],
     faq: [
       {
         q: 'Will this get my X account banned?',
-        a: 'It is engineered specifically to avoid that — one send at a time, randomized human timing, office-hours windows, and conservative daily caps scaled to account age. No automation is risk-free, but this mirrors human behavior closely.',
+        a: 'It is engineered specifically to avoid that: one send at a time, randomized human timing, office-hours windows, and conservative daily caps scaled to account age. No automation is risk-free, but this mirrors human behavior closely.',
       },
       {
         q: 'Does it stop when someone replies?',
-        a: 'Yes. Before every follow-up step it checks the conversation; if the contact replied — or you replied manually — the remaining steps are cancelled automatically.',
+        a: 'Yes. Before every follow-up step it checks the conversation; if the contact replied (or you replied manually), the remaining steps are cancelled automatically.',
       },
       {
         q: 'How are messages written?',
@@ -416,7 +416,7 @@ export const caseStudies: Doc[] = [
     schemaType: 'Article',
     title: 'Email Engine: an AI cold-email system on AWS SES with deliverability built in',
     crumb: 'AI cold-email on AWS SES',
-    seoTitle: 'AI Cold Email System on AWS SES — Case Study',
+    seoTitle: 'AI Cold Email System on AWS SES (Case Study)',
     description:
       'A cold-email system you own: AI personalizes copy, AWS SES sends one message per recipient, and suppression + bounce/complaint handling protect the sending domain.',
     keywords:
@@ -444,13 +444,13 @@ export const caseStudies: Doc[] = [
           { label: 'Send', sub: 'One AWS SES call per recipient' },
           { label: 'Log', sub: 'Per-row status: sent / skipped / failed' },
         ],
-        caption: 'Live sends require an explicit confirm flag and run dry-run-first — no accidental blasts.',
+        caption: 'Live sends require an explicit confirm flag and run dry-run-first. No accidental blasts.',
       },
       {
         kind: 'callouts',
         title: 'Deliverability is the product',
         items: [
-          { title: 'Suppression first', body: 'Every recipient is checked against a suppression list before generation or sending — known bounces and complaints never get a second email.' },
+          { title: 'Suppression first', body: 'Every recipient is checked against a suppression list before generation or sending, so known bounces and complaints never get a second email.' },
           { title: 'Bounce + complaint loop', body: 'SES publishes bounces and complaints to SNS → SQS; a processor appends them straight back to the suppression list.' },
           { title: 'One per recipient', body: 'Each email is its own SES call, which keeps auditing simple and avoids the blast patterns that wreck reputation.' },
           { title: 'Opt-out by default', body: 'A reply-based unsubscribe footer is added automatically unless the body already includes one.' },
@@ -480,13 +480,13 @@ export const caseStudies: Doc[] = [
       {
         kind: 'prose',
         heading: 'The result',
-        body: 'Outbound that you control end to end: personalized at the row level, sent on your own identity, and self-protecting through suppression and bounce handling — the parts that actually decide whether cold email lands or dies.',
+        body: 'Outbound that you control end to end: personalized at the row level, sent on your own identity, and self-protecting through suppression and bounce handling. Those are the parts that actually decide whether cold email lands or dies.',
       },
     ],
     faq: [
       {
         q: 'Why AWS SES instead of a cold-email tool?',
-        a: 'SES is your own sending identity and reputation at a fraction of per-seat SaaS cost. You own the caps, the pacing, and the data — and there\'s no shared-IP risk from other senders.',
+        a: 'SES is your own sending identity and reputation at a fraction of per-seat SaaS cost. You own the caps, the pacing, and the data. There\'s no shared-IP risk from other senders.',
       },
       {
         q: 'How does it protect deliverability?',

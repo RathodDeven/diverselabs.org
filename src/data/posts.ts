@@ -14,13 +14,13 @@ export const posts: Doc[] = [
     schemaType: 'HowTo',
     title: 'AWS SES tenant-level suppression lists: what they are and how to use them',
     crumb: 'SES tenant-level suppression',
-    seoTitle: 'AWS SES Tenant-Level Suppression Lists — Guide',
+    seoTitle: 'AWS SES Tenant-Level Suppression Lists: A Guide',
     description:
-      'Amazon SES added per-tenant suppression lists in June 2026. Here is how account, configuration-set, and tenant-level suppression fit together — and when to use each.',
+      'Amazon SES added per-tenant suppression lists in June 2026. Here is how account, configuration-set, and tenant-level suppression fit together, and when to use each.',
     keywords:
       'AWS SES tenant-level suppression list, SES suppression list, PutTenantSuppressionAttributes, SES account-level vs tenant suppression, SES multi-tenant deliverability',
     eyebrow: 'Deliverability · AWS SES',
-    dek: 'In June 2026 Amazon SES added tenant-level suppression lists — a separate suppressed-address list per tenant, instead of one shared account-wide list. If you send for multiple brands or clients on one SES account, this is the isolation you have been missing.',
+    dek: 'In June 2026 Amazon SES added tenant-level suppression lists: a separate suppressed-address list per tenant, instead of one shared account-wide list. If you send for multiple brands or clients on one SES account, this is the isolation you have been missing.',
     tags: ['AWS SES', 'Deliverability', 'Tutorial'],
     datePublished: '2026-06-13',
     dateModified: '2026-06-13',
@@ -37,7 +37,7 @@ export const posts: Doc[] = [
         steps: [
           { label: 'Account-level', sub: 'One list for the whole account, per Region' },
           { label: 'Configuration-set', sub: 'Overrides which reasons add to the list' },
-          { label: 'Tenant-level', sub: 'A separate list per tenant — full isolation' },
+          { label: 'Tenant-level', sub: 'A separate list per tenant (full isolation)' },
         ],
         caption: 'By default every tenant uses the account-level list. Enable tenant-level suppression and SES keeps a separate list for that tenant instead.',
       },
@@ -58,7 +58,7 @@ export const posts: Doc[] = [
         items: [
           { title: 'Confirm you use SES multi-tenancy', body: 'Tenant-level suppression applies to SES tenants. If you send for multiple clients on one account, you likely want tenants anyway.' },
           { title: 'Enable it per tenant', body: 'Call the PutTenantSuppressionAttributes API operation to switch a tenant from the shared account list to its own isolated list.' },
-          { title: 'Decide the reasons', body: 'Choose whether bounces, complaints, or both add addresses to that tenant\'s list — the same reason controls you already use at account level.' },
+          { title: 'Decide the reasons', body: 'Choose whether bounces, complaints, or both add addresses to that tenant\'s list. These are the same reason controls you already use at account level.' },
           { title: 'Wire your bounce/complaint loop', body: 'Keep SES → SNS → SQS feeding suppression so each tenant\'s list stays current automatically, without manual cleanup.' },
         ],
         caption: 'Result: one client\'s hard bounce never silences a perfectly good address for another client on the same account.',
@@ -68,7 +68,7 @@ export const posts: Doc[] = [
         title: 'Why it matters',
         items: [
           { title: 'No cross-client bleed', body: 'A bounce in tenant A no longer suppresses that address in tenant B. Reputation and lists stay scoped to each brand.' },
-          { title: 'Cleaner reporting', body: 'Per-tenant suppression makes per-client deliverability legible — you can show each client their own list health.' },
+          { title: 'Cleaner reporting', body: 'Per-tenant suppression makes per-client deliverability legible. You can show each client their own list health.' },
           { title: 'Same hygiene, finer grain', body: 'It is the suppression you already trust, just isolated. The bounce/complaint automation pattern doesn\'t change.' },
         ],
       },
@@ -84,7 +84,7 @@ export const posts: Doc[] = [
       },
       {
         q: 'How is this different from configuration-set suppression?',
-        a: 'Configuration-set suppression changes which reasons add to the account list — it is not a separate list. Tenant-level suppression is a genuinely separate list scoped to one tenant.',
+        a: 'Configuration-set suppression changes which reasons add to the account list (it is not a separate list). Tenant-level suppression is a genuinely separate list scoped to one tenant.',
       },
     ],
     related: [
@@ -104,13 +104,13 @@ export const posts: Doc[] = [
     schemaType: 'Article',
     title: 'FTC disclosure for AI UGC ads: the 2026 double-disclosure checklist',
     crumb: 'FTC disclosure for AI UGC',
-    seoTitle: 'FTC Disclosure for AI UGC Ads — 2026 Checklist',
+    seoTitle: 'The 2026 FTC Disclosure Checklist for AI UGC Ads',
     description:
-      'Running AI-generated UGC ads in 2026? The FTC now expects two disclosures — commercial relationship and AI involvement. Here is the practical checklist and placement rules.',
+      'Running AI-generated UGC ads in 2026? The FTC now expects two disclosures: commercial relationship and AI involvement. Here is the practical checklist and placement rules.',
     keywords:
       'FTC disclosure AI UGC ads, AI generated content disclosure rules 2026, FTC AI endorsement, disclose AI ad video, AI UGC compliance',
     eyebrow: 'AI Creatives · Compliance',
-    dek: 'AI UGC ads work — but in 2026 the FTC expects you to label them twice: once for the commercial relationship, once for the AI. One tag does not cover both. Here is a practical, plain-English checklist so your AI ads stay compliant.',
+    dek: 'AI UGC ads work, but in 2026 the FTC expects you to label them twice: once for the commercial relationship, once for the AI. One tag does not cover both. Here is a practical, plain-English checklist so your AI ads stay compliant.',
     tags: ['AI UGC', 'FTC', 'Compliance'],
     datePublished: '2026-06-13',
     dateModified: '2026-06-13',
@@ -123,7 +123,7 @@ export const posts: Doc[] = [
       {
         kind: 'prose',
         heading: 'The core idea: two labels, not one',
-        body: 'The FTC treats these as separate obligations. The fact that something is an ad, and the fact that it was made with AI, are two different disclosures — and one never substitutes for the other.',
+        body: 'The FTC treats these as separate obligations. The fact that something is an ad, and the fact that it was made with AI, are two different disclosures. One never substitutes for the other.',
       },
       {
         kind: 'compare',
@@ -132,7 +132,7 @@ export const posts: Doc[] = [
         rows: [
           ['#ad / “Sponsored”', 'The commercial relationship', 'The AI involvement'],
           ['“AI-generated”', 'The AI involvement', 'The commercial relationship'],
-          ['Both, up front', 'Both obligations', '—'],
+          ['Both, up front', 'Both obligations', 'Nothing'],
         ],
         highlight: 1,
       },
@@ -140,9 +140,9 @@ export const posts: Doc[] = [
         kind: 'steps',
         title: 'The placement rules',
         items: [
-          { title: 'Video: first 3–5 seconds', body: 'Put both disclosures on-screen as text in the opening seconds — not buried at the end or in caption overflow.' },
+          { title: 'Video: first 3–5 seconds', body: 'Put both disclosures on-screen as text in the opening seconds, not buried at the end or in caption overflow.' },
           { title: 'Static images: visible without a click', body: 'Disclosures must be readable without expanding or tapping “more”.' },
-          { title: 'Before engagement, not after', body: 'The label belongs in the first line of the post or the opening of the video — where a viewer sees it before they engage.' },
+          { title: 'Before engagement, not after', body: 'The label belongs in the first line of the post or the opening of the video. A viewer should see it before they engage.' },
           { title: 'AI personas = endorsers + AI', body: 'An AI spokesperson describing a product needs the same disclosure a paid human endorser would, plus a clear note that the “person” is AI-generated.' },
         ],
       },
@@ -150,7 +150,7 @@ export const posts: Doc[] = [
         kind: 'callouts',
         title: 'Why it\'s worth getting right in 2026',
         items: [
-          { title: 'There\'s an enforcement unit now', body: 'The FTC stood up a dedicated AI enforcement effort in January 2026 — this is being watched, not ignored.' },
+          { title: 'There\'s an enforcement unit now', body: 'The FTC stood up a dedicated AI enforcement effort in January 2026. This is being watched, not ignored.' },
           { title: 'Penalties scale per post', body: 'Disclosure violations carry steep per-violation penalties, so a large campaign of unlabeled AI posts is a real financial risk.' },
           { title: 'Synthetic testimonials count', body: 'AI-written reviews and composite testimonials that blend real feedback into a synthetic narrative fall squarely in scope.' },
         ],
@@ -164,7 +164,7 @@ export const posts: Doc[] = [
     faq: [
       {
         q: 'Does #ad alone make an AI UGC video compliant?',
-        a: 'No. In 2026 the FTC treats the commercial-relationship disclosure and the AI-involvement disclosure as separate. #ad covers the first but not the second — you need both, placed up front.',
+        a: 'No. In 2026 the FTC treats the commercial-relationship disclosure and the AI-involvement disclosure as separate. #ad covers the first but not the second, so you need both, placed up front.',
       },
       {
         q: 'Where exactly do the disclosures go?',
@@ -180,7 +180,7 @@ export const posts: Doc[] = [
     ],
     cta: {
       title: 'Want AI UGC ads done right?',
-      sub: 'We produce brand-aligned AI video and UGC — built to convert and built to disclose. Let\'s talk creative.',
+      sub: 'We produce brand-aligned AI video and UGC, built to convert and built to disclose. Let\'s talk creative.',
     },
   },
 
@@ -194,11 +194,11 @@ export const posts: Doc[] = [
     crumb: 'WhatsApp + voice follow-up guide',
     seoTitle: 'WhatsApp + Voice Lead Follow-Up Automation Guide',
     description:
-      'How to orchestrate lead follow-ups across WhatsApp and AI voice calls without spamming — policies, idempotency, human handoff, and the funnel metrics that matter.',
+      'How to orchestrate lead follow-ups across WhatsApp and AI voice calls without spamming: policies, idempotency, human handoff, and the funnel metrics that matter.',
     keywords:
       'WhatsApp voice lead follow-up automation, multi-channel follow-up orchestration, AI voice agent WhatsApp, automated lead follow-up system',
     eyebrow: 'Playbook · Multi-channel',
-    dek: 'A single channel rarely revives a cold lead. This is how to orchestrate WhatsApp messages and AI voice calls into one disciplined journey — one that respects contact rules and knows when to hand off to a human.',
+    dek: 'A single channel rarely revives a cold lead. This is how to orchestrate WhatsApp messages and AI voice calls into one disciplined journey. It respects contact rules and knows when to hand off to a human.',
     tags: ['WhatsApp', 'Voice agent', 'Orchestration'],
     datePublished: '2026-06-13',
     author: 'Deven Rathod',
@@ -221,7 +221,7 @@ export const posts: Doc[] = [
       },
       {
         kind: 'compare',
-        title: 'WhatsApp vs AI voice — when each wins',
+        title: 'WhatsApp vs AI voice: when each wins',
         head: ['Signal', 'WhatsApp', 'AI voice call'],
         rows: [
           ['Low-friction nudge', 'Best', 'Overkill'],
@@ -236,7 +236,7 @@ export const posts: Doc[] = [
         title: 'The four things that keep it safe',
         items: [
           { title: 'Idempotent jobs', body: 'Every action de-duplicates, so retries and restarts never double-contact a lead.' },
-          { title: 'Policy windows', body: 'Contact hours, attempt caps, and cooldowns are configuration — out-of-window actions wait, they don\'t force-send.' },
+          { title: 'Policy windows', body: 'Contact hours, attempt caps, and cooldowns are configuration. Out-of-window actions wait, they don\'t force-send.' },
           { title: 'Human handoff', body: 'Any conversation can pause the agent and route to a person. Handoff is a first-class state, not an afterthought.' },
           { title: 'Funnel visibility', body: 'Track reached → replied → resumed → progressed → converted so you optimise touches instead of guessing.' },
         ],
@@ -244,17 +244,17 @@ export const posts: Doc[] = [
       {
         kind: 'prose',
         heading: 'See it in production',
-        body: 'We built exactly this for ClickPe (YC S23) — NudgeFlow turns one dropped lead into a single, policy-aware journey across WhatsApp and AI voice. The case study walks through the lifecycle and the metrics ops watches daily.',
+        body: 'We built exactly this for ClickPe (YC S23). NudgeFlow turns one dropped lead into a single, policy-aware journey across WhatsApp and AI voice. The case study walks through the lifecycle and the metrics ops watches daily.',
       },
     ],
     faq: [
       {
         q: 'How do you avoid spamming leads across two channels?',
-        a: 'One orchestration layer owns all touches, so caps and cooldowns apply across channels — not per channel. Out-of-window actions are held and retried inside the contact window.',
+        a: 'One orchestration layer owns all touches, so caps and cooldowns apply across channels, not per channel. Out-of-window actions are held and retried inside the contact window.',
       },
       {
         q: 'When should a bot hand off to a human?',
-        a: 'The moment a conversation needs judgment — a complex objection, a complaint, or an explicit ask for a person. Good systems make handoff a monitored, first-class state.',
+        a: 'The moment a conversation needs judgment: a complex objection, a complaint, or an explicit ask for a person. Good systems make handoff a monitored, first-class state.',
       },
     ],
     related: [
@@ -263,7 +263,7 @@ export const posts: Doc[] = [
     ],
     cta: {
       title: 'Want follow-ups that resume on their own?',
-      sub: 'We build multi-channel orchestration around your funnel — WhatsApp, voice, and a human in the loop. Let\'s scope it.',
+      sub: 'We build multi-channel orchestration around your funnel: WhatsApp, voice, and a human in the loop. Let\'s scope it.',
     },
   },
 
@@ -273,15 +273,15 @@ export const posts: Doc[] = [
     collection: 'blog',
     type: 'pillar',
     schemaType: 'Article',
-    title: 'Convert a distributor price list PDF to Excel — automatically, every time',
+    title: 'Convert a distributor price list PDF to Excel automatically, every time',
     crumb: 'Price list PDF → Excel',
     seoTitle: 'Convert Distributor Price List PDF to Excel (Automated)',
     description:
-      'Stop retyping supplier price lists. Here is how an AI extraction pipeline turns messy distributor PDFs into a clean, matched Excel catalog — and where to put a human check.',
+      'Stop retyping supplier price lists. Here is how an AI extraction pipeline turns messy distributor PDFs into a clean, matched Excel catalog, and where to put a human check.',
     keywords:
       'convert distributor price list PDF to Excel, supplier price list automation, AI price list extraction, PDF to spreadsheet catalog',
     eyebrow: 'Playbook · Document AI',
-    dek: 'Supplier price lists arrive as PDFs in a hundred different layouts, and someone retypes them by hand. There is a better pipeline: read the PDF with AI, structure every line, match it to your catalog, and export clean Excel — repeatably.',
+    dek: 'Supplier price lists arrive as PDFs in a hundred different layouts, and someone retypes them by hand. There is a better pipeline: read the PDF with AI, structure every line, match it to your catalog, and export clean Excel, repeatably.',
     tags: ['Document AI', 'Catalog ops', 'Extraction'],
     datePublished: '2026-06-13',
     author: 'Deven Rathod',
@@ -289,7 +289,7 @@ export const posts: Doc[] = [
       {
         kind: 'prose',
         heading: 'Why “just use a PDF converter” fails',
-        body: 'Generic PDF-to-Excel tools dump raw text. Distributor price lists need <strong>structure</strong> — SKU, description, price, unit — pulled correctly across wildly different supplier layouts, then matched to what you already stock. That is an extraction problem, not a conversion problem.',
+        body: 'Generic PDF-to-Excel tools dump raw text. Distributor price lists need <strong>structure</strong>. SKU, description, price, and unit have to come out correctly across wildly different supplier layouts, then get matched to what you already stock. That is an extraction problem, not a conversion problem.',
       },
       {
         kind: 'flow',
@@ -318,7 +318,7 @@ export const posts: Doc[] = [
         kind: 'callouts',
         title: 'Where to keep a human',
         items: [
-          { title: 'Spot-check new suppliers', body: 'The first run on an unfamiliar layout deserves a glance before it feeds quotes — after that, trust it.' },
+          { title: 'Spot-check new suppliers', body: 'The first run on an unfamiliar layout deserves a glance before it feeds quotes. After that, trust it.' },
           { title: 'Flag low-confidence rows', body: 'Surface anything the extractor is unsure about instead of silently guessing a price.' },
           { title: 'Keep an audit trail', body: 'Log what was extracted from which file, so a wrong price is traceable back to its source page.' },
         ],
@@ -336,15 +336,15 @@ export const posts: Doc[] = [
       },
       {
         q: 'How accurate is AI extraction for pricing?',
-        a: 'Structured and reviewable — far more consistent than manual entry. Keep a human spot-check on new supplier formats and flag low-confidence rows, and it is dependable enough to quote from.',
+        a: 'Structured and reviewable, far more consistent than manual entry. Keep a human spot-check on new supplier formats and flag low-confidence rows, and it is dependable enough to quote from.',
       },
     ],
     related: [
-      { href: '/work/distributor-catalog-automation', label: 'Distributor catalog automation — the case study', eyebrow: 'CASE STUDY' },
+      { href: '/work/distributor-catalog-automation', label: 'Distributor catalog automation: the case study', eyebrow: 'CASE STUDY' },
     ],
     cta: {
       title: 'Drowning in supplier PDFs?',
-      sub: 'Send a sample price list — we\'ll show you the clean catalog it becomes and what the pipeline costs.',
+      sub: 'Send a sample price list. We\'ll show you the clean catalog it becomes and what the pipeline costs.',
     },
   },
 
@@ -356,13 +356,13 @@ export const posts: Doc[] = [
     schemaType: 'Article',
     title: 'How to automate X (Twitter) DMs without getting banned',
     crumb: 'Automate X DMs safely',
-    seoTitle: 'Automate Twitter (X) DMs Without Getting Banned — Guide',
+    seoTitle: 'How to Automate Twitter (X) DMs Without Getting Banned',
     description:
       'The safe-outreach playbook for automated X/Twitter DMs: human-paced sends, office hours, daily caps, reply detection, and the patterns that trip detection.',
     keywords:
       'how to automate twitter dms without getting banned, safe X DM automation, cold DM outreach, twitter dm automation limits',
     eyebrow: 'Playbook · Outreach',
-    dek: 'Automated DM outreach on X works — right up until it looks like a bot and the account gets locked. The difference between scale and a ban is behavior. Here is the playbook that keeps automation under the radar.',
+    dek: 'Automated DM outreach on X works, right up until it looks like a bot and the account gets locked. The difference between scale and a ban is behavior. Here is the playbook that keeps automation under the radar.',
     tags: ['X / Twitter', 'Outreach', 'Anti-ban'],
     datePublished: '2026-06-13',
     author: 'Deven Rathod',
@@ -377,7 +377,7 @@ export const posts: Doc[] = [
         title: 'The non-negotiables',
         items: [
           { title: 'One send at a time', body: 'No parallel sends, ever. Single-threaded sending is the strongest signal that a human is at the keyboard.' },
-          { title: 'Randomized human timing', body: 'Vary the wait before opening a DM, before typing, and between messages — and type character-by-character, not instantly.' },
+          { title: 'Randomized human timing', body: 'Vary the wait before opening a DM, before typing, and between messages. Type character-by-character, not instantly.' },
           { title: 'Office hours only', body: 'Send during normal waking hours in the account\'s timezone. 3 a.m. activity is a giveaway.' },
           { title: 'Stop on reply', body: 'Check the conversation before every follow-up; if they replied (or you replied manually), cancel the rest of the sequence.' },
         ],
@@ -408,7 +408,7 @@ export const posts: Doc[] = [
       {
         kind: 'prose',
         heading: 'We built an engine on these rules',
-        body: 'Our X DM outreach engine bakes every rule above into the system — single-threaded sends, randomized human timing, office-hours windows, and reply-aware sequencing. The case study shows how it stays unbanned at scale.',
+        body: 'Our X DM outreach engine bakes every rule above into the system: single-threaded sends, randomized human timing, office-hours windows, and reply-aware sequencing. The case study shows how it stays unbanned at scale.',
       },
     ],
     faq: [
@@ -422,7 +422,7 @@ export const posts: Doc[] = [
       },
     ],
     related: [
-      { href: '/work/x-dm-outreach-agent', label: 'Safe, human-paced X DM outreach engine — case study', eyebrow: 'CASE STUDY' },
+      { href: '/work/x-dm-outreach-agent', label: 'Safe, human-paced X DM outreach engine (case study)', eyebrow: 'CASE STUDY' },
       { href: '/work/email-engine-ai-cold-email-aws-ses', label: 'AI cold-email system on AWS SES', eyebrow: 'CASE STUDY' },
     ],
     cta: {

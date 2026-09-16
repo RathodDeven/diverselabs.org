@@ -17,7 +17,7 @@ const projects = [
     website: '/work/scaleup-zoho-crm-follow-up-agent',
     image: '/work/scaleup-crm.svg',
     description:
-      'A human-in-the-loop AI agent that drafts context-aware email and LinkedIn follow-ups inside Zoho CRM — researched, reviewed, and sent only on approval.',
+      'A human-in-the-loop AI agent that drafts context-aware email and LinkedIn follow-ups inside Zoho CRM. Every draft is researched, reviewed, and sent only on approval.',
     tags: ['AI agent', 'Zoho CRM', 'Human-in-the-loop'],
     ctaLabel: 'Read case study',
   },
@@ -37,7 +37,7 @@ const projects = [
     website: '/work/distributor-catalog-automation',
     image: '/work/distributor-catalog.svg',
     description:
-      'An AI pipeline that reads messy supplier price-list PDFs, structures every line, matches them to the catalog, and exports clean Excel — in minutes, not days.',
+      'An AI pipeline that reads messy supplier price-list PDFs, structures every line, matches them to the catalog, and exports clean Excel in minutes, not days.',
     tags: ['Document AI', 'Extraction', 'Ops automation'],
     ctaLabel: 'Read case study',
   },
@@ -47,7 +47,7 @@ const projects = [
     website: 'https://bloomers.tv/',
     image: '/work/bloomerstv.webp',
     description:
-      'A live streaming platform built around the Lens ecosystem — creator-focused, community-driven, and production quality.',
+      'A live streaming platform built around the Lens ecosystem: creator-focused, community-driven, and production quality.',
     tags: ['Web app', 'Blockchain', 'Streaming'],
     ctaLabel: 'Visit site',
   },
@@ -112,7 +112,7 @@ const aiVideos = [
 ];
 
 const aiPricingMail = gmailCompose(
-  'AI creatives — pricing chat',
+  'Pricing for AI creatives',
   "Hi Deven,\n\nI'd love to chat about pricing for AI ad creatives / UGC videos for my brand."
 );
 ---
@@ -169,7 +169,7 @@ const aiPricingMail = gmailCompose(
               class="proj-media"
               data-parallax
               data-parallax-speed="6"
-              aria-label={`${project.ctaLabel} — ${project.name}`}
+              aria-label={`${project.ctaLabel}: ${project.name}`}
             >
               <img
                 src={project.image}
@@ -182,7 +182,7 @@ const aiPricingMail = gmailCompose(
               <span class="proj-visit">{project.ctaLabel} <span aria-hidden="true">↗</span></span>
             </a>
             <div class="proj-meta">
-              <span class="proj-idx mono-num">{String(i + 1).padStart(2, '0')} — {project.client}</span>
+              <span class="proj-idx mono-num">{String(i + 1).padStart(2, '0')} · {project.client}</span>
               <h3>
                 <a
                   href={project.website}
@@ -235,7 +235,7 @@ const aiPricingMail = gmailCompose(
       <div class="ai-pricing" data-reveal>
         <div>
           <h3>Let's chat about pricing for your brand.</h3>
-          <p>Tell us what you're selling — we'll come back with creative directions and a price.</p>
+          <p>Tell us what you're selling. We'll come back with creative directions and a price.</p>
         </div>
         <CTAButton href={aiPricingMail}>Chat about pricing</CTAButton>
       </div>
@@ -250,7 +250,7 @@ const aiPricingMail = gmailCompose(
     if (!tabs.length || !panels.length) return;
 
     const titles: Record<string, string> = {
-      all: 'Our Work | Diverse Labs: AI Systems & Products in Production',
+      all: 'Our Work | Diverse Labs AI Systems & Products in Production',
       'ai-creatives': 'AI Creatives | Diverse Labs: AI-Generated Ads & UGC Videos',
     };
 
