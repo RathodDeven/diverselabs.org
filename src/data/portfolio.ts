@@ -29,7 +29,125 @@ export const isHidden = (slug: string): boolean => HIDDEN.includes(slug);
 
 const AUTHOR = 'Priyam Haryani';
 
+/** The two most recent engagements, featured as a pair right under the hero. */
+export const portfolioRecent: string[] = [
+  'clinical-supply-workshop-friday-to-monday',
+  'current-state-workshop-evidence-pack',
+];
+
 export const portfolioCaseStudies: Doc[] = [
+  /* ───────────────────────── Recent · Friday-to-Monday workshop (Nov 2026) ───────────────────────── */
+  {
+    slug: 'clinical-supply-workshop-friday-to-monday',
+    collection: 'work',
+    type: 'case-study',
+    title: 'Picking up a clinical supply program on a Friday for a client workshop that Monday',
+    crumb: 'Friday-to-Monday workshop',
+    seoTitle: 'Clinical Supply Workshop, Friday to Monday, Case Study',
+    description:
+      'Joined a clinical supply program at an oncology company on a Friday. The two-day client workshop that Monday ran with the deck, six evidence posters and a live process-mapping kit ready.',
+    keywords: 'clinical supply workshop, workshop preparation, process mapping, evidence posters, short handover, pharma operations consulting',
+    eyebrow: 'Oncology · Clinical supply workshop · Oncology company',
+    dek: 'A clinical supply program at an oncology company had a two-day client workshop starting on a Monday. The work was picked up the Friday before, with one brief and one prep call as handover, and the workshop ran with the deck, six evidence posters and a live process-mapping kit ready.',
+    tags: ['Clinical supply', 'Workshop preparation', 'Process mapping', 'Short handover'],
+    heroStat: { value: 'Fri to Mon', label: 'from joining the program to the client workshop' },
+    datePublished: '2026-11-18',
+    author: AUTHOR,
+    blocks: [
+      {
+        kind: 'prose',
+        heading: 'The situation',
+        body: 'A clinical supply program at an oncology company had a <strong>two-day client workshop</strong> starting on a Monday. The work was picked up on the <strong>Friday before</strong>. Handover was one brief and one prep call.',
+      },
+      {
+        kind: 'flow',
+        title: 'Friday to Monday',
+        caption: 'From joining the program to the first workshop day.',
+        steps: [
+          { label: 'Friday', sub: 'Joined the program' },
+          { label: 'Handover', sub: 'One brief and one prep call' },
+          { label: 'Build', sub: 'Deck, six evidence posters, mapping kit' },
+          { label: 'Monday', sub: 'Two-day client workshop starts, everything ready' },
+        ],
+      },
+      {
+        kind: 'callouts',
+        title: 'What was built',
+        items: [
+          { title: 'Workshop deck', body: 'The deck for the two-day session, ready for Monday.' },
+          { title: 'Six evidence posters', body: 'Six evidence posters for the workshop, ready alongside the deck.' },
+          { title: 'Live process-mapping kit', body: 'A kit for mapping the process live during the workshop, built to run in the client\'s Microsoft setup.' },
+        ],
+      },
+      {
+        kind: 'prose',
+        heading: 'Inside the client\'s data rules',
+        body: 'The client allowed <strong>no outside tools</strong>. The process-mapping kit was therefore built to run in the client\'s own Microsoft setup.',
+      },
+      {
+        kind: 'metrics',
+        title: 'By the numbers',
+        items: [
+          { value: '1 + 1', label: 'One brief and one prep call as the handover' },
+          { value: '6', label: 'Evidence posters, alongside the workshop deck and the mapping kit' },
+          { value: '2 days', label: 'Client workshop, starting the Monday after joining' },
+        ],
+      },
+      {
+        kind: 'note',
+        body: 'All identifying details, including the client, its products, people and sites, have been removed or generalized. This case study describes what was built and how fast. It makes no claim about results.',
+      },
+    ],
+  },
+
+  /* ───────────────────────── Recent · Workshop evidence pack (Nov 2026) ───────────────────────── */
+  {
+    slug: 'current-state-workshop-evidence-pack',
+    collection: 'work',
+    type: 'case-study',
+    title: 'Building a current-state workshop\'s evidence pack inside the client\'s live deck',
+    crumb: 'Workshop evidence pack',
+    seoTitle: 'Current-State Workshop Evidence Pack, Case Study',
+    description:
+      'For a commercial-stage biotech, the evidence pack for a current-state workshop was built from the client\'s own documents, inside their live deck while the team kept working in it.',
+    keywords: 'current-state workshop, evidence pack, workshop preparation, live deck, pharma operations consulting, biotech',
+    eyebrow: 'Biotech · Current-state workshop · Commercial-stage biotech',
+    dek: 'A commercial-stage biotech was heading into a current-state workshop. The evidence pack was built from the client\'s own documents, inside the client\'s live deck, while the team kept working in it.',
+    tags: ['Current-state workshop', 'Evidence pack', 'Workshop preparation', 'Live deck'],
+    heroStat: { value: '1 live deck', label: 'evidence pack built in place while the team kept working in it' },
+    datePublished: '2026-11-18',
+    author: AUTHOR,
+    blocks: [
+      {
+        kind: 'prose',
+        heading: 'The situation',
+        body: 'A commercial-stage biotech had a <strong>current-state workshop</strong> coming up. The workshop deck was already live, and the client team was still working in it.',
+      },
+      {
+        kind: 'flow',
+        title: 'How it came together',
+        steps: [
+          { label: 'Client\'s own documents', sub: 'The source material' },
+          { label: 'Evidence pack', sub: 'Built for the current-state workshop' },
+          { label: 'Live deck', sub: 'Built in place while the team kept working' },
+        ],
+      },
+      {
+        kind: 'callouts',
+        title: 'How the work was done',
+        items: [
+          { title: 'Built from the client\'s own documents', body: 'The evidence in the pack came from the client\'s own documents.' },
+          { title: 'Built inside the live deck', body: 'The pack was built directly in the deck the client team was using.' },
+          { title: 'The team kept working', body: 'The client team carried on in the same deck while the pack was built.' },
+        ],
+      },
+      {
+        kind: 'note',
+        body: 'All identifying details, including the client, its products, people and sites, have been removed or generalized. This case study describes what was built and how it was built. It makes no claim about results.',
+      },
+    ],
+  },
+
   /* ───────────────────────── 1 · Gene therapy launch readiness ───────────────────────── */
   {
     slug: 'gene-therapy-launch-readiness',
@@ -863,6 +981,8 @@ const localClientMods = import.meta.glob('./portfolio.clients.local.ts', { eager
 >;
 /* Engagement timeframes (from the captured project dates). */
 const TIMEFRAMES: Record<string, string> = {
+  'clinical-supply-workshop-friday-to-monday': 'Nov 2026',
+  'current-state-workshop-evidence-pack': 'Nov 2026',
   'gene-therapy-launch-readiness': '2023–2025',
   'materials-internalization-playbook': '2024–2025',
   'new-product-introduction-playbook': '2024–2025',
@@ -897,8 +1017,12 @@ for (const d of portfolioCaseStudies) {
   if (e.blocks && e.blocks.length) d.blocks = e.blocks;
 }
 
-// "Keep reading", link each case study to two others.
-const _pub = portfolioCaseStudies.filter((d) => !d.draft);
+// "Keep reading", link each case study to two others. In the production build,
+// skip engagements hidden from live: their pages are not generated, so a link
+// to one would be dead.
+const _pub = portfolioCaseStudies.filter(
+  (d) => !d.draft && (import.meta.env.DEV || !isHidden(d.slug)),
+);
 _pub.forEach((d, i) => {
   d.related = [_pub[(i + 1) % _pub.length], _pub[(i + 2) % _pub.length]].map((r) => ({
     href: `/portfolio/priyam-haryani/${r.slug}`,
@@ -939,6 +1063,10 @@ if (localClients) {
    listed here are left unmarked (insufficient personal-delivery hours).
    ────────────────────────────────────────────────────────────────────────── */
 const CONTRIBUTIONS: Record<string, string> = {
+  'clinical-supply-workshop-friday-to-monday':
+    'I joined the program on the Friday, with one brief and one prep call as handover, and built the workshop deck, the six evidence posters and the live process-mapping kit for the Monday. The client allowed no outside tools, so I built the kit to run in their Microsoft setup.',
+  'current-state-workshop-evidence-pack':
+    'I built the evidence pack from the client\'s own documents, working inside their live deck while the team kept working in it.',
   'gene-therapy-launch-readiness':
     'Delivered the hands-on supply-chain work behind this readiness assessment: the activity maps and functional timelines, the demand and capacity forecast, the clinical supply plan, and the QA-release model. Also produced the launch playbook across its iterations and the gap analysis. The framework was built and written, not just reviewed.',
   'new-product-introduction-playbook':
@@ -972,6 +1100,15 @@ for (const d of portfolioCaseStudies) {
     d.directlyDelivered = true;
     d.contribution = c;
   }
+}
+
+// Closing call-to-action on every portfolio case study. The shared ArticleShell
+// default is written for the Diverse Labs agency pages, not for this profile.
+for (const d of portfolioCaseStudies) {
+  d.cta ??= {
+    title: 'Team stretched, or hours nearly gone?',
+    sub: 'Tell me what is due and when. I can pick it up from your folder with almost no handover.',
+  };
 }
 
 /* ──────────────────────────────────────────────────────────────────────────

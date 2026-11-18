@@ -1,0 +1,175 @@
+---
+/**
+ * One engagement card on the advisory portfolio index. Used by both the
+ * "Recent" pair under the hero and the year-by-year grid.
+ */
+import type { Doc } from '../data/content';
+import { coverFor, isHidden } from '../data/portfolio';
+
+interface Props {
+  doc: Doc;
+  /** Portfolio base path, e.g. "/portfolio/priyam-haryani" */
+  base: string;
+}
+const { doc, base } = Astro.props as Props;
+const hidden = isHidden(doc.slug);
+---
+
+<div class:list={['pf-card-wrap', { 'is-hidden': import.meta.env.DEV && hidden }]}>
+  <a class="pf-card" href={`${base}/${doc.slug}`}>
+    <div class="pf-card-media">
+      <img src={coverFor(doc.slug)} alt="" loading="lazy" width="640" height="400" />
+    </div>
+    <div class="pf-card-body">
+      {doc.client && (
+        <div class="pf-card-client"><span>Client</span>{doc.client}</div>
+      )}
+      <div class="pf-card-top">
+        <span class="label no-rule">{doc.eyebrow}</span>
+        <span class="pf-card-idx mono-num">{doc.timeframe}</span>
+      </div>
+      {doc.directlyDelivered && (
+        <span class="pf-card-delivered">✓ Delivered hands-on</span>
+      )}
+      <h3 class="pf-card-title">{doc.title}</h3>
+      <p class="pf-card-dek">{doc.dek}</p>
+      <div class="pf-card-foot">
+        <div class="pf-card-tags">
+          {doc.tags.slice(0, 3).map((t) => <span class="chip">{t}</span>)}
+        </div>
+        <span class="pf-card-arrow" aria-hidden="true">→</span>
+      </div>
+    </div>
+  </a>
+  {import.meta.env.DEV && (
+    <>
+      {hidden && <span class="pf-hidden-badge">Hidden from live</span>}
+      <button class="pf-hide-btn" type="button" data-slug={doc.slug}>
+        {hidden ? 'Unhide' : 'Hide from live'}
+      </button>
+    </>
+  )}
+</div>
+
+<style>
+  /* Dev-only hide/unhide controls (stripped from the production build) */
+  .pf-card-wrap { position: relative; display: flex; }
+  .pf-card-wrap .pf-card { flex: 1; }
+  .pf-card-wrap.is-hidden .pf-card { opacity: 0.42; filter: grayscale(0.6); }
+  .pf-card-wrap.is-hidden { outline: 1px dashed rgba(255, 120, 120, 0.5); outline-offset: 3px; border-radius: 1.1rem; }
+  .pf-hide-btn {
+    position: absolute;
+    top: 0.6rem;
+    right: 0.6rem;
+    z-index: 4;
+    font-family: var(--font-mono);
+    font-size: 0.56rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.32rem 0.55rem;
+    border: 1px solid var(--line);
+    border-radius: 0.5rem;
+    background: rgba(10, 10, 10, 0.82);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: var(--muted);
+    cursor: pointer;
+    transition: color 0.2s ease, border-color 0.2s ease;
+  }
+  .pf-hide-btn:hover { color: var(--ink); border-color: rgba(255, 255, 255, 0.3); }
+  .pf-hide-btn[disabled] { opacity: 0.5; cursor: default; }
+  .pf-hidden-badge {
+    position: absolute;
+    top: 0.6rem;
+    left: 0.6rem;
+    z-index: 4;
+    font-family: var(--font-mono);
+    font-size: 0.54rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.5rem;
+    border-radius: 0.5rem;
+    background: rgba(120, 20, 20, 0.55);
+    border: 1px solid rgba(255, 120, 120, 0.45);
+    color: #ffd9d9;
+  }
+
+  .pf-card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--line);
+    border-radius: 1.1rem;
+    background: var(--panel);
+    overflow: hidden;
+    transition: border-color 250ms var(--ease-out), transform 400ms var(--ease-out);
+  }
+  .pf-card:hover { border-color: rgba(255, 255, 255, 0.2); transform: translateY(-4px); }
+  .pf-card-media {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background: #0a0a0a;
+    border-bottom: 1px solid var(--line);
+  }
+  .pf-card-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 500ms var(--ease-out);
+  }
+  .pf-card:hover .pf-card-media img { transform: scale(1.04); }
+  .pf-card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    padding: clamp(1.3rem, 2.2vw, 1.7rem);
+    flex: 1;
+  }
+  .pf-card-client {
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+  .pf-card-client span {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--faint);
+  }
+  .pf-card-top { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+  .pf-card-idx { font-size: 0.72rem; color: var(--faint); white-space: nowrap; }
+  .pf-card-delivered {
+    align-self: flex-start;
+    margin-top: -0.3rem;
+    font-family: var(--font-mono);
+    font-size: 0.56rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 2rem;
+    padding: 0.22rem 0.6rem;
+  }
+  .pf-card-title {
+    font-size: clamp(1.15rem, 1.9vw, 1.4rem);
+    line-height: 1.25;
+    color: var(--ink);
+  }
+  .pf-card-dek { font-size: 0.92rem; color: var(--muted); line-height: 1.6; flex: 1; }
+  .pf-card-foot { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-top: 0.2rem; }
+  .pf-card-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .pf-card-arrow {
+    flex-shrink: 0;
+    color: var(--ink);
+    transition: transform 300ms var(--ease-out);
+  }
+  .pf-card:hover .pf-card-arrow { transform: translateX(4px); }
+</style>
