@@ -546,9 +546,9 @@ body.menu-open .menu-foot { opacity: 1; transform: none; }
   align-items: flex-start;
   min-width: 0;
 }
-/* Headline sized to live inside its column without wrapping awkwardly */
+/* Headline sized so "The team behind" holds on one line in its column */
 .hero-copy .display-hero {
-  font-size: clamp(2.4rem, 4.4vw, 4rem);
+  font-size: clamp(2.2rem, 3.75vw, 3.4rem);
   line-height: 0.98;
 }
 .hero-copy .hero-sub { max-width: 36rem; }
@@ -563,29 +563,36 @@ body.menu-open .menu-foot { opacity: 1; transform: none; }
   .hero-cta-row { flex-direction: row; align-items: center; }
 }
 
-/* One muted line under the hero buttons. It should read as a footnote a
-   curious visitor finds, never as a second offer competing with the CTA. */
-.hero-aside {
-  margin-top: 1.4rem;
-  font-size: 0.8rem;
-  color: var(--faint);
+/* The PoliteReach link inside the hero sub: underlined, same ink as copy. */
+.hero-sub a {
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  transition: border-color 250ms var(--ease-out);
 }
-.hero-aside a {
+.hero-sub a:hover { border-bottom-color: rgba(255, 255, 255, 0.7); }
+
+/* Links to the studio's other work, right under the sub */
+.hero-also {
+  margin-top: 1.1rem;
+  font-size: 0.92rem;
+  line-height: 1.8;
+}
+.hero-also a {
   color: var(--muted);
   text-decoration: none;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
   padding-bottom: 1px;
+  white-space: nowrap;
   transition: color 250ms var(--ease-out), border-color 250ms var(--ease-out);
 }
-.hero-aside a span {
-  font-size: 0.72em;
-  margin-left: 0.28em;
-  vertical-align: 0.1em;
-}
-.hero-aside a:hover {
+.hero-also a:hover {
   color: var(--ink);
   border-bottom-color: rgba(255, 255, 255, 0.45);
 }
+.hero-also-sep { margin: 0 0.6em; color: var(--faint); }
+/* Keeps the separator on the same line as the link before it */
+.hero-also-pair { white-space: nowrap; }
 
 /* Animated hero showreel (autoplaying iframe montage) */
 .hero-showreel {
@@ -864,61 +871,6 @@ body.menu-open .menu-foot { opacity: 1; transform: none; }
 }
 .showcase-link-arrow { transition: transform 250ms var(--ease-out); }
 .showcase-link:hover .showcase-link-arrow { transform: translateX(4px); }
-
-/* ================================================================
-   LAUNCH NOTE (one quiet line: our own product shipped)
-   Sits between the hero and the tape. Hairline rules, small type,
-   no colour. It should read as a note, never as a banner.
-   ================================================================ */
-.launch-note {
-  border-top: 1px solid var(--line-soft);
-  border-bottom: 1px solid var(--line-soft);
-}
-.launch-note-row {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 0.5rem 1rem;
-  padding: 0.95rem 0;
-  color: var(--muted);
-  font-size: 0.82rem;
-  line-height: 1.5;
-  text-decoration: none;
-  transition: color 250ms var(--ease-out);
-}
-.launch-note-row:hover { color: var(--ink); }
-.launch-note-tag {
-  flex-shrink: 0;
-  font-family: var(--font-mono);
-  font-size: 0.62rem;
-  font-weight: 500;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--faint);
-  border: 1px solid var(--line);
-  border-radius: 9999px;
-  padding: 0.24rem 0.66rem;
-  transition: color 250ms var(--ease-out), border-color 250ms var(--ease-out);
-}
-.launch-note-row:hover .launch-note-tag {
-  color: var(--muted);
-  border-color: rgba(255, 255, 255, 0.18);
-}
-.launch-note-text { flex: 1 1 22rem; min-width: 0; }
-.launch-note-text strong { color: var(--ink); font-weight: 600; }
-.launch-note-link {
-  flex-shrink: 0;
-  margin-left: auto;
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  color: var(--faint);
-  white-space: nowrap;
-  transition: color 250ms var(--ease-out);
-}
-.launch-note-row:hover .launch-note-link { color: var(--ink); }
-@media (max-width: 640px) {
-  .launch-note-link { margin-left: 0; }
-}
 
 /* ================================================================
    TAPE MARQUEE (display-text strip)
